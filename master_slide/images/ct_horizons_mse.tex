@@ -1,0 +1,68 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\pgfplotstableread[row sep=crcr]{ 
+HORIZON	LINEAR	LSTM	MOGP\\
+1	0.06976698451	0.3657107234	0.213313438\\
+2	0.1320005335	0.4909802541	0.261294724\\
+3	0.1831160784	0.5618151695	0.2993092716\\
+4	0.2626154125	0.6809169024	0.3590896875\\
+5	0.3388666257	0.67015481	0.3938439488\\
+6	0.4012385368	0.7051371723	0.4260103673\\
+7	0.4344090998	0.6862435073	0.4411972553\\
+8	0.5610436022	0.7068721235	0.4901419193\\
+9	0.6697970718	0.7569740653	0.5399074644\\
+10	0.7806396902	0.8008131921	0.5876582712\\}\mytable
+
+\definecolor{darkslategray38}{RGB}{38,38,38}
+\definecolor{lavender234234242}{RGB}{234,234,242}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{mediumseagreen85168104}{RGB}{85,168,104}
+%\definecolor{orange}{RGB}{255,165,0}
+%\definecolor{steelblue76114176}{RGB}{76,114,176}
+\definecolor{steelblue76114176}{RGB}{255,165,0}
+\definecolor{orange}{RGB}{76,114,176}
+
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+axis background/.style={fill=lavender234234242},
+axis line style={white},
+legend cell align={left},
+legend style={
+  fill opacity=0.8,
+  draw opacity=1,
+  text opacity=1,
+  at={(0.03,0.97)},
+  anchor=north west,
+  draw=lightgray204,
+  fill=lavender234234242
+},
+%ybar,
+%tick align=outside,
+x grid style={white},
+xmajorgrids,
+%xmajorticks=false,
+xmin=0, xmax=11,
+xtick style={color=darkslategray38},
+xtick={1,2,3,4,5,6,7,8,9,10},
+xticklabels={1,2,3,5,7,9,10,15,20,25},
+xlabel = Prediction horizon (Days),
+y grid style={white},
+ymajorgrids,
+%ymajorticks=false,
+ymin=0, ymax=0.818848082745,
+ytick style={color=darkslategray38},
+%ylabel = Testing MSE,
+yticklabels = \empty,
+ybar,
+bar width=2pt
+]
+\addplot[myNewColorC,fill=myNewColorC] table [x=HORIZON,y=LINEAR] {\mytable};
+\addplot[myNewColorB,fill=myNewColorB] table [x=HORIZON,y=LSTM] {\mytable};
+\addplot[myNewColorA,fill=myNewColorA] table [x=HORIZON,y=MOGP] {\mytable};
+\legend{LAR,LSTM,MOVGP};
+\end{axis}
+
+\end{tikzpicture}

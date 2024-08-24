@@ -1,0 +1,65 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\pgfplotstableread[row sep=crcr]{ 
+HORIZON	M	L\\
+1	64	46\\
+2	16	92\\
+3	32	115\\
+4	8	115\\
+5	8	115\\
+6	4	115\\
+7	8	115\\
+8	16	92\\
+9	16	92\\
+10	16	92\\}\mytable
+
+\definecolor{darkslategray38}{RGB}{38,38,38}
+\definecolor{lavender234234242}{RGB}{234,234,242}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{mediumseagreen85168104}{RGB}{85,168,104}
+\definecolor{orange}{RGB}{255,165,0}
+\definecolor{steelblue76114176}{RGB}{76,114,176}
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+axis background/.style={fill=lavender234234242},
+axis line style={white},
+legend cell align={left},
+legend style={
+  fill opacity=0.8,
+  draw opacity=1,
+  text opacity=1,
+  at={(0.03,0.97)},
+  anchor=north west,
+  draw=lightgray204,
+  fill=lavender234234242
+},
+%ybar,
+%tick align=outside,
+%xtick align=inside,
+x grid style={white},
+xmajorgrids,
+%xmajorticks=false,
+xmin=0, xmax=11,
+xtick style={color=darkslategray38},
+xtick={1,2,3,4,5,6,7,8,9,10},
+xticklabels={1,2,3,5,7,9,10,15,20,25},
+xlabel = Prediction horizon (Days),
+y grid style={white},
+ymajorgrids,
+%ymajorticks=false,
+%ymin=0, ymax=0.818848082745,
+ytick style={color=darkslategray38},
+ylabel = Cross-Validation MSE,
+ybar,
+bar width=2pt
+]
+\addplot[myNewColorA,fill=myNewColorA] table [x=HORIZON,y=M] {\mytable};
+\addplot[myNewColorB,fill=myNewColorB] table [x=HORIZON,y=L] {\mytable};
+%\addplot[orange,fill=orange] table [x=HORIZON,y=M] {\mytable};
+%\legend{$M$,$L$};
+\end{axis}
+
+\end{tikzpicture}

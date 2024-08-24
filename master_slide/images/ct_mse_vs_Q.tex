@@ -1,0 +1,78 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\pgfplotstableread[row sep=crcr]{ 
+L	128	64	32	16	8	4\\
+114	0.2245037392	0.213313438	0.2221908778	0.2171181381	0.2205263272	0.2250909895\\
+91	0.218573761	0.220166564	0.218766661	0.2176481768	0.2206389084	0.2481464982\\
+68	0.2173039228	0.227662839	0.2232418865	0.2180252992	0.259801279	0.2789223313\\
+45	0.2137254208	0.2411553904	0.2288685188	0.235151726	0.2832744524	0.2915290281\\
+22	0.2434177026	0.3352044821	0.2522917241	0.355151096	0.3869079471	0.4396778867\\
+15	0.2753921866	0.317202431	0.323024264	0.4013531834	0.4128007919	0.4975482732\\
+7	0.4285770208	0.4769025832	0.5028988719	0.5070940524	0.5371850222	0.5298088551\\
+3	0.5341625601	0.5464405149	0.5824338496	0.6428930134	0.6402260482	0.7730768174\\
+1	0.6727522075	0.6470080018	0.6962290913	0.7346885383	0.7336862057	0.777078554\\}\mytable
+
+\definecolor{darkslategray38}{RGB}{38,38,38}
+\definecolor{lavender234234242}{RGB}{234,234,242}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{mediumseagreen85168104}{RGB}{85,168,104}
+\definecolor{orange}{RGB}{255,165,0}
+\definecolor{steelblue76114176}{RGB}{76,114,176}
+\definecolor{color1}{RGB}{68,1,84}
+\definecolor{color2}{RGB}{65,68,135}
+\definecolor{color3}{RGB}{42,120,142}
+\definecolor{color4}{RGB}{34,168,132}
+\definecolor{color5}{RGB}{122,209,81}
+\definecolor{color6}{RGB}{253,231,37}
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+axis background/.style={fill=lavender234234242},
+axis line style={white},
+legend cell align={left},
+legend columns=2, 
+legend style={
+  fill opacity=0.8,
+  draw opacity=1,
+  text opacity=1,
+  at={(0.03,0.97)},
+  anchor=north west,
+  legend pos=north east,
+  draw=lightgray204,
+  fill=lavender234234242
+},
+%ybar,
+%tick align=outside,
+x grid style={white},
+xmajorgrids,
+%xmajorticks=false,
+xmin=-5, xmax=200,
+xtick style={color=darkslategray38},
+%xtick={0,1,2,3,4,5,6,7,8,9},
+xtick={1,10,100},
+%xticklabels=\empty,
+%xticklabels={1,2,3,5,7,9,10,15,20,25},
+xlabel = Latent dimension ($Q$),
+xmode = log,
+y grid style={white},
+ymajorgrids,
+%ymajorticks=false,
+%ymin=0, ymax=0.818848082745,
+ytick={0.2,0.3,0.5,0.8},
+yticklabels=\empty,%{0.2,0.3,0.5,0.8},
+ytick style={color=darkslategray38},
+%ylabel = Testing MSE,
+ymode = log,
+]
+\addplot+[only marks,mark=*,color1,mark options={fill=color1}] table [x=L,y=4] {\mytable};
+\addplot+[only marks,mark=*,color2,mark options={fill=color2}] table [x=L,y=8] {\mytable};
+\addplot+[only marks,mark=*,color3,mark options={fill=color3}] table [x=L,y=16] {\mytable};
+\addplot+[only marks,mark=*,color4,mark options={fill=color4}] table [x=L,y=32] {\mytable};
+\addplot+[only marks,mark=*,color5,mark options={fill=color5}] table [x=L,y=64] {\mytable};
+\addplot+[only marks,mark=*,color6,mark options={fill=color6}] table [x=L,y=128] {\mytable};
+\legend{$M=4$,$M=8$,$M=16$,$M=32$,$M=64$,$M=128$};
+\end{axis}
+
+\end{tikzpicture}

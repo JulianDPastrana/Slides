@@ -13,13 +13,11 @@
 \usepackage{xcolor}
 \usepackage{pgfplots}
 \usepackage{bm}
-\usepackage{xcolor}
 \usepackage{multicol}
 \usepackage{adjustbox}
-\usepackage{ragged2e} % for \justifying command
+\usepackage{multicol}
 
 
-\setbeamerfont{frametitle}{series=\bfseries}
 
 \newcommand\dc[1]{\textcolor{blue}{#1}}
 \setcounter{tocdepth}{3}
@@ -61,7 +59,7 @@
         \hfill
         \begin{subfigure}[r]{0.45\textwidth}
             \centering
-            \includegraphics[width=3.5cm,height=1cm]{images/logoITISE2023.png}
+            \includegraphics[width=2.5cm,height=2.5cm]{images/logo-maestria-scaled.jpg}
         \end{subfigure}
     \end{figure}
 }
@@ -71,20 +69,24 @@
 \setbeamerfont{author}{size=\small}
 \setbeamerfont{institute}{size=\footnotesize}
 
-\title[Universidad Tecnológica de Pereira]{Multi-Output Variational Gaussian Process for Daily Forecasting of Hydrological Resources}
+\title[Universidad Tecnológica de Pereira]{Chained Gaussian Processes for Hydrological Forecasting}
 
+
+ 
 \author[Julián David Pastrana-Cortés et al.]{%
-    \texorpdfstring{
-        \begin{tabular}{ccc}
-             Julián David Pastrana-Cortés &  David Augusto Cardenas-Peña & \\
-             Mauricio Holguín-Londoño &  Germán Castellanos-Dominguez & \\
-             \multicolumn{2}{c}{Álvaro Angel Orozco-Gutiérrez} & \\
-        \end{tabular}
-    }{Julián David Pastrana-Cortés et al.}
+	\texorpdfstring{
+		\begin{tabular}{c}
+			Julián David Pastrana-Cortés \\[1.5mm]
+			\textit{Director: Álvaro Angel Orozco-Gutiérrez} \\[1.5mm]
+			\textit{Co-director: David Augusto Cardenas-Peña} \\
+		\end{tabular}
+	}{Julián David Pastrana-Cortés et al.}
 }
 
-\institute[ITISE 2023]{9th International conference on Time Series and Forecasting (ITISE 2023)}
-\date{July 12th, 2023}
+
+
+\institute[Automatic]{Automatic Research Group}
+\date{\today}
 
 \AtBeginSection[]{
   \begin{frame}
@@ -97,7 +99,6 @@
   \end{frame}
 }
 
-\justifying
 %------------------------------------------------------------
 
 \begin{document}
@@ -107,9 +108,33 @@
 \section*{Motivation}
 
 \begin{frame}{Motivation}
+  frame
+\end{frame}
 
-Hydrological forecasting plays a crucial role in planning and operation activities.
 
+\begin{frame}{Objetive}
+Develop a predictive methodology for thermoelectric plant dispatch based on historical data. This aims to estimate the natural gas demand for each plant within the planning horizon, leveraging hydrological forecasting for enhanced accuracy.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth, height=5cm]{images/Bishkek-.jpeg}
+\end{figure}
+    
+\end{frame}
+
+\begin{frame}{}
+    Modeling thermolectic time series is hard. Instead, model hydrological time series forecasting via hydrothermal dispatch, inferring thermoelectric dispatch.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth, height=5cm]{images/hydroelectric.jpg}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Motivation}
+We want a non-linear model to not only forecast water resources but also provide a confidence interval that measures the certainty of that prediction.
 \begin{figure}
      \centering
      \begin{subfigure}[b]{0.3\textwidth}
@@ -132,315 +157,74 @@ Hydrological forecasting plays a crucial role in planning and operation activiti
          \caption{Hydropower generation}
          \label{fig:five over x}
      \end{subfigure}
-
 \end{figure}
 
-\textcolor{myNewColorB}{\textbf{Challenges}}: non-linearities, high stochasticity, and complex water resource patterns.
+\textbf{Difficulties}: non-linearities, high stochasticity, and complex water resource patterns.
 
 \end{frame}
 
 
-\section*{Methods}
+\section*{Dataset}
+\begin{frame}{Dataset Construction}
+Consider $\mathbf{v}_{n} \in \mathbb{R}^{D+}$ as a value useful volume time series observed at time $n$ for all $D$ reservoirs. The dataset comprises $N$ pairs of input/output observations $\{\mathbf{x}_n, \mathbf{y}_n\}_{n=1}^N = \{\mathbf{X}, \mathbf{Y}\}$, defined as:
+
+\begin{equation*}
+    \mathbf{y}_n = \mathbf{v}_{n}, \quad \mathbf{x}_n = \mathbf{v}_{n-1}
+\end{equation*}
+
+Each $\mathbf{v}_n$ represents a realization of a random vector $\bm{y}$. Considering $\bm{y}(\bm{x})$ for some input space $\bm{x} \in \mathbf{\chi}$, we model a stochastic process.
+\end{frame}
+
+\section*{The Model}
+
 \begin{frame}{Gaussian Process Framework}
-    A Gaussian Process (GP) is a collection of random variables in which any finite number follows a joint Gaussian distribution. For $D$ tasks, the Multi-Output GP (MOGP) is expressed as follows:
-
-    \begin{equation*}
-        \bm{f}(\bm{x}) \sim  \mathcal{GP}(\bm{m}(\bm{x} \mid \bm{\theta}_m),\, \bm{k}(\bm{x}, \bm{x}' \mid \bm{\theta}_k))
-    \end{equation*}
-
-    where:
-    \begin{itemize}
-        \item $\bm{f} : \mathbb{R}^L \rightarrow \mathbb{R}^D$ is the vector-valued function that maps inputs $\bm{x} \in \mathbb{R}^L$
-        \item $\bm{m} : \mathbb{R}^L \rightarrow \mathbb{R}^D$ is the mean vector function with parameter vector $\bm{\theta}_m$
-        \item $\bm{k}: \mathbb{R}^{L} \times \mathbb{R}^{L} \rightarrow \mathbb{R}^{D \times D}$ is the covariance matrix function with parameter vector $\bm{\theta}_k$
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Predictive Distribution}
-    Given a training dataset $\mathcal{D} = \{\mathbf{X}, \mathbf{y}\}$ with $\mathbf{X} \in \mathbb{R}^{L \times N}$ and $\mathbf{y} \in \mathbb{R}^{DN}$, and test points $\mathbf{X}_* \in \mathbb{R}^{L \times N_*}$, the predictive distribution is Gaussian with mean vector $\bar{\mathbf{f}}_*$ and covariance matrix $\text{cov}(\mathbf{f}_*)$, where:
-    
-    \begin{align*}
-        \bar{\mathbf{f}}_* &= \mathbf{m}_* + \mathbf{K}_*^{\top} \mathbf{K}_y^{-1} (\mathbf{y} - \mathbf{m}) \\
-        \text{cov}(\mathbf{f}_*) &= \mathbf{K}_{**} - \mathbf{K}_*^{\top} \mathbf{K}_y^{-1} \mathbf{K}_*
-    \end{align*}
-    
-    Here:
-    \begin{itemize}
-        \item $\mathbf{m}_*$ and $\mathbf{m}$ are the mean function evaluations at test and train points, respectively.
-        \item $\mathbf{K}$, $\mathbf{K}_{*}$, and $\mathbf{K}_{**}$ are the kernel function evaluations at train-train, train-test, and test-test pairs.
-        \item $\mathbf{K}_y = \mathbf{K} + \mathbf{\Sigma}_N \otimes \mathbf{I}_N$, where $\mathbf{\Sigma}_N$ is a diagonal matrix with output noise variances.
-        \item $\otimes$ is the Kronecker product between matrices.
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Linear Model of Coregionalization}
-    The Linear Model of Coregionalization represents each output of a MOGP as a linear combination of $Q$ independent Single Output Gaussian Processes (SOGP):
-    
-    \begin{equation*}
-        \bm{f}(\mathbf{x}) = \sum_{q=1}^Q \mathbf{a}_{q}g_q(\mathbf{x})
-    \end{equation*}
-    
-    The covariance matrix of the MOGP model is given by:
-    
-    \begin{equation*}\label{eq:MOGP_cov}
-        \bm{k}(\mathbf{x}, \mathbf{x}') = \sum_{q=1}^Q \mathbf{B}_q k_q(\mathbf{x}, \mathbf{x}')
-    \end{equation*}
-    
-    Here, $\mathbf{a}_{q} \in \mathbb{R}^D$ is the coefficient vector associated to $q$-th independent SOGP $g_q(\mathbf{x})$, and $\mathbf{B}_q = \mathbf{a}_{q}\mathbf{a}_{q}^\top \in \mathbb{R}^{D \times D}$ is the coregionalization matrix.
-\end{frame}
-
-\begin{frame}{Evidence Lower Bound Optimization}
-
-The Variational MOGP (MOVGP) approximates $p(\mathbf{f} \mid \mathbf{X})$, the marginal distribution of output variables $\mathbf{f} = \bm{f}(\mathbf{X}) \in \mathbb{R}^{D N}$, using $M \ll N$ trainable inducing points $\mathbf{Z} \in \mathbb{R}^{L\times M}$ and inducing variables $\mathbf{u} = \bm{f}(\mathbf{Z}) \in \mathbb{R}^{DM}$:
-
-\begin{equation*}\label{prior_aproximation}
-    q(\mathbf{f} \mid \mathbf{X}) := \int p(\mathbf{f} \mid \mathbf{X}, \mathbf{u}) q(\mathbf{u}) d\mathbf{u}
+A Gaussian Process (GP) models a collection of random variables, any finite number of which follow a joint Gaussian distribution:
+\begin{equation*}
+    \bm{f}(\mathbf{x}) \sim \mathcal{GP}(\mathbf{0}, \bm{k}(\mathbf{x}, \mathbf{x}'))
 \end{equation*}
+The covariance function $\bm{k}$ computes the correlation between points in the input space.
+\end{frame}
 
-Assuming a Gaussian distribution $q(\mathbf{u})$, we optimize the parameters $\bm{\theta}_m$, $\bm{\theta}_k$, $\mathbf{\Sigma}_N$, $\mathbf{B}_q$, and $\mathbf{Z}$ using a tractable marginal likelihood bound:
-
-\begin{equation*}\label{marginal_likelihood_bound}
-    \log p(\mathbf{y} \mid \mathbf{X}) \geq \sum_{n=1}^N \mathbb{E}_{q(\bm{f}_n \mid \mathbf{x}_n)}[\log p(\bm{y}_n \mid \bm{f}(\mathbf{x}_n))] - \text{KL}[q(\mathbf{u})\parallel p(\mathbf{u})]
+\begin{frame}{Likelihood}
+We model outcomes $\mathbf{y}(\mathbf{x})$ using parameters $\boldsymbol{\theta}_d(\mathbf{x})$ for each outcome $y_d(\mathbf{x})$. $\boldsymbol{\theta}(\mathbf{x})$ combines all parameters across outcomes. The likelihood, or chance of observing our data $\mathbf{y}(\mathbf{x})$, is calculated by multiplying the likelihoods of each outcome, as shown:
+\begin{equation*}
+    p(\mathbf{y}(\mathbf{x}) \mid \boldsymbol{\theta}(\mathbf{x})) = \prod_{d=1}^D p(y_{d}(\mathbf{x}) \mid \boldsymbol{\theta}_{d}(\mathbf{x}))
 \end{equation*}
-
-Here, $\text{KL}[q(\mathbf{u})\parallel p(\mathbf{u})]$ represents the Kullback-Leibler divergence between the distributions $q(\mathbf{u})$ and $p(\mathbf{u})$.
 \end{frame}
 
 
-\section*{Experimental Setup}
 
-
-
-\begin{frame}{Dataset}
-    The dataset included Useful Volume and Streamflow Contributions from $D = 23$ Colombian reservoirs daily recorded from the last twelve years in kWh. 
-    \begin{figure}[htpb]
-        \centering 
-        \setlength\figurewidth{\columnwidth}
-        \setlength\figureheight{0.3\columnwidth}
-        \input{images/ts_ct_samples}
-    \end{figure}
-
-    Each type of time series is predicted for the horizons $H=\{$$1$, $2$, $3$, $5$, $7$, $9$, $10$, $15$, $20$, $25$$\}$ on a time-series ten-fold cross-validation:
-    \begin{figure}[htpb]
-        \centering 
-        \setlength\figurewidth{\columnwidth}
-        \setlength\figureheight{0.3\columnwidth}
-        \input{images/block_tscv}
-    \end{figure}
-    
+\begin{frame}{Chained Gaussian Processes}
+In each likelihood distribution, parameters $\theta_{d,j}(\mathbf{x})$ are derived from Gaussian Processes (GP), specifically, $\theta_{d,j}(\mathbf{x}) = g_{d,j}(f_{d,j}(\mathbf{x}))$. This means we transform GP outputs to obtain our parameters. Combining all transformed GP outputs, $\mathbf{f}(\mathbf{x})$, allows us to model the likelihood of our observations $\mathbf{y}(\mathbf{x})$ as:
+\begin{equation*}
+p(\mathbf{y}(\mathbf{x}) \mid \mathbf{f}(\mathbf{x})) = \prod_{d=1}^D p(y_{d}(\mathbf{x})\mid \mathbf{f}_{d}(\mathbf{x}))
+\end{equation*}
+Here, each $y_{d}(\mathbf{x})$ is assumed to follow a LogNormal distribution, ensuring positivity in our predictions.
 \end{frame}
 
-
-\begin{frame}{Model Setup}
-\begin{multicols}{2}
-    The proposed methodology considers the following constant mean function:
-    
-    \begin{equation*}
-        m(\mathbf{x} \mid \bm{\theta}_m) = \bm{\theta}_m
-    \end{equation*}
-    
-    \begin{figure}[htpb]
-        \centering 
-        \setlength\figurewidth{\columnwidth}
-        \setlength\figureheight{0.5\columnwidth}
-        \input{images/mean_function}
-    \end{figure}
-
-    with $\bm{\theta}_m\in\mathbb{R}^D$.
-    
-    \columnbreak
-    
-    And Squared Exponential covariance function:
-    
-    \begin{multline*}
-        k_q(\mathbf{x}, \mathbf{x}' \mid \bm{\theta}_k) = \\ \exp \left(-\frac{1}{2}(\mathbf{x} - \mathbf{x}')^\top \bm{\Theta}_q^{-2}(\mathbf{x} - \mathbf{x}')\right)
-    \end{multline*}
-    
-    \begin{figure}[htpb]
-        \centering 
-        \setlength\figurewidth{\columnwidth}
-        \setlength\figureheight{0.5\columnwidth}
-        \input{images/kernel_function}
-    \end{figure}
-
-    where the matrix $\bm{\Theta}_q=\text{diag}\{\bm{\theta}_k\}$ $\in \mathbb{R}^{L \times L}$ gathers the length scale factors from each input dimension.
-    
-\end{multicols}
-\end{frame}
-
-
-\begin{frame}{Parameter Tuning I}
-
-    For horizon $H=1$, the larger the $Q$ and $M$, the smaller the MOVGP error and the slower the improvement. 
-
-    \begin{figure}[htpb]
-     \centering
-     \setlength\figurewidth{0.55\columnwidth}
-     \setlength\figureheight{0.45\columnwidth}
-     \subfloat[Useful volume\label{fig:mse_vs_parameters_uv}]{\input{images/uv_mse_vs_Q}}
-     \subfloat[Streamflow Contributions\label{fig:mse_vs_parameters_ct}]{\input{images/ct_mse_vs_Q}}
-    \end{figure}
-
-    \textcolor{myNewColorA}{The forecast task on a very short horizon yields complex models that hardly overfit.}
-    
-\end{frame}
-
-\begin{frame}{Parameter Tuning II}
-
-    \begin{multicols}{2}
-
-    \begin{figure}[htpb]
-     \centering
-     \setlength\figurewidth{\columnwidth}
-     \setlength\figureheight{0.8\columnwidth}
-     \input{images/uv_M_Q_horizons_mse}
-    \end{figure}
-
-    For Useful Volume, a Pearson correlation coefficient of $-0.82$ between the optimal parameters indicates that the model trades off its complexity.
-    
-    \columnbreak
-
-    \begin{figure}[htpb]
-     \centering
-     \setlength\figurewidth{\columnwidth}
-     \setlength\figureheight{0.8\columnwidth}
-     \input{images/ct_M_Q_horizons_mse}
-    \end{figure}
-
-    For Streamflow Contributions the latent space is large enough to decode the relationship between the past and the farthest horizon. 
-            
-    \end{multicols}
-
-    % For Useful Volume, the model trades off its complexity between hyperparameters. In turn, for Streamflow Contributions the latent space is large enough to decode the relationship between the past and the farthest horizon. 
-
-    % \begin{figure}[htpb]
-    %  \centering
-    %  \setlength\figurewidth{0.55\columnwidth}
-    %  \setlength\figureheight{0.45\columnwidth}
-    %  \subfloat[Useful volume \label{fig:mse_horizons_qm_uv}]{\input{images/uv_M_Q_horizons_mse}}
-    %  \subfloat[Streamflow Contributions\label{fig:mse_horizons_qm_ct}]{\input{images/ct_M_Q_horizons_mse}}
-
-    % \end{figure}
-    
-\end{frame}
 
 \section*{Results}
-\begin{frame}{Performance Analysis}
 
-    The performance analysis compares MOVGP against a straightforward Linear AutoRegression (LAR) model as a baseline and a Long Short-Term Memory (LSTM) network.
-    
-    \begin{figure}[htpb]
-     \centering
-     \setlength\figurewidth{0.55\columnwidth}
-     \setlength\figureheight{0.4\columnwidth}
-     \subfloat[Useful volume]{\input{images/uv_horizons_mse}}
-     \subfloat[Streamflow Contributions]{\input{images/ct_horizons_mse}}
-
-    \end{figure}
-
-    \textcolor{myNewColorA}{The MOVGP model reaches the lowest error for the longest horizons.}
-    
-\end{frame}
-
-\begin{frame}{Testing Stage}
-
-    The below figure depicts reservoir-wise testing MSE boxplots computed over the ten prediction horizons for the Streamflow Contributions.
-    
-    \begin{figure}[htpb]
-     \centering
-     \setlength\figurewidth{\columnwidth}
-     \setlength\figureheight{0.5\columnwidth}
-     \input{images/boxplot_ct_mse}
-    \end{figure}
-
-    \textcolor{myNewColorA}{The MOVGP model obtains the best average performance, offering a better explanation for nonlinearities in the data than baselines.}
-    
-\end{frame}
-
-\begin{frame}{Forecasting Plots}
-    
-    \begin{figure}[htpb]
-        \centering
-        \setlength\figurewidth{0.5\columnwidth}
-        \setlength\figureheight{0.3\columnwidth}
-        \subfloat{\input{images/uv_AGREGADO BOGOTA_h1.tex}}
-        \subfloat{\input{images/ct_AGREGADO BOGOTA_h1.tex}}\\
-    
-        \subfloat{\input{images/uv_SAN LORENZO_h1.tex}}
-        \subfloat{\input{images/ct_SAN LORENZO_h1.tex}}
-    \end{figure}
-
-     The MOVGP model presents the advantage of yielding a predictive distribution allowing explaining the peaks' tendency as outliers.
-
-\end{frame}
-
-\section*{Conclusions}
-\begin{frame}{Concluding Remarks}
-    \setbeamertemplate{itemize items}[circle]
-    \setbeamercolor{itemize item}{fg=myNewColorB}
-    \setlength{\leftmargini}{15pt}
-    \begin{itemize}
-        \item[$\bullet$] The hyperparameter tuning stage proved that MOVGP suitably adapted to time complexity by optimizing the number of latent variables and inducing points that control model flexibility.
-        \item[$\bullet$] The comparison in testing data revealed that the MOVGP outperformed in predicting long-term horizons, particularly when the linear model misses relationships between inputs and outputs.
-        \item[$\bullet$] The MOVGP model outperforms hydrological forecasting, providing prediction reliability and outlier detection through the predictive distribution.
-    \end{itemize}
-
-\end{frame}
-
-\section*{Future Work}
-\begin{frame}{Future Work}
-
-    \setbeamertemplate{itemize items}[circle]
-    \setbeamercolor{itemize item}{fg=myNewColorB}
-    \setlength{\leftmargini}{15pt}
-    \begin{itemize}
-        \item[$\bullet$] \textcolor{myNewColorA}{Extension to Energy-Related Time Series}\\
-        We will extend the methodology to support energy-related time series, such as daily thermoelectric schedules.
-        \item[$\bullet$] \textcolor{myNewColorA}{Deep Learning Models for Hydrological Time Series}\\
-        We will develop deep-learning models to capture and learn complex patterns in hydrological time series.
-        \item[$\bullet$] \textcolor{myNewColorA}{Time-Variant Convolutional Kernel Integration}\\
-        To overcome the issues of overgeneralization and linear coregionalization restrictions, we will work on integrating time-variant convolutional kernels.
-    \end{itemize}
-
-\end{frame}
-
-
-
-\section*{Acknowledgment}
-\begin{frame}{Acknowledgment}
-    This work was supported by the research project number 1110-852-69982 funded by MinCiencias. Furthermore,  thanks to the Maestría en Ingeniería Eléctrica, graduate program of the Universidad Tecnológica de Pereira.
-
-\begin{figure}
+\begin{frame}{Forecasting}
+    \begin{figure}
     \centering
-    \begin{minipage}[t]{0.2\textwidth}
-        \centering
-        \includegraphics[width=2.3cm,height=1.5cm]{images/Logo_U.T.P.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.15\textwidth}
-        \centering
-        \includegraphics[width=1.8cm,height=1.8cm]{images/logo-maestria-scaled.jpg}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.28\textwidth}
-        \centering
-        \includegraphics[width=3.2cm,height=1.5cm]{images/800px-UNAL_Aplicación_Manizales.svg.png}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.28\textwidth}
-        \centering
-        \includegraphics[width=3.2cm,height=1cm]{images/1200px-Minciencias_Colombia.svg.png}
-    \end{minipage}
+    \includegraphics[width=0.7\textwidth, height=7.5cm]{images/predictions_test.png}
 \end{figure}
-
-
-\begin{center}
-    Contact us:\\
-    e-mail \{j.pastrana, dcardenasp, mau.hol, aaog\}@utp.edu.co
-\end{center}
-
 \end{frame}
+
+
+
+
+
+\begin{frame}{Thank You for Watching!}
+\centering
+\Large{Thank you for your attention!}\\
+\vspace{10mm} % Adjust the space as needed
+\large{Questions or Comments?}\\
+\vspace{5mm} % Adjust the space as needed
+\large{Feel free to reach out for further discussion.}
+\end{frame}
+
 
 \end{document}
 
