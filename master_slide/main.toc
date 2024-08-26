@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {2}{Objectives}{6}{0}{2}
+\beamer@sectionintoc {3}{The Dataset}{9}{0}{3}
+\beamer@sectionintoc {4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{14}{0}{4}
