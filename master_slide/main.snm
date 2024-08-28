@@ -1,1 +1,9 @@
 \beamer@slide {mogp_notation}{15}
+\beamer@slide {sogp_prior_matrix}{16}
+\beamer@slide {sogp_posterior}{17}
+\beamer@slide {sogp_posterior_mean}{17}
+\beamer@slide {sogp_posterior_cov}{17}
+\beamer@slide {eq:sogp_nlml_opt}{18}
+\beamer@slide {eq:so_join_posterior}{20}
+\beamer@slide {eq:sogp_elbo}{22}
+\beamer@slide {eq:mse}{25}
