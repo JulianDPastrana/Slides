@@ -1,0 +1,122 @@
+\section{Introduction}
+\begin{frame}{Motivation}
+	
+	Understanding the implications of time series associated with hydrological variables, such as flow rates or reservoir levels, is essential for hydroelectric generation and the planning of other generation systems in Colombia
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}[b]{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, height=4cm]{images/irrigation.jpg}
+			\caption{Irrigation}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, height=4cm]{images/flood_control.jpeg}
+			\caption{Flood control}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.3\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, height=4cm]{images/hydro_gen.jpeg}
+			\caption{Hydropower generation}
+		\end{subfigure}
+		
+	\end{figure}
+	\textcolor{myNewColorB}{\textbf{Challenges}}: non-linearities, high stochasticity, and complex water resource patterns.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Importance of Hydrological Forecasting}
+	
+	Understanding hydrological processes has become increasingly critical in the field of natural resource management, anticipation capacity of extreme hydrological events such as droughts and heavy rainfall.
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, height=4cm]{images/drought.jpg}
+			\caption{Drought Condition}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth, height=4cm]{images/full_dam.jpg}
+			\caption{Full Dam}
+		\end{subfigure}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{The Proposed Model}
+	A Gaussian Process (GP) is a Bayesian non-parametric model that provides not just point predictions but a full probability distribution, capturing uncertainty and enabling confidence intervals in time series forecasting.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{images/gpr.png}
+	\end{figure}
+\end{frame}
+
+\section{Objectives}
+\begin{frame}{General Objective}
+	Develop a stochastic forecasting model for making multiple simultaneous predictions of hydrological time series, taking advantage of cross-correlations among the tasks to improve the performance keeping the scalability in its implementation for the short-term horizon.	
+\end{frame}
+
+\begin{frame}{Specific Objectives}
+	\begin{itemize}
+		\item Develop a model that allows the forecasting of hydrological time series, properly quantifying the uncertainty associated with each value within the prediction horizons.
+		\item Design a multi-task forecasting methodology that captures and models cross-correlations between hydrological time series, to improve forecast accuracy within forecast horizons.
+		\item Develop a multi-task prediction methodology that handles data constraints across reservoirs while maintaining high forecasting performance as measured by probabilistic metrics.
+		
+		% \item Develop a scalable multi-task prediction methodology across reservoirs, without compromising regression performance.
+	\end{itemize}
+\end{frame}
+
+\section{The Dataset}
+\begin{frame}{Problem Setting - Part 1}
+	Consider a time-series vector of hydrological resources observed across all $D$ outputs at the $n$-th time instant, denoted as $\mathbf{v}_n \in \mathbb{R}^D$. Our model employs the entire sequence of resource vectors from time $n$ back to $n-T+1$ as input to predict the resource vector at the future time step $n+H$. Here, $T$ represents the model order, and $H$ denotes the prediction horizon. 
+	
+	Consequently, we define the input vector $\mathbf{x}_n$ as follows:
+	
+	\begin{equation*}
+	\mathbf{x}_n = \begin{bmatrix} 
+	\mathbf{v}_{n}^\top \\ 
+	\mathbf{v}_{n-1}^\top \\ 
+	\vdots \\ 
+	\mathbf{v}_{n-T+1}^\top 
+	\end{bmatrix} \in \mathbb{R}^{DT}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{Problem Setting - Part 2}
+	The target output vector $\mathbf{y}_n$ is defined as follows:
+	
+	\begin{equation*}
+	\mathbf{y}_n = \mathbf{v}_{n+H}.
+	\end{equation*}
+	
+	This formulation enables the model to leverage historical hydrological data for accurate future predictions. Accordingly, we build a dataset $\mathcal{D} = \{\bm{x}_n, \bm{y}_n\}_{n=1}^N = \{\mathbf{X}, \mathbf{y}\}$ comprising $N$ input--output pairs, where $\bm{x}_n \in \mathcal{X}\subset \mathbb{R}^{DT}$ represents the dimensional input space. The target function is a vector-valued function where $\bm{y}_n \in \mathbb{R}^{D}$ comprises the observations of all outputs (tasks) at the same input $\bm{x}_n$.
+\end{frame}
+
+\begin{frame}
+	The hydrological forecasting task for validating the proposed model regressors considers time-series streamflow contributions data from 23 Colombian reservoirs.
+	\begin{figure}[htbp]
+		\centering 
+		\includegraphics[height=0.5\textwidth]{images/colombiamap.pdf}
+		\caption{Reservoir locations in Colombia.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	The dataset was selected due to the strong dependence of time series on weather patterns, which are closely tied to hydropower dispatch operations.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[height=0.25\textwidth]{images/ct_violinplot.pdf}
+		\caption{Time-series Violin plot depicting the streamflow contribution for each reservoir within the dataset.}
+	\end{figure}	
+	
+	These streamflow contributions were recorded daily from 1 January 2010 to 28 February 2022. While these contributions represent volumetric values, they are reported in kilowatt-hours (kWh) by the hydroelectric power plants.
+\end{frame}

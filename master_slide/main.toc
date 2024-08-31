@@ -2,3 +2,6 @@
 \beamer@sectionintoc {2}{Objectives}{6}{0}{2}
 \beamer@sectionintoc {3}{The Dataset}{9}{0}{3}
 \beamer@sectionintoc {4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{14}{0}{4}
+\beamer@subsectionintoc {4}{1}{Mathematical Framework}{15}{0}{4}
+\beamer@subsectionintoc {4}{2}{Results and Discussions}{29}{0}{4}
+\beamer@subsectionintoc {4}{3}{Performance Analysis}{39}{0}{4}

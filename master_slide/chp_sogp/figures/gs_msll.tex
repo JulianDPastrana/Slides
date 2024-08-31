@@ -1,0 +1,224 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{darkslategray38}{RGB}{38,38,38}
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+% colorbar,
+% colorbar style={ylabel={}},
+colormap={mymap}{[1pt]
+  rgb(0pt)=(1,1,0.850980392156863);
+  rgb(1pt)=(0.929411764705882,0.972549019607843,0.694117647058824);
+  rgb(2pt)=(0.780392156862745,0.913725490196078,0.705882352941177);
+  rgb(3pt)=(0.498039215686275,0.803921568627451,0.733333333333333);
+  rgb(4pt)=(0.254901960784314,0.713725490196078,0.768627450980392);
+  rgb(5pt)=(0.113725490196078,0.568627450980392,0.752941176470588);
+  rgb(6pt)=(0.133333333333333,0.368627450980392,0.658823529411765);
+  rgb(7pt)=(0.145098039215686,0.203921568627451,0.580392156862745);
+  rgb(8pt)=(0.0313725490196078,0.113725490196078,0.345098039215686)
+},
+point meta max=-0.0763556642639684,
+point meta min=-0.452207182874033,
+% tick align=outside,
+tick pos=left,
+% title={MSLL},
+xlabel={$T$},
+x grid style={darkgray176},
+xmin=0, xmax=7,
+xtick style={color=black},
+xtick={0.5,1.5,2.5,3.5,4.5,5.5,6.5},
+xticklabels={1, 2,  3, 7, 14, 21, 30},
+ylabel={$M$},
+yticklabel style={rotate=0.0, font=\footnotesize},
+xticklabel style={rotate=0.0, font=\footnotesize},
+xtick style={draw=none},
+ytick style={draw=none},
+y dir=reverse,
+y grid style={darkgray176},
+ymin=0, ymax=5,
+ytick style={color=black},
+ytick={0.5,1.5,2.5,3.5,4.5},
+yticklabels={8,16,32,64,128}
+]
+\addplot graphics [includegraphics cmd=\pgfimage,xmin=0, xmax=7, ymin=5, ymax=0] {chp_sogp/figures/gs_msll-000.png};
+\draw (axis cs:0.5,0.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-42.51$};
+\draw (axis cs:1.5,0.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-38.50$};
+\draw (axis cs:2.5,0.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-34.76$};
+\draw (axis cs:3.5,0.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-31.20$};
+\draw (axis cs:4.5,0.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-7.64$};
+\draw (axis cs:5.5,0.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-7.65$};
+\draw (axis cs:6.5,0.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-7.65$};
+\draw (axis cs:0.5,1.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-44.49$};
+\draw (axis cs:1.5,1.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-39.07$};
+\draw (axis cs:2.5,1.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-37.02$};
+\draw (axis cs:3.5,1.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-32.22$};
+\draw (axis cs:4.5,1.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-7.65$};
+\draw (axis cs:5.5,1.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-17.78$};
+\draw (axis cs:6.5,1.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-9.04$};
+\draw (axis cs:0.5,2.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-45.15$};
+\draw (axis cs:1.5,2.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-40.89$};
+\draw (axis cs:2.5,2.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-37.00$};
+\draw (axis cs:3.5,2.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-31.71$};
+\draw (axis cs:4.5,2.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-25.77$};
+\draw (axis cs:5.5,2.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-17.76$};
+\draw (axis cs:6.5,2.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-11.59$};
+\draw (axis cs:0.5,3.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-45.22$};
+\draw (axis cs:1.5,3.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-40.90$};
+\draw (axis cs:2.5,3.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-36.92$};
+\draw (axis cs:3.5,3.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-32.50$};
+\draw (axis cs:4.5,3.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-25.67$};
+\draw (axis cs:5.5,3.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-19.38$};
+\draw (axis cs:6.5,3.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-10.44$};
+\draw (axis cs:0.5,4.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-44.97$};
+\draw (axis cs:1.5,4.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-41.16$};
+\draw (axis cs:2.5,4.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-37.07$};
+\draw (axis cs:3.5,4.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-32.52$};
+\draw (axis cs:4.5,4.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-26.59$};
+\draw (axis cs:5.5,4.5) node[
+  scale=0.5,
+  text=white,
+  rotate=0.0
+]{$-19.45$};
+\draw (axis cs:6.5,4.5) node[
+  scale=0.5,
+  text=darkslategray38,
+  rotate=0.0
+]{$-13.15$};
+\end{axis}
+
+\end{tikzpicture}

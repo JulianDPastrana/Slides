@@ -6,4 +6,13 @@
 \beamer@slide {eq:sogp_nlml_opt}{18}
 \beamer@slide {eq:so_join_posterior}{20}
 \beamer@slide {eq:sogp_elbo}{22}
-\beamer@slide {eq:mse}{25}
+\beamer@slide {eq:mse}{26}
+\beamer@slide {fig:points_locations_E}{37}
+\beamer@slide {sub@fig:points_locations_E}{37}
+\beamer@slide {fig:points_locations_I}{37}
+\beamer@slide {sub@fig:points_locations_I}{37}
+\beamer@slide {fig:points_locations_L}{37}
+\beamer@slide {sub@fig:points_locations_L}{37}
+\beamer@slide {fig:points_locations_U}{37}
+\beamer@slide {sub@fig:points_locations_U}{37}
+\beamer@slide {fig:inducing_points_locations}{37}

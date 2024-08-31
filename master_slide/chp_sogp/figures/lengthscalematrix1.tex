@@ -1,0 +1,38 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+% colorbar,
+ylabel={Target Reservoir},
+xlabel={Input Reservoir},
+colorbar style={ylabel={}},
+colormap/viridis,
+point meta max=6,
+point meta min=2,
+% tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xmin=0, xmax=23,
+xtick style={color=black},
+xtick={0.5,2.5,4.5,6.5,8.5,10.5,12.5,14.5,16.5,18.5,20.5,22.5},
+xticklabel style={rotate=0.0, font=\tiny},
+xticklabels={A,C,E,G,I,K,M,O,Q,S,U,W},
+y dir=reverse,
+y grid style={darkgray176},
+ymin=0, ymax=23,
+ytick style={color=black},
+ytick={0.5,2.5,4.5,6.5,8.5,10.5,12.5,14.5,16.5,18.5,20.5,22.5},
+xtick style={draw=none},
+ytick style={draw=none},
+yticklabel style={rotate=0.0, font=\tiny},
+yticklabels={A,C,E,G,I,K,M,O,Q,S,U,W},
+%   AMANI,
+]
+\addplot graphics [includegraphics cmd=\pgfimage,xmin=0, xmax=23, ymin=23, ymax=0] {chp_sogp/figures/lengthscalematrix1-000.png};
+\end{axis}
+
+\end{tikzpicture}

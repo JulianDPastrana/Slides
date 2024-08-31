@@ -1,0 +1,52 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{darkorange25512714}{RGB}{255,127,14}
+\definecolor{forestgreen4416044}{RGB}{44,160,44}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+
+\begin{axis}[
+width=\figurewidth,
+height=\figureheight,
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xmajorgrids,
+xmin=-8.8, xmax=536.8,
+xtick style={color=black},
+y grid style={darkgray176},
+ymajorgrids,
+ymin=-0.00310506893405723, ymax=0.000114967101188706,
+ytick style={color=black}
+]
+\addplot [semithick, steelblue31119180]
+table {%
+16 -0.00295870365972787
+32 -0.000467516802674126
+64 -0.000219496674885402
+128 -0.000131714455109835
+256 -4.4365768162748e-05
+512 -3.13981731406546e-05
+};
+\addplot [semithick, darkorange25512714]
+table {%
+16 -0.00264787231326324
+32 -0.000629967959019366
+64 -0.000213337892985343
+128 -0.000149880937726431
+256 -8.51574317936609e-05
+512 -5.32238873731875e-05
+};
+\addplot [semithick, forestgreen4416044]
+table {%
+16 -0.00259671720110316
+32 -0.000690624120092836
+64 -0.00020592783375087
+128 -0.000123035153244519
+256 -8.30996447975579e-05
+512 -6.08960464722641e-05
+};
+\end{axis}
+
+\end{tikzpicture}
