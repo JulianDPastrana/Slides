@@ -1,0 +1,47 @@
+\section{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}
+
+\subsection{Mathematical Framework}
+\begin{frame}{Multi Output Gaussian Processes}
+	We start to extending the notation developed so far to learning multiple outputs with a single model, we consider
+	\begin{equation*}
+		\boldsymbol{f}(\mathbf{x}) = \left[f_1(\mathbf{x}), f_2(\mathbf{x}), \cdots, f_d(\mathbf{x}), \cdots, f_D(\mathbf{x})\right]^\top
+	\end{equation*}
+	as a multi-output Gaussian process, comprising $D$ single-output Gaussian processes. Now our target is a vector-valued function.
+\end{frame}
+
+\begin{frame}{Independent Gaussian Process (IGP)}
+	Combining all independent GP-based models evaluated in the $N_*$ test point set $X_*$, assuming that all outputs are fully observed for each input, the vector function space inference corresponds to the following generative model:
+	
+	
+	\begin{equation*}\label{eq:igp}
+		\left[ \begin{array}{c}
+			\mathbf{f}_{1*}\\
+			\mathbf{f}_{2*}\\
+			\vdots\\
+			\mathbf{f}_{D*}\\
+		\end{array}
+		\right]
+		\sim
+		\mathcal{N} \left(
+		\begin{array}{c}
+			\mathbf{0}\\
+		\end{array},
+		\left[ \begin{array}{cccccc}
+			K_{1**} & 0 & \cdots & 0 \\
+			0 & K_{2**} & \cdots & 0 \\
+			\vdots & \vdots & \ddots & \vdots\\
+			0 & 0 & \cdots & K_{D**}\\
+		\end{array}
+		\right] \right)
+	\end{equation*}
+	
+	Here, $K_{d**} \in \mathbb{R}^{N_* \times N_*}$ correspond to the covariance matrix of the $d$-th output. Due to the independence assumption, the grand covariance matrix of the multi-output model $\mathbf{K}_{**} \in \mathbb{R}^{DN_* \times DN_*}$ is diagonal by block.\\~\\
+	
+	We call this model Independent Gaussian process (IGP).
+\end{frame}
+
+
+\subsection{Results and Discussions}
+
+\subsubsection{Performance Analysis}
+\subsubsection{Concluding Remark}

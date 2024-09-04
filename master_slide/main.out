@@ -4,4 +4,5 @@
 \BOOKMARK [2][]{Outline0.4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{}% 4
 \BOOKMARK [3][]{Outline0.4.1.15}{Mathematical Framework}{Outline0.4}% 5
 \BOOKMARK [3][]{Outline0.4.2.29}{Results and Discussions}{Outline0.4}% 6
-\BOOKMARK [3][]{Outline0.4.3.39}{Performance Analysis}{Outline0.4}% 7
+\BOOKMARK [2][]{Outline0.5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{}% 7
+\BOOKMARK [3][]{Outline0.5.1.47}{Mathematical Framework}{Outline0.5}% 8

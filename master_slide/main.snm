@@ -16,3 +16,17 @@
 \beamer@slide {fig:points_locations_U}{37}
 \beamer@slide {sub@fig:points_locations_U}{37}
 \beamer@slide {fig:inducing_points_locations}{37}
+\beamer@slide {fig:mse_lar}{41}
+\beamer@slide {sub@fig:mse_lar}{41}
+\beamer@slide {fig:mse_lstm}{41}
+\beamer@slide {sub@fig:mse_lstm}{41}
+\beamer@slide {fig:mse_svgp}{41}
+\beamer@slide {sub@fig:mse_svgp}{41}
+\beamer@slide {fig:mse_scores}{41}
+\beamer@slide {fig:msll_lar}{42}
+\beamer@slide {sub@fig:msll_lar}{42}
+\beamer@slide {fig:msll_svgp}{42}
+\beamer@slide {sub@fig:msll_svgp}{42}
+\beamer@slide {fig:msll_scores}{42}
+\beamer@slide {tab:metrics}{43}
+\beamer@slide {eq:igp}{48}

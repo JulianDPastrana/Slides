@@ -35,7 +35,7 @@
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\beamer@sectionpages {9}{13}}
 \headcommand {\beamer@subsectionpages {9}{13}}
-\headcommand {\sectionentry {4}{Gaussian Process Regression}{14}{Gaussian Process Regression: Bayesian Non-Parametric Model}{0}}
+\headcommand {\sectionentry {4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{14}{Gaussian Process Regression: Bayesian Non-Parametric Model}{0}}
 \headcommand {\slideentry {4}{0}{1}{14/14}{}{0}}
 \headcommand {\beamer@framepages {14}{14}}
 \headcommand {\beamer@subsectionpages {14}{14}}
@@ -90,14 +90,35 @@
 \headcommand {\beamer@framepages {37}{37}}
 \headcommand {\slideentry {4}{2}{10}{38/38}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\beamer@subsectionpages {29}{38}}
-\headcommand {\beamer@subsectionentry {0}{4}{3}{39}{Performance Analysis}}
-\headcommand {\slideentry {4}{3}{1}{39/39}{Performance Analysis}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{4}{2}{1}{39}{Performance Analysis}}
+\headcommand {\slideentry {4}{2}{11}{39/39}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\slideentry {4}{3}{2}{40/40}{Performance Analysis}{0}}
+\headcommand {\slideentry {4}{2}{12}{40/40}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {40}{40}}
-\headcommand {\beamer@partpages {1}{40}}
-\headcommand {\beamer@subsectionpages {39}{40}}
-\headcommand {\beamer@sectionpages {14}{40}}
-\headcommand {\beamer@documentpages {40}}
-\headcommand {\gdef \inserttotalframenumber {40}}
+\headcommand {\slideentry {4}{2}{13}{41/41}{Results and Discussions}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {4}{2}{14}{42/42}{Results and Discussions}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {4}{2}{15}{43/43}{Results and Discussions}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\beamer@subsubsectionentry {0}{4}{2}{2}{44}{Concluding Remark}}
+\headcommand {\slideentry {4}{2}{16}{44/44}{Results and Discussions}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {4}{2}{17}{45/45}{Results and Discussions}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\beamer@sectionpages {14}{45}}
+\headcommand {\beamer@subsectionpages {29}{45}}
+\headcommand {\sectionentry {5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{46}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{0}}
+\headcommand {\slideentry {5}{0}{1}{46/46}{}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\beamer@subsectionpages {46}{46}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{47}{Mathematical Framework}}
+\headcommand {\slideentry {5}{1}{1}{47/47}{Mathematical Framework}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {5}{1}{2}{48/48}{Mathematical Framework}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\beamer@partpages {1}{48}}
+\headcommand {\beamer@subsectionpages {49}{48}}
+\headcommand {\beamer@sectionpages {46}{48}}
+\headcommand {\beamer@documentpages {48}}
+\headcommand {\gdef \inserttotalframenumber {48}}

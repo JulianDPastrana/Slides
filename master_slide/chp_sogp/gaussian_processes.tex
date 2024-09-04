@@ -1,4 +1,4 @@
-\section[Gaussian Process Regression]{Gaussian Process Regression: Bayesian Non-Parametric Model}
+\section{Gaussian Process Regression: Bayesian Non-Parametric Model}
 \subsection{Mathematical Framework}
 \begin{frame}
 	In the GP framework, the dataset $\mathcal{D}$ is used to learn a random mapping function $\bm{f}(\cdot)$, capturing the relationship between $\bm{x}_n$ and $\bm{y}_n$. We define a GP distribution over $\bm{f}(\cdot)$ as:
@@ -306,7 +306,7 @@
 
 \end{frame}
 
-\subsection{Performance Analysis}
+\subsubsection{Performance Analysis}
 
 \begin{frame}{Model Comparison}
 	For performance analysis, the proposed SVGP-based forecasting is contrasted against the straightforward Linear AutoRegressive model (LAR) and the nonlinear Long-Short-Term Memory network (LSTM).
@@ -332,4 +332,81 @@
 \end{frame}
 
 
+\begin{frame}{MSE Scores}
+	\begin{figure}[htbp]
+		%\centering
+		\setlength\figurewidth{0.37\columnwidth} 
+		\setlength\figureheight{0.37\columnwidth}
+		\subfloat[LAR.\label{fig:mse_lar}]{\input{chp_sogp/figures/mse_lar}}\hspace{-1.5em}
+		\subfloat[LSTM.\label{fig:mse_lstm}]{\input{chp_sogp/figures/mse_lstm}}\hspace{-1.5em}
+		\subfloat[SVGP.\label{fig:mse_svgp}]{\input{chp_sogp/figures/mse_igp}}
+		\caption{Achieved MSE for LAR, LSTM, and SVGP forecasting models at each horizon and reservoir.}
+		\label{fig:mse_scores} 
+	\end{figure}
+\end{frame}
 
+\begin{frame}{MSLL Score}
+	\begin{figure}[htbp]
+		%\centering
+		\setlength\figurewidth{0.5\columnwidth} 
+		\setlength\figureheight{0.445\columnwidth}
+		\subfloat[LAR.\label{fig:msll_lar}]{\input{chp_sogp/figures/msll_lar}}\hspace{-1.5em}
+		\subfloat[SVGP.\label{fig:msll_svgp}]{\input{chp_sogp/figures/msll_igp}}
+		\caption{{Achieved MSLL} %MDPI: Please change the hyphen (-) into a minus sign ($-$, "U+2212") in the image.
+			for LAR and SVGP forecasting models at each horizon and reservoir.}
+		\label{fig:msll_scores} 
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Performance t-test}
+	\tiny
+	\begin{table}[htbp]
+		% \centering
+		\caption{Performance metrics for LAR, LSTM, and SVGP on the considered horizons $H$. Bold and asterisk denote a \emph{p}-value $p<1\%$ in a one-tailed paired \emph{t}-test for LAR vs. SVGP and LSTM vs. SVGP.}
+		\label{tab:metrics}
+		% \newcolumntype{C}{>{\centering\arraybackslash}X}
+		\begin{tabular}{c p{1cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}}
+			\toprule
+			& \multicolumn{3}{c}{\textbf{MSE}} & \multicolumn{2}{c}{\textbf{MSLL}} & \multicolumn{2}{c}{\textbf{CRPS}} \\
+			\cmidrule{2-8}
+			\( \textbf{H} \) & \textbf{LAR} & \textbf{LSTM} & \textbf{SVGP} & \textbf{LAR} & \textbf{SVGP} & \textbf{LAR} & \textbf{SVGP} \\
+			\midrule
+			1  & 0.51 & 0.96 & 0.52 * & $-$0.39 & $-$0.53 & 0.34 & 0.32 \\
+			2  & 0.63 & 1.01 & \textbf{0.61} * & $-$0.27 & \textbf{$-$0.42} & 0.39 & \textbf{0.36} \\
+			3  & 0.68 & 1.02 & \textbf{0.65} * & $-$0.22 & \textbf{$-$0.38} & 0.41 & \textbf{0.38} \\
+			4  & 0.72 & 1.03 & \textbf{0.69} * & $-$0.18 & \textbf{$-$0.34} & 0.42 & \textbf{0.39} \\
+			5  & 0.74 & 1.06 & \textbf{0.71} * & $-$0.17 & \textbf{$-$0.33} & 0.43 & \textbf{0.40} \\
+			6  & 0.76 & 1.07 & \textbf{0.72} * & $-$0.16 & \textbf{$-$0.32} & 0.44 & \textbf{0.40} \\
+			7  & 0.76 & 1.11 & \textbf{0.74} * & $-$0.15 & \textbf{$-$0.31} & 0.44 & \textbf{0.41} \\
+			14 & 0.83 & 1.12 & \textbf{0.79} * & $-$0.10 & \textbf{$-$0.27} & 0.46 & \textbf{0.43} \\
+			21 & 0.88 & 1.08 & \textbf{0.83} * & $-$0.07 & \textbf{$-$0.23} & 0.48 & \textbf{0.45} \\
+			30 & 0.91 & 1.06 & \textbf{0.88} * & $-$0.05 & \textbf{$-$0.20} & 0.49 & \textbf{0.46} \\
+			\midrule
+			Grand Average & 0.74 & 1.05 & \textbf{0.71} * & $-$0.18 & \textbf{$-$0.33} & 0.43 & \textbf{0.40} \\
+			\bottomrule
+		\end{tabular}
+		
+	\end{table}
+\end{frame}
+
+\subsubsection{Concluding Remark}
+\begin{frame}{To Conclude}
+	\begin{itemize}
+		\justifying
+		\item The proposed methodology diminishes the computational complexity from cubic to linear regarding the number of samples, becoming more scalable to forecasting tasks on large datasets.
+		\item The optimal number of inducing points performs as an inherent regularization by encoding the most information from the data while avoiding overfitting.
+		\item The t-SNE-based distribution plots reveal that the proposed model strategically places the shared inducing points to capture task-wise, group-specific, and global dynamics, trading off between capturing the reservoir-wise unique characteristics and the between-reservoir dependencies, improving the overall performance in streamflow forecasting.
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{To Conclude}
+	\begin{itemize}
+		\justifying
+		\item The trained lengthscales prove that the GP model successfully adjusts its focus to prediction horizon changes between short-term memory components and long-term relationships. This adaptability makes the Gaussian Process model robust and versatile for multiple-output forecasting tasks with varying time features.
+		
+		\item The performance analysis evidences the advantage of the proposed SVGP model over the baseline LAR and LSTM models for streamflow prediction in three main aspects. Firstly, adaptability to changing dynamics within and between reservoirs. Secondly, the Bayesian scheme returns a posterior distribution and provides informative confidence intervals. Thirdly, the SVGP better copes with the enhanced forecasting complexity for long horizons than baseline approaches, as proved by the slower error growth.
+		
+	\end{itemize}
+	
+\end{frame}

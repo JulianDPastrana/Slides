@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  30 AUG 2024 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  4 SEP 2024 09:56
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1301,12 +1301,12 @@ ut line 1.
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<images/Logo_U.T.P.png, id=48, 289.08pt x 185.9748pt>
+<images/Logo_U.T.P.png, id=52, 289.08pt x 185.9748pt>
 File: images/Logo_U.T.P.png Graphic file (type png)
 <use images/Logo_U.T.P.png>
 Package pdftex.def Info: images/Logo_U.T.P.png  used on input line 1.
 (pdftex.def)             Requested size: 71.13177pt x 42.67682pt.
-<images/logo-maestria-scaled.jpg, id=50, 1927.2pt x 1927.2pt>
+<images/logo-maestria-scaled.jpg, id=54, 1927.2pt x 1927.2pt>
 File: images/logo-maestria-scaled.jpg Graphic file (type jpg)
 <use images/logo-maestria-scaled.jpg>
 Package pdftex.def Info: images/logo-maestria-scaled.jpg  used on input line 1.
@@ -1325,17 +1325,17 @@ Overfull \vbox (19.76886pt too high) detected at line 1
 
 
 ]
-<images/irrigation.jpg, id=115, 1891.065pt x 1260.71pt>
+<images/irrigation.jpg, id=119, 1891.065pt x 1260.71pt>
 File: images/irrigation.jpg Graphic file (type jpg)
 <use images/irrigation.jpg>
 Package pdftex.def Info: images/irrigation.jpg  used on input line 29.
 (pdftex.def)             Requested size: 103.24423pt x 113.80527pt.
-<images/flood_control.jpeg, id=116, 1204.5pt x 677.53125pt>
+<images/flood_control.jpeg, id=120, 1204.5pt x 677.53125pt>
 File: images/flood_control.jpeg Graphic file (type jpg)
 <use images/flood_control.jpeg>
 Package pdftex.def Info: images/flood_control.jpeg  used on input line 29.
 (pdftex.def)             Requested size: 103.25415pt x 113.80379pt.
-<images/hydro_gen.jpeg, id=117, 202.356pt x 105.5142pt>
+<images/hydro_gen.jpeg, id=121, 202.356pt x 105.5142pt>
 File: images/hydro_gen.jpeg Graphic file (type jpg)
 <use images/hydro_gen.jpeg>
 Package pdftex.def Info: images/hydro_gen.jpeg  used on input line 29.
@@ -1344,12 +1344,12 @@ Package pdftex.def Info: images/hydro_gen.jpeg  used on input line 29.
 
  <./images/irrigation.jpg> <./images/flood_control.jpeg> <./images/hydro_gen.jp
 eg>]
-<images/drought.jpg, id=146, 1988.8704pt x 1325.9136pt>
+<images/drought.jpg, id=151, 1988.8704pt x 1325.9136pt>
 File: images/drought.jpg Graphic file (type jpg)
 <use images/drought.jpg>
 Package pdftex.def Info: images/drought.jpg  used on input line 51.
 (pdftex.def)             Requested size: 154.86421pt x 113.80379pt.
-<images/full_dam.jpg, id=147, 623.32875pt x 415.5525pt>
+<images/full_dam.jpg, id=152, 623.32875pt x 415.5525pt>
 File: images/full_dam.jpg Graphic file (type jpg)
 <use images/full_dam.jpg>
 Package pdftex.def Info: images/full_dam.jpg  used on input line 51.
@@ -1357,7 +1357,7 @@ Package pdftex.def Info: images/full_dam.jpg  used on input line 51.
  [4
 
  <./images/drought.jpg> <./images/full_dam.jpg>]
-<images/gpr.png, id=175, 1156.32pt x 578.16pt>
+<images/gpr.png, id=179, 1156.32pt x 578.16pt>
 File: images/gpr.png Graphic file (type png)
 <use images/gpr.png>
 Package pdftex.def Info: images/gpr.png  used on input line 60.
@@ -1377,7 +1377,7 @@ Package pdftex.def Info: images/gpr.png  used on input line 60.
 ] [11
 
 ]
-<images/colombiamap.pdf, id=384, 409.29944pt x 463.0108pt>
+<images/colombiamap.pdf, id=388, 409.29944pt x 463.0108pt>
 File: images/colombiamap.pdf Graphic file (type pdf)
 <use images/colombiamap.pdf>
 Package pdftex.def Info: images/colombiamap.pdf  used on input line 110.
@@ -1385,7 +1385,7 @@ Package pdftex.def Info: images/colombiamap.pdf  used on input line 110.
  [12
 
  <./images/colombiamap.pdf>]
-<images/ct_violinplot.pdf, id=536, 382.17839pt x 142.32895pt>
+<images/ct_violinplot.pdf, id=540, 382.17839pt x 142.32895pt>
 File: images/ct_violinplot.pdf Graphic file (type pdf)
 <use images/ct_violinplot.pdf>
 Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 122.
@@ -1453,25 +1453,25 @@ ematrix14-000.png> <./chp_sogp/figures/lengthscalematrix30-000.png>]
 ] [36
 
 ]
-<chp_sogp/figures/TSNE_task4_kde_p30.png, id=1305, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task4_kde_p30.png, id=1310, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task4_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task4_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task4_kde_p30.png  used on input
  line 302.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task8_kde_p30.png, id=1306, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task8_kde_p30.png, id=1311, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task8_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task8_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task8_kde_p30.png  used on input
  line 302.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task11_kde_p30.png, id=1307, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task11_kde_p30.png, id=1312, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task11_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task11_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task11_kde_p30.png  used on inpu
 t line 302.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task20_kde_p30.png, id=1308, 928.6695pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task20_kde_p30.png, id=1313, 928.6695pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task20_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task20_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task20_kde_p30.png  used on inpu
@@ -1503,6 +1503,38 @@ Overfull \vbox (12.21793pt too high) detected at line 332
 
 [40
 
+] (./chp_sogp/figures/mse_lar.tex) (./chp_sogp/figures/mse_lstm.tex)
+(./chp_sogp/figures/mse_igp.tex)
+Overfull \vbox (0.30658pt too high) detected at line 346
+ []
+
+[41
+
+ <./chp_sogp/figures/mse_lar-000.png> <./chp_sogp/figures/mse_lar_profile-000.p
+ng> <./chp_sogp/figures/mse_lstm-000.png> <./chp_sogp/figures/mse_lstm_profile-
+000.png> <./chp_sogp/figures/mse_igp-000.png> <./chp_sogp/figures/mse_igp_profi
+le-000.png>] (./chp_sogp/figures/msll_lar.tex)
+(./chp_sogp/figures/msll_igp.tex)
+Overfull \vbox (15.50047pt too high) detected at line 359
+ []
+
+[42
+
+ <./chp_sogp/figures/msll_lar-000.png> <./chp_sogp/figures/msll_lar_profile-000
+.png> <./chp_sogp/figures/msll_igp-000.png> <./chp_sogp/figures/msll_igp_profil
+e-000.png>] [43
+
+] [44
+
+] [45
+
+]) (./chp_lmc/multi_output_gaussian_processes.tex
+[46
+
+] [47
+
+] [48
+
 ])
 \tf@nav=\write6
 \openout6 = `main.nav'.
@@ -1513,22 +1545,22 @@ Overfull \vbox (12.21793pt too high) detected at line 332
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 122.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 122.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
  (./main.aux (./cover/cover.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 122.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 122.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 84D59DEB50FEE1EB1E0C5FAF23E83B95;446.
+(rerunfilecheck)             Checksum: DBCF4FDD07629CEC981BC599CB54AEDD;550.
  ) 
 Here is how much of TeX's memory you used:
- 38292 strings out of 481239
- 906407 string characters out of 5920377
- 2143876 words of memory out of 5000000
- 52606 multiletter control sequences out of 15000+600000
- 553936 words of font info for 90 fonts, out of 8000000 for 9000
+ 38505 strings out of 481239
+ 910144 string characters out of 5920377
+ 2180148 words of memory out of 5000000
+ 52746 multiletter control sequences out of 15000+600000
+ 554587 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,19n,127p,792b,2795s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,19n,127p,792b,2825s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -1536,28 +1568,30 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (40 pages, 14155575 bytes).
+ublic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmssi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on main.pdf (48 pages, 14257197 bytes).
 PDF statistics:
- 1545 PDF objects out of 1728 (max. 8388607)
- 1359 compressed objects within 14 object streams
- 106 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1834 PDF objects out of 2073 (max. 8388607)
+ 1613 compressed objects within 17 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 
