@@ -8,3 +8,6 @@
 \beamer@subsubsectionintoc {4}{2}{2}{Concluding Remark}{44}{0}{4}
 \beamer@sectionintoc {5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{46}{0}{5}
 \beamer@subsectionintoc {5}{1}{Mathematical Framework}{47}{0}{5}
+\beamer@subsectionintoc {5}{2}{Results and Discussions}{59}{0}{5}
+\beamer@subsubsectionintoc {5}{2}{1}{Hyperparameter Tuning}{59}{0}{5}
+\beamer@subsubsectionintoc {5}{2}{2}{Performance Analysis}{62}{0}{5}

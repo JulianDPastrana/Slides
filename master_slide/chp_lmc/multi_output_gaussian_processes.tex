@@ -40,8 +40,195 @@
 	We call this model Independent Gaussian process (IGP).
 \end{frame}
 
+\begin{frame}{Modeling Output Interactions}
+	We introduce a framework based on a set of independent Gaussian processes $\{u_q(\mathbf{x})\}_{q=1}^Q$, with their own covariance function $k_q(\mathbf{x}, \mathbf{x}')$ and each latent process $f_d(\mathbf{x})$ is represented as an instantaneous, time-invariant linear combination of the independent processes:
+	
+	\begin{equation*}
+		\begin{aligned}
+			f_{d}(\mathbf{x}) &= \sum_{q=1}^Q a_{d,q} u_{q}(\mathbf{x}) \quad &
+			u_{q}(\mathbf{x}) &\sim \mathcal{GP}(0, k_{q}(\mathbf{x}, \mathbf{x}')) 
+		\end{aligned}\label{eq:LMC_cov}
+	\end{equation*}
+	
+
+\end{frame}
+
+
+\begin{frame}{Graphical Representation}
+	\begin{figure}
+	\setlength\figurewidth{0.5\textwidth} 
+	\setlength\figureheight{0.08\textwidth}
+	\input{chp_lmc/figures/lmc_graph}
+	\caption{Graphical representation of the Linear Model of Coregionalization GP} 
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Cross-covariance function}
+	The cross-covariance function of the latent Gaussian process is expressed as:
+	
+	\begin{equation}
+		\begin{split}
+			k_{d,d'}(\mathbf{x}, \mathbf{x}') &= \text{cov}\{f_{d}(\mathbf{x}), f_{d'}(\mathbf{x}')\}\\
+			&=\sum_{q=1}^Q \sum_{q'=1}^Q a_{d,q}a_{d',q'}\text{cov}\{u_{q}(\mathbf{x}), u_{q'}(\mathbf{x}')\}\\
+			&=\sum_{q=1}^Q a_{d,q}a_{d',q} k_{q}(\mathbf{x}, \mathbf{x}')\\
+			&=\sum_{q=1}^Q b^q_{d, d'} k_{q}(\mathbf{x}, \mathbf{x}')
+		\end{split}
+	\end{equation}
+	
+	Here, $b^q_{d, d'} = a_{d,q}a_{d',q}$ captures the interactions among the outputs induced by the $q$-th independent process, while $k_{q}(\mathbf{x}, \mathbf{x}')$ characterizes the interaction among input spaces viewed from the perspective of the $q$-th independent process. 
+\end{frame}
+
+\begin{frame}{The Matrix Kernel Function}
+	Instead of a scalar kernel function, we now have a matrix kernel function $\mathbf{k}: \mathcal{X} \times \mathcal{X} \to \mathbb{R}^{D \times D}$ with elements $k_{d,d'}(\mathbf{x}, \mathbf{x}')$:
+	
+	\begin{equation}\label{eq:lmc_covariance_function}
+		\mathbf{k}(\mathbf{x}, \mathbf{x}') = \sum_{q=1}^Q \mathbf{B}_q k_{q}(\mathbf{x}, \mathbf{x}')
+	\end{equation}
+	
+	Here, each $\mathbf{B}_q \in \mathbb{R}^{D \times D}$ is referred to as the coregionalization matrix, with elements $(\mathbf{B}_q)_{d,d'} = b^q_{d, d'}$. Evaluating this at all test points $X_*$ allows us to recover the covariance matrix as follows:
+	
+	\begin{equation}
+		\mathbf{K}_{**} = \sum_{q=1}^Q \mathbf{B}_q \otimes K_{q**}
+	\end{equation}
+	where $\otimes$ denotes the Kronecker product between matrices.
+\end{frame}
+
+\begin{frame}{Linear Model of Coregionalization GP (LMCGP)}
+	This model can effectively capture the cross-covariances of the output given by $k_{d,d'}(\mathbf{x}, \mathbf{x}')$, allowing to fill zeros in covariance matrix of IGP as follows:
+	
+	\begin{equation*}
+		\left[ \begin{array}{c}
+			\mathbf{f}_{1*}\\
+			\mathbf{f}_{2*}\\
+			\vdots\\
+			\mathbf{f}_{D*}\\
+		\end{array}
+		\right]
+		\sim
+		\mathcal{N} \left(
+		\begin{array}{c}
+			\mathbf{0}\\
+		\end{array},
+		\sum_{q=1}^Q
+		\left[ \begin{array}{cccccc}
+			b^q_{1, 1} & b^q_{1, 2} & \cdots & b^q_{1, D} \\
+			b^q_{2, 1} & b^q_{2, 2} & \cdots & b^q_{2, D} \\
+			\vdots & \vdots & \ddots & \vdots\\
+			b^q_{D, 1} & b^q_{D, 2} & \cdots & b^q_{D, D}\\
+		\end{array}
+		\right] \otimes K_{q**}\right)
+	\end{equation*}
+	We call this model Linear Model of Coregionalization Gaussian Process (LMCGP).
+\end{frame}
+
+\begin{frame}{Variational Inference and ELBO}
+	We can extent our variational inference to include the independent set. Furthermore, instead of utilizing the latent processes $f_d$, we utilize the inducing variables derived from the independent processes $u_q$ providing the following ELBO:
+	
+	\begin{equation}\label{eq:lmc_elbo}
+		\mathcal{L} = \sum_{d=1}^D\sum_{n=1}^{N} \mathbb{E}_{q(f_{dn})}\{\log p(y_{dn} \mid f_{dn})\} - \sum_{q=1}^Q \text{KL}\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\}
+	\end{equation}
+	
+\end{frame}
+
+\begin{frame}{Latent posterior and Predictive distribution}
+	The posterior over test points $X_*$, denoted as $p(\mathbf{f}_* \mid \mathbf{y})$, is approximated as follows:
+	\begin{equation}
+		p(\mathbf{f}_* \mid \mathbf{y}) \approx q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d \mathbf{u}
+	\end{equation}
+	We add Gaussian noise $\sigma_{Nd}^2$ to the corresponding task into the above random vector to obtain the predictive distribution.
+\end{frame}
+
+\begin{frame}{Adam + Natural Gradient Optimization} \textbf{Optimization Parameters for LMCGP:} \begin{itemize} \item \textbf{Kernel:} lengthscales, output scales \item \textbf{Likelihood:} data noise $\{ \sigma^2_{Nd} \}_{d=1}^D$ \item \textbf{Inducing Points:} $Z$ \item \textbf{Variational Parameters:} $\{\mathbf{\mu_q}, S_q\}_{q=1}^Q$ \end{itemize}
+	
+	\textbf{Challenges:} Strong dependency between variational parameters and others makes the model sensitive. ELBO loss function is non-convex, leading to poor local minima with traditional optimizers.
+	
+	\textbf{Solution:} Combine Natural Gradient (NG) with Adam. NG optimizes variational parameters, while Adam optimizes other parameters.
+	
+	\textbf{Benefits:} This hybrid method, Adam + NG, improves optimization performance, allowing better convergence.
+\end{frame}
+
+\begin{frame}{Model Setup}
+	The proposed methodology constructs the LMCGP covariance function using the widely applied squared exponential kernel:
+	\begin{equation}\label{eq:nonscaled_squared_exponential_kernel}
+		k_{q}\left(\mathbf{x}, \mathbf{x'} \mid \Theta_q \right) = \exp\left(-\frac{1}{2}(\mathbf{x} - \mathbf{x'})^\top \Theta_q^{-2} (\mathbf{x} - \mathbf{x'})\right)
+	\end{equation}
+	Upon examining, one might question the absence of an output scale parameter. However, a detailed look at shows that the elements in the matrix $\mathbf{B}_q$ perform the function of rescaling the exponential term in the $k_q$ kernel.\\~\\ 
+	The trainable covariance parameters are $\{ \mathbf{B}_q, \Theta_q\}_{q=1}^Q$.
+\end{frame}
+
+\begin{frame}{Negative Log Predictive Density}
+	To evaluate the models' performance, we use the implemented metrics MSE, MSLL, and CRPS. Additionally, we propose a new metric called Negative Log Predictive Density (NLPD), which applies to any type of predictive distribution and is defined as:
+	
+	\begin{equation}
+		\begin{split}
+			\text{NLPD} &= -\frac{1}{N_*}\log p(\mathbf{y}_* \mid \mathbf{y})\\
+			&= -\frac{1}{N_*}\sum_{n=1}^{N_*} \log p(\mathbf{y}_{n*} \mid \mathbf{y}) 
+		\end{split}
+	\end{equation}
+\end{frame}
 
 \subsection{Results and Discussions}
+
+\subsubsection{Hyperparameter Tuning}
+
+\begin{frame}{Tuning Q}
+	\begin{figure}[htbp]
+	\centering
+	\setlength\figurewidth{0.5\columnwidth} 
+	\setlength\figureheight{0.28\columnwidth}
+	
+	\subfloat[CRPS]{\input{chp_lmc/figures/CRPS_gs}}\hspace{0.1em}
+	\subfloat[MSE]{\input{chp_lmc/figures/MSE_gs}}\\
+	\vspace{0.1em} % Adjust spacing between rows
+	
+	\subfloat[MSLL]{\input{chp_lmc/figures/MSLL_gs}}\hspace{0.1em}
+	\subfloat[NLPD]{\input{chp_lmc/figures/NLPD_gs}}
+	\caption{Performance metrics for LMCGP models as a function of the number of independent GPs. We finally select $Q=17$ as the proper parameter}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Lengthscale and $a_{d,q}$ Values (H=1)}
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{0.46\columnwidth} 
+		\setlength\figureheight{0.46\columnwidth}
+		\subfloat[\label{fig:lmc_lengthscales}]{\input{chp_lmc/figures/lengthscale_matrix_1}}\hspace{-0.8em}
+		\subfloat[\label{fig:lmc_W_matrix}]{\input{chp_lmc/figures/coregionalization_1}}
+		\caption{Lengthscale values of Input Features for Each Independent GP Model (left) and coefficients $a_{d,q}$ (right) for horizon $H=1$.}
+		\label{fig:lmc_parameters_h1} 
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Lengthscale and $a_{d,q}$ Values (H=30)}
+	\begin{figure}[htbp]
+		%\centering
+		\setlength\figurewidth{0.46\columnwidth} 
+		\setlength\figureheight{0.46\columnwidth}
+		\subfloat[\label{fig:lmc_lengthscales_h30}]{\input{chp_lmc/figures/lengthscale_matrix_30}}\hspace{-0.8em}
+		\subfloat[\label{fig:lmc_W_matrix_h30}]{\input{chp_lmc/figures/coregionalization_30}}
+		\caption{Lengthscale values of Input Features for Each Independent GP Model (left) and coefficients $a_{d,q}$ (right) for horizon $H=30$.}
+		\label{fig:lmc_parameters_h30} 
+	\end{figure}
+\end{frame}
+
+\subsubsection{Performance Analysis}
+
+\begin{frame}{LMCGP vs IGP+ vs IGP}
+The performance analysis compares LMCGP against two multi-output GP models: the IGP implemented, trained using only Adam optimizer, and another IGP trained into Adam + NG framework, called here IGP+.
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{0.52\columnwidth}
+		\setlength\figureheight{0.42\columnwidth}
+		
+		\subfloat[NLPD]{\input{chp_lmc/figures/performance_bars_NLPD}}
+		\hfill
+		\subfloat[MSLL]{\input{chp_lmc/figures/performance_bars_MSLL}}
+		
+		\caption{Bar plots comparing the performance of LMCGP, IGP+, and IGP models for different \(H\) values.}
+	\end{figure}
+\end{frame}
 
 \subsubsection{Performance Analysis}
 \subsubsection{Concluding Remark}

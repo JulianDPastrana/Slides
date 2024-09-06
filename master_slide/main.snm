@@ -30,3 +30,17 @@
 \beamer@slide {fig:msll_scores}{42}
 \beamer@slide {tab:metrics}{43}
 \beamer@slide {eq:igp}{48}
+\beamer@slide {eq:LMC_cov}{49}
+\beamer@slide {eq:lmc_covariance_function}{52}
+\beamer@slide {eq:lmc_elbo}{54}
+\beamer@slide {eq:nonscaled_squared_exponential_kernel}{57}
+\beamer@slide {fig:lmc_lengthscales}{60}
+\beamer@slide {sub@fig:lmc_lengthscales}{60}
+\beamer@slide {fig:lmc_W_matrix}{60}
+\beamer@slide {sub@fig:lmc_W_matrix}{60}
+\beamer@slide {fig:lmc_parameters_h1}{60}
+\beamer@slide {fig:lmc_lengthscales_h30}{61}
+\beamer@slide {sub@fig:lmc_lengthscales_h30}{61}
+\beamer@slide {fig:lmc_W_matrix_h30}{61}
+\beamer@slide {sub@fig:lmc_W_matrix_h30}{61}
+\beamer@slide {fig:lmc_parameters_h30}{61}
