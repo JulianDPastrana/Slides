@@ -67,14 +67,14 @@
 \begin{frame}{Cross-covariance function}
 	The cross-covariance function of the latent Gaussian process is expressed as:
 	
-	\begin{equation}
+	\begin{equation*}
 		\begin{split}
 			k_{d,d'}(\mathbf{x}, \mathbf{x}') &= \text{cov}\{f_{d}(\mathbf{x}), f_{d'}(\mathbf{x}')\}\\
 			&=\sum_{q=1}^Q \sum_{q'=1}^Q a_{d,q}a_{d',q'}\text{cov}\{u_{q}(\mathbf{x}), u_{q'}(\mathbf{x}')\}\\
 			&=\sum_{q=1}^Q a_{d,q}a_{d',q} k_{q}(\mathbf{x}, \mathbf{x}')\\
 			&=\sum_{q=1}^Q b^q_{d, d'} k_{q}(\mathbf{x}, \mathbf{x}')
 		\end{split}
-	\end{equation}
+	\end{equation*}
 	
 	Here, $b^q_{d, d'} = a_{d,q}a_{d',q}$ captures the interactions among the outputs induced by the $q$-th independent process, while $k_{q}(\mathbf{x}, \mathbf{x}')$ characterizes the interaction among input spaces viewed from the perspective of the $q$-th independent process. 
 \end{frame}
@@ -82,15 +82,15 @@
 \begin{frame}{The Matrix Kernel Function}
 	Instead of a scalar kernel function, we now have a matrix kernel function $\mathbf{k}: \mathcal{X} \times \mathcal{X} \to \mathbb{R}^{D \times D}$ with elements $k_{d,d'}(\mathbf{x}, \mathbf{x}')$:
 	
-	\begin{equation}\label{eq:lmc_covariance_function}
+	\begin{equation*}\label{eq:lmc_covariance_function}
 		\mathbf{k}(\mathbf{x}, \mathbf{x}') = \sum_{q=1}^Q \mathbf{B}_q k_{q}(\mathbf{x}, \mathbf{x}')
-	\end{equation}
+	\end{equation*}
 	
 	Here, each $\mathbf{B}_q \in \mathbb{R}^{D \times D}$ is referred to as the coregionalization matrix, with elements $(\mathbf{B}_q)_{d,d'} = b^q_{d, d'}$. Evaluating this at all test points $X_*$ allows us to recover the covariance matrix as follows:
 	
-	\begin{equation}
+	\begin{equation*}
 		\mathbf{K}_{**} = \sum_{q=1}^Q \mathbf{B}_q \otimes K_{q**}
-	\end{equation}
+	\end{equation*}
 	where $\otimes$ denotes the Kronecker product between matrices.
 \end{frame}
 
@@ -125,17 +125,17 @@
 \begin{frame}{Variational Inference and ELBO}
 	We can extent our variational inference to include the independent set. Furthermore, instead of utilizing the latent processes $f_d$, we utilize the inducing variables derived from the independent processes $u_q$ providing the following ELBO:
 	
-	\begin{equation}\label{eq:lmc_elbo}
+	\begin{equation*}\label{eq:lmc_elbo}
 		\mathcal{L} = \sum_{d=1}^D\sum_{n=1}^{N} \mathbb{E}_{q(f_{dn})}\{\log p(y_{dn} \mid f_{dn})\} - \sum_{q=1}^Q \text{KL}\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\}
-	\end{equation}
+	\end{equation*}
 	
 \end{frame}
 
 \begin{frame}{Latent posterior and Predictive distribution}
 	The posterior over test points $X_*$, denoted as $p(\mathbf{f}_* \mid \mathbf{y})$, is approximated as follows:
-	\begin{equation}
+	\begin{equation*}
 		p(\mathbf{f}_* \mid \mathbf{y}) \approx q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d \mathbf{u}
-	\end{equation}
+	\end{equation*}
 	We add Gaussian noise $\sigma_{Nd}^2$ to the corresponding task into the above random vector to obtain the predictive distribution.
 \end{frame}
 
@@ -150,9 +150,9 @@
 
 \begin{frame}{Model Setup}
 	The proposed methodology constructs the LMCGP covariance function using the widely applied squared exponential kernel:
-	\begin{equation}\label{eq:nonscaled_squared_exponential_kernel}
+	\begin{equation*}\label{eq:nonscaled_squared_exponential_kernel}
 		k_{q}\left(\mathbf{x}, \mathbf{x'} \mid \Theta_q \right) = \exp\left(-\frac{1}{2}(\mathbf{x} - \mathbf{x'})^\top \Theta_q^{-2} (\mathbf{x} - \mathbf{x'})\right)
-	\end{equation}
+	\end{equation*}
 	Upon examining, one might question the absence of an output scale parameter. However, a detailed look at shows that the elements in the matrix $\mathbf{B}_q$ perform the function of rescaling the exponential term in the $k_q$ kernel.\\~\\ 
 	The trainable covariance parameters are $\{ \mathbf{B}_q, \Theta_q\}_{q=1}^Q$.
 \end{frame}
@@ -160,12 +160,12 @@
 \begin{frame}{Negative Log Predictive Density}
 	To evaluate the models' performance, we use the implemented metrics MSE, MSLL, and CRPS. Additionally, we propose a new metric called Negative Log Predictive Density (NLPD), which applies to any type of predictive distribution and is defined as:
 	
-	\begin{equation}
+	\begin{equation*}
 		\begin{split}
 			\text{NLPD} &= -\frac{1}{N_*}\log p(\mathbf{y}_* \mid \mathbf{y})\\
 			&= -\frac{1}{N_*}\sum_{n=1}^{N_*} \log p(\mathbf{y}_{n*} \mid \mathbf{y}) 
 		\end{split}
-	\end{equation}
+	\end{equation*}
 \end{frame}
 
 \subsection{Results and Discussions}
@@ -230,5 +230,30 @@ The performance analysis compares LMCGP against two multi-output GP models: the 
 	\end{figure}
 \end{frame}
 
-\subsubsection{Performance Analysis}
-\subsubsection{Concluding Remark}
+\begin{frame}{Model Forecasting}
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{\columnwidth} 
+		\setlength\figureheight{0.24\columnwidth}
+		
+		\input{chp_lmc/figures/lmc_forecasting_SALVAJINA}\hfill
+		\input{chp_lmc/figures/lmc_forecasting_AMANI}\hfill
+		\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}
+		
+		\caption{Test data for reservoirs T, A, and I (top to bottom) in one day ahead LMCGP model prediction ($H=1$). Blue shade areas represent the $95\%$ centered confidence interval for LMCGP prediction.}
+	\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{To Conclude}
+	
+	\begin{itemize}
+		\justifying
+		\item The LMCGP effectively captures shared features and dynamics for multi-output tasks. However, increasing the number of independent GPs beyond a threshold leads to instability.
+		\item The lengthscale matrix and task dependency coefficients, $a_{d,q}$, provide critical insights into feature selection, with some GPs specializing in specific tasks and others covering a broader range of outputs.
+		\item To improve optimization performance, using Adam + NG optimizer proved superior to traditional methods, leading to more robust results.
+		\item The LMCGP outperformed the IGP in terms of NLPD and MSLL across all horizons, emphasizing the benefits of task dependency modeling.
+		\item The LMCGP's forecasting ability showed stronger learning of complex patterns by leveraging data from multiple tasks.
+	\end{itemize}
+\end{frame}

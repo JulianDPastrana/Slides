@@ -1,0 +1,99 @@
+\section[Chained Correlated Gaussian Processes]{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}
+
+\subsection{Results and Discussions}
+
+\begin{frame}{Tuning Q}
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{0.5\columnwidth} 
+		\setlength\figureheight{0.3\columnwidth}
+		\subfloat[CRPS]{\input{chp_chd/figures/CRPS_chd_normal}}
+		\subfloat[MSE]{\input{chp_chd/figures/MSE_chd_normal}}\\
+		\vspace{-0.2cm}
+		\subfloat[MSLL]{\input{chp_chd/figures/MSLL_chd_normal}}
+		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_chd_normal}}\\
+		\vspace{-0.5cm}
+		\caption{Performance metrics for ChdGP Normal model as a function of the number of independent GPs Q.}
+	\end{figure}
+\end{frame}
+
+\subsection{Performance Analysis}
+\begin{frame}{ChdGP Normal vs LMCGP}
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{0.53\columnwidth}
+		\setlength\figureheight{0.5\columnwidth}
+		
+		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_peformance_chdnormal}}
+		\hfill
+		\subfloat[MSLL]{\input{chp_chd/figures/MSLL_peformance_chdnormal}}
+		
+		\caption{Bar plots comparing the performance of LMCGP, and ChdGP Normal models for different \(H\) values.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{ChdGP Normal Model Forecasting}
+	\justifying
+	\begin{figure}[htbp]
+		\setlength\figurewidth{0.52\columnwidth} 
+		\setlength\figureheight{0.29\columnwidth}
+		
+		\subfloat[$T.$]{\input{chp_chd/figures/chd_normal_forecasting_SALVAJINA}}\hfill
+		\subfloat[$A.$]{\input{chp_chd/figures/chd_normal_forecasting_AMANI}}\\[-0.5cm]
+		\subfloat[$I.$]{\input{chp_chd/figures/chd_normal_forecasting_SAN LORENZO}}\hfill
+		\subfloat[$O.$]{\input{chp_chd/figures/chd_normal_forecasting_ESMERALDA}}\\[-0.4cm]
+		
+		\caption{Test data for four reservoirs in one day ahead ChdGP Normal model prediction ($H=1$). Blue shaded areas represent the $95\%$ centered confidence interval for the model's prediction.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Tuning Q}
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{\columnwidth} 
+		\setlength\figureheight{0.55\columnwidth}
+		\input{chp_chd/figures/NLPD_chd_gamma}
+		\caption{NLPD metric for ChdGP Gamma models as a function of the number of independent GPs.}
+	\end{figure}
+\end{frame}
+
+\subsection{Performance Analysis}
+
+\begin{frame}{ChdnGP Gamma vs ChdGP Normal}
+	\begin{figure}[htbp]
+		\centering
+		\setlength\figurewidth{\columnwidth} 
+		\setlength\figureheight{0.55\columnwidth}
+		\input{chp_chd/figures/NLPD_peformance_chdgamma}
+		\caption{Comparison of NLPD metric across different prediction horizons for the ChdGP Normal, and ChdGP Gamma models.}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{ChdGP Gamma Model Forecasting}
+	\centering
+	\begin{figure}[htbp]
+		\tiny
+		\setlength\figurewidth{0.52\columnwidth} 
+		\setlength\figureheight{0.30\columnwidth}
+		
+		\subfloat[$T.$]{\input{chp_chd/figures/chd_gamma_forecasting_SALVAJINA}}\hfill
+		\subfloat[$A.$]{\input{chp_chd/figures/chd_gamma_forecasting_AMANI}}\\[-0.5cm]
+		\subfloat[$I.$]{\input{chp_chd/figures/chd_gamma_forecasting_SAN LORENZO}}\hfill
+		\subfloat[$O.$]{\input{chp_chd/figures/chd_gamma_forecasting_ESMERALDA}}\\[-0.4cm]
+		
+		\caption{Test data for four reservoirs in one day ahead ChdGP Normal model prediction. Blue shaded areas represent the $95\%$ centered confidence interval for the model's prediction.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{To Conclude}
+	
+	\begin{itemize}
+		\justifying
+		\item The LMCGP effectively captures shared features and dynamics for multi-output tasks. However, increasing the number of independent GPs beyond a threshold leads to instability.
+		\item The lengthscale matrix and task dependency coefficients, $a_{d,q}$, provide critical insights into feature selection, with some GPs specializing in specific tasks and others covering a broader range of outputs.
+		\item To improve optimization performance, using Adam + NG optimizer proved superior to traditional methods, leading to more robust results.
+		\item The LMCGP outperformed the IGP in terms of NLPD and MSLL across all horizons, emphasizing the benefits of task dependency modeling.
+		\item The LMCGP's forecasting ability showed stronger learning of complex patterns by leveraging data from multiple tasks.
+	\end{itemize}
+\end{frame}
