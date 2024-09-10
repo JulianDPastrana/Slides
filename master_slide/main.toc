@@ -12,6 +12,7 @@
 \beamer@subsubsectionintoc {5}{2}{1}{Hyperparameter Tuning}{59}{0}{5}
 \beamer@subsubsectionintoc {5}{2}{2}{Performance Analysis}{62}{0}{5}
 \beamer@sectionintoc {6}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{65}{0}{6}
-\beamer@subsectionintoc {6}{1}{Results and Discussions}{66}{0}{6}
-\beamer@subsectionintoc {6}{2}{Performance Analysis}{67}{0}{6}
-\beamer@subsectionintoc {6}{3}{Performance Analysis}{70}{0}{6}
+\beamer@subsectionintoc {6}{1}{Mathematical Framework}{66}{0}{6}
+\beamer@subsectionintoc {6}{2}{Results and Discussions}{71}{0}{6}
+\beamer@subsectionintoc {6}{3}{Performance Analysis}{72}{0}{6}
+\beamer@subsectionintoc {6}{4}{Performance Analysis}{75}{0}{6}

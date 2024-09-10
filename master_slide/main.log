@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  6 SEP 2024 14:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  9 SEP 2024 17:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1328,12 +1328,12 @@ ut line 1.
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<images/Logo_U.T.P.png, id=72, 289.08pt x 185.9748pt>
+<images/Logo_U.T.P.png, id=76, 289.08pt x 185.9748pt>
 File: images/Logo_U.T.P.png Graphic file (type png)
 <use images/Logo_U.T.P.png>
 Package pdftex.def Info: images/Logo_U.T.P.png  used on input line 1.
 (pdftex.def)             Requested size: 71.13177pt x 42.67682pt.
-<images/logo-maestria-scaled.jpg, id=74, 1927.2pt x 1927.2pt>
+<images/logo-maestria-scaled.jpg, id=78, 1927.2pt x 1927.2pt>
 File: images/logo-maestria-scaled.jpg Graphic file (type jpg)
 <use images/logo-maestria-scaled.jpg>
 Package pdftex.def Info: images/logo-maestria-scaled.jpg  used on input line 1.
@@ -1352,17 +1352,17 @@ Overfull \vbox (19.76886pt too high) detected at line 1
 
 
 ]
-<images/irrigation.jpg, id=139, 1891.065pt x 1260.71pt>
+<images/irrigation.jpg, id=143, 1891.065pt x 1260.71pt>
 File: images/irrigation.jpg Graphic file (type jpg)
 <use images/irrigation.jpg>
 Package pdftex.def Info: images/irrigation.jpg  used on input line 29.
 (pdftex.def)             Requested size: 103.24423pt x 113.80527pt.
-<images/flood_control.jpeg, id=140, 1204.5pt x 677.53125pt>
+<images/flood_control.jpeg, id=144, 1204.5pt x 677.53125pt>
 File: images/flood_control.jpeg Graphic file (type jpg)
 <use images/flood_control.jpeg>
 Package pdftex.def Info: images/flood_control.jpeg  used on input line 29.
 (pdftex.def)             Requested size: 103.25415pt x 113.80379pt.
-<images/hydro_gen.jpeg, id=141, 202.356pt x 105.5142pt>
+<images/hydro_gen.jpeg, id=145, 202.356pt x 105.5142pt>
 File: images/hydro_gen.jpeg Graphic file (type jpg)
 <use images/hydro_gen.jpeg>
 Package pdftex.def Info: images/hydro_gen.jpeg  used on input line 29.
@@ -1371,12 +1371,12 @@ Package pdftex.def Info: images/hydro_gen.jpeg  used on input line 29.
 
  <./images/irrigation.jpg> <./images/flood_control.jpeg> <./images/hydro_gen.jp
 eg>]
-<images/drought.jpg, id=171, 1988.8704pt x 1325.9136pt>
+<images/drought.jpg, id=175, 1988.8704pt x 1325.9136pt>
 File: images/drought.jpg Graphic file (type jpg)
 <use images/drought.jpg>
 Package pdftex.def Info: images/drought.jpg  used on input line 51.
 (pdftex.def)             Requested size: 154.86421pt x 113.80379pt.
-<images/full_dam.jpg, id=172, 623.32875pt x 415.5525pt>
+<images/full_dam.jpg, id=176, 623.32875pt x 415.5525pt>
 File: images/full_dam.jpg Graphic file (type jpg)
 <use images/full_dam.jpg>
 Package pdftex.def Info: images/full_dam.jpg  used on input line 51.
@@ -1384,7 +1384,7 @@ Package pdftex.def Info: images/full_dam.jpg  used on input line 51.
  [4
 
  <./images/drought.jpg> <./images/full_dam.jpg>]
-<images/gpr.png, id=199, 1156.32pt x 578.16pt>
+<images/gpr.png, id=203, 1156.32pt x 578.16pt>
 File: images/gpr.png Graphic file (type png)
 <use images/gpr.png>
 Package pdftex.def Info: images/gpr.png  used on input line 60.
@@ -1404,7 +1404,7 @@ Package pdftex.def Info: images/gpr.png  used on input line 60.
 ] [11
 
 ]
-<images/colombiamap.pdf, id=408, 409.29944pt x 463.0108pt>
+<images/colombiamap.pdf, id=412, 409.29944pt x 463.0108pt>
 File: images/colombiamap.pdf Graphic file (type pdf)
 <use images/colombiamap.pdf>
 Package pdftex.def Info: images/colombiamap.pdf  used on input line 110.
@@ -1412,7 +1412,7 @@ Package pdftex.def Info: images/colombiamap.pdf  used on input line 110.
  [12
 
  <./images/colombiamap.pdf>]
-<images/ct_violinplot.pdf, id=560, 382.17839pt x 142.32895pt>
+<images/ct_violinplot.pdf, id=564, 382.17839pt x 142.32895pt>
 File: images/ct_violinplot.pdf Graphic file (type pdf)
 <use images/ct_violinplot.pdf>
 Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 122.
@@ -1480,25 +1480,25 @@ ematrix14-000.png> <./chp_sogp/figures/lengthscalematrix30-000.png>]
 ] [36
 
 ]
-<chp_sogp/figures/TSNE_task4_kde_p30.png, id=1330, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task4_kde_p30.png, id=1334, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task4_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task4_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task4_kde_p30.png  used on input
  line 302.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task8_kde_p30.png, id=1331, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task8_kde_p30.png, id=1335, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task8_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task8_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task8_kde_p30.png  used on input
  line 302.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task11_kde_p30.png, id=1332, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task11_kde_p30.png, id=1336, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task11_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task11_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task11_kde_p30.png  used on inpu
 t line 302.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task20_kde_p30.png, id=1333, 928.6695pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task20_kde_p30.png, id=1337, 928.6695pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task20_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task20_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task20_kde_p30.png  used on inpu
@@ -1627,50 +1627,67 @@ Overfull \vbox (13.2522pt too high) detected at line 245
 
 ]) (./chp_chd/chained_gaussian_processes.tex [65
 
+] [66
+
 ]
-(./chp_chd/figures/CRPS_chd_normal.tex) (./chp_chd/figures/MSE_chd_normal.tex)
-(./chp_chd/figures/MSLL_chd_normal.tex) (./chp_chd/figures/NLPD_chd_normal.tex)
-
-Overfull \vbox (4.61678pt too high) detected at line 18
- []
-
-[66
-
-] (./chp_chd/figures/NLPD_peformance_chdnormal.tex)
-(./chp_chd/figures/MSLL_peformance_chdnormal.tex)
-Overfull \vbox (5.8578pt too high) detected at line 33
+Overfull \hbox (4.17763pt too wide) in paragraph at lines 27--27
+\OT1/cmss/m/n/10 for-ma-tion of a la-tent Gaus-sian Pro-cess prior re-al-iza-ti
+on $\OML/cmm/m/it/10 f[]$\OT1/cmss/m/n/10 , given by $\OML/cmm/m/it/10 ^^R[] \O
+T1/cmr/m/n/10 = \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\OT1/c
+mr/m/n/10 )$\OT1/cmss/m/n/10 .
  []
 
 [67
+
+] [68
+
+] [69
+
+] [70
+
+] (./chp_chd/figures/CRPS_chd_normal.tex)
+(./chp_chd/figures/MSE_chd_normal.tex) (./chp_chd/figures/MSLL_chd_normal.tex)
+(./chp_chd/figures/NLPD_chd_normal.tex)
+Overfull \vbox (4.61678pt too high) detected at line 88
+ []
+
+[71
+
+] (./chp_chd/figures/NLPD_peformance_chdnormal.tex)
+(./chp_chd/figures/MSLL_peformance_chdnormal.tex)
+Overfull \vbox (5.8578pt too high) detected at line 103
+ []
+
+[72
 
 ] (./chp_chd/figures/chd_normal_forecasting_SALVAJINA.tex)
 (./chp_chd/figures/chd_normal_forecasting_AMANI.tex)
 (./chp_chd/figures/chd_normal_forecasting_SAN LORENZO.tex)
 (./chp_chd/figures/chd_normal_forecasting_ESMERALDA.tex)
-Overfull \vbox (9.70293pt too high) detected at line 48
+Overfull \vbox (9.70293pt too high) detected at line 118
  []
 
-[68
+[73
 
-] (./chp_chd/figures/NLPD_chd_gamma.tex) [69
+] (./chp_chd/figures/NLPD_chd_gamma.tex) [74
 
 ]
 (./chp_chd/figures/NLPD_peformance_chdgamma.tex)
-Overfull \vbox (0.56853pt too high) detected at line 71
+Overfull \vbox (0.56853pt too high) detected at line 141
  []
 
-[70
+[75
 
 ] (./chp_chd/figures/chd_gamma_forecasting_SALVAJINA.tex)
 (./chp_chd/figures/chd_gamma_forecasting_AMANI.tex)
 (./chp_chd/figures/chd_gamma_forecasting_SAN LORENZO.tex)
 (./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex)
-Overfull \vbox (7.42494pt too high) detected at line 87
+Overfull \vbox (7.42494pt too high) detected at line 157
  []
 
-[71
+[76
 
-] [72
+] [77
 
 ])
 \tf@nav=\write6
@@ -1688,13 +1705,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 157.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D87019DC90872C8E64C339369D9AD12D;972.
+(rerunfilecheck)             Checksum: 8DF43933E37E2EBA05E019BEA36A0F59;1045.
  ) 
 Here is how much of TeX's memory you used:
- 40988 strings out of 481239
- 973665 string characters out of 5920377
- 2199215 words of memory out of 5000000
- 55032 multiletter control sequences out of 15000+600000
+ 41017 strings out of 481239
+ 973957 string characters out of 5920377
+ 2199690 words of memory out of 5000000
+ 55049 multiletter control sequences out of 15000+600000
  558180 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,20n,127p,792b,2827s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1727,10 +1744,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (72 pages, 14653011 bytes).
+Output written on main.pdf (77 pages, 14668597 bytes).
 PDF statistics:
- 2590 PDF objects out of 2984 (max. 8388607)
- 2324 compressed objects within 24 object streams
- 208 named destinations out of 1000 (max. 500000)
- 388 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2743 PDF objects out of 2984 (max. 8388607)
+ 2471 compressed objects within 25 object streams
+ 220 named destinations out of 1000 (max. 500000)
+ 396 words of extra memory for PDF output out of 10000 (max. 10000000)
 
