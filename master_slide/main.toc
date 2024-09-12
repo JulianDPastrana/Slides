@@ -4,15 +4,15 @@
 \beamer@sectionintoc {4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{14}{0}{4}
 \beamer@subsectionintoc {4}{1}{Mathematical Framework}{15}{0}{4}
 \beamer@subsectionintoc {4}{2}{Results and Discussions}{29}{0}{4}
-\beamer@subsubsectionintoc {4}{2}{1}{Performance Analysis}{39}{0}{4}
-\beamer@subsubsectionintoc {4}{2}{2}{Concluding Remark}{44}{0}{4}
-\beamer@sectionintoc {5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{46}{0}{5}
-\beamer@subsectionintoc {5}{1}{Mathematical Framework}{47}{0}{5}
-\beamer@subsectionintoc {5}{2}{Results and Discussions}{59}{0}{5}
-\beamer@subsubsectionintoc {5}{2}{1}{Hyperparameter Tuning}{59}{0}{5}
-\beamer@subsubsectionintoc {5}{2}{2}{Performance Analysis}{62}{0}{5}
-\beamer@sectionintoc {6}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{65}{0}{6}
-\beamer@subsectionintoc {6}{1}{Mathematical Framework}{66}{0}{6}
-\beamer@subsectionintoc {6}{2}{Results and Discussions}{71}{0}{6}
-\beamer@subsectionintoc {6}{3}{Performance Analysis}{72}{0}{6}
-\beamer@subsectionintoc {6}{4}{Performance Analysis}{75}{0}{6}
+\beamer@subsubsectionintoc {4}{2}{1}{Performance Analysis}{37}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{2}{Concluding Remark}{42}{0}{4}
+\beamer@sectionintoc {5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{44}{0}{5}
+\beamer@subsectionintoc {5}{1}{Mathematical Framework}{45}{0}{5}
+\beamer@subsectionintoc {5}{2}{Results and Discussions}{57}{0}{5}
+\beamer@subsubsectionintoc {5}{2}{1}{Hyperparameter Tuning}{57}{0}{5}
+\beamer@subsubsectionintoc {5}{2}{2}{Performance Analysis}{60}{0}{5}
+\beamer@sectionintoc {6}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{63}{0}{6}
+\beamer@subsectionintoc {6}{1}{Mathematical Framework}{64}{0}{6}
+\beamer@subsectionintoc {6}{2}{Results and Discussions}{70}{0}{6}
+\beamer@subsectionintoc {6}{3}{Performance Analysis}{71}{0}{6}
+\beamer@subsectionintoc {6}{4}{Performance Analysis}{74}{0}{6}

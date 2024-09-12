@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  9 SEP 2024 17:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  11 SEP 2024 11:37
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1421,14 +1421,20 @@ Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 122.
 
  <./images/ct_violinplot.pdf>]) (./chp_sogp/gaussian_processes.tex [14
 
-] [15
+]
+Overfull \hbox (4.3598pt too wide) in paragraph at lines 27--27
+[]\OT1/cmss/m/n/10 By adding i.i.d Gaus-sian noise $\OML/cmm/b/it/10 ^^O$ \OT1/
+cmss/m/n/10 with di-ag-o-nal co-vari-ance ma-trix $\OT1/cmr/m/n/10 ^^F[] = []\O
+MS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^[[]\OMS/cmsy/m/n/10 g[]$\OT1/cmss/m/n/10 ,
+ []
+
+[15
 
 ] [16
 
 ] [17
 
-]
-[18
+] [18
 
 ] [19
 
@@ -1457,112 +1463,106 @@ Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 122.
 
  <./chp_sogp/figures/gs_msll-000.png> <./chp_sogp/figures/gs_mse-000.png>]
 (./chp_sogp/figures/output_scale_matrix.tex)
-(./chp_sogp/figures/noise_variance_matrix.tex) [31
-
- <./chp_sogp/figures/output_scale_matrix-000.png> <./chp_sogp/figures/noise_var
-iance_matrix-000.png>]
-[32
-
-] [33
-
-] (./chp_sogp/figures/lengthscalematrix1.tex)
-(./chp_sogp/figures/lengthscalematrix14.tex)
-(./chp_sogp/figures/lengthscalematrix30.tex)
-Overfull \vbox (7.11618pt too high) detected at line 246
+(./chp_sogp/figures/noise_variance_matrix.tex)
+Overfull \vbox (4.39659pt too high) detected at line 305
  []
 
-[34
+[31
+
+ <./chp_sogp/figures/output_scale_matrix-000.png> <./chp_sogp/figures/noise_var
+iance_matrix-000.png>] (./chp_sogp/figures/lengthscalematrix1.tex)
+(./chp_sogp/figures/lengthscalematrix14.tex)
+(./chp_sogp/figures/lengthscalematrix30.tex) [32
 
  <./chp_sogp/figures/lengthscalematrix1-000.png> <./chp_sogp/figures/lengthscal
-ematrix14-000.png> <./chp_sogp/figures/lengthscalematrix30-000.png>]
-[35
+ematrix14-000.png> <./chp_sogp/figures/lengthscalematrix30-000.png>] [33
 
-] [36
+] [34
 
 ]
-<chp_sogp/figures/TSNE_task4_kde_p30.png, id=1334, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task4_kde_p30.png, id=1277, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task4_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task4_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task4_kde_p30.png  used on input
- line 302.
+ line 375.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task8_kde_p30.png, id=1335, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task8_kde_p30.png, id=1278, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task8_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task8_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task8_kde_p30.png  used on input
- line 302.
+ line 375.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task11_kde_p30.png, id=1336, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task11_kde_p30.png, id=1279, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task11_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task11_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task11_kde_p30.png  used on inpu
-t line 302.
+t line 375.
 (pdftex.def)             Requested size: 130.7959pt x 71.5993pt.
-<chp_sogp/figures/TSNE_task20_kde_p30.png, id=1337, 928.6695pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task20_kde_p30.png, id=1280, 928.6695pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task20_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task20_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task20_kde_p30.png  used on inpu
-t line 302.
+t line 375.
 (pdftex.def)             Requested size: 130.7959pt x 71.0451pt.
 
-Overfull \vbox (3.87764pt too high) detected at line 302
+Overfull \vbox (3.87764pt too high) detected at line 375
  []
 
-[37
+[35
 
  <./chp_sogp/figures/TSNE_task4_kde_p30.png> <./chp_sogp/figures/TSNE_task8_kde
 _p30.png> <./chp_sogp/figures/TSNE_task11_kde_p30.png> <./chp_sogp/figures/TSNE
-_task20_kde_p30.png>] [38
+_task20_kde_p30.png>] [36
 
 ]
-Overfull \hbox (1.88846pt too wide) in paragraph at lines 317--317
+Overfull \hbox (1.88846pt too wide) in paragraph at lines 390--390
 []\OT1/cmss/m/n/10 For per-for-mance anal-y-sis, the pro-posed SVGP-based fore-
 cast-ing is con-trasted against
  []
 
-[39
+[37
 
 ] (./chp_sogp/figures/SALVAJINA_forecasting.tex)
 (./chp_sogp/figures/AMANI_forecasting.tex)
 (./chp_sogp/figures/SAN LORENZO_forecasting.tex)
-Overfull \vbox (12.21793pt too high) detected at line 332
+Overfull \vbox (12.21793pt too high) detected at line 405
  []
 
-[40
+[38
 
 ] (./chp_sogp/figures/mse_lar.tex) (./chp_sogp/figures/mse_lstm.tex)
 (./chp_sogp/figures/mse_igp.tex)
-Overfull \vbox (0.30658pt too high) detected at line 346
+Overfull \vbox (0.30658pt too high) detected at line 419
  []
 
-[41
+[39
 
  <./chp_sogp/figures/mse_lar-000.png> <./chp_sogp/figures/mse_lar_profile-000.p
 ng> <./chp_sogp/figures/mse_lstm-000.png> <./chp_sogp/figures/mse_lstm_profile-
 000.png> <./chp_sogp/figures/mse_igp-000.png> <./chp_sogp/figures/mse_igp_profi
 le-000.png>] (./chp_sogp/figures/msll_lar.tex)
 (./chp_sogp/figures/msll_igp.tex)
-Overfull \vbox (15.50047pt too high) detected at line 359
+Overfull \vbox (15.50047pt too high) detected at line 432
  []
 
-[42
+[40
 
  <./chp_sogp/figures/msll_lar-000.png> <./chp_sogp/figures/msll_lar_profile-000
 .png> <./chp_sogp/figures/msll_igp-000.png> <./chp_sogp/figures/msll_igp_profil
-e-000.png>] [43
+e-000.png>] [41
 
-] [44
+] [42
+
+] [43
+
+]) (./chp_lmc/multi_output_gaussian_processes.tex
+[44
 
 ] [45
 
-]) (./chp_lmc/multi_output_gaussian_processes.tex
-[46
+] [46
 
 ] [47
-
-] [48
-
-] [49
 
 ] (./chp_lmc/figures/lmc_graph.tex
 
@@ -1572,7 +1572,11 @@ contour: Using real outline for `$a_{1,2}$' on input line 34.
 contour: Using real outline for `$a_{1,3}$' on input line 34.
 contour: Using real outline for `$a_{1,4}$' on input line 34.
 contour: Using real outline for `$a_{1,Q}$' on input line 34.
-) [50
+) [48
+
+] [49
+
+] [50
 
 ] [51
 
@@ -1586,25 +1590,21 @@ contour: Using real outline for `$a_{1,Q}$' on input line 34.
 
 ] [56
 
-] [57
-
-] [58
-
 ] (./chp_lmc/figures/CRPS_gs.tex)
 (./chp_lmc/figures/MSE_gs.tex) (./chp_lmc/figures/MSLL_gs.tex)
 (./chp_lmc/figures/NLPD_gs.tex)
 Overfull \vbox (4.66522pt too high) detected at line 189
  []
 
-[59
+[57
 
 ] (./chp_lmc/figures/lengthscale_matrix_1.tex)
-(./chp_lmc/figures/coregionalization_1.tex) [60
+(./chp_lmc/figures/coregionalization_1.tex) [58
 
  <./chp_lmc/figures/lengthscale_matrix_1-000.png> <./chp_lmc/figures/coregional
 ization_1-000.png>]
 (./chp_lmc/figures/lengthscale_matrix_30.tex)
-(./chp_lmc/figures/coregionalization_30.tex) [61
+(./chp_lmc/figures/coregionalization_30.tex) [59
 
  <./chp_lmc/figures/lengthscale_matrix_30-000.png> <./chp_lmc/figures/coregiona
 lization_30-000.png>]
@@ -1613,7 +1613,7 @@ lization_30-000.png>]
 Overfull \vbox (7.20961pt too high) detected at line 231
  []
 
-[62
+[60
 
 ] (./chp_lmc/figures/lmc_forecasting_SALVAJINA.tex)
 (./chp_lmc/figures/lmc_forecasting_AMANI.tex)
@@ -1621,73 +1621,75 @@ Overfull \vbox (7.20961pt too high) detected at line 231
 Overfull \vbox (13.2522pt too high) detected at line 245
  []
 
-[63
+[61
+
+] [62
+
+]) (./chp_chd/chained_gaussian_processes.tex [63
 
 ] [64
 
-]) (./chp_chd/chained_gaussian_processes.tex [65
-
-] [66
-
 ]
-Overfull \hbox (4.17763pt too wide) in paragraph at lines 27--27
+Overfull \hbox (4.17763pt too wide) in paragraph at lines 40--40
 \OT1/cmss/m/n/10 for-ma-tion of a la-tent Gaus-sian Pro-cess prior re-al-iza-ti
 on $\OML/cmm/m/it/10 f[]$\OT1/cmss/m/n/10 , given by $\OML/cmm/m/it/10 ^^R[] \O
 T1/cmr/m/n/10 = \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\OT1/c
 mr/m/n/10 )$\OT1/cmss/m/n/10 .
  []
 
-[67
+[65
+
+] [66
+
+] [67
 
 ] [68
 
 ] [69
 
-] [70
-
 ] (./chp_chd/figures/CRPS_chd_normal.tex)
 (./chp_chd/figures/MSE_chd_normal.tex) (./chp_chd/figures/MSLL_chd_normal.tex)
 (./chp_chd/figures/NLPD_chd_normal.tex)
-Overfull \vbox (4.61678pt too high) detected at line 88
+Overfull \vbox (4.61678pt too high) detected at line 125
  []
 
-[71
+[70
 
 ] (./chp_chd/figures/NLPD_peformance_chdnormal.tex)
 (./chp_chd/figures/MSLL_peformance_chdnormal.tex)
-Overfull \vbox (5.8578pt too high) detected at line 103
+Overfull \vbox (5.8578pt too high) detected at line 140
  []
 
-[72
+[71
 
 ] (./chp_chd/figures/chd_normal_forecasting_SALVAJINA.tex)
 (./chp_chd/figures/chd_normal_forecasting_AMANI.tex)
 (./chp_chd/figures/chd_normal_forecasting_SAN LORENZO.tex)
 (./chp_chd/figures/chd_normal_forecasting_ESMERALDA.tex)
-Overfull \vbox (9.70293pt too high) detected at line 118
+Overfull \vbox (9.70293pt too high) detected at line 155
  []
 
-[73
+[72
 
-] (./chp_chd/figures/NLPD_chd_gamma.tex) [74
+] (./chp_chd/figures/NLPD_chd_gamma.tex) [73
 
 ]
 (./chp_chd/figures/NLPD_peformance_chdgamma.tex)
-Overfull \vbox (0.56853pt too high) detected at line 141
+Overfull \vbox (0.56853pt too high) detected at line 178
  []
 
-[75
+[74
 
 ] (./chp_chd/figures/chd_gamma_forecasting_SALVAJINA.tex)
 (./chp_chd/figures/chd_gamma_forecasting_AMANI.tex)
 (./chp_chd/figures/chd_gamma_forecasting_SAN LORENZO.tex)
 (./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex)
-Overfull \vbox (7.42494pt too high) detected at line 157
+Overfull \vbox (7.42494pt too high) detected at line 194
  []
 
-[76
+[75
 
-] [77
+] [76
 
 ])
 \tf@nav=\write6
@@ -1705,13 +1707,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 157.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8DF43933E37E2EBA05E019BEA36A0F59;1045.
+(rerunfilecheck)             Checksum: 15EC481160955A12259003F6382933E7;1045.
  ) 
 Here is how much of TeX's memory you used:
- 41017 strings out of 481239
- 973957 string characters out of 5920377
- 2199690 words of memory out of 5000000
- 55049 multiletter control sequences out of 15000+600000
+ 41001 strings out of 481239
+ 973707 string characters out of 5920377
+ 2199276 words of memory out of 5000000
+ 55039 multiletter control sequences out of 15000+600000
  558180 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,20n,127p,792b,2827s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1744,10 +1746,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on main.pdf (77 pages, 14668597 bytes).
+Output written on main.pdf (76 pages, 14667448 bytes).
 PDF statistics:
- 2743 PDF objects out of 2984 (max. 8388607)
- 2471 compressed objects within 25 object streams
- 220 named destinations out of 1000 (max. 500000)
+ 2707 PDF objects out of 2984 (max. 8388607)
+ 2436 compressed objects within 25 object streams
+ 214 named destinations out of 1000 (max. 500000)
  396 words of extra memory for PDF output out of 10000 (max. 10000000)
 
