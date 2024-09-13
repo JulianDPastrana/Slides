@@ -60,63 +60,76 @@
 \end{frame}
 
 \section{Objectives}
-\begin{frame}{General Objective}
-	Develop a stochastic forecasting model for making multiple simultaneous predictions of hydrological time series, taking advantage of cross-correlations among the tasks to improve the performance keeping the scalability in its implementation for the short-term horizon.	
-\end{frame}
-
-\begin{frame}{Specific Objectives}
+\begin{frame}{Objectives}
+	\textbf{General Objective:} \\
+	Develop a stochastic forecasting model for making multiple simultaneous predictions of hydrological time series. This model will take advantage of cross-correlations among the tasks to improve performance, while maintaining scalability for short-term horizons.
+	
+	\vspace{10pt}
+	\textbf{Specific Objectives:}
+	\justifying
 	\begin{itemize}
 		\item Develop a model that allows the forecasting of hydrological time series, properly quantifying the uncertainty associated with each value within the prediction horizons.
-		\item Design a multi-task forecasting methodology that captures and models cross-correlations between hydrological time series, to improve forecast accuracy within forecast horizons.
+		\item  Design a multi-task forecasting methodology that captures and models cross-correlations between hydrological time series, to improve forecast accuracy within forecast horizons.
 		\item Develop a multi-task prediction methodology that handles data constraints across reservoirs while maintaining high forecasting performance as measured by probabilistic metrics.
-		
-		% \item Develop a scalable multi-task prediction methodology across reservoirs, without compromising regression performance.
 	\end{itemize}
 \end{frame}
 
 \section{The Dataset}
-\begin{frame}{Problem Setting - Part 1}
-	Consider a time-series vector of hydrological resources observed across all $D$ outputs at the $n$-th time instant, denoted as $\mathbf{v}_n \in \mathbb{R}^D$. Our model employs the entire sequence of resource vectors from time $n$ back to $n-T+1$ as input to predict the resource vector at the future time step $n+H$. Here, $T$ represents the model order, and $H$ denotes the prediction horizon. 
+
+\begin{frame}{Problem Setting}
+	We model hydrological time series using observed resource vectors. At each time step \( n \), the vector \(\mathbf{v}_n \in \mathbb{R}^D\) represents resources across \(D\) outputs.
 	
-	Consequently, we define the input vector $\mathbf{x}_n$ as follows:
+	The input vector \(\mathbf{x}_n\) for the model is constructed from the resource vectors from time \( n \) back to \( n-T+1 \):
 	
 	\begin{equation*}
-	\mathbf{x}_n = \begin{bmatrix} 
-	\mathbf{v}_{n}^\top \\ 
-	\mathbf{v}_{n-1}^\top \\ 
-	\vdots \\ 
-	\mathbf{v}_{n-T+1}^\top 
-	\end{bmatrix} \in \mathbb{R}^{DT}
+		\mathbf{x}_n = \begin{bmatrix} 
+			\mathbf{v}_{n}^\top \\ 
+			\mathbf{v}_{n-1}^\top \\ 
+			\vdots \\ 
+			\mathbf{v}_{n-T+1}^\top 
+		\end{bmatrix} \in \mathcal{X}
 	\end{equation*}
-\end{frame}
-
-\begin{frame}{Problem Setting - Part 2}
-	The target output vector $\mathbf{y}_n$ is defined as follows:
+	
+	Here, \( T \) is the model order and \( H \) is the prediction horizon and \( \mathcal{X}\subset \mathbb{R}^{DT} \) represents the input space.
+	
+	\vspace{10pt}
+	
+	The target output vector \(\mathbf{y}_n\) is:
 	
 	\begin{equation*}
-	\mathbf{y}_n = \mathbf{v}_{n+H}.
+		\mathbf{y}_n = \mathbf{v}_{n+H} \in \mathbb{R}^{D}
 	\end{equation*}
 	
-	This formulation enables the model to leverage historical hydrological data for accurate future predictions. Accordingly, we build a dataset $\mathcal{D} = \{\bm{x}_n, \bm{y}_n\}_{n=1}^N = \{\mathbf{X}, \mathbf{y}\}$ comprising $N$ input--output pairs, where $\bm{x}_n \in \mathcal{X}\subset \mathbb{R}^{DT}$ represents the dimensional input space. The target function is a vector-valued function where $\bm{y}_n \in \mathbb{R}^{D}$ comprises the observations of all outputs (tasks) at the same input $\bm{x}_n$.
+	We build a dataset \(\mathcal{D} = \{\mathbf{x}_n, \mathbf{y}_n\}_{n=1}^N  = \{\mathbf{X}, \mathbf{y}\}\), comprising \( N \) input-output pairs.
 \end{frame}
 
-\begin{frame}
-	The hydrological forecasting task for validating the proposed model regressors considers time-series streamflow contributions data from 23 Colombian reservoirs.
-	\begin{figure}[htbp]
-		\centering 
-		\includegraphics[height=0.5\textwidth]{images/colombiamap.pdf}
-		\caption{Reservoir locations in Colombia.}
-	\end{figure}
+
+\begin{frame}{Reservoir Locations}
+	\begin{columns}[T] % Top alignment
+		\begin{column}{0.45\textwidth}
+			\includegraphics[width=\linewidth]{images/colombiamap.pdf}
+			\captionof{figure}{Locations of reservoirs in Colombia.}
+		\end{column}
+		\begin{column}{0.55\textwidth}
+			\vspace{50pt}
+			\justifying % Centers the text horizontally
+			The hydrological forecasting task uses streamflow data from 23 Colombian reservoirs to validate the proposed model regressors.
+		\end{column}
+	\end{columns}
 \end{frame}
 
-\begin{frame}
-	The dataset was selected due to the strong dependence of time series on weather patterns, which are closely tied to hydropower dispatch operations.
+
+
+\begin{frame}{Dataset Overview}
+	The dataset was chosen due to the significant impact of weather patterns on time-series data, which are crucial for hydropower dispatch operations.
+	
+	\vspace{10pt}
 	
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[height=0.25\textwidth]{images/ct_violinplot.pdf}
-		\caption{Time-series Violin plot depicting the streamflow contribution for each reservoir within the dataset.}
-	\end{figure}	
+		\caption{Violin plot of streamflow contributions for each reservoir in the dataset.}
+	\end{figure}
 	
-	These streamflow contributions were recorded daily from 1 January 2010 to 28 February 2022. While these contributions represent volumetric values, they are reported in kilowatt-hours (kWh) by the hydroelectric power plants.
+	Streamflow contributions were recorded daily from January 1, 2010, to February 28, 2022. Although these values represent volumetric measurements, they are reported in kilowatt-hours (kWh) by the hydroelectric power plants.
 \end{frame}

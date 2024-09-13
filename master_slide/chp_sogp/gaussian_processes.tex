@@ -318,89 +318,66 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}
-	The shortest horizon distributes the smallest lengthscale values over the main diagonal contrary to the high off-diagonal values. This result proves the relevance of short-term memory components within each streamflow.
-	
-	At a longer horizon of fourteen days, the lengthscales over the main diagonal become higher, losing relevance, and several off-diagonal become lower, gaining relevance, than at a one-day horizon. Such a change implies that a reservoir provides less information to predict itself at longer horizons, leading the model to look for knowledge in other reservoirs.
-	
-	The longest horizon illustrates even less relevant lengthscales, indicating that the SVGP restrains the number of relevant features. Thus, the lengthscale variations across different prediction horizons reveal the dynamic interplay between reservoirs and highlight the Gaussian Process's ability to select relevant features adaptively.
-	
-\end{frame}
-
 \begin{frame}{t-distributed Stochastic Neighbor Embedding (t-SNE)}
-	For visual interpretation of SVGP inner workings, the following figure maps in 2D the reservoir data along with the optimized inducing points using the t-distributed Stochastic Neighbor Embedding (t-SNE) technique for each target reservoir. The filled contours outline the density distribution of training data, whereas the color scatter locates the optimized inducing points. We strategically labeled three inducing points for analyzing the SVGP behavior.
-	%%%JGG: No todos los puntos de la figura están numerados.
-	Since the forecasting tasks share the inducing points, not the kernel parameters, each target reservoir holds a different t-SNE mapping.
-	
-\end{frame}
-
-\begin{frame}
 	\begin{figure}[htbp]
 		\centering
 		\begin{subfigure}[t]{0.38\columnwidth}
 			\centering
 			\includegraphics[width=\columnwidth]{chp_sogp/figures/TSNE_task4_kde_p30.png}
 			\caption{Reservoir E.}
-			\label{fig:points_locations_E}
 		\end{subfigure}
 		\hspace{0.05\columnwidth} % Reduced space between columns
 		\begin{subfigure}[t]{0.38\columnwidth}
 			\centering
 			\includegraphics[width=\columnwidth]{chp_sogp/figures/TSNE_task8_kde_p30.png}
 			\caption{Reservoir I.}
-			\label{fig:points_locations_I}
 		\end{subfigure}
 		
-		\vspace{0.3cm} % Space between rows
+		\vspace{0.1cm} % Space between rows
 		
 		\begin{subfigure}[t]{0.38\columnwidth}
 			\centering
 			\includegraphics[width=\columnwidth]{chp_sogp/figures/TSNE_task11_kde_p30.png}
 			\caption{Reservoir L.}
-			\label{fig:points_locations_L}
 		\end{subfigure}
 		\hspace{0.05\columnwidth} % Reduced space between columns
 		\begin{subfigure}[t]{0.38\columnwidth}
 			\centering
 			\includegraphics[width=\columnwidth]{chp_sogp/figures/TSNE_task20_kde_p30.png}
 			\caption{Reservoir U.}
-			\label{fig:points_locations_U}
 		\end{subfigure}
 		
-		\vspace{0.1cm} % Space between the figures and the caption
+		\vspace{0.0cm} % Space between the figures and the caption
 		
 		\caption{t-SNE-based two-dimensional mapping of the SVGP latent space and inducing points' locations for four target reservoirs. Three inducing points are numbered to analyze the model behavior.}
-		\label{fig:inducing_points_locations}
 	\end{figure}
 \end{frame}
 
-\begin{frame}
-	The 2D plots exhibit multi-modal distributions for all tasks, indicating clustered information and varying dynamics within a reservoir. Hence, the SVGP trades off the location of the inducing points between the within-task centroids and the among-task relationships. Therefore, the shared inducing points allow for the capturing of task-wise, group-wise, and global information about the streamflow dynamics.
-
-\end{frame}
 
 \subsubsection{Performance Analysis}
 
 \begin{frame}{Model Comparison}
-	For performance analysis, the proposed SVGP-based forecasting is contrasted against the straightforward Linear AutoRegressive model (LAR) and the nonlinear Long-Short-Term Memory network (LSTM).
+	We compare the proposed SVGP-based forecasting model with two others: the Linear AutoRegressive (LAR) model and the Long-Short-Term Memory (LSTM) network.
 	
-	Particularly for LAR, we trained a single output model for each task. Further, the frequentist perspective treats the model weights as random estimators following a Gaussian distribution. Such a treatment turns the LAR into a probabilistic model, allowing it to generate confidence intervals for its predictions.
-	
-	In the case of LSTM, we set up a single multi-output model to forecast all reservoirs simultaneously. To tune the number of hidden units of the LSTM, we run a grid search, yielding an optimum of one unit. As a deterministic model, LSTM lacks a predictive distribution and cannot be assessed with the probabilistic performance metrics MSLL and CRPS.
+	\begin{itemize}
+		\item \textbf{LAR}: We trained a separate model for each task, treating weights as random variables with a Gaussian distribution to provide confidence intervals.
+		\item \textbf{LSTM}: We used a multi-output model for simultaneous forecasting of all reservoirs. An optimal number of hidden units was found to be one through grid search. LSTM is deterministic and thus cannot be evaluated with probabilistic metrics like MSLL and CRPS.
+	\end{itemize}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Models Forecasting}
 	\begin{figure}[htbp]
 		\centering
 		\setlength\figurewidth{\columnwidth} 
-		\setlength\figureheight{0.26\columnwidth}
+		\setlength\figureheight{0.24\columnwidth}
 		
 		\input{chp_sogp/figures/SALVAJINA_forecasting}\hfill
 		\input{chp_sogp/figures/AMANI_forecasting}\hfill
 		\input{chp_sogp/figures/SAN LORENZO_forecasting}
 		
-		\caption{Test data for reservoirs T (low complexity), A (medium complexity), and I (high complexity), top to bottom in a one-day ahead model's prediction. Yellow and blue shaded areas represent the $95\%$ centered confidence interval for the LAR and SVGP predictions, respectively.}
+		\caption{One-day ahead model predictions for reservoirs T (low complexity), A (medium complexity), and I (high complexity) top to bottom. Yellow and blue areas indicate the $95\%$ confidence intervals for LAR and SVGP predictions, respectively.}
+		
 	\end{figure}
 \end{frame}
 
