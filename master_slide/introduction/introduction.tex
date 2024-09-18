@@ -50,14 +50,16 @@
 	
 \end{frame}
 
-\begin{frame}{The Proposed Model}
-	A Gaussian Process (GP) is a Bayesian non-parametric model that provides not just point predictions but a full probability distribution, capturing uncertainty and enabling confidence intervals in time series forecasting.
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=\textwidth]{images/gpr.png}
-	\end{figure}
+\begin{frame}{Problem Statement}
+	\begin{itemize}
+		\item Physically driven models for water resource forecasting are complex and require extensive parameter knowledge, limiting their practicality \cite{Yaseen2018, HKASHANI2016340}.
+		\item Data-driven models, such as autoregressive (AR) models, struggle to capture nonlinearities in water resources time series \cite{10.2166/wst.2020.369}.
+		\item Neural networks (ANNs, RNNs) improve on nonlinearity, but face overfitting, gradient vanishing and exploding, limiting ability to capture long-term dependencies \cite{Abdollahi2017, Shiau2016, KHAN2020125380}.
+		\item LSTM networks overcome these issues, but lack uncertainty quantification, crucial for decision-making in hydrological forecasting \cite{lakshminarayanan2017simple, gal2016dropout}.
+		\item Gaussian Processes (GPs) provide uncertainty and handle nonlinearities, but scaling to multi-task forecasting remains a challenge \cite{QUILTY2020104718, NIU2021102562,bruinsma2020scalable}.
+	\end{itemize}
 \end{frame}
+
 
 \section{Objectives}
 \begin{frame}{Objectives}
@@ -104,32 +106,39 @@
 \end{frame}
 
 
-\begin{frame}{Reservoir Locations}
+\begin{frame}{Reservoir Locations and Dataset Overview}
 	\begin{columns}[T] % Top alignment
 		\begin{column}{0.45\textwidth}
 			\includegraphics[width=\linewidth]{images/colombiamap.pdf}
-			\captionof{figure}{Locations of reservoirs in Colombia.}
+		
 		\end{column}
 		\begin{column}{0.55\textwidth}
-			\vspace{50pt}
-			\justifying % Centers the text horizontally
-			The hydrological forecasting task uses streamflow data from 23 Colombian reservoirs to validate the proposed model regressors.
+			\justifying % Justifies text
+			
+			The hydrological forecasting task utilizes daily streamflow data from 23 Colombian reservoirs from January 1, 2010, to February 28, 2022.
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=\textwidth]{images/ct_violinplot.pdf}
+			\end{figure}
+			Although volumetric measurements are recorded, they are reported in kilowatt-hours (kWh) by the hydroelectric power plants.
 		\end{column}
 	\end{columns}
 \end{frame}
 
-
-
-\begin{frame}{Dataset Overview}
-	The dataset was chosen due to the significant impact of weather patterns on time-series data, which are crucial for hydropower dispatch operations.
+\subsection{Methodoly}
+\begin{frame}{Methodology}
+	\textbf{Performance Metrics:}
+	\begin{itemize}
+		\item Mean Squared Error (MSE)
+		\item Mean Standardized Log Loss (MSLL)
+		\item Continuous Ranked Probability Score (CRPS)
+		\item Negative Log Predictive Density (NLPD)
+	\end{itemize}
 	
-	\vspace{10pt}
-	
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[height=0.25\textwidth]{images/ct_violinplot.pdf}
-		\caption{Violin plot of streamflow contributions for each reservoir in the dataset.}
-	\end{figure}
-	
-	Streamflow contributions were recorded daily from January 1, 2010, to February 28, 2022. Although these values represent volumetric measurements, they are reported in kilowatt-hours (kWh) by the hydroelectric power plants.
+	\textbf{Gaussian Process Models:}
+	\begin{itemize}
+		\item Start with a single-output GP for stochastic regression.
+		\item Extend to multi-output GPs, capturing dependencies across multiple reservoirs.
+		\item Introduce Chained Correlated Gaussian Processes to handle non-Gaussian likelihoods.
+	\end{itemize}
 \end{frame}

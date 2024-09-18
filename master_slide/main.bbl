@@ -1,0 +1,79 @@
+\begin{thebibliography}{10}
+
+\bibitem{Yaseen2018}
+Zaher~Mundher Yaseen, Mohammed~Falah Allawi, Ali~A. Yousif, Othman Jaafar,
+  Firdaus~Mohamad Hamzah, and Ahmed El-Shafie.
+\newblock Non-tuned machine learning approach for hydrological time series
+  forecasting.
+\newblock {\em Neural Computing and Applications}, 30(5):1479--1491, 2018.
+
+\bibitem{HKASHANI2016340}
+Mahsa {H. Kashani}, Mohammad~Ali Ghorbani, Yagob Dinpashoh, and Sedaghat
+  Shahmorad.
+\newblock Integration of volterra model with artificial neural networks for
+  rainfall-runoff simulation in forested catchment of northern iran.
+\newblock {\em Journal of Hydrology}, 540:340--354, 2016.
+
+\bibitem{10.2166/wst.2020.369}
+Muhammed Sit, Bekir~Z. Demiray, Zhongrun Xiang, Gregory~J. Ewing, Yusuf Sermet,
+  and Ibrahim Demir.
+\newblock {A comprehensive review of deep learning applications in hydrology
+  and water resources}.
+\newblock {\em Water Science and Technology}, 82(12):2635--2670, 08 2020.
+
+\bibitem{Abdollahi2017}
+Sajjad Abdollahi, Jalil Raeisi, Mohammadreza Khalilianpour, Farshad Ahmadi, and
+  Ozgur Kisi.
+\newblock Daily mean streamflow prediction in perennial and non-perennial
+  rivers using four data driven techniques.
+\newblock {\em Water Resources Management}, 31(15):4855--4874, 2017.
+
+\bibitem{Shiau2016}
+Jenq-Tzong Shiau and Hui-Ting Hsu.
+\newblock Suitability of ann-based daily streamflow extension models: a case
+  study of gaoping river basin, taiwan.
+\newblock {\em Water Resources Management}, 30(4):1499--1513, 2016.
+
+\bibitem{KHAN2020125380}
+Md. Munir~Hayet Khan, Nur~Shazwani Muhammad, and Ahmed El-Shafie.
+\newblock Wavelet based hybrid ann-arima models for meteorological drought
+  forecasting.
+\newblock {\em Journal of Hydrology}, 590:125380, 2020.
+
+\bibitem{lakshminarayanan2017simple}
+Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell.
+\newblock Simple and scalable predictive uncertainty estimation using deep
+  ensembles, 2017.
+
+\bibitem{gal2016dropout}
+Yarin Gal and Zoubin Ghahramani.
+\newblock Dropout as a {B}ayesian approximation: Representing model uncertainty
+  in deep learning.
+\newblock In {\em International Conference on Machine Learning}, pages
+  1050--1059, 2016.
+
+\bibitem{QUILTY2020104718}
+John Quilty and Jan Adamowski.
+\newblock A stochastic wavelet-based data-driven framework for forecasting
+  uncertain multiscale hydrological and water resources processes.
+\newblock {\em Environmental Modelling \& Software}, 130:104718, 2020.
+
+\bibitem{NIU2021102562}
+Wen jing Niu and Zhong kai Feng.
+\newblock Evaluating the performances of several artificial intelligence
+  methods in forecasting daily streamflow time series for sustainable water
+  resources management.
+\newblock {\em Sustainable Cities and Society}, 64:102562, 2021.
+
+\bibitem{bruinsma2020scalable}
+Wessel~P. Bruinsma, Eric Perim, Will Tebbutt, J.~Scott Hosking, Arno Solin, and
+  Richard~E. Turner.
+\newblock Scalable exact inference in multi-output gaussian processes, 2020.
+
+\bibitem{verriere2022building}
+Marc Verriere, Nicolas Schunck, Irene Kim, Petar Marević, Kevin Quinlan,
+  Michelle~N. NGo, David Regnier, and Raphael~David Lasseri.
+\newblock Building surrogate models of nuclear density functional theory with
+  gaussian processesand autoencoders, 2022.
+
+\end{thebibliography}

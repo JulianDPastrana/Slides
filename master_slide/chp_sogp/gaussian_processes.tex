@@ -1,100 +1,48 @@
 \section{Gaussian Process Regression: Bayesian Non-Parametric Model}
 
 \subsection{Mathematical Framework}
-\begin{frame}{Gaussian Process (GP) Framework}
-	\justifying
-	In the GP framework, the dataset $\mathcal{D}$ is used to learn a random mapping function $\bm{f}(\cdot)$, which captures the relationship between the input $\bm{x}_n$ and the output $\bm{y}_n$. We define the GP distribution over the function $\bm{f}(\cdot)$ as follows:
-	
-	\begin{equation*}
-		\bm{f}(\bm{x}) \sim \mathcal{GP}\left(\bm{0},\, \bm{k}(\bm{x}, \bm{x}' \mid \bm{\theta})\right)
-	\end{equation*}
-	
-	\vspace{5mm} % Add vertical space for better readability
-	
-	Where:
-	\begin{itemize}
-		\item $\bm{f}: \mathcal{X} \rightarrow \mathbb{R}^D$ maps the input space $\bm{x}$ to the output space.
-		\item $\bm{k}: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}^{D \times D}$ is the cross-covariance matrix function, parameterized by $\bm{\theta}$.
-	\end{itemize}
-	
-	\vspace{5mm} % Add vertical space
-	
-	By adding i.i.d Gaussian noise $\bm{\epsilon}$ with diagonal covariance matrix $\Sigma_\epsilon = \text{diag}\{\sigma^2_{Nd}\}_{d=1}^D$, the model prediction becomes:
-	
-	\begin{equation*}
-		\bm{y}_n = \bm{f}(\bm{x}_n) + \bm{\epsilon}
-	\end{equation*}
-\end{frame}
 
-\begin{frame}{Joint Distribution}
-	\justifying
-	Let $\mathbf{X}_* = \{\bm{x}_{n*}\}_{n=1}^{N_*}$ represent a set of test points $\bm{x}_{n*} \in \mathcal{X}$, with the corresponding test output vector $\mathbf{f}_*$ defined as:
+\begin{frame}{Gaussian Process (GP) Framework}
+	In a GP framework, the function $\bm{f}(\cdot)$ maps inputs $\bm{x}_n$ to outputs $\bm{y}_n$. Adding i.i.d. Gaussian noise $\bm{\epsilon}$, the model becomes:
 	
 	\[
-	\mathbf{f}_* = [\bm{f}(\bm{x}_1)^\top, \bm{f}(\bm{x}_2)^\top, \cdots, \bm{f}(\bm{x}_{N_*})^\top]^\top \in \mathbb{R}^{N_* D}.
+	\bm{y}_n = \bm{f}(\bm{x}_n) + \bm{\epsilon}
 	\]
 	
-	\vspace{2mm}
-	The joint Gaussian distribution over the training outputs $\mathbf{y}$ and the test outputs $\mathbf{f}_*$ can be expressed as:
+	For test inputs $\mathbf{X}_*$, the joint distribution of training outputs $\mathbf{y}$ and test outputs $\mathbf{f}_*$ is:
 	
-	\begin{equation*}\label{sogp_prior_matrix}
-		\begin{array}{rcl}
-			\left[ \begin{array}{c}
-				\mathbf{y}\\
-				\mathbf{f_*}\\
-			\end{array}
-			\right]
-			\sim
-			\mathcal{N} \left(
-			\bm{0},
-			\left[ \begin{array}{cc}
-				\mathbf{K}_y & \mathbf{K}_*\\
-				\mathbf{K}_*^\top & \mathbf{K}_{**}\\
-			\end{array}
-			\right] \right)
-		\end{array}
-	\end{equation*}
+	\[
+	\left[ \begin{array}{c}
+		\mathbf{y}\\
+		\mathbf{f_*}\\
+	\end{array}
+	\right] \sim \mathcal{N} \left( \bm{0}, \left[
+	\begin{array}{cc}
+		\mathbf{K}_y & \mathbf{K}_* \\
+		\mathbf{K}_*^\top & \mathbf{K}_{**}
+	\end{array}\right] \right)
+	\]
 	
-	\vspace{3mm}
+	The posterior distribution for test points is:
+	
+	\[
+	\mathbf{f}_* | \mathbf{X}_*, \mathcal{D} \sim \mathcal{N}(\mathbf{K}_*^\top \mathbf{K}_y^{-1} \mathbf{y}, \mathbf{K}_{**} - \mathbf{K}_*^\top \mathbf{K}_y^{-1} \mathbf{K}_*)
+	\]
+	
 	\begin{itemize}
-		\item $\mathbf{K}_y = \mathbf{K} + \Sigma_\epsilon$ is the covariance matrix for the training set, where $\mathbf{K} \in \mathbb{R}^{ND \times ND}$ is the covariance matrix formed by evaluating the covariance function on all pairs of input vectors in $\mathbf{X}$.
+		\item $\mathbf{K}_y = \mathbf{K} + \Sigma_\epsilon$, where $\mathbf{K} \in \mathbb{R}^{ND \times ND}$ is the covariance matrix for the train set and $\Sigma_\epsilon$ contains task-wise noise.
 		
 		\item $\mathbf{K}_{**} \in \mathbb{R}^{N_* D \times N_* D}$ is the covariance matrix for the test set.
 		
 		\item $\mathbf{K}_* \in \mathbb{R}^{ND \times N_* D}$ represents the cross-covariance matrix between the training and test points.
 	\end{itemize}
-\end{frame}
-
-
-\begin{frame}{Posterior Distribution}
-	\justifying
-	The joint distribution of training and test points enables us to derive the conditional distribution, known as the posterior, as follows:
 	
-	\[
-	\mathbf{f}_* | \mathbf{X}_*, \mathcal{D} \sim \mathcal{N}(\bar{\mathbf{f}_*}, \text{cov}(\mathbf{f}_*))
-	\]
-	
-	\vspace{2mm}
-	where the mean and covariance of the posterior distribution are given by:
-	
-	\vspace{2mm}
-	\begin{equation*}\label{sogp_posterior_mean}
-		\bar{\mathbf{f}_*} = \mathbf{K}_*^\top \mathbf{K}_y^{-1} \mathbf{y}
-	\end{equation*}
-	
-	\vspace{2mm}
-	\begin{equation*}\label{sogp_posterior_cov}
-		\text{cov}(\mathbf{f}_*) = \mathbf{K}_{**} - \mathbf{K}_*^\top \mathbf{K}_y^{-1} \mathbf{K}_*
-	\end{equation*}
-	
-	\vspace{2mm}
-	Here, $\bar{\mathbf{f}_*}$ represents the predicted mean of the test points, and $\text{cov}(\mathbf{f}_*)$ is the predicted covariance of the test points.
 \end{frame}
 
 
 \begin{frame}{The Marginal Log-likelihood}
 	\justifying
-	The prediction performance achieved by the conditional distribution is influenced by the selected parameter set $\bm{\theta}$ and the observation noise matrix $\Sigma_\epsilon$. These parameters are determined by maximizing the marginal log-likelihood                                                                                                                                                                                                                                                                                , where the marginal likelihood $p(\mathbf{y})$ follows a Gaussian distribution:
+	The prediction performance achieved by the conditional distribution is influenced by the selected parameter set $\bm{\theta}$ and the observation noise matrix $\Sigma_\epsilon$. These parameters are determined by maximizing the marginal log-likelihood, where the marginal likelihood $p(\mathbf{y})$ follows a Gaussian distribution:
 	
 	\[
 	p(\mathbf{y}) = \mathcal{N}(\mathbf{y} \mid \bm{0}, \mathbf{K}_y)
@@ -114,11 +62,8 @@
 	However, the main challenge lies in the computational complexity of $\mathcal{O}(N^3D^3)$ and the storage demand of $\mathcal{O}(N^2D^2)$ due to the need to invert the matrix $\mathbf{K}_y$.
 \end{frame}
 
-
-\begin{frame}{Variational Inference}
-	\justifying
-	A common method to reduce the computational complexity of GPs is the introduction of a reduced set of $M \ll N$ inducing point locations, denoted as $Z$. These inducing points contain vectors $\mathbf{z} \in \mathcal{X}$, and an inducing variable vector $\mathbf{u} = [\bm{f}(\bm{z}_1)^\top, \bm{f}(\bm{z}_2)^\top, \cdots, \bm{f}(\bm{z}_{M})^\top]^\top \in \mathbb{R}^{M D}$. This approach leads to the following extended joint distribution:
-	
+\begin{frame}{Variational Inference and Sparse Variational GPs (SVGPs)}
+	We introduce $M \ll N$ inducing points $Z$, with inducing variables $\mathbf{u} \in \mathbb{R}^{MD}$ to reduce computational complexity. The joint distribution becomes:
 	\[
 	\begin{array}{rcl}
 		\left[ \begin{array}{c}
@@ -138,147 +83,31 @@
 		\right] \right)
 	\end{array}
 	\]
-	
-	\justifying
-	In this formulation:
-	\begin{itemize}
-		\item $\mathbf{K}_{uu} \in \mathbb{R}^{MD \times MD}$ represents the covariance matrix of the inducing points.
-		\item $\mathbf{K}_{uf} \in \mathbb{R}^{MD \times ND}$ represents the covariance matrix between the inducing points and the training inputs.
-	\end{itemize}
-	
-	This model is referred to as the Sparse Variational Gaussian Process (SVGP).
-	
-\end{frame}
-
-
-\begin{frame}{Variational Distribution}
-	The conditional distribution given inducing variables is:
-	\[
-	p(\mathbf{f} \mid \mathbf{u}) = \mathcal{N}\left( \mathbf{f} \mid \mathbf{K}_{uf}^\top \mathbf{K}_{uu}^{-1} \mathbf{u}, \mathbf{K} - \mathbf{K}_{uf}^\top \mathbf{K}_{uu}^{-1} \mathbf{K}_{uf}\right),
-	\]
-	with prior:
-	\[
-	p(\mathbf{u}) = \mathcal{N}(\mathbf{u} \mid \mathbf{0}, \mathbf{K}_{uu}).
-	\]
-	
-	The joint posterior distribution is:
-	\[
-	p(\mathbf{f}, \mathbf{u} \mid \mathbf{y}) = p(\mathbf{f} \mid \mathbf{u}) p(\mathbf{u} \mid \mathbf{y}),
-	\]
-	which is approximated using variational inference:
-	\[
-	q(\mathbf{u}) = \mathcal{N}\left( \mathbf{u} \mid \boldsymbol{\mu}, \boldsymbol{S} \right),
-	\]
-	resulting in:
-	\[
-	p(\mathbf{f}, \mathbf{u} \mid \mathbf{y}) \approx q(\mathbf{f}, \mathbf{u}) = p(\mathbf{f} \mid \mathbf{u}) q(\mathbf{u}).
-	\]
-\end{frame}
-
-\begin{frame}{ELBO - Evidence Lower Bound}
-	The variational parameters $\boldsymbol{\mu}$ and $\boldsymbol{S}$ are estimated by maximizing the Evidence Lower Bound (ELBO) on the log marginal likelihood:
-	\[
-	\ln p(\mathbf{y}) \geq \int \int q(\mathbf{f}, \mathbf{u}) \ln \frac{p(\mathbf{y} \mid \mathbf{f}) p(\mathbf{f}\mid \mathbf{u}) p(\mathbf{u})}{q(\mathbf{f}, \mathbf{u})} d\mathbf{f} d\mathbf{u} = \mathcal{L}
-	\]
-	This inequality results from Jensen's inequality. The ELBO can be rewritten as:
-	\[
-	\mathcal{L} = \mathbb{E}_{q(\mathbf{f})}\{\ln p(\mathbf{y} \mid \mathbf{f})\} - \text{KL}\{q(\mathbf{u})\parallel p(\mathbf{u})\}
-	\]
-	where the Kullback–Leibler (KL) divergence measures the difference between the variational distribution $q(\mathbf{u})$ and the prior $p(\mathbf{u})$.
-\end{frame}
-
-\begin{frame}{ELBO - Evidence Lower Bound}
-	Under the i.i.d. assumption, the likelihood function $p(\mathbf{y} \mid \mathbf{f})$ can be factorized across observations and outputs:
+	Where $\mathbf{K}_{uu} \in \mathbb{R}^{MD \times MD}$, and $\mathbf{K}_{uf} \in \mathbb{R}^{MD \times ND}$. The posterior distribution uses the variational approximation $q(\mathbf{u}) = \mathcal{N}(\boldsymbol{\mu}, \mathbf{S})$. Now we maximizing the Evidence Lower Bound (ELBO):
 	\begin{equation*}
-		p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^D \prod_{n=1}^N p(y_{dn} \mid f_d(\mathbf{x}_n)),
+		\mathcal{L} = \sum_{d=1}^D \sum_{n=1}^N \mathbb{E}_{q(f_d(\mathbf{x}_n))}\{\ln p(y_{dn} \mid f_d(\mathbf{x}_n))\} - \sum_{d=1}^D \text{KL}\{q(\mathbf{u}_d) \parallel p(\mathbf{u}_d)\} \leq \ln p(\mathbf{y})
 	\end{equation*}
-	where $f_d(\mathbf{x}_n)$ represents the latent function value for the $d$-th output at input $\mathbf{x}_n$, and $y_{dn}$ is the corresponding observed value. The ELBO can then be written as:
-	\begin{equation*}
-		\mathcal{L} = \sum_{d=1}^D \sum_{n=1}^N \mathbb{E}_{q(f_d(\mathbf{x}_n))}\{\ln p(y_{dn} \mid f_d(\mathbf{x}_n))\} - \sum_{d=1}^D \text{KL}\{q(\mathbf{u}_d) \parallel p(\mathbf{u}_d)\}.
-	\end{equation*}
-	
-	This formulation enables efficient training through mini-batch updates, making it scalable for large datasets.
-\end{frame}
-
-\begin{frame}{Posterior and Predictive Distribution}
-	The variational distribution for $\mathbf{f}$ is defined as:
-	\begin{align*}
-		q(\mathbf{f}) &= \int p(\mathbf{f} \mid \mathbf{u}) q(\mathbf{u}) d\mathbf{u} \nonumber \\
-		&= \mathcal{N}\left(\mathbf{f} \mid \mathbf{K}_{uf}^\top \mathbf{K}_{uu}^{-1} \boldsymbol{\mu}, \mathbf{K} - \mathbf{K}_{uf}^\top \mathbf{K}_{uu}^{-1}(\mathbf{K}_{uu} - \mathbf{S})\mathbf{K}_{uu}^{-1}\mathbf{K}_{uf}\right).
-	\end{align*}
-	
-	This reduces computational complexity to $\mathcal{O}(NM^2D^3)$, as $\mathbf{K}_{uu}$ is smaller than $\mathbf{K}_y$. For predictions at new points $\mathbf{x}_*$, the posterior distribution is approximated by:
-	\begin{equation*}
-		p(\mathbf{f}_* \mid \mathbf{y}) \approx q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d\mathbf{u},
-	\end{equation*}
-	with Gaussian noise $\Sigma_\epsilon$ added to the latent posterior $\mathbf{f}_* \mid \mathbf{y}$ for predictions.
+	where $f_d(\mathbf{x}_n)$ represents the $d$-th latent function value at input $\mathbf{x}_n$, and $y_{dn}$ is the corresponding observed value. This reduces the complexity to $\mathcal{O}(NM^2D^3)$. For predictions at new points $\mathbf{x}_*$, we add noise in $\Sigma_\epsilon$ to $q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d\mathbf{u}$.
 \end{frame}
 
 \begin{frame}{Model Setup}
-	The GP covariance function is factorized into two kernels: $k_{\mathcal{X}}$ for input correlations and $k_{D}$ for task pair-wise correlations:
-	\begin{align*}
-		k\left((\bm{x}, d), (\bm{x}', d') \mid \bm{\theta}\right) &= k_{\mathcal{X}}\left(\bm{x}, \bm{x}' \mid \bm{\Theta}_d \right) k_{D}\left(d, d' \mid \sigma_d \right), \\
-		k_{\mathcal{X}}\left(\bm{x}, \bm{x}' \mid \bm{\Theta}_d \right) &= \exp\left(-\frac{1}{2}(\bm{x} - \bm{x}')^\top \bm{\Theta}_d^{-2} (\bm{x} - \bm{x}')\right), \\
-		k_{D}\left(d, d' \mid \sigma^2_d \right) &= \sigma^2_d \delta_{d, d'},
-	\end{align*}
-	
-	where $\delta_{d, d'}$ is the Kronecker delta, $\sigma^2_d$ is the output scale, and $\bm{\Theta}_d$ is the task-specific lengthscale matrix. The input kernel $k_{\mathcal{X}}$ uses a squared-exponential function for smooth mapping, while $k_{D}$ reduces complexity to $\mathcal{O}(NM^2D)$ by avoiding explicit task correlations. Task dependencies are still captured through autoregressive inputs and shared inducing points.
+	The GP covariance is factorized into two kernels: $k_{\mathcal{X}}$ for input correlations and $k_{D}$ for task correlations:
+	\[
+	k\left((\bm{x}, d), (\bm{x}', d')\right) = k_{\mathcal{X}}\left(\bm{x}, \bm{x}' \mid \bm{\Theta}_d \right) k_{D}\left(d, d' \mid \sigma_d \right),
+	\]
+	with:
+	\[
+	k_{\mathcal{X}}\left(\bm{x}, \bm{x}'\right) = \exp\left(-\frac{1}{2}(\bm{x} - \bm{x}')^\top \bm{\Theta}_d^{-2} (\bm{x} - \bm{x}')\right),
+	\]
+	\[
+	k_{D}(d, d') = \sigma^2_d \delta_{d, d'},
+	\]
+	where $\delta_{d, d'}$ is the Kronecker delta, $\bm{\Theta}_d$ is the lengthscale matrix, and $\sigma^2_d$ is the output scale. This reduces complexity to $\mathcal{O}(NM^2D)$ by avoiding explicit task correlations.
 \end{frame}
 
-
-\begin{frame}{Performance Metrics}
-	We use three metrics to evaluate model performance:
-	\begin{itemize}
-		\item Mean Squared Error (MSE)
-		\item Mean Standardized Log Loss (MSLL)
-		\item Continuous Ranked Probability Score (CRPS)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Mean Squared Error (MSE)}
-	MSE measures the average squared difference between the observed outcome $y_{dn}$ and the expected value of the predicted outcome $\mathbb{E}\{y_{dn*}\}$ for $N_*$ test observations:
-	\begin{equation*}\label{eq:mse}
-		\text{MSE} = \frac{1}{DN_{*}} \sum_{d=1}^{D} \sum_{n=1}^{N_*} (y_{dn} - \mathbb{E}\{y_{dn*}\})^2
-	\end{equation*}
-	MSE does not account for prediction uncertainty.
-\end{frame}
-
-\begin{frame}{Mean Standardized Log Loss (MSLL)}
-	MSLL evaluates probabilistic prediction quality by computing the log probability of observed values under the predicted distribution:
-	\begin{equation*}
-		\text{MSLL} = \frac{1}{2DN_{*}} \sum_{d=1}^{D} \sum_{n=1}^{N_*} \left( \frac{(y_{dn} - \mathbb{E}\{y_{dn*}\})^2}{\text{var}\{y_{dn*}\}} - \frac{(y_{dn} - \mu_d)^2}{\sigma_d^2} + \ln \left(\frac{\text{var}\{y_{dn*}\}}{\sigma_d^2}\right) \right)
-	\end{equation*}
-		where $\text{var}\{y_{dn*}\}$, $\mu_d$, and $\sigma_d^2$ are the predicted variance, mean, and variance of the training data for the $d$-th output. Positive MSLL indicates worse performance compared to a Gaussian baseline, while negative values suggest improvement.
-\end{frame}
-
-\begin{frame}{Continuous Ranked Probability Score (CRPS)}
-	CRPS measures prediction quality by comparing the predicted CDF $\Phi(y_{dn})$ to the empirical CDF of the observed values. For Gaussian predictive distributions, CRPS is given by:
-	\begin{equation*}
-		\text{CRPS} = \frac{1}{DN_*} \sum_{d=1}^{D} \sum_{n=1}^{N_*} \sqrt{\text{var}\{y_{dn*}\}} \left(\beta_{dn} \left( 2\Phi\left(\beta_{dn}\right) - 1 \right) + 2\phi\left(\beta_{dn}\right) - \frac{1}{\sqrt{\pi}} \right)
-	\end{equation*}
-	with $\beta_{dn} = \frac{y_{dn} - \mathbb{E}\{y_{dn*}\}}{\sqrt{\text{var}\{y_{dn*}\}}}$ and the Gaussian distribution $\phi(\beta_{dn})=\mathcal{N}(\beta_{dn}\mid 0,1)$.
-\end{frame}
 
 
 \subsection{Results and Discussions}
-
-\begin{frame}{Hyperparameter Tuning}
-	\justifying
-	The forecasting task predicts the $D=23$ reservoir contributions at day $n+H$ using the $L=23$ contributions at day $n$. The forecasting horizon $H$ consists of:
-	
-	\begin{itemize}
-		\item \textbf{Short-term predictions:} up to a week ahead, $H\in\{1,2,3,4,5,6,7\}$.
-		\item \textbf{Medium-term predictions:} up to one month ahead, $H\in\{9,14,21,30\}$.
-	\end{itemize}
-	
-	The SVGP model requires tuning two important hyperparameters:
-	
-	\begin{itemize}
-		\item The number of inducing points $M$
-		\item The model order size $T$
-	\end{itemize}
-\end{frame}
-
 
 \begin{frame}{Tuning M and T}
  	\begin{figure}[htbp]
@@ -287,9 +116,8 @@
 	 	\setlength\figureheight{0.5\textwidth}
  		\subfloat[MSLL ($\times10^{-2}$)]{\input{chp_sogp/figures/gs_msll}}\hspace{-1em}
  		\subfloat[MSE ($\times10^{-1}$)]{\input{chp_sogp/figures/gs_mse}}
- 		
- 		\caption{Grid search average values for tuning the model order $T$ and the number of inducing points $M$. The optimal settings are $M=64$ and $T=1$.}
 	\end{figure}
+	Grid search average values for tuning the model order $T$ and the number of inducing points $M$. The optimal settings are $M=64$ and $T=1$
 \end{frame}
 
 \begin{frame}{Reservoir-Wise Output Scales and Noise Variance}
@@ -300,8 +128,8 @@
 		\setlength\figureheight{0.5\textwidth}
 		\subfloat[Output scales]{\input{chp_sogp/figures/output_scale_matrix}}\hspace{-1em}
 		\subfloat[Noise variances]{\input{chp_sogp/figures/noise_variance_matrix}}
-		\caption{Trained model Output scales $\sigma^2_d$ and noise variance $\Sigma_\epsilon$ parameters for each forecasting horizon and input reservoir.}
 	\end{figure}
+	Output scales $\sigma^2_d$ and noise variance $\Sigma_\epsilon$ tuned for each horizon and reservoir. Longer horizons generally show smaller output scales and higher noise variance.
 \end{frame}
 
 
@@ -314,8 +142,8 @@
 		\subfloat[$H=1.$]{\input{chp_sogp/figures/lengthscalematrix1}}\hspace{-1.3em}
 		\subfloat[$H=14.$]{\input{chp_sogp/figures/lengthscalematrix14}}\hspace{-1.3em}
 		\subfloat[$H=30.$]{\input{chp_sogp/figures/lengthscalematrix30}}
-		\caption{Trained lengthscales from input feature (columns) to each output task (rows) for three prediction horizons.}
 	\end{figure}
+	Trained lengthscales from input features (columns) to output tasks (rows) for three prediction horizons. As the horizon increases, main diagonal lengthscales lose relevance, while off-diagonal ones gain importance.
 \end{frame}
 
 \begin{frame}{t-distributed Stochastic Neighbor Embedding (t-SNE)}
@@ -348,22 +176,12 @@
 		\end{subfigure}
 		
 		\vspace{0.0cm} % Space between the figures and the caption
-		
-		\caption{t-SNE-based two-dimensional mapping of the SVGP latent space and inducing points' locations for four target reservoirs. Three inducing points are numbered to analyze the model behavior.}
 	\end{figure}
+	t-SNE-based 2D mapping of the SVGP latent space and inducing points' locations for four target reservoirs. The shared inducing points allow for the capturing of task-wise, and global information about the streamflow dynamics.
 \end{frame}
 
 
 \subsubsection{Performance Analysis}
-
-\begin{frame}{Model Comparison}
-	We compare the proposed SVGP-based forecasting model with two others: the Linear AutoRegressive (LAR) model and the Long-Short-Term Memory (LSTM) network.
-	
-	\begin{itemize}
-		\item \textbf{LAR}: We trained a separate model for each task, treating weights as random variables with a Gaussian distribution to provide confidence intervals.
-		\item \textbf{LSTM}: We used a multi-output model for simultaneous forecasting of all reservoirs. An optimal number of hidden units was found to be one through grid search. LSTM is deterministic and thus cannot be evaluated with probabilistic metrics like MSLL and CRPS.
-	\end{itemize}
-\end{frame}
 
 
 \begin{frame}{Models Forecasting}
@@ -376,9 +194,8 @@
 		\input{chp_sogp/figures/AMANI_forecasting}\hfill
 		\input{chp_sogp/figures/SAN LORENZO_forecasting}
 		
-		\caption{One-day ahead model predictions for reservoirs T (low complexity), A (medium complexity), and I (high complexity) top to bottom. Yellow and blue areas indicate the $95\%$ confidence intervals for LAR and SVGP predictions, respectively.}
-		
 	\end{figure}
+	One-day-ahead model predictions for reservoirs T, A, and I (top to bottom). The SVGP adapts better to time-series data and captures its stochastic nature through the predictive distribution.
 \end{frame}
 
 
@@ -387,12 +204,12 @@
 		%\centering
 		\setlength\figurewidth{0.37\columnwidth} 
 		\setlength\figureheight{0.37\columnwidth}
-		\subfloat[LAR.\label{fig:mse_lar}]{\input{chp_sogp/figures/mse_lar}}\hspace{-1.5em}
-		\subfloat[LSTM.\label{fig:mse_lstm}]{\input{chp_sogp/figures/mse_lstm}}\hspace{-1.5em}
-		\subfloat[SVGP.\label{fig:mse_svgp}]{\input{chp_sogp/figures/mse_igp}}
-		\caption{Achieved MSE for LAR, LSTM, and SVGP forecasting models at each horizon and reservoir.}
-		\label{fig:mse_scores} 
+		\subfloat[LAR.]{\input{chp_sogp/figures/mse_lar}}\hspace{-1.5em}
+		\subfloat[LSTM.]{\input{chp_sogp/figures/mse_lstm}}\hspace{-1.5em}
+		\subfloat[SVGP.]{\input{chp_sogp/figures/mse_igp}}
 	\end{figure}
+	\vspace{-1.0em}
+	MSE achieved by LAR, LSTM, and SVGP forecasting models for each horizon and reservoir. The LAR and SVGP models significantly outperform the LSTM models across all scenarios.
 \end{frame}
 
 \begin{frame}{MSLL Score}
@@ -400,21 +217,18 @@
 		%\centering
 		\setlength\figurewidth{0.5\columnwidth} 
 		\setlength\figureheight{0.445\columnwidth}
-		\subfloat[LAR.\label{fig:msll_lar}]{\input{chp_sogp/figures/msll_lar}}\hspace{-1.5em}
-		\subfloat[SVGP.\label{fig:msll_svgp}]{\input{chp_sogp/figures/msll_igp}}
-		\caption{{Achieved MSLL} %MDPI: Please change the hyphen (-) into a minus sign ($-$, "U+2212") in the image.
-			for LAR and SVGP forecasting models at each horizon and reservoir.}
-		\label{fig:msll_scores} 
+		\subfloat[LAR.]{\input{chp_sogp/figures/msll_lar}}\hspace{-1.5em}
+		\subfloat[SVGP.]{\input{chp_sogp/figures/msll_igp}}
 	\end{figure}
+	\vspace{-1.0em}
+	Achieved MSLL for LAR and SVGP models across horizons and reservoirs. Longer horizons yield larger errors. The SVGP models exhibits lower error and a slower error increase with the horizon compared to the LAR models.
 \end{frame}
 
 \begin{frame}{Performance t-test}
+	Performance metrics for LAR, LSTM, and SVGP across horizons $H$. Bold and asterisk indicate a \emph{p}-value $p<1\%$ (LAR vs. SVGP, LSTM vs. SVGP). SVGP outperforms all models, except LAR at $H=1$, where linear dependence is stronger. As horizon increases, SVGP captures complex input-output relations, significantly outperforming the other models.
+	
 	\tiny
 	\begin{table}[htbp]
-		% \centering
-		\caption{Performance metrics for LAR, LSTM, and SVGP on the considered horizons $H$. Bold and asterisk denote a \emph{p}-value $p<1\%$ in a one-tailed paired \emph{t}-test for LAR vs. SVGP and LSTM vs. SVGP.}
-		\label{tab:metrics}
-		% \newcolumntype{C}{>{\centering\arraybackslash}X}
 		\begin{tabular}{c p{1cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}}
 			\toprule
 			& \multicolumn{3}{c}{\textbf{MSE}} & \multicolumn{2}{c}{\textbf{MSLL}} & \multicolumn{2}{c}{\textbf{CRPS}} \\
@@ -440,23 +254,11 @@
 \end{frame}
 
 \subsubsection{Concluding Remark}
-\begin{frame}{To Conclude}
-	\begin{itemize}
-		\justifying
-		\item The proposed methodology diminishes the computational complexity from cubic to linear regarding the number of samples, becoming more scalable to forecasting tasks on large datasets.
-		\item The optimal number of inducing points performs as an inherent regularization by encoding the most information from the data while avoiding overfitting.
-		\item The t-SNE-based distribution plots reveal that the proposed model strategically places the shared inducing points to capture task-wise, group-specific, and global dynamics, trading off between capturing the reservoir-wise unique characteristics and the between-reservoir dependencies, improving the overall performance in streamflow forecasting.
-	\end{itemize}
-	
-\end{frame}
-
-\begin{frame}{To Conclude}
-	\begin{itemize}
-		\justifying
-		\item The trained lengthscales prove that the GP model successfully adjusts its focus to prediction horizon changes between short-term memory components and long-term relationships. This adaptability makes the Gaussian Process model robust and versatile for multiple-output forecasting tasks with varying time features.
-		
-		\item The performance analysis evidences the advantage of the proposed SVGP model over the baseline LAR and LSTM models for streamflow prediction in three main aspects. Firstly, adaptability to changing dynamics within and between reservoirs. Secondly, the Bayesian scheme returns a posterior distribution and provides informative confidence intervals. Thirdly, the SVGP better copes with the enhanced forecasting complexity for long horizons than baseline approaches, as proved by the slower error growth.
-		
-	\end{itemize}
-	
-\end{frame}
+\begin{frame}{To Conclude} 
+	\begin{itemize} 
+		\item The proposed methodology reduces computational complexity from cubic to linear, improving scalability for large datasets. 
+		\item The optimal number of inducing points provides regularization, avoiding overfitting while capturing key data features. 
+		\item The model strategically places shared inducing points, balancing task-specific and global dynamics to enhance streamflow forecasting. 
+		\item Adaptive lengthscales allow the model to adjust to varying prediction horizons, improving robustness for multi-output tasks. 
+		\item The SVGP model outperforms LAR and LSTM by better handling dynamics, providing uncertainty estimates, and showing slower error growth over long horizons. \end{itemize}
+	 \end{frame}
