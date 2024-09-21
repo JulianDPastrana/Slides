@@ -2,60 +2,47 @@
 
 \subsection{Mathematical Framework}
 
-\begin{frame}{Likelihood Model}
-	\justifying
-	We assume the outputs are conditionally independent given a parameter vector $\boldsymbol{\theta}_d \in \mathbb{R}^{J_d}$, where:
+
+\begin{frame}{Chanied Correlated GP (ChdGP)}
 	
-	\begin{itemize}
-		\item $J_d$ is the number of parameters that define the likelihood for the $d$-th output.
-		\item $\boldsymbol{\theta}_d = [\theta_{d,1}, \theta_{d,2}, \dots, \theta_{d,J_d}]^\top$.
-	\end{itemize}
+	\begin{columns}[T] % Top alignment
+		\begin{column}{0.5\textwidth}	
+			\textbf{Independent Process}
+			\begin{equation*}
+				u_{q}(\mathbf{x}) \sim \mathcal{GP}(0, k_{q}(\mathbf{x}, \mathbf{x}'))
+			\end{equation*}
+			
+			\textbf{Latent Process}
+			\begin{equation*}
+					f_{d,j}(\mathbf{x}) = \sum_{q=1}^Q a_{d,j,q} u_{q}(\mathbf{x})
+			\end{equation*}
+			
+			\textbf{Likelihood}
+			\begin{equation*}
+				p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^D p(y_{d}\mid \theta_{d, 1}, \cdots, \theta_{d, J_d})
+			\end{equation*}
+			
 	
-	The complete parameter vector across all outputs is denoted as:
-	\begin{equation*}
-		\boldsymbol{\theta} = [\boldsymbol{\theta}_1^\top, \boldsymbol{\theta}_2^\top, \dots, \boldsymbol{\theta}_D^\top]^\top \in \mathbb{R}^{J}
-	\end{equation*}
-	where $J = \sum_{d=1}^D J_d$.
+				\begin{itemize}
+					\item $\theta_{d,j} = g_{d, j}(f_{d, j})$ is a likelihood parameter. 
+					\item  $g_{d, j}(\cdot)$ is a deterministic function.
+				\end{itemize}
 	
-	The likelihood of observing all output realizations, $\mathbf{y}$, given the parameter vector $\boldsymbol{\theta}$, is expressed as the product of individual likelihoods:
-	\begin{equation*}
-		p(\mathbf{y} \mid \boldsymbol{\theta}) = \prod_{d=1}^D p\left(\mathbf{y}_d \mid \boldsymbol{\theta}_d\right)
-	\end{equation*}
+			
+		\end{column}
+		
+		\begin{column}{0.5\textwidth}
+			\justifying
+			\setlength\figurewidth{0.44\textwidth} 
+			\setlength\figureheight{0.35\textwidth}
+			\input{chp_lmc/figures/chd_graph}	
+		\end{column}
+		
+	\end{columns}
 \end{frame}
 
-
-\begin{frame}{Chained Gaussian Process}
-	Each $j$-th parameter of the $d$-th likelihood distribution $\theta_{d,j}$ is a deterministic transformation of a latent Gaussian Process prior realization $f_{dj}$, given by $\theta_{d,j} = g_{d,j}(f_{d,j})$.
-	\begin{itemize}
-		\item $\mathbf{f}_{d,j} = [f_{d,j,1}, f_{d,j,2}, \cdots, f_{d,j,N}]^\top \in \mathbb{R}^{N}$ , where $f_{d,j,n} = f_{d,j}(\mathbf{x}_n)$.
-		\item $\mathbf{f}_{d} = [\mathbf{f}_{d,1}^\top, \mathbf{f}_{d,2}^\top, \cdots, \mathbf{f}_{d,J_d}^\top]^\top \in \mathbb{R}^{J_dN}$ 
-		\item $\mathbf{f} = [\mathbf{f}_1^\top, \mathbf{f}_2^\top, \cdots, \mathbf{f}_D^\top]^\top \in \mathbb{R}^{JN}$ 
-	\end{itemize}
-	
-	The conditionally independent likelihood is then formulated as follows: \begin{equation*}
-		p(\mathbf{y} \mid \boldsymbol{\theta}) = p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^D p(\mathbf{y}_d\mid \mathbf{f}_{d}) = \prod_{d=1}^D \prod_{n=1}^N p(y_{d,n}\mid f_{d,1,n}, \cdots, f_{d, J_d, n})
-	\end{equation*}
-	This formulation introduces $J$ latent parameter functions $f_{d,j}(\mathbf{x})$, each governed by a GP prior.
-	
-\end{frame}
-
-\begin{frame}{LMCGP for Chained GPs}
-	The correlation between \(f_{d,j}(\mathbf{x})\) and \(f_{d',j'}(\mathbf{x}')\) can be modeled by using the LMCGP framework:
-	\begin{equation*}
-		\begin{aligned}
-			f_{d,j}(\mathbf{x}) &= \sum_{q=1}^Q a_{d,j,q} u_{q}(\mathbf{x}) \quad &
-			u_{q}(\mathbf{x}) &\sim \mathcal{GP}(0, k_{q}(\mathbf{x}, \mathbf{x}')) 
-		\end{aligned}\label{eq:chd_cov}
-	\end{equation*}
-	Where $k_q$ is the kernel function of the independent process $q$ government by the parameters set $\Phi_q$. The cross-covariance function of the latent parameter GP $\mathbf{f}$ is as follows:
-	\begin{equation*}
-			k_{(d,j), (d',j')}(\mathbf{x}, \mathbf{x}') =\sum_{q=1}^Q b^q_{(d,j), (d',j')} k_{q}(\mathbf{x}, \mathbf{x}')
-	\end{equation*}
-	where $b^q_{(d,j), (d',j')} = a_{d,j,q}a_{d',j',q}$ encodes the interactions among the outputs models, meanwhile, $k_{q}(\mathbf{x}, \mathbf{x}')$ mange the interaction among input space.
-\end{frame}
-
-\begin{frame}{Variational Inference and ELBO}
-	We can extent our variational inference to include conditional independent likelihood function, providing the following ELBO:
+\begin{frame}{Variational Inference, ELBO and Predictive Distribution}
+	We can extent our variational inference, providing the following ELBO:
 	
 \begin{equation*}
 	\begin{split}
@@ -65,45 +52,38 @@
 	\end{split}
 \end{equation*}
 
+The approximated posterior over test points is given by:
+
+\begin{equation*}
+	p(\mathbf{f}_* \mid \mathbf{y}) \approx q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d\mathbf{u}
+\end{equation*}
+
+And the predictive distribution for a new output $\mathbf{y}_*$:
+\begin{equation*}
+	p(\mathbf{y}_* \mid \mathbf{y}) \approx \int p(\mathbf{y}_* \mid \mathbf{f}_*) q(\mathbf{f}_*) \, d\mathbf{f}_*,
+\end{equation*}
+
 The expectation values can be approximated via Monte Carlo methods.
 	
 \end{frame}
 
-\begin{frame}{Latent posterior and Predictive distribution}
-	Consider a test points set $X_{*} \in \mathcal{X}$. Assuming a good approximation of the variational posterior $p(\mathbf{u} \mid \mathbf{y}) \approx q(\mathbf{u})$, the posterior of latent parameter function vector at test points $\mathbf{f}_*$ is
-	\begin{equation*}
-		q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d\mathbf{u}
-	\end{equation*}
-	The predictive distribution for a new observation $\mathbf{y}_*$, given the observed data $\mathbf{y}$, can thus be approximated as:
-	\begin{equation*}
-		p(\mathbf{y}_* \mid \mathbf{y}) \approx \int p(\mathbf{y}_* \mid \mathbf{f}_*) q(\mathbf{f}_*) \, d\mathbf{f}_*,
-	\end{equation*}
-	
-	which integrates over the latent function vector $\mathbf{f}_*$ to account for its uncertainty in the prediction of $\mathbf{y}_*$.
-
-\end{frame}
-
 \begin{frame}{Model Setup}
 	We again make use of squared exponential kernel to construct the covariance function and Adam + NG framework to train the models.
+		
+	\begin{block}{\textbf{Gaussian Likelihood}}
+		\begin{equation*}
+			p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \mathcal{N}\left(y_{d}\mid g_{d,1}(f_{d,1}), g_{d,2}(f_{d,2}) \right)
+		\end{equation*}
+		In this formulation, \(g_{d,1}(\cdot) = \cdot\), while \(g_{d,2}(\cdot) = \ln(\exp(\cdot) + 1)\). We call this model Chd Normal.
+	\end{block} 
 	
-	\begin{itemize} 
-	
-	\item \textbf{Gaussian Likelihood}
-	
-	\begin{equation*}
-		p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \prod_{n=1}^{N} \mathcal{N}\left(y_{d,n} \mid g_{d,1}(f_{d,1,n}), g_{d,2}(f_{d,2,n}) \right)
-	\end{equation*}
-	In this formulation, \(g_{d,1}(\cdot) = \cdot\), while \(g_{d,2}(\cdot) = \ln(\exp(\cdot) + 1)\). We call this model Chd Normal.
-	
-	\item \textbf{Gamma Likelihood}
-	
-	\begin{equation*}
-		p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \prod_{n=1}^{N} \mathcal{G}amma\left( y_{d,n} \mid g_{d,1}(f_{d,1,n}), g_{d,2}(f_{d,2,n}) \right)
-	\end{equation*}
-	
-	In this formulation \(g_{d,1}(\cdot) = g_{d,2}(\cdot) = \ln(\exp(\cdot) + 1)\). We call this model Chd Gamma.
-	\end{itemize}
-	
+	\begin{block}{\textbf{Gamma Likelihood}}
+		\begin{equation*}
+		p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \mathcal{G}amma\left( y_{d} \mid g_{d,1}(f_{d,1}), g_{d,2}(f_{d,2}) \right)
+		\end{equation*}
+		
+		In this formulation \(g_{d,1}(\cdot) = g_{d,2}(\cdot) = \ln(\exp(\cdot) + 1)\). We call this model Chd Gamma.
+	\end{block}
 		
 \end{frame}
 
@@ -194,17 +174,22 @@ The expectation values can be approximated via Monte Carlo methods.
 \end{frame}
 
 \begin{frame}{To Conclude}
-	
-	\begin{itemize}
-		\justifying
-		\item The ChdGP model generalizes all previously developed GP-based models, enhancing expressiveness by modeling likelihood parameters and enabling the handling of natural output restrictions.
 		
-		\item The ChdGP Normal model outperformed the LMCGP model across all forecasting horizons, primarily due to its ability to adaptively vary data noise over the input space, providing a more refined capture of the underlying data structure.
+		\begin{block}{}
+			The ChdGP model generalizes all previously developed GP-based models, enhancing expressiveness by modeling likelihood parameters and enabling the handling of natural output restrictions.	
+		\end{block}
 		
-		\item The ChdGP with Gamma likelihood ensured non-negative predictions. The tuning process revealed a significant improvement in model stability as the number of independent GPs ($Q$) increased, suggesting superior data modeling capabilities.
+		\begin{block}{}
+			The ChdGP Normal model outperformed the LMCGP model across all forecasting horizons, primarily due to its ability to adaptively vary data noise over the input space, providing a more refined capture of the underlying data structure.
+		\end{block}
 		
-		\item The Gamma likelihood configuration outperformed the Gaussian likelihood across all evaluated horizons by avoiding the allocation of predictive distribution mass to negative values and utilizing an asymmetric distribution to more effectively handle peak outliers.
+		\begin{block}{}
+			The ChdGP with Gamma likelihood ensured non-negative predictions. The tuning process revealed a significant improvement in model stability as the number of independent GPs ($Q$) increased, suggesting superior data modeling capabilities.
+		\end{block}
 		
-	\end{itemize}
+		\begin{block}{}
+			The Gamma likelihood configuration outperformed the Gaussian likelihood across all evaluated horizons by avoiding the allocation of predictive distribution mass to negative values and utilizing an asymmetric distribution to more effectively handle peak outliers.
+		\end{block}
+		
 \end{frame}
 

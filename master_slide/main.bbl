@@ -70,10 +70,20 @@ Wessel~P. Bruinsma, Eric Perim, Will Tebbutt, J.~Scott Hosking, Arno Solin, and
   Richard~E. Turner.
 \newblock Scalable exact inference in multi-output gaussian processes, 2020.
 
-\bibitem{verriere2022building}
-Marc Verriere, Nicolas Schunck, Irene Kim, Petar Marević, Kevin Quinlan,
-  Michelle~N. NGo, David Regnier, and Raphael~David Lasseri.
-\newblock Building surrogate models of nuclear density functional theory with
-  gaussian processesand autoencoders, 2022.
+\bibitem{giraldo2021fully}
+Juan-Jos{\'e} Giraldo and Mauricio~A Alvarez.
+\newblock A fully natural gradient scheme for improving inference of the
+  heterogeneous multioutput gaussian process model.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
+  33(11):6429--6442, 2021.
+
+\bibitem{pmlr-v84-salimbeni18a}
+Hugh Salimbeni, Stefanos Eleftheriadis, and James Hensman.
+\newblock Natural gradients in practice: Non-conjugate variational inference in
+  gaussian process models.
+\newblock In Amos Storkey and Fernando Perez-Cruz, editors, {\em Proceedings of
+  the Twenty-First International Conference on Artificial Intelligence and
+  Statistics}, volume~84 of {\em Proceedings of Machine Learning Research},
+  pages 689--697. PMLR, 09--11 Apr 2018.
 
 \end{thebibliography}

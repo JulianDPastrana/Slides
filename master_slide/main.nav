@@ -83,82 +83,62 @@
 \headcommand {\beamer@framepages {29}{29}}
 \headcommand {\slideentry {5}{1}{4}{30/30}{Mathematical Framework}{0}}
 \headcommand {\beamer@framepages {30}{30}}
-\headcommand {\slideentry {5}{1}{5}{31/31}{Mathematical Framework}{0}}
+\headcommand {\beamer@subsectionpages {27}{30}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{31}{Results and Discussions}}
+\headcommand {\beamer@subsubsectionentry {0}{5}{2}{1}{31}{Hyperparameter Tuning}}
+\headcommand {\slideentry {5}{2}{1}{31/31}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {31}{31}}
-\headcommand {\slideentry {5}{1}{6}{32/32}{Mathematical Framework}{0}}
+\headcommand {\slideentry {5}{2}{2}{32/32}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {32}{32}}
-\headcommand {\slideentry {5}{1}{7}{33/33}{Mathematical Framework}{0}}
+\headcommand {\slideentry {5}{2}{3}{33/33}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {33}{33}}
-\headcommand {\slideentry {5}{1}{8}{34/34}{Mathematical Framework}{0}}
+\headcommand {\beamer@subsubsectionentry {0}{5}{2}{2}{34}{Performance Analysis}}
+\headcommand {\slideentry {5}{2}{4}{34/34}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {34}{34}}
-\headcommand {\slideentry {5}{1}{9}{35/35}{Mathematical Framework}{0}}
+\headcommand {\slideentry {5}{2}{5}{35/35}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\slideentry {5}{1}{10}{36/36}{Mathematical Framework}{0}}
+\headcommand {\slideentry {5}{2}{6}{36/36}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {36}{36}}
-\headcommand {\slideentry {5}{1}{11}{37/37}{Mathematical Framework}{0}}
+\headcommand {\beamer@sectionpages {26}{36}}
+\headcommand {\beamer@subsectionpages {31}{36}}
+\headcommand {\sectionentry {6}{Chained Correlated Gaussian Processes}{37}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{0}}
+\headcommand {\slideentry {6}{0}{1}{37/37}{}{0}}
 \headcommand {\beamer@framepages {37}{37}}
-\headcommand {\slideentry {5}{1}{12}{38/38}{Mathematical Framework}{0}}
+\headcommand {\beamer@subsectionpages {37}{37}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{38}{Mathematical Framework}}
+\headcommand {\slideentry {6}{1}{1}{38/38}{Mathematical Framework}{0}}
 \headcommand {\beamer@framepages {38}{38}}
-\headcommand {\beamer@subsectionpages {27}{38}}
-\headcommand {\beamer@subsectionentry {0}{5}{2}{39}{Results and Discussions}}
-\headcommand {\beamer@subsubsectionentry {0}{5}{2}{1}{39}{Hyperparameter Tuning}}
-\headcommand {\slideentry {5}{2}{1}{39/39}{Results and Discussions}{0}}
+\headcommand {\slideentry {6}{1}{2}{39/39}{Mathematical Framework}{0}}
 \headcommand {\beamer@framepages {39}{39}}
-\headcommand {\slideentry {5}{2}{2}{40/40}{Results and Discussions}{0}}
+\headcommand {\slideentry {6}{1}{3}{40/40}{Mathematical Framework}{0}}
 \headcommand {\beamer@framepages {40}{40}}
-\headcommand {\slideentry {5}{2}{3}{41/41}{Results and Discussions}{0}}
+\headcommand {\beamer@subsectionpages {38}{40}}
+\headcommand {\beamer@subsectionentry {0}{6}{2}{41}{Results and Discussions}}
+\headcommand {\slideentry {6}{2}{1}{41/41}{Results and Discussions}{0}}
 \headcommand {\beamer@framepages {41}{41}}
-\headcommand {\beamer@subsubsectionentry {0}{5}{2}{2}{42}{Performance Analysis}}
-\headcommand {\slideentry {5}{2}{4}{42/42}{Results and Discussions}{0}}
+\headcommand {\beamer@subsectionpages {41}{41}}
+\headcommand {\beamer@subsectionentry {0}{6}{3}{42}{Performance Analysis}}
+\headcommand {\slideentry {6}{3}{1}{42/42}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\slideentry {5}{2}{5}{43/43}{Results and Discussions}{0}}
+\headcommand {\slideentry {6}{3}{2}{43/43}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {43}{43}}
-\headcommand {\slideentry {5}{2}{6}{44/44}{Results and Discussions}{0}}
+\headcommand {\slideentry {6}{3}{3}{44/44}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {44}{44}}
-\headcommand {\beamer@sectionpages {26}{44}}
-\headcommand {\beamer@subsectionpages {39}{44}}
-\headcommand {\sectionentry {6}{Chained Correlated Gaussian Processes}{45}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{0}}
-\headcommand {\slideentry {6}{0}{1}{45/45}{}{0}}
+\headcommand {\beamer@subsectionpages {42}{44}}
+\headcommand {\beamer@subsectionentry {0}{6}{4}{45}{Performance Analysis}}
+\headcommand {\slideentry {6}{4}{1}{45/45}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {45}{45}}
-\headcommand {\beamer@subsectionpages {45}{45}}
-\headcommand {\beamer@subsectionentry {0}{6}{1}{46}{Mathematical Framework}}
-\headcommand {\slideentry {6}{1}{1}{46/46}{Mathematical Framework}{0}}
+\headcommand {\slideentry {6}{4}{2}{46/46}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {46}{46}}
-\headcommand {\slideentry {6}{1}{2}{47/47}{Mathematical Framework}{0}}
+\headcommand {\slideentry {6}{4}{3}{47/47}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {47}{47}}
-\headcommand {\slideentry {6}{1}{3}{48/48}{Mathematical Framework}{0}}
+\headcommand {\beamer@sectionpages {37}{47}}
+\headcommand {\beamer@subsectionpages {45}{47}}
+\headcommand {\sectionentry {7}{\translate {References}}{48}{\translate {References}}{0}}
+\headcommand {\slideentry {7}{0}{0}{48/48}{Performance Analysis}{0}}
 \headcommand {\beamer@framepages {48}{48}}
-\headcommand {\slideentry {6}{1}{4}{49/49}{Mathematical Framework}{0}}
-\headcommand {\beamer@framepages {49}{49}}
-\headcommand {\slideentry {6}{1}{5}{50/50}{Mathematical Framework}{0}}
-\headcommand {\beamer@framepages {50}{50}}
-\headcommand {\slideentry {6}{1}{6}{51/51}{Mathematical Framework}{0}}
-\headcommand {\beamer@framepages {51}{51}}
-\headcommand {\beamer@subsectionpages {46}{51}}
-\headcommand {\beamer@subsectionentry {0}{6}{2}{52}{Results and Discussions}}
-\headcommand {\slideentry {6}{2}{1}{52/52}{Results and Discussions}{0}}
-\headcommand {\beamer@framepages {52}{52}}
-\headcommand {\beamer@subsectionpages {52}{52}}
-\headcommand {\beamer@subsectionentry {0}{6}{3}{53}{Performance Analysis}}
-\headcommand {\slideentry {6}{3}{1}{53/53}{Performance Analysis}{0}}
-\headcommand {\beamer@framepages {53}{53}}
-\headcommand {\slideentry {6}{3}{2}{54/54}{Performance Analysis}{0}}
-\headcommand {\beamer@framepages {54}{54}}
-\headcommand {\slideentry {6}{3}{3}{55/55}{Performance Analysis}{0}}
-\headcommand {\beamer@framepages {55}{55}}
-\headcommand {\beamer@subsectionpages {53}{55}}
-\headcommand {\beamer@subsectionentry {0}{6}{4}{56}{Performance Analysis}}
-\headcommand {\slideentry {6}{4}{1}{56/56}{Performance Analysis}{0}}
-\headcommand {\beamer@framepages {56}{56}}
-\headcommand {\slideentry {6}{4}{2}{57/57}{Performance Analysis}{0}}
-\headcommand {\beamer@framepages {57}{57}}
-\headcommand {\slideentry {6}{4}{3}{58/58}{Performance Analysis}{0}}
-\headcommand {\beamer@framepages {58}{58}}
-\headcommand {\beamer@sectionpages {45}{58}}
-\headcommand {\beamer@subsectionpages {56}{58}}
-\headcommand {\sectionentry {7}{\translate {References}}{59}{\translate {References}}{0}}
-\headcommand {\beamer@partpages {1}{61}}
-\headcommand {\beamer@subsectionpages {56}{61}}
-\headcommand {\beamer@sectionpages {45}{61}}
-\headcommand {\beamer@documentpages {61}}
-\headcommand {\gdef \inserttotalframenumber {58}}
+\headcommand {\beamer@partpages {1}{48}}
+\headcommand {\beamer@subsectionpages {45}{48}}
+\headcommand {\beamer@sectionpages {37}{48}}
+\headcommand {\beamer@documentpages {48}}
+\headcommand {\gdef \inserttotalframenumber {48}}

@@ -109,16 +109,19 @@
 
 \subsection{Results and Discussions}
 
-\begin{frame}{Tuning M and T}
- 	\begin{figure}[htbp]
-	 	% \centering
-	 	\setlength\figurewidth{0.5\textwidth} 
-	 	\setlength\figureheight{0.5\textwidth}
- 		\subfloat[MSLL ($\times10^{-2}$)]{\input{chp_sogp/figures/gs_msll}}\hspace{-1em}
- 		\subfloat[MSE ($\times10^{-1}$)]{\input{chp_sogp/figures/gs_mse}}
+\begin{frame}{Tuning $M$ and $T$}
+	\begin{figure}[htbp]
+		\setlength\figurewidth{0.5\textwidth} 
+		\setlength\figureheight{0.5\textwidth}
+		\subfloat[MSLL ($\times10^{-2}$)]{\input{chp_sogp/figures/gs_msll}}\hspace{-1em}
+		\subfloat[MSE ($\times10^{-1}$)]{\input{chp_sogp/figures/gs_mse}}
 	\end{figure}
-	Grid search average values for tuning the model order $T$ and the number of inducing points $M$. The optimal settings are $M=64$ and $T=1$
+	\vspace{-2em}
+	\begin{block}{}
+		Grid search average values for tuning the model order $T$ and the number of inducing points $M$. The optimal settings are $M=64$ and $T=1$
+	\end{block}
 \end{frame}
+
 
 \begin{frame}{Reservoir-Wise Output Scales and Noise Variance}
 	
@@ -129,7 +132,10 @@
 		\subfloat[Output scales]{\input{chp_sogp/figures/output_scale_matrix}}\hspace{-1em}
 		\subfloat[Noise variances]{\input{chp_sogp/figures/noise_variance_matrix}}
 	\end{figure}
+	\vspace{-2.5em}
+	\begin{block}{}
 	Output scales $\sigma^2_d$ and noise variance $\Sigma_\epsilon$ tuned for each horizon and reservoir. Longer horizons generally show smaller output scales and higher noise variance.
+	\end{block}
 \end{frame}
 
 
@@ -143,12 +149,16 @@
 		\subfloat[$H=14.$]{\input{chp_sogp/figures/lengthscalematrix14}}\hspace{-1.3em}
 		\subfloat[$H=30.$]{\input{chp_sogp/figures/lengthscalematrix30}}
 	\end{figure}
+	\vspace{-2.5em}
+	\begin{block}{}
 	Trained lengthscales from input features (columns) to output tasks (rows) for three prediction horizons. As the horizon increases, main diagonal lengthscales lose relevance, while off-diagonal ones gain importance.
+	\end{block}
 \end{frame}
 
 \begin{frame}{t-distributed Stochastic Neighbor Embedding (t-SNE)}
 	\begin{figure}[htbp]
 		\centering
+		\tiny
 		\begin{subfigure}[t]{0.38\columnwidth}
 			\centering
 			\includegraphics[width=\columnwidth]{chp_sogp/figures/TSNE_task4_kde_p30.png}
@@ -161,7 +171,7 @@
 			\caption{Reservoir I.}
 		\end{subfigure}
 		
-		\vspace{0.1cm} % Space between rows
+		\vspace{-0.4em} % Space between rows
 		
 		\begin{subfigure}[t]{0.38\columnwidth}
 			\centering
@@ -175,9 +185,11 @@
 			\caption{Reservoir U.}
 		\end{subfigure}
 		
-		\vspace{0.0cm} % Space between the figures and the caption
+		\vspace{-1.5em} % Space between the figures and the caption
 	\end{figure}
+	\begin{block}{}
 	t-SNE-based 2D mapping of the SVGP latent space and inducing points' locations for four target reservoirs. The shared inducing points allow for the capturing of task-wise, and global information about the streamflow dynamics.
+	\end{block}
 \end{frame}
 
 
@@ -195,7 +207,10 @@
 		\input{chp_sogp/figures/SAN LORENZO_forecasting}
 		
 	\end{figure}
+	\vspace{-1.4em}
+	\begin{block}{}
 	One-day-ahead model predictions for reservoirs T, A, and I (top to bottom). The SVGP adapts better to time-series data and captures its stochastic nature through the predictive distribution.
+	\end{block}
 \end{frame}
 
 
@@ -208,26 +223,31 @@
 		\subfloat[LSTM.]{\input{chp_sogp/figures/mse_lstm}}\hspace{-1.5em}
 		\subfloat[SVGP.]{\input{chp_sogp/figures/mse_igp}}
 	\end{figure}
-	\vspace{-1.0em}
+	\vspace{-1.5em}
+	\begin{block}{}
 	MSE achieved by LAR, LSTM, and SVGP forecasting models for each horizon and reservoir. The LAR and SVGP models significantly outperform the LSTM models across all scenarios.
+	\end{block}
 \end{frame}
 
 \begin{frame}{MSLL Score}
 	\begin{figure}[htbp]
 		%\centering
 		\setlength\figurewidth{0.5\columnwidth} 
-		\setlength\figureheight{0.445\columnwidth}
+		\setlength\figureheight{0.42\columnwidth}
 		\subfloat[LAR.]{\input{chp_sogp/figures/msll_lar}}\hspace{-1.5em}
 		\subfloat[SVGP.]{\input{chp_sogp/figures/msll_igp}}
 	\end{figure}
-	\vspace{-1.0em}
+	\vspace{-1.8em}
+	\begin{block}{}
 	Achieved MSLL for LAR and SVGP models across horizons and reservoirs. Longer horizons yield larger errors. The SVGP models exhibits lower error and a slower error increase with the horizon compared to the LAR models.
+	\end{block}
 \end{frame}
 
 \begin{frame}{Performance t-test}
+	\begin{block}{}
 	Performance metrics for LAR, LSTM, and SVGP across horizons $H$. Bold and asterisk indicate a \emph{p}-value $p<1\%$ (LAR vs. SVGP, LSTM vs. SVGP). SVGP outperforms all models, except LAR at $H=1$, where linear dependence is stronger. As horizon increases, SVGP captures complex input-output relations, significantly outperforming the other models.
-	
-	\tiny
+	\end{block}
+	\scriptsize
 	\begin{table}[htbp]
 		\begin{tabular}{c p{1cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}}
 			\toprule
@@ -255,10 +275,26 @@
 
 \subsubsection{Concluding Remark}
 \begin{frame}{To Conclude} 
-	\begin{itemize} 
-		\item The proposed methodology reduces computational complexity from cubic to linear, improving scalability for large datasets. 
-		\item The optimal number of inducing points provides regularization, avoiding overfitting while capturing key data features. 
-		\item The model strategically places shared inducing points, balancing task-specific and global dynamics to enhance streamflow forecasting. 
-		\item Adaptive lengthscales allow the model to adjust to varying prediction horizons, improving robustness for multi-output tasks. 
-		\item The SVGP model outperforms LAR and LSTM by better handling dynamics, providing uncertainty estimates, and showing slower error growth over long horizons. \end{itemize}
+		\begin{block}{}
+		The proposed methodology reduces computational complexity from cubic to linear, improving scalability for large datasets. 
+		\end{block}
+		
+		\begin{block}{}
+		The optimal number of inducing points provides regularization, avoiding overfitting while capturing key data features. 
+		\end{block}
+		
+		\begin{block}{}
+		The model strategically places shared inducing points, balancing task-specific and global dynamics to enhance streamflow forecasting. 
+		\end{block}
+		
+		\begin{block}{}
+		Adaptive lengthscales allow the model to adjust to varying prediction horizons, improving robustness for multi-output tasks. 
+		\end{block}
+		
+		\begin{block}{} 
+		The SVGP model outperforms LAR and LSTM by better handling dynamics, providing uncertainty estimates, and showing slower error growth over long horizons.
+		\end{block}
 	 \end{frame}
+
+
+
