@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  20 SEP 2024 19:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  23 SEP 2024 10:49
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1182,22 +1182,22 @@ File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
 (./cover/cover.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1257,7 +1257,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box131
-Package hyperref Info: Link coloring OFF on input line 145.
+Package hyperref Info: Link coloring OFF on input line 152.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1270,9 +1270,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count369
 )
-LaTeX Info: Redefining \ref on input line 145.
-LaTeX Info: Redefining \pageref on input line 145.
-LaTeX Info: Redefining \nameref on input line 145.
+LaTeX Info: Redefining \ref on input line 152.
+LaTeX Info: Redefining \pageref on input line 152.
+LaTeX Info: Redefining \nameref on input line 152.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1310,7 +1310,7 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 145.
+LaTeX Info: Redefining \selectfont on input line 152.
  (./main.nav)
 \openout2 = `cover/cover.aux'.
 
@@ -1391,7 +1391,11 @@ Package pdftex.def Info: images/full_dam.jpg  used on input line 53.
 (pdftex.def)             Requested size: 154.89018pt x 113.81123pt.
  [4
 
- <./images/drought.jpg> <./images/full_dam.jpg>] [5
+ <./images/drought.jpg> <./images/full_dam.jpg>]
+Overfull \vbox (0.30739pt too high) detected at line 68
+ []
+
+[5
 
 ] [6
 
@@ -1399,21 +1403,25 @@ Package pdftex.def Info: images/full_dam.jpg  used on input line 53.
 
 ] [8
 
-]
-[9
+] [9
 
 ]
 <images/colombiamap.pdf, id=386, 409.29944pt x 463.0108pt>
 File: images/colombiamap.pdf Graphic file (type pdf)
 <use images/colombiamap.pdf>
-Package pdftex.def Info: images/colombiamap.pdf  used on input line 134.
+Package pdftex.def Info: images/colombiamap.pdf  used on input line 138.
 (pdftex.def)             Requested size: 154.88684pt x 175.21117pt.
 <images/ct_violinplot.pdf, id=387, 382.17839pt x 142.32895pt>
 File: images/ct_violinplot.pdf Graphic file (type pdf)
 <use images/ct_violinplot.pdf>
-Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 134.
+Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 138.
 (pdftex.def)             Requested size: 189.30847pt x 70.50189pt.
- [10
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+[]\OT1/cmss/m/n/10 Although vol-u-met-ric mea-sure-ments are
+ []
+
+[10
 
  <./images/colombiamap.pdf> <./images/ct_violinplot.pdf
 
@@ -1478,15 +1486,11 @@ Overfull \vbox (2.49324pt too high) detected at line 193
 
  <./chp_sogp/figures/TSNE_task4_kde_p30.png> <./chp_sogp/figures/TSNE_task8_kde
 _p30.png> <./chp_sogp/figures/TSNE_task11_kde_p30.png> <./chp_sogp/figures/TSNE
-_task20_kde_p30.png>] (./chp_sogp/figures/SALVAJINA_forecasting.tex)
-(./chp_sogp/figures/AMANI_forecasting.tex)
-(./chp_sogp/figures/SAN LORENZO_forecasting.tex)
-Overfull \vbox (3.72668pt too high) detected at line 214
- []
+_task20_kde_p30.png>] (./chp_sogp/figures/AMANI_forecasting.tex)
+(./chp_sogp/figures/SAN LORENZO_forecasting.tex) [21
 
-[21
-
-] (./chp_sogp/figures/mse_lar.tex) (./chp_sogp/figures/mse_lstm.tex)
+]
+(./chp_sogp/figures/mse_lar.tex) (./chp_sogp/figures/mse_lstm.tex)
 (./chp_sogp/figures/mse_igp.tex) [22
 
  <./chp_sogp/figures/mse_lar-000.png> <./chp_sogp/figures/mse_lar_profile-000.p
@@ -1494,7 +1498,7 @@ ng> <./chp_sogp/figures/mse_lstm-000.png> <./chp_sogp/figures/mse_lstm_profile-
 000.png> <./chp_sogp/figures/mse_igp-000.png> <./chp_sogp/figures/mse_igp_profi
 le-000.png>]
 (./chp_sogp/figures/msll_lar.tex) (./chp_sogp/figures/msll_igp.tex)
-Overfull \vbox (2.09239pt too high) detected at line 244
+Overfull \vbox (2.09239pt too high) detected at line 243
  []
 
 [23
@@ -1542,20 +1546,15 @@ lization_30-000.png>]
 (./chp_lmc/figures/performance_bars_MSLL.tex) [34
 
 ]
-(./chp_lmc/figures/lmc_forecasting_SALVAJINA.tex)
 (./chp_lmc/figures/lmc_forecasting_AMANI.tex)
-(./chp_lmc/figures/lmc_forecasting_SAN LORENZO.tex)
-Overfull \vbox (2.78215pt too high) detected at line 225
- []
-
-[35
+(./chp_lmc/figures/lmc_forecasting_SAN LORENZO.tex) [35
 
 ] [36
 
-]) (./chp_chd/chained_gaussian_processes.tex [37
+])
+(./chp_chd/chained_gaussian_processes.tex [37
 
-]
-(./chp_lmc/figures/chd_graph.tex
+] (./chp_lmc/figures/chd_graph.tex
 Missing character: There is no i in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -1568,7 +1567,6 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no i in font nullfont!
-
 contour: Using real outline for `$a_{1, 1,1}$' on input line 36.
 contour: Using real outline for `$a_{1, 1,2}$' on input line 36.
 contour: Using real outline for `$a_{1, 1,3}$' on input line 36.
@@ -1589,53 +1587,58 @@ Overfull \hbox (2.14911pt too wide) in paragraph at lines 67--68
 ] (./chp_chd/figures/CRPS_chd_normal.tex)
 (./chp_chd/figures/MSE_chd_normal.tex) (./chp_chd/figures/MSLL_chd_normal.tex)
 (./chp_chd/figures/NLPD_chd_normal.tex)
-Overfull \vbox (4.61678pt too high) detected at line 105
+Overfull \vbox (0.89093pt too high) detected at line 109
  []
 
 [41
 
 ] (./chp_chd/figures/NLPD_peformance_chdnormal.tex)
-(./chp_chd/figures/MSLL_peformance_chdnormal.tex)
-Overfull \vbox (5.8578pt too high) detected at line 120
- []
-
-[42
-
-] (./chp_chd/figures/chd_normal_forecasting_SALVAJINA.tex)
-(./chp_chd/figures/chd_normal_forecasting_AMANI.tex)
-(./chp_chd/figures/chd_normal_forecasting_SAN LORENZO.tex)
-(./chp_chd/figures/chd_normal_forecasting_ESMERALDA.tex)
-Overfull \vbox (9.70293pt too high) detected at line 135
- []
-
-[43
-
-] (./chp_chd/figures/NLPD_chd_gamma.tex) [44
+(./chp_chd/figures/MSLL_peformance_chdnormal.tex) [42
 
 ]
-(./chp_chd/figures/NLPD_peformance_chdgamma.tex)
-Overfull \vbox (0.56853pt too high) detected at line 158
- []
+(./chp_chd/figures/chd_normal_forecasting_SAN LORENZO.tex)
+(./chp_chd/figures/chd_normal_forecasting_ESMERALDA.tex) [43
 
-[45
+]
+(./chp_chd/figures/NLPD_chd_gamma.tex) [44
 
-] (./chp_chd/figures/chd_gamma_forecasting_SALVAJINA.tex)
-(./chp_chd/figures/chd_gamma_forecasting_AMANI.tex)
+]
+(./chp_chd/figures/NLPD_peformance_chdgamma.tex) [45
+
+]
 (./chp_chd/figures/chd_gamma_forecasting_SAN LORENZO.tex)
-(./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex)
-Overfull \vbox (7.42494pt too high) detected at line 174
- []
-
-[46
+(./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex) [46
 
 ] [47
 
-]) (./main.bbl
+]) [48
+
+]
+<images/article.png, id=1757, 928.46875pt x 201.75375pt>
+File: images/article.png Graphic file (type png)
+<use images/article.png>
+Package pdftex.def Info: images/article.png  used on input line 195.
+(pdftex.def)             Requested size: 206.51929pt x 44.87544pt.
+<images/proceeding.png, id=1758, 945.5325pt x 211.79124pt>
+File: images/proceeding.png Graphic file (type png)
+<use images/proceeding.png>
+Package pdftex.def Info: images/proceeding.png  used on input line 195.
+(pdftex.def)             Requested size: 206.51929pt x 46.25812pt.
+<images/software.png, id=1759, 824.07875pt x 123.46124pt>
+File: images/software.png Graphic file (type png)
+<use images/software.png>
+Package pdftex.def Info: images/software.png  used on input line 195.
+(pdftex.def)             Requested size: 206.51929pt x 30.94058pt.
+
+[49
+
+ <./images/article.png> <./images/proceeding.png> <./images/software.png>]
+(./main.bbl
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 1.
 
-) [48
+) [50
 
 ]
 \tf@nav=\write6
@@ -1647,22 +1650,22 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 160.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 160.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 206.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 206.
  (./main.aux (./cover/cover.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 160.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 160.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 206.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 206.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3BA091C60B3003C12A1FCE6530944F07;1151.
  ) 
 Here is how much of TeX's memory you used:
- 40897 strings out of 481239
- 972705 string characters out of 5920377
- 2197909 words of memory out of 5000000
- 55008 multiletter control sequences out of 15000+600000
+ 40752 strings out of 481239
+ 968291 string characters out of 5920377
+ 2106083 words of memory out of 5000000
+ 54875 multiletter control sequences out of 15000+600000
  558824 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,20n,127p,792b,2827s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,20n,127p,792b,2829s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -1671,30 +1674,28 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cme
-xtra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-i8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (48 pages, 14564820 bytes).
+amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (50 pages, 14549012 bytes).
 PDF statistics:
- 1884 PDF objects out of 2073 (max. 8388607)
- 1651 compressed objects within 17 object streams
- 132 named destinations out of 1000 (max. 500000)
- 413 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1941 PDF objects out of 2073 (max. 8388607)
+ 1701 compressed objects within 18 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 428 words of extra memory for PDF output out of 10000 (max. 10000000)
 

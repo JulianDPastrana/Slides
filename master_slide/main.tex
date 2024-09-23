@@ -134,13 +134,20 @@
   \end{frame}
 }
 
+\usepackage{ragged2e} % For \justifying command
+\usepackage{lipsum} % Only for demo text
+
+\addtobeamertemplate{block begin}{}{\justifying} 
+%\addtobeamertemplate{itemize begin}{}{\justifying} 
+
+
 %------------------------------------------------------------
 
-\usepackage{ragged2e}
 \usepackage{etoolbox}
-\usepackage{lipsum}
 
 \apptocmd{\frame}{}{\justifying}{} 
+\let\olditem\item
+\renewcommand\item{\olditem\justifying}
 
 \begin{document}
 
@@ -149,6 +156,45 @@
 \input{chp_sogp/gaussian_processes}
 \input{chp_lmc/multi_output_gaussian_processes}
 \input{chp_chd/chained_gaussian_processes}
+
+\begin{frame}{Grand Conclusions}
+	
+	\begin{block}{}
+		\justifying
+		The Sparse Variational Gaussian Process (SVGP) model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured nonlinear relationships and provided uncertainty estimates, outperforming alternative models across various forecasting horizons.
+	\end{block}
+	
+	\begin{block}{}
+		\justifying
+		By linearly combining independent GPs, we developed the Linear Model of Coregionalization GP (LMCGP), enhancing prediction accuracy through shared features and task-specific information. To improve optimization, we introduced a combined Adam + Natural Gradients (NG) framework, resulting in more stable solutions.
+	\end{block}
+	
+	\begin{block}{}
+		\justifying
+		Finally, to ensure non-negative streamflow predictions, we introduced the Chained Correlated Gaussian Process (ChdGP) with a Gamma likelihood. This model showed improved stability and accuracy, particularly in capturing periodic patterns and peak occurrences, making it a promising approach for hydrological forecasting.
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{Generation of Knowledge Products}
+	\begin{block}{Article Published (Q1)}
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/article.png}
+	\end{block}
+	
+	\begin{block}{Proceeding Published}
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/proceeding.png}
+	\end{block}
+
+	\begin{block}{Registered Software \textit{hydrogpower}}
+		\centering
+		\includegraphics[width=0.6\textwidth]{images/software.png}
+	\end{block}
+	
+\end{frame}
+
+
 \tiny
 \begin{frame}
 	\frametitle{References}

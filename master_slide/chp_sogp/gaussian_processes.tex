@@ -197,19 +197,18 @@
 
 
 \begin{frame}{Models Forecasting}
+	\centering
 	\begin{figure}[htbp]
-		\centering
-		\setlength\figurewidth{\columnwidth} 
-		\setlength\figureheight{0.24\columnwidth}
+		\tiny
+		\setlength\figurewidth{0.55\columnwidth} 
+		\setlength\figureheight{0.5\columnwidth}
 		
-		\input{chp_sogp/figures/SALVAJINA_forecasting}\hfill
-		\input{chp_sogp/figures/AMANI_forecasting}\hfill
-		\input{chp_sogp/figures/SAN LORENZO_forecasting}
-		
+		\subfloat[$A$.]{\input{chp_sogp/figures/AMANI_forecasting}}
+		\subfloat[$I$.]{\input{chp_sogp/figures/SAN LORENZO_forecasting}}
 	\end{figure}
-	\vspace{-1.4em}
+	\vspace{-1.5em}
 	\begin{block}{}
-	One-day-ahead model predictions for reservoirs T, A, and I (top to bottom). The SVGP adapts better to time-series data and captures its stochastic nature through the predictive distribution.
+	One-day-ahead model predictions for two reservoirs. The SVGP adapts better to time-series data and captures its stochastic nature through the predictive distribution.
 	\end{block}
 \end{frame}
 
@@ -276,22 +275,27 @@
 \subsubsection{Concluding Remark}
 \begin{frame}{To Conclude} 
 		\begin{block}{}
+			\justifying
 		The proposed methodology reduces computational complexity from cubic to linear, improving scalability for large datasets. 
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		The optimal number of inducing points provides regularization, avoiding overfitting while capturing key data features. 
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		The model strategically places shared inducing points, balancing task-specific and global dynamics to enhance streamflow forecasting. 
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		Adaptive lengthscales allow the model to adjust to varying prediction horizons, improving robustness for multi-output tasks. 
 		\end{block}
 		
-		\begin{block}{} 
+		\begin{block}{}
+			\justifying
 		The SVGP model outperforms LAR and LSTM by better handling dynamics, providing uncertainty estimates, and showing slower error growth over long horizons.
 		\end{block}
 	 \end{frame}

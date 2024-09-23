@@ -15,6 +15,7 @@
 	axis line style={white},
 	tick align=inside,
 	tick pos=left,
+	xlabel={Time (days)},
 	ylabel={Contributions (kWh)},
 	ylabel style={font=\tiny},
 	x grid style={white},
@@ -28,19 +29,19 @@
 	ytick={-4000000,-2000000,0,2000000,4000000,6000000,8000000,10000000,12000000,14000000},
 	yticklabels={\ensuremath{-}\tiny0.4,\ensuremath{-}\tiny0.2,\tiny0.0,\tiny0.2,\tiny0.4,\tiny0.6,\tiny0.8,\tiny1.0,\tiny1.2,\tiny1.4},
 	tick label style={font=\tiny},  % For all tick labels
-	legend columns=6, 
-	legend style={
-		nodes={scale=0.8, transform shape},
-		font=\tiny,
-		fill opacity=0.8,
-		draw opacity=1,
-		text opacity=1,
-		at={(0.03,0.97)},
-		anchor=north west,
-		legend pos=north east,
-		draw=lightgray204,
-		fill=background_color
-	},
+%	legend columns=2, 
+%	legend style={
+%		nodes={scale=0.8, transform shape},
+%		font=\tiny,
+%		fill opacity=0.8,
+%		draw opacity=1,
+%		text opacity=1,
+%		at={(0.03,0.97)},
+%		anchor=north west,
+%		legend pos=north east,
+%		draw=lightgray204,
+%		fill=background_color
+%	},
 ]
 
 \path [draw=blue, fill=blue, opacity=0.5]
@@ -3595,16 +3596,16 @@ table {%
 440 5323680.8236796
 };
 
-\addlegendentry{Test data}
-
-\addlegendentry{LAR}
-
-\addlegendentry{LSTM}
-\addlegendentry{SVGP}
-\addlegendimage{line width=5pt,draw=goldenrod1911910,opacity=0.5}
-\addlegendentry{$95\%$ LAR CI}
-\addlegendimage{line width=5pt,draw=blue,opacity=0.5}
-\addlegendentry{$95\%$ SVGP CI}
+%\addlegendentry{Test data}
+%
+%\addlegendentry{LAR}
+%
+%\addlegendentry{LSTM}
+%\addlegendentry{SVGP}
+%\addlegendimage{line width=5pt,draw=goldenrod1911910,opacity=0.5}
+%\addlegendentry{$95\%$ LAR CI}
+%\addlegendimage{line width=5pt,draw=blue,opacity=0.5}
+%\addlegendentry{$95\%$ SVGP CI}
 
 
 \end{axis}

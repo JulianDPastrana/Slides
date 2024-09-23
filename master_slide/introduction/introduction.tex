@@ -52,7 +52,7 @@
 	
 \end{frame}
 
-\begin{frame}{Problem Statement}
+\begin{frame}{Problem Statement and Research Question}
 	\begin{block}{}
 	\begin{itemize}
 		\item Physically driven models for water resource forecasting are complex and require extensive parameter knowledge, limiting their practicality \cite{Yaseen2018, HKASHANI2016340}.
@@ -61,6 +61,9 @@
 		\item LSTM networks overcome these issues, but lack uncertainty quantification, crucial for decision-making in hydrological forecasting \cite{lakshminarayanan2017simple, gal2016dropout}.
 		\item Gaussian Processes (GPs) provide uncertainty and handle nonlinearities, but scaling to multi-task forecasting remains a challenge \cite{QUILTY2020104718, NIU2021102562,bruinsma2020scalable}.
 	\end{itemize}
+	\end{block}
+	\begin{block}{\textbf{Research Question}}
+		How to develop a joint probabilistic prediction model for multiple hydrological series associated with electricity generation, that describes the randomness of the forecast, is scalable, and utilizes task correlations to improve performance?
 	\end{block}
 \end{frame}
 
@@ -73,6 +76,7 @@
 	\end{block}
 	
 	\begin{block}{\textbf{Specific Objectives}}
+			
 			\begin{itemize}
 			\item Develop a model that allows the forecasting of hydrological time series, properly quantifying the uncertainty associated with each value within the prediction horizons.
 			\item  Design a multi-task forecasting methodology that captures and models cross-correlations between hydrological time series, to improve forecast accuracy within forecast horizons.

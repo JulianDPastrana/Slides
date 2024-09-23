@@ -209,18 +209,18 @@
 \end{frame}
 
 \begin{frame}{Model Forecasting}
+	\centering
 	\begin{figure}[htbp]
-		\centering
-		\setlength\figurewidth{\columnwidth} 
-		\setlength\figureheight{0.24\columnwidth}
-		
-		\input{chp_lmc/figures/lmc_forecasting_SALVAJINA}\hfill
-		\input{chp_lmc/figures/lmc_forecasting_AMANI}\hfill
-		\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}
+	\tiny
+	\setlength\figurewidth{0.55\columnwidth} 
+	\setlength\figureheight{0.5\columnwidth}
+
+	\subfloat[$A$.]{\input{chp_lmc/figures/lmc_forecasting_AMANI}}
+	\subfloat[$I$.]{\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}}
 	\end{figure}
-	\vspace{-1.3em}
+	\vspace{-1.5em}
 	\begin{block}{}
-		Test data for reservoirs T, A, and I (top to bottom) in one day ahead LMCGP model prediction. The model more accurately follows the peaks due its complex behavior.
+		Test data for two reservoirs in one day ahead LMCGP model prediction. The model more accurately follows the peaks due its complex behavior.
 	\end{block}
 \end{frame}
 
@@ -229,22 +229,27 @@
 \begin{frame}{To Conclude}
 		\justifying
 		\begin{block}{}
+			\justifying
 		The LMCGP effectively captures shared features and dynamics for multi-output tasks. However, increasing the number of independent GPs beyond a threshold leads to instability.
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		The lengthscale matrix and task dependency coefficients, $a_{d,q}$, provide critical insights into feature selection, with some GPs specializing in specific tasks and others covering a broader range of outputs.
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		To improve optimization performance, using Adam + NG optimizer proved superior to traditional methods, leading to more robust results.
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		The LMCGP outperformed the IGP in terms of NLPD and MSLL across all horizons, emphasizing the benefits of task dependency modeling.
 		\end{block}
 		
 		\begin{block}{}
+			\justifying
 		The LMCGP's forecasting ability showed stronger learning of complex patterns by leveraging data from multiple tasks.
 		\end{block}
 \end{frame}
