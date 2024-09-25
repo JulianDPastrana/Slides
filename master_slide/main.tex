@@ -18,13 +18,15 @@
 \usepackage{multicol}
 \usepackage{cleveref}
 \usepackage{changepage}
+\usepackage{pifont}    % For more symbols like dingbats
+\usepackage{blindtext}
 
 
 \newcommand\dc[1]{\textcolor{blue}{#1}}
 \setcounter{tocdepth}{3}
 \pgfplotsset{compat=1.16}
-%\usepgfplotslibrary{external} 
-%\tikzexternalize
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=images/]
 
 \newlength\figureheight
 \newlength\figurewidth
@@ -42,7 +44,7 @@
 \setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
 \setbeamercolor*{titlelike}{fg=myNewColorA}
 \setbeamercolor*{title}{bg=myNewColorA, fg=white}
-\setbeamercolor*{item}{fg=myNewColorA}
+\setbeamercolor*{item}{fg=myNewColorB}
 \setbeamercolor*{caption name}{fg=myNewColorA}
 
 % For NN graph
@@ -120,7 +122,7 @@
 	}{Julián David Pastrana-Cortés\vspace{-20pt}}
 }
 
-\institute[Automatic]{Automatic Research Group\vspace{-15pt}}
+\institute[Automatics]{Automatic Research Group\vspace{-15pt}}
 %\date{\today\vspace{-15pt}}
 
 \AtBeginSection[]{

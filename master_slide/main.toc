@@ -1,19 +1,16 @@
-\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@sectionintoc {2}{Objectives}{6}{0}{2}
-\beamer@sectionintoc {3}{The Dataset}{8}{0}{3}
-\beamer@subsectionintoc {3}{1}{Methodoly}{11}{0}{3}
-\beamer@sectionintoc {4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{12}{0}{4}
-\beamer@subsectionintoc {4}{1}{Mathematical Framework}{13}{0}{4}
-\beamer@subsectionintoc {4}{2}{Results and Discussions}{17}{0}{4}
-\beamer@subsubsectionintoc {4}{2}{1}{Performance Analysis}{21}{0}{4}
-\beamer@subsubsectionintoc {4}{2}{2}{Concluding Remark}{25}{0}{4}
-\beamer@sectionintoc {5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{26}{0}{5}
-\beamer@subsectionintoc {5}{1}{Mathematical Framework}{27}{0}{5}
-\beamer@subsectionintoc {5}{2}{Results and Discussions}{31}{0}{5}
-\beamer@subsubsectionintoc {5}{2}{1}{Hyperparameter Tuning}{31}{0}{5}
-\beamer@subsubsectionintoc {5}{2}{2}{Performance Analysis}{34}{0}{5}
-\beamer@sectionintoc {6}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{37}{0}{6}
-\beamer@subsectionintoc {6}{1}{Mathematical Framework}{38}{0}{6}
-\beamer@subsectionintoc {6}{2}{Results and Discussions}{41}{0}{6}
-\beamer@subsectionintoc {6}{3}{Performance Analysis}{42}{0}{6}
-\beamer@subsectionintoc {6}{4}{Performance Analysis}{45}{0}{6}
+\beamer@subsectionintoc {3}{1}{Methodoly}{8}{0}{0}
+\beamer@sectionintoc {4}{Gaussian Process Regression: Bayesian Non-Parametric Model}{9}{0}{1}
+\beamer@subsectionintoc {4}{1}{Mathematical Framework}{10}{0}{1}
+\beamer@subsectionintoc {4}{2}{Results and Discussions}{13}{0}{1}
+\beamer@subsubsectionintoc {4}{2}{1}{Performance Analysis}{17}{0}{1}
+\beamer@subsubsectionintoc {4}{2}{2}{Concluding Remark}{21}{0}{1}
+\beamer@sectionintoc {5}{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}{22}{0}{2}
+\beamer@subsectionintoc {5}{1}{Mathematical Framework}{23}{0}{2}
+\beamer@subsectionintoc {5}{2}{Results and Discussions}{27}{0}{2}
+\beamer@subsubsectionintoc {5}{2}{1}{Hyperparameter Tuning}{27}{0}{2}
+\beamer@subsubsectionintoc {5}{2}{2}{Performance Analysis}{30}{0}{2}
+\beamer@sectionintoc {6}{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}{33}{0}{3}
+\beamer@subsectionintoc {6}{1}{Mathematical Framework}{34}{0}{3}
+\beamer@subsectionintoc {6}{2}{Results and Discussions}{37}{0}{3}
+\beamer@subsectionintoc {6}{3}{Performance Analysis}{38}{0}{3}
+\beamer@subsectionintoc {6}{4}{Performance Analysis}{41}{0}{3}

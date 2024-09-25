@@ -1,4 +1,4 @@
-\section{Introduction}
+\section*{Introduction}
 \begin{frame}{Motivation}
 	\begin{block}{}
 	Understanding the implications of time series associated with hydrological variables, such as flow rates or reservoir levels, is essential for hydroelectric generation and the planning of other generation systems in Colombia.
@@ -33,7 +33,7 @@
 \begin{frame}
 	\frametitle{The Importance of Hydrological Forecasting}
 	\begin{block}{}
-	Understanding hydrological processes has become increasingly critical in the field of natural resource management, anticipation capacity of extreme hydrological events such as droughts and heavy rainfall.
+	Understanding hydrological processes has become increasingly critical in natural resource management. Suitable forecasting allows the anticipation capacity of extreme hydrological events such as droughts and heavy rainfall.
 	\end{block}
 	\begin{figure}
 		\centering
@@ -53,66 +53,71 @@
 \end{frame}
 
 \begin{frame}{Problem Statement and Research Question}
-	\begin{block}{}
-	\begin{itemize}
-		\item Physically driven models for water resource forecasting are complex and require extensive parameter knowledge, limiting their practicality \cite{Yaseen2018, HKASHANI2016340}.
-		\item Data-driven models, such as autoregressive (AR) models, struggle to capture nonlinearities in water resources time series \cite{10.2166/wst.2020.369}.
-		\item Neural networks (ANNs, RNNs) improve on nonlinearity, but face overfitting, gradient vanishing and exploding, limiting ability to capture long-term dependencies \cite{Abdollahi2017, Shiau2016, KHAN2020125380}.
-		\item LSTM networks overcome these issues, but lack uncertainty quantification, crucial for decision-making in hydrological forecasting \cite{lakshminarayanan2017simple, gal2016dropout}.
-		\item Gaussian Processes (GPs) provide uncertainty and handle nonlinearities, but scaling to multi-task forecasting remains a challenge \cite{QUILTY2020104718, NIU2021102562,bruinsma2020scalable}.
-	\end{itemize}
-	\end{block}
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{l p{1.2cm}p{1.2cm}p{1.2cm}p{1.2cm}p{1.2cm}}
+			\toprule
+			\textbf{} & \textbf{AR} & \textbf{NN} & \textbf{RNN} & \textbf{LSTM} & \textbf{GP} \\
+			\midrule
+			{Interpretability \cite{lakshminarayanan2017simple, gal2016dropout}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
+			{Nonlinearity \cite{10.2166/wst.2020.369}}      & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
+			{Stochasticity}     & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
+%			\textbf{Overfitting}       & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  \\ 
+			{Long-term \cite{Abdollahi2017, Shiau2016, KHAN2020125380}}         & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
+			{Scalability \cite{QUILTY2020104718, NIU2021102562,bruinsma2020scalable}}       & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  \\ 
+			{Output Constraint} & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  \\ 
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	
 	\begin{block}{\textbf{Research Question}}
-		How to develop a joint probabilistic prediction model for multiple hydrological series associated with electricity generation, that describes the randomness of the forecast, is scalable, and utilizes task correlations to improve performance?
+		How to develop a joint probabilistic prediction model for multiple hydrological series associated with electricity generation, that describes the randomness of the forecast, is scalable, utilizes task correlations to improve performance, and incorporates output constraints to ensure feasible predictions?
 	\end{block}
 \end{frame}
 
-
-\section{Objectives}
+\section*{Objectives}
 
 \begin{frame}{Objectives}
 	\begin{block}{\textbf{General Objective}}
-			Develop a stochastic forecasting model for making multiple simultaneous predictions of hydrological time series. This model will take advantage of cross-correlations among the tasks to improve performance, while maintaining scalability for short-term horizons.
+			Develop a stochastic forecasting model for making multiple simultaneous predictions of hydrological time series. This model will take advantage of cross-correlations among the outputs to improve performance, while maintaining scalability  and output constrains.
 	\end{block}
 	
 	\begin{block}{\textbf{Specific Objectives}}
 			
 			\begin{itemize}
-			\item Develop a model that allows the forecasting of hydrological time series, properly quantifying the uncertainty associated with each value within the prediction horizons.
-			\item  Design a multi-task forecasting methodology that captures and models cross-correlations between hydrological time series, to improve forecast accuracy within forecast horizons.
-			\item Develop a multi-task prediction methodology that handles data constraints across reservoirs while maintaining high forecasting performance as measured by probabilistic metrics.
+			\item Develop a model that allows the forecasting of hydrological time series, properly quantifying the \textcolor{myNewColorB}{\textbf{uncertainty}} associated with each value within the prediction horizons.
+			\item  Design a \textcolor{myNewColorB}{\textbf{multi-output}} forecasting methodology that captures and models cross-correlations between hydrological time series, to improve forecast accuracy within forecast horizons.
+			\item Develop a multi-output prediction methodology that handles \textcolor{myNewColorB}{\textbf{data constraints}} across reservoirs while maintaining high forecasting performance as measured by probabilistic metrics.
 		\end{itemize}
 	\end{block}
 \end{frame}
 
-\section{The Dataset}
+\section*{The Dataset}
 
 \begin{frame}{Problem Setting}
-	We model hydrological time series using observed resource vectors. At each time step \( n \), the vector \(\mathbf{v}_n \in \mathbb{R}^D\) represents resources across \(D\) outputs.
-	
-	The input vector \(\mathbf{x}_n\) for the model is constructed from the resource vectors from time \( n \) back to \( n-T+1 \):
+	We model time series using observed vectors. At each time step \(n\), the vector \(\mathbf{v}_n \in \mathbb{R}^D\) represents hydrological resources across \(D\) outputs. The input vector \(\mathbf{x}_n\) for the model is constructed from time \(n\) back to \(n-T+1\):
 	
 	\begin{equation*}
 		\mathbf{x}_n = \begin{bmatrix} 
-			\mathbf{v}_{n}^\top \\ 
-			\mathbf{v}_{n-1}^\top \\ 
+			\mathbf{v}_{n}\\ 
+			\mathbf{v}_{n-1} \\ 
 			\vdots \\ 
-			\mathbf{v}_{n-T+1}^\top 
-		\end{bmatrix} \in \mathcal{X}
+			\mathbf{v}_{n-T+1}
+		\end{bmatrix} \in \mathcal{X},
 	\end{equation*}
 	
-	Here, \( T \) is the model order and \( H \) is the prediction horizon and \( \mathcal{X}\subset \mathbb{R}^{DT} \) represents the input space.
-	
-	\vspace{10pt}
-	
-	The target output vector \(\mathbf{y}_n\) is:
+	where \(T\) is the model order, and \(\mathcal{X}\subset \mathbb{R}^{DT}\) represents the input space. The target output vector \(\mathbf{y}_n\) is given as:
 	
 	\begin{equation*}
-		\mathbf{y}_n = \mathbf{v}_{n+H} \in \mathbb{R}^{D}
+		\mathbf{y}_n = \mathbf{v}_{n+H} \in \mathbb{R}^{D},
 	\end{equation*}
 	
-	We build a dataset \(\mathcal{D} = \{\mathbf{x}_n, \mathbf{y}_n\}_{n=1}^N  = \{\mathbf{X}, \mathbf{y}\}\), comprising \( N \) input-output pairs.
+	where \(H\) is the prediction horizon. We build a dataset \(\mathcal{D} = \{\mathbf{x}_n, \mathbf{y}_n\}_{n=1}^N  = \{\mathbf{X}, \mathbf{y}\}\), comprising \(N\) input-output pairs.
 \end{frame}
+
+
 
 
 \begin{frame}{Reservoir Locations and Dataset Overview}
@@ -124,7 +129,7 @@
 		\begin{column}{0.55\textwidth}
 			\justifying % Justifies text
 			\begin{block}{}
-			The hydrological forecasting task utilizes daily streamflow data from 23 Colombian reservoirs from January 1, 2010, to February 28, 2022.
+			The hydrological forecasting task utilizes daily streamflow data from $D=23$ Colombian reservoirs from January 1, 2010, to February 28, 2022.
 			\end{block}
 			\begin{figure}[htbp]
 				\centering
@@ -150,10 +155,10 @@
 	\end{block}
 	
 	\begin{block}{\textbf{Gaussian Process Models}}
-	\begin{itemize}
-		\item Start with a single-output GP for stochastic regression.
-		\item Extend to multi-output GPs, capturing dependencies across multiple reservoirs.
-		\item Introduce Chained Correlated Gaussian Processes to handle non-Gaussian likelihoods.
-	\end{itemize}
+	\begin{enumerate}
+		\item Start with a Sparse Variational GPs for scalable and stochastic regression.
+		\item Extend to Multi-Output GPs, capturing dependencies across multiple outputs.
+		\item Introduce Chained Correlated GPs to handle non-Gaussian likelihoods.
+	\end{enumerate}
 	\end{block}
 \end{frame}
