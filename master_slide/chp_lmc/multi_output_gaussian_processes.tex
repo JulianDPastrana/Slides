@@ -1,96 +1,86 @@
-\section{Multi-Output Gaussian Processes: Modeling Inter-Output Dependencies}
+\section{Objective 2: Multi-Output Gaussian Processes}
 
 \subsection{Mathematical Framework}
 
-\begin{frame}{Independent Gaussian Process (IGP)}
-	
-	\begin{columns}[T] % Top alignment
-		\begin{column}{0.5\textwidth}
-			
-			\textbf{Independent Process} 
-			\begin{equation*}
-				u_{d}(\mathbf{x}) \sim \mathcal{GP}(0, k_{d}(\mathbf{x}, \mathbf{x}'))
-			\end{equation*}
-			
-			\textbf{Latent Process}
-			\begin{equation*}
-				f_{d}(\mathbf{x}) = u_{d}(\mathbf{x})
-			\end{equation*}
-			
-			
-			\textbf{Multi-Output Model}
-			\begin{equation*}
-				\mathbf{f}_{*}
-				\sim
-				\mathcal{N} \left(
-				\begin{array}{c}
-					\mathbf{0}\\
-				\end{array},
-				\sum_{d=1}^D \mathbf{B}_d \otimes K_{d**}\right)
-			\end{equation*}
-			
-			\begin{itemize}
-				\item  $\mathbf{B}_d = (\delta_{d,d'}) \in \mathbb{R}^{D \times D}$.
-				
-				\item $K_{d**} \in \mathbb{R}^{N_* \times N_*}$ is the $d$-th covariance matrix at $X_*$ test inputs.
-				
-				\item $\otimes$ denotes the Kronecker product.
-			\end{itemize}	
-			
-		\end{column}
-		
-		\begin{column}{0.5\textwidth}
-			\setlength\figurewidth{0.8\textwidth} 
-			\setlength\figureheight{0.32\textwidth}
-			\input{chp_lmc/figures/ind_graph}	
-		\end{column}
-		
-	\end{columns}
-\end{frame}
+%\begin{frame}{Independent Gaussian Process (IGP)}
+%	
+%	\begin{columns}[T] % Top alignment
+%		\begin{column}{0.5\textwidth}
+%			
+%			\textbf{Independent Process} 
+%			\begin{equation*}
+%				u_{d}(\mathbf{x}) \sim \mathcal{GP}(0, k_{d}(\mathbf{x}, \mathbf{x}'))
+%			\end{equation*}
+%			
+%			\textbf{Latent Process}
+%			\begin{equation*}
+%				f_{d}(\mathbf{x}) = u_{d}(\mathbf{x})
+%			\end{equation*}
+%			
+%			
+%			\textbf{Multi-Output Model}
+%			\begin{equation*}
+%				\mathbf{f}_{*}
+%				\sim
+%				\mathcal{N} \left(
+%				\begin{array}{c}
+%					\mathbf{0}\\
+%				\end{array},
+%				\sum_{d=1}^D \mathbf{B}_d \otimes K_{d**}\right)
+%			\end{equation*}
+%			
+%			\begin{itemize}
+%				\item  $\mathbf{B}_d = (\delta_{d,d'}) \in \mathbb{R}^{D \times D}$.
+%				
+%				\item $K_{d**} \in \mathbb{R}^{N_* \times N_*}$ is the $d$-th covariance matrix at $X_*$ test inputs.
+%				
+%				\item $\otimes$ denotes the Kronecker product.
+%			\end{itemize}	
+%			
+%		\end{column}
+%		
+%		\begin{column}{0.5\textwidth}
+%			\setlength\figurewidth{0.8\textwidth} 
+%			\setlength\figureheight{0.32\textwidth}
+%			\input{chp_lmc/figures/ind_graph}	
+%		\end{column}
+%		
+%	\end{columns}
+%\end{frame}
 
 
 \begin{frame}{Linear Model of Coregionalization GP (LMCGP)}
+	\centering
+	\setlength\figurewidth{0.55\textwidth} 
+	\setlength\figureheight{0.11\textwidth}
+	\input{chp_lmc/figures/lmc_graph}
 	
 	\begin{columns}[T] % Top alignment
-	\begin{column}{0.5\textwidth}
-		
-		\textbf{Independent Process}
+
+		\begin{column}{0.5\textwidth}
+			\centering
+	\textcolor{mygreen}{
+		\textbf{Independent Process (IGP)}
 		\begin{equation*}
 			u_{q}(\mathbf{x}) \sim \mathcal{GP}(0, k_{q}(\mathbf{x}, \mathbf{x}'))
-		\end{equation*}	
-		
-		\textbf{Latent Process}
-		\begin{equation*}
-			f_{d}(\mathbf{x}) = \sum_{q=1}^Q a_{d,q} u_{q}(\mathbf{x})
 		\end{equation*}
-		
-		\textbf{Multi-Output Model}
-		\begin{equation*}
-			\mathbf{f}_{*}
-			\sim
-			\mathcal{N} \left(
-			\begin{array}{c}
-				\mathbf{0}\\
-			\end{array},
-			\sum_{q=1}^Q \mathbf{B}_q \otimes K_{q**}\right)
-		\end{equation*}
-		
-		\begin{itemize}
-			\item  $\mathbf{B}_q = (a_{d,q}a_{d',q}) \in \mathbb{R}^{D \times D}$ is the $q$-th coregionalization matrix.
-			
-			\item $K_{q**} \in \mathbb{R}^{N_* \times N_*}$.
-		\end{itemize}	
-
+	}
 	\end{column}
+	
 	
 	\begin{column}{0.5\textwidth}
-		\setlength\figurewidth{0.8\textwidth} 
-		\setlength\figureheight{0.32\textwidth}
-		\input{chp_lmc/figures/lmc_graph}	
+		\centering
+		\textcolor{myblue}{
+			\textbf{Latent Process (LMCGP)}
+			\begin{equation*}
+				f_{d}(\mathbf{x}) = \sum_{q=1}^Q a_{d,q} u_{q}(\mathbf{x})
+			\end{equation*}	
+		}
 	\end{column}
 	
-\end{columns}
+	\end{columns}
 \end{frame}
+
 
 \begin{frame}{Variational Inference, ELBO, and Predictive Distribution}
 	We extend variational inference to include the independent set, utilizing the inducing variables $u_q$ derived from independent processes. The ELBO is given by:
@@ -115,7 +105,7 @@
 		\begin{equation*}
 			k_{q}\left(\mathbf{x}, \mathbf{x'} \mid \Theta_q \right) = \exp\left(-\frac{1}{2}(\mathbf{x} - \mathbf{x'})^\top \Theta_q^{-2} (\mathbf{x} - \mathbf{x'})\right)
 		\end{equation*}
-		Here, \( \Theta_q \) is the lengthscale matrix, and \( \mathbf{B}_q \) works as outputscale.
+		Here, \( \Theta_q \) is the lengthscale matrix, and \( a_{d, q} \) work as outputscales.
 	\end{block}
 	
 	\begin{block}{Optimization and Model Variants}
@@ -136,120 +126,128 @@
 
 \subsubsection{Hyperparameter Tuning}
 
-\begin{frame}{Tuning Q}
+\begin{frame}{Performance metrics vs Q}
 	\begin{figure}[htbp]
+	\tiny
 	\centering
 	\setlength\figurewidth{0.5\columnwidth} 
 	\setlength\figureheight{0.28\columnwidth}
 	
-	\subfloat[CRPS]{\input{chp_lmc/figures/CRPS_gs}}\hspace{0.1em}
-	\subfloat[MSE]{\input{chp_lmc/figures/MSE_gs}}\\
-	\vspace{0.1em} % Adjust spacing between rows
+	\subfloat[MSE]{\input{chp_lmc/figures/MSE_gs}}\hspace{-0.1em}
+	\subfloat[MSLL]{\input{chp_lmc/figures/MSLL_gs}}\\
+	\vspace{-0.1em} % Adjust spacing between rows
 	
-	\subfloat[MSLL]{\input{chp_lmc/figures/MSLL_gs}}\hspace{0.1em}
+	\subfloat[CRPS]{\input{chp_lmc/figures/CRPS_gs}}\hspace{-0.1em}
 	\subfloat[NLPD]{\input{chp_lmc/figures/NLPD_gs}}
 	\end{figure}
 	\vspace{-1em}
 	\begin{block}{}
-		Performance metrics for LMCGP models as a function of the number of independent GPs. We select $Q=17$ as the proper parameter
+	 Beyond $Q=19$, adding more independent GPs becomes counterproductive due to handling a more complex model. We select $Q=17$ as the proper parameter.
 	\end{block}
 \end{frame}
 
-\begin{frame}{Lengthscale and $a_{d,q}$ Values (H=1)}
-	\begin{figure}[htbp]
-		\centering
-		\setlength\figurewidth{0.46\columnwidth} 
-		\setlength\figureheight{0.46\columnwidth}
-		\subfloat[]{\input{chp_lmc/figures/lengthscale_matrix_1}}\hspace{-0.8em}
-		\subfloat[]{\input{chp_lmc/figures/coregionalization_1}}
-	\end{figure}
-	\vspace{-2.0em}
+\begin{frame}{Reservoir-wise Lengthscale and $a_{d, q}$}
+\begin{figure}[htbp]
+	\tiny
+	\centering
+	\setlength\figurewidth{0.4\columnwidth} 
+	\setlength\figureheight{0.35\columnwidth}
+	\vspace{-1.5em}
+	\input{chp_lmc/figures/lengthscale_matrix_1} % Direct inclusion, no subcaption
+	\input{chp_lmc/figures/lengthscale_matrix_30}\\ % Direct inclusion, no subcaption
+%	\vspace{-50.0em}
+	\input{chp_lmc/figures/coregionalization_1} % Direct inclusion, no subcaption
+	\input{chp_lmc/figures/coregionalization_30} % Direct inclusion, no subcaption
+\end{figure}
+
+
+	\vspace{-1.0em}
 	\begin{block}{}
-		Lengthscale values (left) and coefficients $a_{d,q}$ (right) for horizon $H=1$ reveal two feature usage patterns: focused extraction from few features and broad dynamics capture from many, with smaller individual contributions.
+		Increase horizon, lengthscale values show less selective. All independent GPs incorporate more features due to the extended time gap. The $a_{d,q}$ coefficients are smaller, indicating weaker individual feature contributions to each output.
 	\end{block}
-		
+	
 	
 \end{frame}
 
-\begin{frame}{Lengthscale and $a_{d,q}$ Values (H=30)}
-	\begin{figure}[htbp]
-		%\centering
-		\setlength\figurewidth{0.46\columnwidth} 
-		\setlength\figureheight{0.46\columnwidth}
-		\subfloat[]{\input{chp_lmc/figures/lengthscale_matrix_30}}\hspace{-0.8em}
-		\subfloat[]{\input{chp_lmc/figures/coregionalization_30}}
-	\end{figure}
-	\vspace{-2.0em}
-	\begin{block}{}
-		For horizon $H=30$, lengthscale values (left) and coefficients $a_{d,q}$ (right) show less selective input feature usage. All independent GPs incorporate more features due to the extended time gap. The $a_{d,q}$ coefficients are smaller, indicating weaker individual feature contributions to each output.
-	\end{block}
-	
-
-\end{frame}
 
 \subsubsection{Performance Analysis}
 
-\begin{frame}{LMCGP vs IGP+ vs IGP}
+\begin{frame}{Bar plots comparing IGP, IGP+, and LMCGP}
 	\begin{figure}[htbp]
 		\centering
 		\setlength\figurewidth{0.56\columnwidth}
 		\setlength\figureheight{0.48\columnwidth}
 		
-		\subfloat[NLPD]{\input{chp_lmc/figures/performance_bars_NLPD}}
-		\hfill
 		\subfloat[MSLL]{\input{chp_lmc/figures/performance_bars_MSLL}}
+		\hfill
+		\subfloat[NLPD]{\input{chp_lmc/figures/performance_bars_NLPD}}
 		
 	\end{figure}
 	\vspace{-2.0em}
 	\begin{block}{}
-		Bar plots comparing LMCGP, IGP+, and IGP model performance across different horizons \(H\). The Adam+NG optimizer significantly boosts performance, and with LMCGP showing the most improvement, especially for larger horizons.
+		The Adam+NG optimizer significantly boosts performance, and with LMCGP showing the most improvement, especially for larger horizons.
 	\end{block}
 	
 	
 \end{frame}
 
-\begin{frame}{Model Forecasting}
+%\begin{frame}{Model Forecasting}
+%	\centering
+%	\begin{figure}[htbp]
+%	\tiny
+%	\setlength\figurewidth{0.55\columnwidth} 
+%	\setlength\figureheight{0.5\columnwidth}
+%
+%	\subfloat[$A$.]{\input{chp_lmc/figures/lmc_forecasting_AMANI}}
+%	\subfloat[$I$.]{\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}}
+%	\end{figure}
+%	\vspace{-1.5em}
+%	\begin{block}{}
+%		Test data for two reservoirs in one day ahead LMCGP model prediction. The model more accurately follows the peaks due its complex behavior.
+%	\end{block}
+%\end{frame}
+
+\begin{frame}{One-day-ahead Models Forecasting}
 	\centering
 	\begin{figure}[htbp]
-	\tiny
-	\setlength\figurewidth{0.55\columnwidth} 
-	\setlength\figureheight{0.5\columnwidth}
-
-	\subfloat[$A$.]{\input{chp_lmc/figures/lmc_forecasting_AMANI}}
-	\subfloat[$I$.]{\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}}
+		\tiny
+		\setlength\figurewidth{0.55\columnwidth} 
+		\setlength\figureheight{0.5\columnwidth}
+		\input{chp_lmc/figures/SAN LORENZO_forecasting}
+		\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}
 	\end{figure}
 	\vspace{-1.5em}
 	\begin{block}{}
-		Test data for two reservoirs in one day ahead LMCGP model prediction. The model more accurately follows the peaks due its complex behavior.
+		The LMCGP model more accurately captures the peaks in the data, attributable to its ability to model complex behaviors through the incorporation of output correlations.
 	\end{block}
 \end{frame}
 
 
 
-\begin{frame}{To Conclude}
-		\justifying
-		\begin{block}{}
-			\justifying
-		The LMCGP effectively captures shared features and dynamics for multi-output tasks. However, increasing the number of independent GPs beyond a threshold leads to instability.
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		The lengthscale matrix and task dependency coefficients, $a_{d,q}$, provide critical insights into feature selection, with some GPs specializing in specific tasks and others covering a broader range of outputs.
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		To improve optimization performance, using Adam + NG optimizer proved superior to traditional methods, leading to more robust results.
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		The LMCGP outperformed the IGP in terms of NLPD and MSLL across all horizons, emphasizing the benefits of task dependency modeling.
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		The LMCGP's forecasting ability showed stronger learning of complex patterns by leveraging data from multiple tasks.
-		\end{block}
-\end{frame}
+%\begin{frame}{To Conclude}
+%		\justifying
+%		\begin{block}{}
+%			\justifying
+%		The LMCGP effectively captures shared features and dynamics for multi-output tasks. However, increasing the number of independent GPs beyond a threshold leads to instability.
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		The lengthscale matrix and task dependency coefficients, $a_{d,q}$, provide critical insights into feature selection, with some GPs specializing in specific tasks and others covering a broader range of outputs.
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		To improve optimization performance, using Adam + NG optimizer proved superior to traditional methods, leading to more robust results.
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		The LMCGP outperformed the IGP in terms of NLPD and MSLL across all horizons, emphasizing the benefits of task dependency modeling.
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		The LMCGP's forecasting ability showed stronger learning of complex patterns by leveraging data from multiple tasks.
+%		\end{block}
+%\end{frame}

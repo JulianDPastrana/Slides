@@ -7,11 +7,11 @@
 width=\figurewidth,%
 height=\figureheight,%
 colorbar,
-colorbar style={ylabel={}},
+colorbar style={ylabel={$a_{d,q}$}, ylabel style={rotate=-90}},
 colormap/viridis,
 point meta max=1.5,
 point meta min=0,
-tick align=outside,
+%tick align=outside,
 tick pos=left,
 x grid style={darkgray176},
 xmin=0, xmax=17,
@@ -25,7 +25,7 @@ ymin=0, ymax=23,
 ytick style={color=black},
 ytick={0.5,2.5,4.5,6.5,8.5,10.5,12.5,14.5,16.5,18.5,20.5,22.5},
 yticklabel style={rotate=0.0},
-yticklabels={A,C,E,G,I,K,M,O,Q,S,U,W},
+yticklabels={},%{A,C,E,G,I,K,M,O,Q,S,U,W},
 xlabel style={font=\tiny},
 tick label style={font=\tiny}
 ]

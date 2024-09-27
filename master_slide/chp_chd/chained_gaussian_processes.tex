@@ -1,48 +1,59 @@
-\section[Chained Correlated Gaussian Processes]{Chained Correlated Gaussian Processes: Transforming Gaussian Processes into Likelihood Parameters}
+\section{Objective 3: Chained Correlated Gaussian Processes}
 
 \subsection{Mathematical Framework}
 
-
-\begin{frame}{Chanied Correlated GP (ChdGP)}
-	
+\begin{frame}{Chained Correlated GP (ChdGP)}
+	\scriptsize
+	\centering
+	\setlength\figurewidth{0.35\textwidth} 
+	\setlength\figureheight{0.15\textwidth}
+	\input{chp_lmc/figures/chd_graph}	
+	\vspace{-0.6em}
 	\begin{columns}[T] % Top alignment
-		\begin{column}{0.5\textwidth}	
-			\textbf{Independent Process}
+		\begin{column}{0.33\textwidth}
+			\centering	
+			\textcolor{mygreen}{
+			\textbf{Independent Process (IGP)}
+			\vspace{-1.3em}
 			\begin{equation*}
 				u_{q}(\mathbf{x}) \sim \mathcal{GP}(0, k_{q}(\mathbf{x}, \mathbf{x}'))
 			\end{equation*}
-			
-			\textbf{Latent Process}
-			\begin{equation*}
-					f_{d,j}(\mathbf{x}) = \sum_{q=1}^Q a_{d,j,q} u_{q}(\mathbf{x})
-			\end{equation*}
-			
-			\textbf{Likelihood}
-			\begin{equation*}
-				p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^D p(y_{d}\mid \theta_{d, 1}, \cdots, \theta_{d, J_d})
-			\end{equation*}
-			
-	
-				\begin{itemize}
-					\item $\theta_{d,j} = g_{d, j}(f_{d, j})$ is a likelihood parameter. 
-					\item  $g_{d, j}(\cdot)$ is a deterministic function.
-				\end{itemize}
-	
-			
+			}
 		\end{column}
 		
-		\begin{column}{0.5\textwidth}
-			\justifying
-			\setlength\figurewidth{0.44\textwidth} 
-			\setlength\figureheight{0.35\textwidth}
-			\input{chp_lmc/figures/chd_graph}	
+		\begin{column}{0.33\textwidth}
+			\centering
+			\textcolor{myblue}{
+				\textbf{Latent Process (LMCGP)}
+				\vspace{-1.3em}
+			\begin{equation*}
+				f_{d,j}(\mathbf{x}) = \sum_{q=1}^Q a_{d,j,q} u_{q}(\mathbf{x})
+			\end{equation*}
+			}
+		\end{column}
+		
+		\begin{column}{0.33\textwidth}
+			\centering
+			\textcolor{myred}{
+				\textbf{Likelihood (Chd GP)}
+				\vspace{-1.3em}
+			\begin{equation*}
+				\mathbf{y} \mid \mathbf{f} \sim \prod_{d=1}^D p(\theta_{d, 1}, \cdots, \theta_{d, J_d})
+			\end{equation*}
+			\vspace{-1.5em}
+			\begin{equation*}
+				\theta_{d, j} = g_{d, j}(f_{d, j})
+			\end{equation*}
+			}
 		\end{column}
 		
 	\end{columns}
 \end{frame}
 
+
+
 \begin{frame}{Variational Inference, ELBO and Predictive Distribution}
-	We can extent our variational inference, providing the following ELBO:
+	We extent our variational inference, providing the following ELBO:
 	
 \begin{equation*}
 	\begin{split}
@@ -70,14 +81,14 @@ The expectation values can be approximated via Monte Carlo methods.
 \begin{frame}{Model Setup}
 	We again make use of squared exponential kernel to construct the covariance function and Adam + NG framework to train the models.
 		
-	\begin{block}{\textbf{Gaussian Likelihood: Chd Normal}}
+	\begin{block}{\textbf{Gaussian Likelihood: ChdGP Normal}}
 		\begin{equation*}
 			p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \mathcal{N}\left(y_{d}\mid g_{d,1}(f_{d,1}), g_{d,2}(f_{d,2}) \right)
 		\end{equation*}
 		In this formulation, \(g_{d,1}(\cdot) = \cdot\), while \(g_{d,2}(\cdot) = \ln(\exp(\cdot) + 1)\).
 	\end{block} 
 	
-	\begin{block}{\textbf{Gamma Likelihood: Chd Gamma}}
+	\begin{block}{\textbf{Gamma Likelihood: ChdGP Gamma}}
 		\begin{equation*}
 		p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \mathcal{G}amma\left( y_{d} \mid g_{d,1}(f_{d,1}), g_{d,2}(f_{d,2}) \right)
 		\end{equation*}
@@ -89,128 +100,128 @@ The expectation values can be approximated via Monte Carlo methods.
 
 \subsection{Results and Discussions}
 
-\begin{frame}{Tuning Q for Chd Normal}
+\begin{frame}{Performance metrics vs Q}
 	\vspace{-0.8em}
 	\begin{figure}[htbp]
 		\tiny
 		\centering
 		\setlength\figurewidth{0.5\columnwidth} 
 		\setlength\figureheight{0.3\columnwidth}
+		\subfloat[MSE]{\input{chp_chd/figures/MSE_chd_normal}}
+		\subfloat[MSLL]{\input{chp_chd/figures/MSLL_chd_normal}}\\
+		\vspace{-1.0em}
 		\subfloat[CRPS]{\input{chp_chd/figures/CRPS_chd_normal}}
-		\subfloat[MSE]{\input{chp_chd/figures/MSE_chd_normal}}\\
-		\vspace{-0.6em}
-		\subfloat[MSLL]{\input{chp_chd/figures/MSLL_chd_normal}}
 		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_chd_normal}}\\
 	\end{figure}
 	\vspace{-1.8em}
 	\begin{block}{}
-		Performance metrics for ChdGP Normal model as a function of the number of independent GPs Q. We select $Q = 15$ as the optimal value before instability patterns.
+		The Gamma likelihood provides greater stability by offering a more precise description of the data. We select $Q=15$ for the Normal likelihood and $Q=26$ for the Gamma likelihood.
 	\end{block}
 \end{frame}
 
 \subsection{Performance Analysis}
-\begin{frame}{ChdGP Normal vs LMCGP}
+\begin{frame}{LMCGP vs ChdGP across horizons}
 	\begin{figure}[htbp]
 		\centering
-		\setlength\figurewidth{0.53\columnwidth}
-		\setlength\figureheight{0.5\columnwidth}
+		\tiny
+		\setlength\figurewidth{0.56\columnwidth}
+		\setlength\figureheight{0.52\columnwidth}
 		
-		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_peformance_chdnormal}}
-		\hfill
 		\subfloat[MSLL]{\input{chp_chd/figures/MSLL_peformance_chdnormal}}
+		\hfill
+		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_peformance_chdnormal}}
 	\end{figure}
-	\vspace{-1em}
+	\vspace{-2.0em}
 	\begin{block}{}
-		Bar plots comparing the performance of LMCGP, and ChdGP Normal models for different \(H\) values. Chained setting outperform LMCGP across all scenarios. 
+		The ChdGP model consistently outperforms the LMCGP model in all scenarios. Additionally,  the Gamma likelihood offers a superior explanation of the data, leading to enhanced performance.
 	\end{block}
 \end{frame}
 
-\begin{frame}{ChdGP Normal Forecasting}
+\begin{frame}{One-day-ahead Models Forecasting}
 	\centering
 	\begin{figure}[htbp]
+		\centering
+		\tiny
 		\setlength\figurewidth{0.52\columnwidth} 
 		\setlength\figureheight{0.5\columnwidth}
-		
-%		\subfloat[$T.$]{\input{chp_chd/figures/chd_normal_forecasting_SALVAJINA}}\hfill
-%		\subfloat[$A.$]{\input{chp_chd/figures/chd_normal_forecasting_AMANI}}\\[-0.5cm]
-		\subfloat[$I.$]{\input{chp_chd/figures/chd_normal_forecasting_SAN LORENZO}}
-		\subfloat[$O.$]{\input{chp_chd/figures/chd_normal_forecasting_ESMERALDA}}
+		\input{chp_chd/figures/chd_normal_forecasting_ESMERALDA}
+		\input{chp_chd/figures/chd_gamma_forecasting_ESMERALDA}
 	\end{figure}
 	\vspace{-1.5em}
 	\begin{block}{}
-		Test data for two reservoirs in one day ahead ChdGP Normal model prediction. Predictive variance dynamically adapt over uncertainty complexity.
+		 The predictive variance dynamically adapts to the complexity of uncertainty. Additionally, for the ChdGP Gamma setting, the predictive distribution does not accommodate negative values, and the presence of peaks results in a discrepancy between the mean and median.
 	\end{block}
 \end{frame}
 
-\begin{frame}{Tuning Q for Chd Gamma}
-	\begin{figure}[htbp]
-		\tiny
-		\centering
-		\setlength\figurewidth{\columnwidth} 
-		\setlength\figureheight{0.55\columnwidth}
-		\input{chp_chd/figures/NLPD_chd_gamma}
-	\end{figure}
-	\vspace{-1.0em}
-	\begin{block}{}
-		NLPD metric for ChdGP Gamma models as a function of the number of independent GPs. The tuning step is more stable as $Q$ increases. We select $Q = 26$ as the optimal value.
-	\end{block}
-\end{frame}
+%\begin{frame}{Tuning Q for Chd Gamma}
+%	\begin{figure}[htbp]
+%		\tiny
+%		\centering
+%		\setlength\figurewidth{\columnwidth} 
+%		\setlength\figureheight{0.55\columnwidth}
+%		\input{chp_chd/figures/NLPD_chd_gamma}
+%	\end{figure}
+%	\vspace{-1.0em}
+%	\begin{block}{}
+%		NLPD metric for ChdGP Gamma models as a function of the number of independent GPs. The tuning step is more stable as $Q$ increases. We select $Q = 26$ as the optimal value.
+%	\end{block}
+%\end{frame}
 
 \subsection{Performance Analysis}
 
-\begin{frame}{ChdnGP Gamma vs ChdGP Normal}
-	\begin{figure}[htbp]
-		\tiny
-		\centering
-		\setlength\figurewidth{\columnwidth} 
-		\setlength\figureheight{0.55\columnwidth}
-		\input{chp_chd/figures/NLPD_peformance_chdgamma}
-	\end{figure}
-	\vspace{-1.0em}
-	\begin{block}{}
-		Comparison of NLPD metric across different prediction horizons for the ChdGP Normal, and ChdGP Gamma models. Gamma likelihood better explains data, providing better performance.
-	\end{block}
-\end{frame}
+%\begin{frame}{ChdnGP Gamma vs ChdGP Normal}
+%	\begin{figure}[htbp]
+%		\tiny
+%		\centering
+%		\setlength\figurewidth{\columnwidth} 
+%		\setlength\figureheight{0.55\columnwidth}
+%		\input{chp_chd/figures/NLPD_peformance_chdgamma}
+%	\end{figure}
+%	\vspace{-1.0em}
+%	\begin{block}{}
+%		Comparison of NLPD metric across different prediction horizons for the ChdGP Normal, and ChdGP Gamma models. Gamma likelihood better explains data, providing better performance.
+%	\end{block}
+%\end{frame}
 
-\begin{frame}{ChdGP Gamma Forecasting}
-	\centering
-	\begin{figure}[htbp]
-		\tiny
-		\setlength\figurewidth{0.55\columnwidth} 
-		\setlength\figureheight{0.5\columnwidth}
-		
-%		\subfloat[$T.$]{\input{chp_chd/figures/chd_gamma_forecasting_SALVAJINA}}\hfill
-%		\subfloat[$A.$]{\input{chp_chd/figures/chd_gamma_forecasting_AMANI}}\\[-0.5cm]
-		\subfloat[$I.$]{\input{chp_chd/figures/chd_gamma_forecasting_SAN LORENZO}}
-		\subfloat[$O.$]{\input{chp_chd/figures/chd_gamma_forecasting_ESMERALDA}}
-	\end{figure}
-	\vspace{-1.5em}
-	\begin{block}{}
-		Test data for four reservoirs in one day ahead of ChdGP Gamma model prediction. This setting does not allocate predictive distribution for negative values. Mean and Median become different in peak presence, suggesting asymmetric distribution.
-	\end{block}
-\end{frame}
+%\begin{frame}{ChdGP Gamma Forecasting}
+%	\centering
+%	\begin{figure}[htbp]
+%		\tiny
+%		\setlength\figurewidth{0.55\columnwidth} 
+%		\setlength\figureheight{0.5\columnwidth}
+%		
+%%		\subfloat[$T.$]{\input{chp_chd/figures/chd_gamma_forecasting_SALVAJINA}}\hfill
+%%		\subfloat[$A.$]{\input{chp_chd/figures/chd_gamma_forecasting_AMANI}}\\[-0.5cm]
+%		\subfloat[$I.$]{\input{chp_chd/figures/chd_gamma_forecasting_SAN LORENZO}}
+%		\subfloat[$O.$]{\input{chp_chd/figures/chd_gamma_forecasting_ESMERALDA}}
+%	\end{figure}
+%	\vspace{-1.5em}
+%	\begin{block}{}
+%		Test data for four reservoirs in one day ahead of ChdGP Gamma model prediction. This setting does not allocate predictive distribution for negative values. Mean and Median become different in peak presence, suggesting asymmetric distribution.
+%	\end{block}
+%\end{frame}
 
-\begin{frame}{To Conclude}
+%\begin{frame}{To Conclude}
+%		
+%		\begin{block}{}
+%			\justifying
+%			The ChdGP model generalizes all previously developed GP-based models, enhancing expressiveness by modeling likelihood parameters and enabling the handling of natural output restrictions.	
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%			The ChdGP Normal model outperformed the LMCGP model across all forecasting horizons, primarily due to its ability to adaptively vary data noise over the input space, providing a more refined capture of the underlying data structure.
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%			The ChdGP with Gamma likelihood ensured non-negative predictions. The tuning process revealed a significant improvement in model stability as the number of independent GPs ($Q$) increased, suggesting superior data modeling capabilities.
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%			The Gamma likelihood configuration outperformed the Gaussian likelihood across all evaluated horizons by avoiding the allocation of predictive distribution mass to negative values and utilizing an asymmetric distribution to more effectively handle peak outliers.
+%		\end{block}
 		
-		\begin{block}{}
-			\justifying
-			The ChdGP model generalizes all previously developed GP-based models, enhancing expressiveness by modeling likelihood parameters and enabling the handling of natural output restrictions.	
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-			The ChdGP Normal model outperformed the LMCGP model across all forecasting horizons, primarily due to its ability to adaptively vary data noise over the input space, providing a more refined capture of the underlying data structure.
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-			The ChdGP with Gamma likelihood ensured non-negative predictions. The tuning process revealed a significant improvement in model stability as the number of independent GPs ($Q$) increased, suggesting superior data modeling capabilities.
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-			The Gamma likelihood configuration outperformed the Gaussian likelihood across all evaluated horizons by avoiding the allocation of predictive distribution mass to negative values and utilizing an asymmetric distribution to more effectively handle peak outliers.
-		\end{block}
-		
-\end{frame}
+%\end{frame}
 

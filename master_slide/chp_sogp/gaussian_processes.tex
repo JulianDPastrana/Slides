@@ -213,58 +213,59 @@
 \subsubsection{Performance Analysis}
 
 
-\begin{frame}{Models Forecasting}
+\begin{frame}{One-day-ahead Models Forecasting}
 	\centering
 	\begin{figure}[htbp]
 		\tiny
 		\setlength\figurewidth{0.55\columnwidth} 
 		\setlength\figureheight{0.5\columnwidth}
 		
-		\subfloat[$A$.]{\input{chp_sogp/figures/AMANI_forecasting}}
-		\subfloat[$I$.]{\input{chp_sogp/figures/SAN LORENZO_forecasting}}
+		\subfloat[Reservoir $A$]{\input{chp_sogp/figures/AMANI_forecasting}}
+		\subfloat[Reservoir $I$]{\input{chp_sogp/figures/SAN LORENZO_forecasting}}
 	\end{figure}
 	\vspace{-1.5em}
 	\begin{block}{}
-	One-day-ahead model predictions for two reservoirs. The SVGP adapts better to time-series data and captures its stochastic nature through the predictive distribution.
+	 The SVGP close follows to time-series data and captures its stochastic nature through the predictive distribution.
 	\end{block}
 \end{frame}
 
 
-\begin{frame}{MSE Scores}
+\begin{frame}{MSE achieved by LAR, LSTM, and SVGP}
 	\begin{figure}[htbp]
-		%\centering
-		\setlength\figurewidth{0.37\columnwidth} 
-		\setlength\figureheight{0.37\columnwidth}
+		\centering 
+		\tiny
+		\setlength\figurewidth{0.38\columnwidth} 
+		\setlength\figureheight{0.38\columnwidth}
 		\subfloat[LAR.]{\input{chp_sogp/figures/mse_lar}}\hspace{-1.5em}
 		\subfloat[LSTM.]{\input{chp_sogp/figures/mse_lstm}}\hspace{-1.5em}
 		\subfloat[SVGP.]{\input{chp_sogp/figures/mse_igp}}
 	\end{figure}
 	\vspace{-1.5em}
 	\begin{block}{}
-	MSE achieved by LAR, LSTM, and SVGP forecasting models for each horizon and reservoir. The LAR and SVGP models significantly outperform the LSTM models across all scenarios.
+ Longer horizons yield larger errors. The LAR and SVGP models significantly outperform the LSTM models across all scenarios.
 	\end{block}
 \end{frame}
 
-\begin{frame}{MSLL Score}
+\begin{frame}{MSLL achieved by LAR, and SVGP}
 	\begin{figure}[htbp]
-		%\centering
+		\centering
+		\tiny
 		\setlength\figurewidth{0.5\columnwidth} 
-		\setlength\figureheight{0.42\columnwidth}
+		\setlength\figureheight{0.45\columnwidth}
 		\subfloat[LAR.]{\input{chp_sogp/figures/msll_lar}}\hspace{-1.5em}
 		\subfloat[SVGP.]{\input{chp_sogp/figures/msll_igp}}
 	\end{figure}
 	\vspace{-1.8em}
 	\begin{block}{}
-	Achieved MSLL for LAR and SVGP models across horizons and reservoirs. Longer horizons yield larger errors. The SVGP models exhibits lower error and a slower error increase with the horizon compared to the LAR models.
+	The SVGP models exhibits lower error and a slower error increase with the horizon compared to the LAR models.
 	\end{block}
 \end{frame}
 
-\begin{frame}{Performance t-test}
-	\begin{block}{}
-	Performance metrics for LAR, LSTM, and SVGP across horizons $H$. Bold and asterisk indicate a \emph{p}-value $p<1\%$ (LAR vs. SVGP, LSTM vs. SVGP). SVGP outperforms all models, except LAR at $H=1$, where linear dependence is stronger. As horizon increases, SVGP captures complex input-output relations, significantly outperforming the other models.
-	\end{block}
-	\scriptsize
+\begin{frame}{Performance Assessment}
+
+
 	\begin{table}[htbp]
+			\scriptsize
 		\begin{tabular}{c p{1cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}p{1.0cm}}
 			\toprule
 			& \multicolumn{3}{c}{\textbf{MSE}} & \multicolumn{2}{c}{\textbf{MSLL}} & \multicolumn{2}{c}{\textbf{CRPS}} \\
@@ -285,37 +286,41 @@
 			Grand Average & 0.74 & 1.05 & \textbf{0.71} * & $-$0.18 & \textbf{$-$0.33} & 0.43 & \textbf{0.40} \\
 			\bottomrule
 		\end{tabular}
-		
+	
 	\end{table}
+
+		\begin{block}{}
+		Bold and asterisk indicate a \emph{p}-value $p<1\%$ (LAR vs. SVGP, LSTM vs. SVGP). SVGP outperforms all models, except LAR at $H=1$, where linear dependence is stronger. As horizon increases, SVGP captures complex input-output relations, significantly outperforming the other models.
+	\end{block}
 \end{frame}
 
-\subsubsection{Concluding Remark}
-\begin{frame}{To Conclude} 
-		\begin{block}{}
-			\justifying
-		The proposed methodology reduces computational complexity from cubic to linear, improving scalability for large datasets. 
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		The optimal number of inducing points provides regularization, avoiding overfitting while capturing key data features. 
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		The model strategically places shared inducing points, balancing task-specific and global dynamics to enhance streamflow forecasting. 
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		Adaptive lengthscales allow the model to adjust to varying prediction horizons, improving robustness for multi-output tasks. 
-		\end{block}
-		
-		\begin{block}{}
-			\justifying
-		The SVGP model outperforms LAR and LSTM by better handling dynamics, providing uncertainty estimates, and showing slower error growth over long horizons.
-		\end{block}
-	 \end{frame}
+%\subsubsection{Concluding Remark}
+%\begin{frame}{To Conclude} 
+%		\begin{block}{}
+%			\justifying
+%		The proposed methodology reduces computational complexity from cubic to linear, improving scalability for large datasets. 
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		The optimal number of inducing points provides regularization, avoiding overfitting while capturing key data features. 
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		The model strategically places shared inducing points, balancing task-specific and global dynamics to enhance streamflow forecasting. 
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		Adaptive lengthscales allow the model to adjust to varying prediction horizons, improving robustness for multi-output tasks. 
+%		\end{block}
+%		
+%		\begin{block}{}
+%			\justifying
+%		The SVGP model outperforms LAR and LSTM by better handling dynamics, providing uncertainty estimates, and showing slower error growth over long horizons.
+%		\end{block}
+%	 \end{frame}
 
 
 
