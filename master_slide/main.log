@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  26 SEP 2024 19:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  30 SEP 2024 20:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1463,42 +1463,40 @@ ion: multiple pdfs with page group included in a single page
 
 ] [11
 
-] [12
-
 ]
-(./chp_sogp/figures/gs_mse.tex) (./chp_sogp/figures/gs_msll.tex) [13
+(./chp_sogp/figures/gs_mse.tex) (./chp_sogp/figures/gs_msll.tex) [12
 
  <./chp_sogp/figures/gs_mse-000.png> <./chp_sogp/figures/gs_msll-000.png>]
 (./chp_sogp/figures/output_scale_matrix.tex)
-(./chp_sogp/figures/noise_variance_matrix.tex) [14
+(./chp_sogp/figures/noise_variance_matrix.tex) [13
 
  <./chp_sogp/figures/output_scale_matrix-000.png> <./chp_sogp/figures/noise_var
 iance_matrix-000.png>]
 (./chp_sogp/figures/lengthscalematrix1.tex)
 (./chp_sogp/figures/lengthscalematrix14.tex)
-(./chp_sogp/figures/lengthscalematrix30.tex) [15
+(./chp_sogp/figures/lengthscalematrix30.tex) [14
 
  <./chp_sogp/figures/lengthscalematrix1-000.png> <./chp_sogp/figures/lengthscal
 ematrix14-000.png> <./chp_sogp/figures/lengthscalematrix30-000.png>]
-<chp_sogp/figures/TSNE_task4_kde_p30.png, id=763, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task4_kde_p30.png, id=734, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task4_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task4_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task4_kde_p30.png  used on input
  line 210.
 (pdftex.def)             Requested size: 137.67603pt x 75.37093pt.
-<chp_sogp/figures/TSNE_task8_kde_p30.png, id=764, 921.4425pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task8_kde_p30.png, id=735, 921.4425pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task8_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task8_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task8_kde_p30.png  used on input
  line 210.
 (pdftex.def)             Requested size: 137.67603pt x 75.37093pt.
-<chp_sogp/figures/TSNE_task11_kde_p30.png, id=765, 921.4425pt x 511.6716pt>
+<chp_sogp/figures/TSNE_task11_kde_p30.png, id=736, 921.4425pt x 511.6716pt>
 File: chp_sogp/figures/TSNE_task11_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task11_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task11_kde_p30.png  used on inpu
 t line 210.
 (pdftex.def)             Requested size: 137.67603pt x 76.45074pt.
-<chp_sogp/figures/TSNE_task20_kde_p30.png, id=766, 927.9468pt x 504.4446pt>
+<chp_sogp/figures/TSNE_task20_kde_p30.png, id=737, 927.9468pt x 504.4446pt>
 File: chp_sogp/figures/TSNE_task20_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task20_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task20_kde_p30.png  used on inpu
@@ -1508,16 +1506,16 @@ t line 210.
 Overfull \vbox (1.24129pt too high) detected at line 210
  []
 
-[16
+[15
 
  <./chp_sogp/figures/TSNE_task4_kde_p30.png> <./chp_sogp/figures/TSNE_task8_kde
 _p30.png> <./chp_sogp/figures/TSNE_task11_kde_p30.png> <./chp_sogp/figures/TSNE
 _task20_kde_p30.png>] (./chp_sogp/figures/AMANI_forecasting.tex)
-(./chp_sogp/figures/SAN LORENZO_forecasting.tex) [17
+(./chp_sogp/figures/SAN LORENZO_forecasting.tex) [16
 
 ]
 (./chp_sogp/figures/mse_lar.tex) (./chp_sogp/figures/mse_lstm.tex)
-(./chp_sogp/figures/mse_igp.tex) [18
+(./chp_sogp/figures/mse_igp.tex) [17
 
  <./chp_sogp/figures/mse_lar-000.png> <./chp_sogp/figures/mse_lar_profile-000.p
 ng> <./chp_sogp/figures/mse_lstm-000.png> <./chp_sogp/figures/mse_lstm_profile-
@@ -1530,17 +1528,15 @@ LaTeX Font Info:    Trying to load font information for TS1+cmss on input line
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ))
-(./chp_sogp/figures/msll_igp.tex) [19
+(./chp_sogp/figures/msll_igp.tex) [18
 
  <./chp_sogp/figures/msll_lar-000.png> <./chp_sogp/figures/msll_lar_profile-000
 .png> <./chp_sogp/figures/msll_igp-000.png> <./chp_sogp/figures/msll_igp_profil
-e-000.png>] [20
+e-000.png>] [19
 
 ])
-(./chp_lmc/multi_output_gaussian_processes.tex [21
+(./chp_lmc/multi_output_gaussian_processes.tex (./chp_lmc/figures/lmc_graph.tex
 
-]
-(./chp_lmc/figures/lmc_graph.tex 
 Neural network activation
 contour: Using real outline for `$a_{1,1}$' on input line 34.
 contour: Using real outline for `$a_{1,2}$' on input line 34.
@@ -1550,14 +1546,14 @@ contour: Using real outline for `$a_{1,Q}$' on input line 34.
 Overfull \vbox (2.34923pt too high) detected at line 82
  []
 
-[22
+[20
 
-] [23
+] [21
 
-] [24
+] [22
 
 ] (./chp_lmc/figures/MSE_gs.tex) (./chp_lmc/figures/MSLL_gs.tex)
-(./chp_lmc/figures/CRPS_gs.tex) (./chp_lmc/figures/NLPD_gs.tex) [25
+(./chp_lmc/figures/CRPS_gs.tex) (./chp_lmc/figures/NLPD_gs.tex) [23
 
 ]
 (./chp_lmc/figures/lengthscale_matrix_1.tex)
@@ -1567,34 +1563,33 @@ Overfull \vbox (2.34923pt too high) detected at line 82
 Overfull \vbox (2.77623pt too high) detected at line 170
  []
 
-[26
+[24
 
  <./chp_lmc/figures/lengthscale_matrix_1-000.png> <./chp_lmc/figures/lengthscal
 e_matrix_30-000.png> <./chp_lmc/figures/coregionalization_1-000.png> <./chp_lmc
 /figures/coregionalization_30-000.png>]
 (./chp_lmc/figures/performance_bars_MSLL.tex)
-(./chp_lmc/figures/performance_bars_NLPD.tex) [27
+(./chp_lmc/figures/performance_bars_NLPD.tex) [25
 
 ]
 (./chp_lmc/figures/SAN LORENZO_forecasting.tex)
-(./chp_lmc/figures/lmc_forecasting_SAN LORENZO.tex) [28
+(./chp_lmc/figures/lmc_forecasting_SAN LORENZO.tex) [26
 
 ])
-(./chp_chd/chained_gaussian_processes.tex [29
+(./chp_chd/chained_gaussian_processes.tex (./chp_lmc/figures/chd_graph.tex
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
 
-] (./chp_lmc/figures/chd_graph.tex
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no i in font nullfont!
 contour: Using real outline for `$a_{1, 1,1}$' on input line 36.
 contour: Using real outline for `$a_{1, 1,2}$' on input line 36.
 contour: Using real outline for `$a_{1, 1,3}$' on input line 36.
@@ -1605,11 +1600,11 @@ contour: Using real outline for `$g_{2,J_{1}}(\cdot )$' on input line 58.
 Overfull \vbox (10.88998pt too high) detected at line 51
  []
 
-[30
+[27
 
-] [31
+] [28
 
-] [32
+] [29
 
 ] (./chp_chd/figures/MSE_chd_normal.tex)
 (./chp_chd/figures/MSLL_chd_normal.tex) (./chp_chd/figures/CRPS_chd_normal.tex)
@@ -1617,34 +1612,34 @@ Overfull \vbox (10.88998pt too high) detected at line 51
 Overfull \vbox (3.91643pt too high) detected at line 120
  []
 
-[33
+[30
 
 ] (./chp_chd/figures/MSLL_peformance_chdnormal.tex)
-(./chp_chd/figures/NLPD_peformance_chdnormal.tex) [34
+(./chp_chd/figures/NLPD_peformance_chdnormal.tex) [31
 
 ]
 (./chp_chd/figures/chd_normal_forecasting_ESMERALDA.tex)
-(./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex) [35
+(./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex) [32
 
-]) [36
+]) [33
 
 ]
-<images/article.png, id=1414, 928.46875pt x 201.75375pt>
+<images/article.png, id=1327, 928.46875pt x 201.75375pt>
 File: images/article.png Graphic file (type png)
 <use images/article.png>
 Package pdftex.def Info: images/article.png  used on input line 197.
 (pdftex.def)             Requested size: 206.51929pt x 44.87544pt.
-<images/proceeding.png, id=1415, 945.5325pt x 211.79124pt>
+<images/proceeding.png, id=1328, 945.5325pt x 211.79124pt>
 File: images/proceeding.png Graphic file (type png)
 <use images/proceeding.png>
 Package pdftex.def Info: images/proceeding.png  used on input line 197.
 (pdftex.def)             Requested size: 206.51929pt x 46.25812pt.
-<images/software.png, id=1416, 824.07875pt x 123.46124pt>
+<images/software.png, id=1329, 824.07875pt x 123.46124pt>
 File: images/software.png Graphic file (type png)
 <use images/software.png>
 Package pdftex.def Info: images/software.png  used on input line 197.
 (pdftex.def)             Requested size: 206.51929pt x 30.94058pt.
- [37
+ [34
 
  <./images/article.png> <./images/proceeding.png> <./images/software.png>] (./m
 ain.bbl
@@ -1652,7 +1647,7 @@ ain.bbl
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 1.
 
-) [38
+) [35
 
 ]
 \tf@nav=\write6
@@ -1670,13 +1665,13 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 209.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 209.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 209.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6FB2DF179C8FF040A7B01D9A18999390;1080.
+(rerunfilecheck)             Checksum: C276103646E25CFFBA203C5F30DB275D;1069.
  ) 
 Here is how much of TeX's memory you used:
- 40602 strings out of 481239
- 961934 string characters out of 5920377
- 1984151 words of memory out of 5000000
- 54745 multiletter control sequences out of 15000+600000
+ 40590 strings out of 481239
+ 961821 string characters out of 5920377
+ 1983939 words of memory out of 5000000
+ 54739 multiletter control sequences out of 15000+600000
  559859 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,20n,127p,792b,2853s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1711,10 +1706,10 @@ nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sfss0500.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.
 pfb>
-Output written on main.pdf (38 pages, 14442596 bytes).
+Output written on main.pdf (35 pages, 14436559 bytes).
 PDF statistics:
- 1608 PDF objects out of 1728 (max. 8388607)
- 1380 compressed objects within 14 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 1516 PDF objects out of 1728 (max. 8388607)
+ 1292 compressed objects within 13 object streams
+ 104 named destinations out of 1000 (max. 500000)
  428 words of extra memory for PDF output out of 10000 (max. 10000000)
 
