@@ -21,49 +21,42 @@ Muhammed Sit, Bekir~Z. Demiray, Zhongrun Xiang, Gregory~J. Ewing, Yusuf Sermet,
   and water resources}.
 \newblock {\em Water Science and Technology}, 82(12):2635--2670, 08 2020.
 
-\bibitem{Abdollahi2017}
-Sajjad Abdollahi, Jalil Raeisi, Mohammadreza Khalilianpour, Farshad Ahmadi, and
-  Ozgur Kisi.
-\newblock Daily mean streamflow prediction in perennial and non-perennial
-  rivers using four data driven techniques.
-\newblock {\em Water Resources Management}, 31(15):4855--4874, 2017.
+\bibitem{w15030505}
+Alexander Ley, Helge Bormann, and Markus Casper.
+\newblock Intercomparing lstm and rnn to a conceptual hydrological model for a
+  low-land river with a focus on the flow duration curve.
+\newblock {\em Water}, 15(3), 2023.
 
-\bibitem{Shiau2016}
-Jenq-Tzong Shiau and Hui-Ting Hsu.
-\newblock Suitability of ann-based daily streamflow extension models: a case
-  study of gaoping river basin, taiwan.
-\newblock {\em Water Resources Management}, 30(4):1499--1513, 2016.
+\bibitem{doi:10.1080/02626667.2021.1937631}
+Xiujie Wang, Yanpeng Wang, Peixian Yuan, Ling Wang, and Dongling Cheng.
+\newblock An adaptive daily runoff forecast model using vmd-lstm-pso hybrid
+  approach.
+\newblock {\em Hydrological Sciences Journal}, 66(9):1488--1502, 2021.
 
-\bibitem{KHAN2020125380}
-Md. Munir~Hayet Khan, Nur~Shazwani Muhammad, and Ahmed El-Shafie.
-\newblock Wavelet based hybrid ann-arima models for meteorological drought
-  forecasting.
-\newblock {\em Journal of Hydrology}, 590:125380, 2020.
+\bibitem{8729441}
+Zheng Wang and Yuansheng Lou.
+\newblock Hydrological time series forecast model based on wavelet de-noising
+  and arima-lstm.
+\newblock In {\em 2019 IEEE 3rd Information Technology, Networking, Electronic
+  and Automation Control Conference (ITNEC)}, pages 1697--1701, 2019.
 
-\bibitem{lakshminarayanan2017simple}
-Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell.
-\newblock Simple and scalable predictive uncertainty estimation using deep
-  ensembles, 2017.
+\bibitem{Sahoo2019}
+Bibhuti~Bhusan Sahoo, Ramakar Jha, Anshuman Singh, and Deepak Kumar.
+\newblock Long short-term memory (lstm) recurrent neural network for low-flow
+  hydrological time series forecasting.
+\newblock {\em Acta Geophysica}, 67(5):1471--1481, 2019.
 
-\bibitem{gal2016dropout}
-Yarin Gal and Zoubin Ghahramani.
-\newblock Dropout as a {B}ayesian approximation: Representing model uncertainty
-  in deep learning.
-\newblock In {\em International Conference on Machine Learning}, pages
-  1050--1059, 2016.
+\bibitem{10.1145/3366750.3366756}
+Yiran Li and Juan Yang.
+\newblock Hydrological time series prediction model based on attention-lstm
+  neural network.
+\newblock In {\em Proceedings of the 2019 2nd International Conference on
+  Machine Learning and Machine Intelligence}, MLMI '19, page 21–25, New York,
+  NY, USA, 2019. Association for Computing Machinery.
 
-\bibitem{QUILTY2020104718}
-John Quilty and Jan Adamowski.
-\newblock A stochastic wavelet-based data-driven framework for forecasting
-  uncertain multiscale hydrological and water resources processes.
-\newblock {\em Environmental Modelling \& Software}, 130:104718, 2020.
-
-\bibitem{NIU2021102562}
-Wen jing Niu and Zhong kai Feng.
-\newblock Evaluating the performances of several artificial intelligence
-  methods in forecasting daily streamflow time series for sustainable water
-  resources management.
-\newblock {\em Sustainable Cities and Society}, 64:102562, 2021.
+\bibitem{hensman2014scalable}
+James Hensman, Alex Matthews, and Zoubin Ghahramani.
+\newblock Scalable variational gaussian process classification, 2014.
 
 \bibitem{bruinsma2020scalable}
 Wessel~P. Bruinsma, Eric Perim, Will Tebbutt, J.~Scott Hosking, Arno Solin, and

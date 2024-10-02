@@ -52,30 +52,34 @@
 	
 \end{frame}
 
+
 \begin{frame}{Problem Statement and Research Question}
+	\centering
+\begin{table}[htbp]
+
+	\scriptsize
+	\begin{tabular}{l >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.2cm}}
+		\toprule
+		\diagbox{\textbf{Model}}{\textbf{Challenge}}          & {Interpretability} & {Nonlinearity} & {Stochasticity} & {Long-term} & {Scalability} & {Output Constraint} \\
+		\midrule
+		{Physically Driven \cite{Yaseen2018, HKASHANI2016340}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} \\ 
+		{AR \cite{10.2166/wst.2020.369}}               & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} \\ 
+		{NN \cite{w15030505}}               & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} \\ 
+		{RNN \cite{doi:10.1080/02626667.2021.1937631}}              & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} \\ 
+		{LSTM \cite{8729441, Sahoo2019, 10.1145/3366750.3366756}}             & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} \\ 
+		{GP \cite{hensman2014scalable, bruinsma2020scalable}}               & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorB}{\ding{51}} & \textcolor{myNewColorD}{\ding{55}} & \textcolor{myNewColorD}{\ding{55}} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 	
-	\begin{table}[htbp]
-		\centering
-		\begin{tabular}{l p{1.2cm}p{1.2cm}p{1.2cm}p{1.2cm}p{1.2cm}}
-			\toprule
-			\textbf{} & \textbf{AR} & \textbf{NN} & \textbf{RNN} & \textbf{LSTM} & \textbf{GP} \\
-			\midrule
-			{Interpretability \cite{lakshminarayanan2017simple, gal2016dropout}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
-			{Nonlinearity \cite{10.2166/wst.2020.369}}      & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
-			{Stochasticity}     & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
-%			\textbf{Overfitting}       & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  \\ 
-			{Long-term \cite{Abdollahi2017, Shiau2016, KHAN2020125380}}         & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  \\ 
-			{Scalability \cite{QUILTY2020104718, NIU2021102562,bruinsma2020scalable}}       & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  \\ 
-			{Output Constraint} & \textcolor{myNewColorD}{\ding{55}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorB}{\ding{51}}  & \textcolor{myNewColorD}{\ding{55}}  \\ 
-			\bottomrule
-		\end{tabular}
-	\end{table}
 	
 	
 	\begin{block}{\textbf{Research Question}}
 		How to develop a joint probabilistic prediction model for multiple hydrological series associated with electricity generation, that describes the randomness of the forecast, is scalable, utilizes task correlations to improve performance, and incorporates output constraints to ensure feasible predictions?
 	\end{block}
 \end{frame}
+
 
 \section*{Objectives}
 

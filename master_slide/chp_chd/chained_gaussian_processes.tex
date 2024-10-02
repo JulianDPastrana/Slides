@@ -57,9 +57,9 @@
 	
 \begin{equation*}
 	\begin{split}
-	\mathcal{L} &= \sum_{d=1}^D \sum_{n=1}^{N} \mathbb{E}_{q(f_{d,1,n}), \cdots, q(f_{d,J_d,n})} 
-	\left\{ \log p\left( y_{d,n} \mid f_{d,1,n}, \cdots, f_{d,J_d,n} \right) \right\} \\
-	&- \sum_{q=1}^Q \text{KL}\left\{ q(\mathbf{u}_q) \parallel p(\mathbf{u}_q) \right\}
+	\mathcal{L} &= \sum_{d=1}^D \sum_{n=1}^{N} \mathbb{E}_{\textcolor{myred}{q(f_{d,1,n}), \cdots, q(f_{d,J_d,n})}} 
+	\left\{ \log \textcolor{myred}{p\left( y_{d,n} \mid f_{d,1,n}, \cdots, f_{d,J_d,n} \right)} \right\} \\
+	&- \sum_{{\textcolor{mygreen}{q}}=1}^{\textcolor{mygreen}{Q}} \text{KL}\left\{ q(\mathbf{u}_{\textcolor{mygreen}{q}}) \parallel p(\mathbf{u}_{\textcolor{mygreen}{q}}) \right\}
 	\end{split}
 \end{equation*}
 
@@ -74,7 +74,7 @@ And the predictive distribution for a new output $\mathbf{y}_*$:
 	p(\mathbf{y}_* \mid \mathbf{y}) \approx \int p(\mathbf{y}_* \mid \mathbf{f}_*) q(\mathbf{f}_*) \, d\mathbf{f}_*,
 \end{equation*}
 
-The expectation values can be approximated via Monte Carlo methods.
+The expectation values can be approximated via Monte Carlo methods. The complexity is now \textcolor{mygreen}{$\mathcal{O}(JNQM^2)$} with $J=\sum_d^D J_d$.
 	
 \end{frame}
 
@@ -106,17 +106,19 @@ The expectation values can be approximated via Monte Carlo methods.
 		\tiny
 		\centering
 		\setlength\figurewidth{0.5\columnwidth} 
-		\setlength\figureheight{0.3\columnwidth}
+		\setlength\figureheight{0.28\columnwidth}
 		\subfloat[MSE]{\input{chp_chd/figures/MSE_chd_normal}}
 		\subfloat[MSLL]{\input{chp_chd/figures/MSLL_chd_normal}}\\
 		\vspace{-1.0em}
 		\subfloat[CRPS]{\input{chp_chd/figures/CRPS_chd_normal}}
 		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_chd_normal}}\\
 	\end{figure}
-	\vspace{-1.8em}
-	\begin{block}{}
-		The Gamma likelihood provides greater stability by offering a more precise description of the data. We select $Q=15$ for the Normal likelihood and $Q=26$ for the Gamma likelihood.
-	\end{block}
+	\vspace{-1.5em}
+\begin{itemize}
+	\item The Gamma likelihood provides greater stability by offering a more precise description of the data.
+	\item We select $Q=15$ for the Normal likelihood and $Q=26$ for the Gamma likelihood.
+\end{itemize}
+
 \end{frame}
 
 \subsection{Performance Analysis}
@@ -132,9 +134,11 @@ The expectation values can be approximated via Monte Carlo methods.
 		\subfloat[NLPD]{\input{chp_chd/figures/NLPD_peformance_chdnormal}}
 	\end{figure}
 	\vspace{-2.0em}
-	\begin{block}{}
-		The ChdGP model consistently outperforms the LMCGP model in all scenarios. Additionally,  the Gamma likelihood offers a superior explanation of the data, leading to enhanced performance.
-	\end{block}
+\begin{itemize}
+	\item The ChdGP model consistently outperforms the LMCGP model in all scenarios.
+	\item The Gamma likelihood offers a superior explanation of the data, leading to enhanced performance.
+\end{itemize}
+
 \end{frame}
 
 \begin{frame}{One-day-ahead Models Forecasting}
@@ -148,9 +152,12 @@ The expectation values can be approximated via Monte Carlo methods.
 		\input{chp_chd/figures/chd_gamma_forecasting_ESMERALDA}
 	\end{figure}
 	\vspace{-1.5em}
-	\begin{block}{}
-		 The predictive variance dynamically adapts to the complexity of uncertainty. Additionally, for the ChdGP Gamma setting, the predictive distribution does not accommodate negative values, and the presence of peaks results in a discrepancy between the mean and median.
-	\end{block}
+\begin{itemize}
+	\item The predictive variance dynamically adapts to the complexity of uncertainty.
+	\item For the ChdGP Gamma setting, the predictive distribution does not accommodate negative values.
+	\item The presence of peaks results in a discrepancy between the mean and median.
+\end{itemize}
+
 \end{frame}
 
 %\begin{frame}{Tuning Q for Chd Gamma}

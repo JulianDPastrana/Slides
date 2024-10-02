@@ -1,12 +1,14 @@
 % This file was created with tikzplotlib v0.10.1.
 \begin{tikzpicture}
+	\setlength{\abovecaptionskip}{-1em}   % Adjust to reduce space above caption
+	\setlength{\belowcaptionskip}{-1em}   % Adjust to reduce space below caption
 	
 	\definecolor{darkgray176}{RGB}{176,176,176}
 	\definecolor{darkslategray38}{RGB}{38,38,38}
 	
 	\begin{axis}[
 		width=\figurewidth, % Adjust this value to control figure width
-		height=\figurewidth, % Adjust this value to control figure height
+		height=\figureheight, % Adjust this value to control figure height
 		colorbar,
 		colorbar style={ylabel={}, width=0.05\figurewidth}, % Adjust colorbar width
 		colormap/viridis,

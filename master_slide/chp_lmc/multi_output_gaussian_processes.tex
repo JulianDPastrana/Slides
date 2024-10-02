@@ -86,7 +86,7 @@
 	We extend variational inference to include the independent set, utilizing the inducing variables $u_q$ derived from independent processes. The ELBO is given by:
 	
 	\begin{equation*}\label{eq:lmc_elbo}
-		\mathcal{L} = \sum_{d=1}^D\sum_{n=1}^{N} \mathbb{E}_{q(f_{dn})}\{\log p(y_{dn} \mid f_{dn})\} - \sum_{q=1}^Q \text{KL}\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\}
+		\mathcal{L} = \sum_{d=1}^D\sum_{n=1}^{N} \mathbb{E}_{q(f_{dn})}\{\log p(y_{dn} \mid f_{dn})\} - \sum_{{\textcolor{mygreen}{q}}=1}^{\textcolor{mygreen}{Q}} \text{KL}\{q(\mathbf{u}_{\textcolor{mygreen}{q}})\parallel p(\mathbf{u}_{\textcolor{mygreen}{q}})\}
 	\end{equation*}
 	
 	The posterior over test points $X_*$, $p(\mathbf{f}_* \mid \mathbf{y})$, is given by:
@@ -95,7 +95,7 @@
 		p(\mathbf{f}_* \mid \mathbf{y}) \approx q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d \mathbf{u}
 	\end{equation*}
 	
-	Gaussian noise $\sigma_{Nd}^2$ is added to obtain the predictive distribution.
+	Gaussian noise $\sigma_{Nd}^2$ is added to obtain the predictive distribution. The complexity is now \textcolor{mygreen}{$\mathcal{O}(DNQM^2)$}.
 \end{frame}
 
 \begin{frame}{Model Setup}
@@ -150,8 +150,8 @@
 \begin{figure}[htbp]
 	\tiny
 	\centering
-	\setlength\figurewidth{0.4\columnwidth} 
-	\setlength\figureheight{0.35\columnwidth}
+	\setlength\figurewidth{0.42\columnwidth} 
+	\setlength\figureheight{0.3\columnwidth}
 	\vspace{-1.5em}
 	\input{chp_lmc/figures/lengthscale_matrix_1} % Direct inclusion, no subcaption
 	\input{chp_lmc/figures/lengthscale_matrix_30}\\ % Direct inclusion, no subcaption
@@ -162,9 +162,11 @@
 
 
 	\vspace{-1.0em}
-	\begin{block}{}
-		Increase horizon, lengthscale values show less selective. All independent GPs incorporate more features due to the extended time gap. The $a_{d,q}$ coefficients are smaller, indicating weaker individual feature contributions to each output.
-	\end{block}
+	\begin{itemize}
+	\item As the horizon increases, lengthscale values become less selective.
+	\item All independent GPs incorporate more features due to the extended time gap.
+	\item The \(a_{d,q}\) coefficients decrease, indicating weaker individual feature contributions to each output.
+\end{itemize}
 	
 	
 \end{frame}
@@ -183,29 +185,16 @@
 		\subfloat[NLPD]{\input{chp_lmc/figures/performance_bars_NLPD}}
 		
 	\end{figure}
-	\vspace{-2.0em}
-	\begin{block}{}
-		The Adam+NG optimizer significantly boosts performance, and with LMCGP showing the most improvement, especially for larger horizons.
-	\end{block}
+	\vspace{-1.5em}
+\begin{itemize}
+	\item The Adam+NG optimizer significantly boosts performance.
+	\item LMCGP shows the most improvement, especially for larger horizons.
+\end{itemize}
+
 	
 	
 \end{frame}
 
-%\begin{frame}{Model Forecasting}
-%	\centering
-%	\begin{figure}[htbp]
-%	\tiny
-%	\setlength\figurewidth{0.55\columnwidth} 
-%	\setlength\figureheight{0.5\columnwidth}
-%
-%	\subfloat[$A$.]{\input{chp_lmc/figures/lmc_forecasting_AMANI}}
-%	\subfloat[$I$.]{\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}}
-%	\end{figure}
-%	\vspace{-1.5em}
-%	\begin{block}{}
-%		Test data for two reservoirs in one day ahead LMCGP model prediction. The model more accurately follows the peaks due its complex behavior.
-%	\end{block}
-%\end{frame}
 
 \begin{frame}{One-day-ahead Models Forecasting}
 	\centering
@@ -217,9 +206,11 @@
 		\input{chp_lmc/figures/lmc_forecasting_SAN LORENZO}
 	\end{figure}
 	\vspace{-1.5em}
-	\begin{block}{}
-		The LMCGP model more accurately captures the peaks in the data, attributable to its ability to model complex behaviors through the incorporation of output correlations.
-	\end{block}
+\begin{itemize}
+	\item The LMCGP model more accurately captures the peaks in the data.
+	\item This is attributable to its ability to model complex behaviors through the incorporation of output correlations.
+\end{itemize}
+
 \end{frame}
 
 

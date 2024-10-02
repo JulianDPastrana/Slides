@@ -4,52 +4,47 @@
 \definecolor{darkgray176}{RGB}{176,176,176}
 
 \begin{axis}[
-font=\tiny,
-width=\figurewidth,
-height=\figureheight,
-axis background/.style={fill=background_color},
-axis line style={white},
-tick align=inside,
-tick pos=left,
-x grid style={white},
-y grid style={white},
-xmajorgrids,
-ymajorgrids,
-ylabel={Reservoir O Contributions (kWh)},
-xlabel={Time (days)},
-xmin=50, xmax=250,
-xtick style={color=black},
-%ymin=-45456751.9352056, 
-ymin=-15081530.7548032,
-ymax=127003887.236995,
-ytick style={color=black},
-ytick={-60000000,-40000000,-20000000,0,20000000,40000000,60000000,80000000,100000000,120000000,140000000},
-yticklabels={
-  \ensuremath{-}0.6,
-  \ensuremath{-}0.4,
-  \ensuremath{-}0.2,
-  0.0,
-  0.2,
-  0.4,
-  0.6,
-  0.8,
-  1.0,
-  1.2,
-  1.4
-},
-legend columns=1, 
-legend style={
-	nodes={scale=0.8, transform shape},
-	fill opacity=0.8,
-	draw opacity=1,
-	text opacity=1,
-	at={(0.03,0.97)},
-	anchor=north west,
-	legend pos=north west,
-	draw=lightgray204,
-	fill=background_color
-}
-]
+	font=\tiny,
+	width=\figurewidth,
+	height=\figureheight,
+	axis background/.style={fill=background_color},
+	axis line style={white},
+	tick align=inside,
+	tick pos=left,
+	x grid style={white},
+	y grid style={white},
+	xmajorgrids,
+	ymajorgrids,
+	ylabel={Reservoir O Contributions (kWh)},
+	xlabel={Time (days)},
+	xmin=50, xmax=250,
+	xtick style={color=black},
+	ymin=-10000000, % Adjusted to -0.1*10^8
+	ymax=80000000,  % Adjusted to 0.8*10^8
+	ytick style={color=black},
+	ytick={-10000000,0,20000000,40000000,60000000,80000000}, % Updated ticks for new range
+	yticklabels={
+		\ensuremath{-}0.1,
+		0.0,
+		0.2,
+		0.4,
+		0.6,
+		0.8
+	},
+	legend columns=1, 
+	legend style={
+		nodes={scale=0.8, transform shape},
+		fill opacity=0.8,
+		draw opacity=1,
+		text opacity=1,
+		at={(0.03,0.97)},
+		anchor=north west,
+		legend pos=north west,
+		draw=lightgray204,
+		fill=background_color
+	}
+	]
+
 \path [draw=blue, fill=blue, opacity=0.5]
 (axis cs:0,34596132.2023549)
 --(axis cs:0,-853642.916707363)

@@ -40,56 +40,6 @@
 \end{frame}
 
 
-%\begin{frame}{The Marginal Log-likelihood}
-%	\justifying
-%	The prediction performance achieved by the conditional distribution is influenced by the selected parameter set $\bm{\theta}$ and the observation noise matrix $\Sigma_\epsilon$. These parameters are determined by maximizing the marginal log-likelihood, where the marginal likelihood $p(\mathbf{y})$ follows a Gaussian distribution:
-%	
-%	\[
-%	p(\mathbf{y}) = \mathcal{N}(\mathbf{y} \mid \bm{0}, \mathbf{K}_y)
-%	\]
-%	
-%	The optimization problem is defined as:
-%	
-%	\begin{equation*}\label{eq:sogp_nlml_opt}
-%		\begin{aligned}
-%			\{\bm{\theta}_{\text{opt}}, {\Sigma_\epsilon}_{\text{opt}}\} &= \underset{\bm{\theta}, \Sigma_\epsilon}{\arg\max} \quad \ln p(\mathbf{y}) \\
-%			&= \underset{\bm{\theta}, \Sigma_\epsilon}{\arg\min} \quad \frac{1}{2} \mathbf{y}^\top \mathbf{K}_y^{-1} \mathbf{y} + \frac{1}{2} \ln \lvert \mathbf{K}_y \rvert + \frac{ND}{2} \ln 2\pi
-%		\end{aligned}
-%	\end{equation*}
-%	
-%	\vspace{3mm}
-%	\justifying
-%	However, the main challenge lies in the computational complexity of $\mathcal{O}(N^3D^3)$ and the storage demand of $\mathcal{O}(N^2D^2)$ due to the need to invert the matrix $\mathbf{K}_y$.
-%\end{frame}
-%
-%\begin{frame}{Variational Inference and Sparse Variational GPs (SVGPs)}
-%	We introduce $M \ll N$ inducing points $Z$, with inducing variables $\mathbf{u} \in \mathbb{R}^{MD}$ to reduce computational complexity. The joint distribution becomes:
-%	\[
-%	\begin{array}{rcl}
-%		\left[ \begin{array}{c}
-%			\mathbf{u}\\
-%			\mathbf{f}\\
-%		\end{array}
-%		\right]
-%		\sim
-%		\mathcal{N} \left(
-%		\begin{array}{c}
-%			\mathbf{0}\\
-%		\end{array},
-%		\left[ \begin{array}{cc}
-%			\mathbf{K}_{uu} & \mathbf{K}_{uf}\\
-%			\mathbf{K}_{uf}^\top & \mathbf{K}\\
-%		\end{array}
-%		\right] \right)
-%	\end{array}
-%	\]
-%	Where $\mathbf{K}_{uu} \in \mathbb{R}^{MD \times MD}$, and $\mathbf{K}_{uf} \in \mathbb{R}^{MD \times ND}$. The posterior distribution uses the variational approximation $q(\mathbf{u}) = \mathcal{N}(\boldsymbol{\mu}, \mathbf{S})$. Now we maximizing the Evidence Lower Bound (ELBO):
-%	\begin{equation*}
-%		\mathcal{L} = \sum_{d=1}^D \sum_{n=1}^N \mathbb{E}_{q(f_d(\mathbf{x}_n))}\{\ln p(y_{dn} \mid f_d(\mathbf{x}_n))\} - \sum_{d=1}^D \text{KL}\{q(\mathbf{u}_d) \parallel p(\mathbf{u}_d)\} \leq \ln p(\mathbf{y})
-%	\end{equation*}
-%	where $f_d(\mathbf{x}_n)$ represents the $d$-th latent function value at input $\mathbf{x}_n$, and $y_{dn}$ is the corresponding observed value. This reduces the complexity to $\mathcal{O}(NM^2D^3)$. For predictions at new points $\mathbf{x}_*$, we add noise in $\Sigma_\epsilon$ to $q(\mathbf{f}_*) = \int p(\mathbf{f}_* \mid \mathbf{u}) q(\mathbf{u}) d\mathbf{u}$.
-%\end{frame}
-
 \begin{frame}{Variational Inference for Scalability}
 
 	The prediction performance is influenced by the selected parameter set \(\bm{\theta}\) and the matrix \(\Sigma_\epsilon\). These parameters are determined by maximizing the marginal log-likelihood:
@@ -102,7 +52,7 @@
 	\begin{equation*}
 		\mathcal{L} = \sum_{d=1}^D \sum_{n=1}^N \mathbb{E}_{q(f_d(\mathbf{x}_n))}\{\ln p(y_{dn} \mid f_d(\mathbf{x}_n))\} - \sum_{d=1}^D \text{KL}\{q(\mathbf{u}_d) \parallel p(\mathbf{u}_d)\},
 	\end{equation*}
-	where $f_d(\mathbf{x}_n)$ represents the $d$-th latent function value at input $\mathbf{x}_n$, and $y_{dn}$ is the corresponding observed value. This reduces the complexity to \textcolor{myNewColorB}{$\mathcal{O}(NM^2D^3)$}.
+	where $f_d(\mathbf{x}_n)$ represents the $d$-th latent function value at input $\mathbf{x}_n$, and $y_{dn}$ is the corresponding observed value. This reduces the complexity to \textcolor{myNewColorB}{$\mathcal{O}(NM^2D^3)$}. All parameters were tuned by Adam optimizer.
 \end{frame}
 
 
@@ -126,51 +76,52 @@
 \subsection{Results and Discussions}
 
 \begin{frame}{Grid search average values for tuning $T$ and $M$}
+	\vspace{-1em}
 	\begin{figure}[htbp]
-		\setlength\figurewidth{0.5\textwidth} 
+		\setlength\figurewidth{0.55\textwidth} 
 		\setlength\figureheight{0.5\textwidth}
 		\subfloat[MSE ($\times10^{-1}$)]{\input{chp_sogp/figures/gs_mse}}\hspace{-1em}
 		\subfloat[MSLL ($\times10^{-2}$)]{\input{chp_sogp/figures/gs_msll}}
 	\end{figure}
-	\vspace{-2em}
-	\begin{block}{}
-		The error increases with larger values of \( T \). Smaller values of \( M \) are more sensitive to initialization, while larger values of \( M \) tend to overfit. The optimal parameters are \( M = 64 \) and \( T = 1 \).
-	\end{block}
+	\vspace{-1.5em}
+	\begin{itemize}
+		\item The error increases with larger values of \( T \).
+		\item Smaller values of \( M \) are more sensitive to initialization.
+		\item Larger values of \( M \) tend to overfit.
+		\item The optimal parameters are \( M = 64 \) and \( T = 1 \).
+	\end{itemize}
+
 \end{frame}
 
-
-\begin{frame}{Reservoir-Wise Output Scales and Noise Variance}
-	
+\begin{frame}{Reservoir-Wise Kernel and Likelihood Parameters}
+	\vspace{-0.5em}
 	\begin{figure}[htbp]
-		 \centering
+		\captionsetup{skip=-10em} % You can adjust this value as needed
+		
+			\centering
 		\tiny
-	 	\setlength\figurewidth{0.48\textwidth} 
-		\setlength\figureheight{0.48\textwidth}
+		% First row with two centered subfigures
+		\setlength\figurewidth{0.4\textwidth} 
+		\setlength\figureheight{0.28\textwidth}
 		\subfloat[Output scales $\sigma^2_d$]{\input{chp_sogp/figures/output_scale_matrix}}
-		\subfloat[Noise variances $\Sigma_\epsilon$]{\input{chp_sogp/figures/noise_variance_matrix}}
-	\end{figure}
-	\vspace{-2.0em}
-	\begin{block}{}
-	Longer horizons typically exhibit smaller output scales and higher noise variances, indicating weaker correlations and more complex tasks.
-	\end{block}
-\end{frame}
-
-
-\begin{frame}{Reservoir-Wise Lengthscales}
-	\begin{figure}[htbp]
-		\centering
-		\tiny
-		\setlength\figurewidth{0.4\columnwidth} 
-		\setlength\figureheight{0.42\columnwidth}
-		\subfloat[$H=1$]{\input{chp_sogp/figures/lengthscalematrix1}}\hspace{-1.3em}
-		\subfloat[$H=14$]{\input{chp_sogp/figures/lengthscalematrix14}}\hspace{-1.3em}
+		\hspace{2em} % Adjust the space between the two figures
+		\subfloat[Noise variances $\Sigma_\epsilon$]{\input{chp_sogp/figures/noise_variance_matrix}}\\ % Add space between rows
+		\vspace{-1.2em}
+		% Second row with three centered subfigures
+		\setlength\figurewidth{0.4\textwidth} % Smaller width for three figures
+		\setlength\figureheight{0.28\textwidth}
+		\subfloat[$H=1$]{\input{chp_sogp/figures/lengthscalematrix1}}\hspace{-1.2em}
+		\subfloat[$H=14$]{\input{chp_sogp/figures/lengthscalematrix14}}\hspace{-1.2em}
 		\subfloat[$H=30$]{\input{chp_sogp/figures/lengthscalematrix30}}
 	\end{figure}
-	\vspace{-2.0em}
-	\begin{block}{}
-	As the horizon increases, main diagonal lengthscales lose relevance, while off-diagonal ones gain importance.
-	\end{block}
+	\vspace{-1em}
+	\begin{itemize}
+		\item For longer horizons, output scales decrease, while noise variances increase, reflecting weaker correlations and greater task complexity.
+		\item As horizons extend, the relevance of main diagonal lengthscales diminishes, with off-diagonal lengthscales becoming more significant.
+	\end{itemize}
+	
 \end{frame}
+
 
 \begin{frame}{SVGP t-SNE Latent Mapping Space}
 	\begin{figure}[htbp]
@@ -204,9 +155,12 @@
 		
 		\vspace{-1.5em} % Space between the figures and the caption
 	\end{figure}
-	\begin{block}{}
-	 The shared inducing points allow for the capturing of task-wise, and global information about the streamflow dynamics.
-	\end{block}
+\begin{itemize}
+	\item Red and green points cluster near the data mode along the reservoir, capturing global information.
+	\item The cyan point adjusts to capture task-specific details.
+\end{itemize}
+
+
 \end{frame}
 
 
@@ -225,41 +179,36 @@
 	\end{figure}
 	\vspace{-1.5em}
 	\begin{block}{}
-	 The SVGP close follows to time-series data and captures its stochastic nature through the predictive distribution.
+	 The SVGP closely follows the time-series data and captures its stochastic nature through the predictive distribution.
 	\end{block}
 \end{frame}
 
-
-\begin{frame}{MSE achieved by LAR, LSTM, and SVGP}
+\begin{frame}{Metrics achieved by LAR, LSTM, and SVGP}
+	\vspace{-0.6em}
 	\begin{figure}[htbp]
-		\centering 
-		\tiny
-		\setlength\figurewidth{0.38\columnwidth} 
-		\setlength\figureheight{0.38\columnwidth}
-		\subfloat[LAR.]{\input{chp_sogp/figures/mse_lar}}\hspace{-1.5em}
-		\subfloat[LSTM.]{\input{chp_sogp/figures/mse_lstm}}\hspace{-1.5em}
-		\subfloat[SVGP.]{\input{chp_sogp/figures/mse_igp}}
-	\end{figure}
-	\vspace{-1.5em}
-	\begin{block}{}
- Longer horizons yield larger errors. The LAR and SVGP models significantly outperform the LSTM models across all scenarios.
-	\end{block}
+			\centering
+			\tiny
+			% Set dimensions for the first row images
+			\setlength\figurewidth{0.38\columnwidth} 
+			\setlength\figureheight{0.28\columnwidth}
+			
+			% First row: First image on the left, second image on the right (leaving a cell empty)
+			\input{chp_sogp/figures/msll_lar}\hspace{18em} % First image without caption
+			\input{chp_sogp/figures/msll_igp} \\ % Second image without caption
+			
+			% Second row: Three images filling the columns with captions
+			\subfloat[LAR]{\input{chp_sogp/figures/mse_lar}}
+			\subfloat[LSTM]{\input{chp_sogp/figures/mse_lstm}}
+			\subfloat[SVGP]{\input{chp_sogp/figures/mse_igp}}
+		\end{figure}
+		\vspace{-1.3em}
+	\begin{itemize}
+		\item Longer horizons yield larger errors across all models.
+		\item LAR and SVGP models significantly outperform LSTM models in all scenarios.
+		\item SVGP models demonstrate lower errors and a slower increase in error with longer horizons compared to LAR models.
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{MSLL achieved by LAR, and SVGP}
-	\begin{figure}[htbp]
-		\centering
-		\tiny
-		\setlength\figurewidth{0.5\columnwidth} 
-		\setlength\figureheight{0.45\columnwidth}
-		\subfloat[LAR.]{\input{chp_sogp/figures/msll_lar}}\hspace{-1.5em}
-		\subfloat[SVGP.]{\input{chp_sogp/figures/msll_igp}}
-	\end{figure}
-	\vspace{-1.8em}
-	\begin{block}{}
-	The SVGP models exhibits lower error and a slower error increase with the horizon compared to the LAR models.
-	\end{block}
-\end{frame}
 
 \begin{frame}{Performance Assessment}
 
@@ -289,9 +238,11 @@
 	
 	\end{table}
 
-		\begin{block}{}
-		Bold and asterisk indicate a \emph{p}-value $p<1\%$ (LAR vs. SVGP, LSTM vs. SVGP). SVGP outperforms all models, except LAR at $H=1$, where linear dependence is stronger. As horizon increases, SVGP captures complex input-output relations, significantly outperforming the other models.
-	\end{block}
+	\begin{itemize}
+	\item Bold and asterisk indicate a \emph{p}-value \(p < 1\%\) (LAR vs. SVGP, LSTM vs. SVGP).
+	\item SVGP outperforms all models, except for LAR at \(H=1\), where linear dependence is stronger.
+	\item As the horizon increases, SVGP effectively captures complex input-output relations, significantly outperforming the other models.
+\end{itemize}
 \end{frame}
 
 %\subsubsection{Concluding Remark}

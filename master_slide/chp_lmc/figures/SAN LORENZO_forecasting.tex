@@ -23,12 +23,12 @@
 	xticklabel style={font=\tiny},
 	y grid style={white},
 	ymajorgrids,
-	ymin=-13237205.6599335, ymax=119040419.31714,
+	ymin=-0.1e8, ymax=0.6e8,
 	ytick style={color=black},
-	ytick={-20000000,0,20000000,40000000,60000000,80000000,100000000,120000000},
-	yticklabels={\tiny\ensuremath{-}0.2,\tiny0.0,\tiny0.2,\tiny0.4,\tiny0.6,\tiny0.8,\tiny1.0,\tiny1.2},
+	ytick={-0.1e8, 0, 0.1e8, 0.2e8, 0.3e8, 0.4e8, 0.5e8, 0.6e8},
+	yticklabels={\tiny\ensuremath{-}0.1,\tiny0.0,\tiny0.1,\tiny0.2,\tiny0.3,\tiny0.4,\tiny0.5,\tiny0.6},
 	yticklabel style={font=\tiny},
-		legend columns=3, 
+	legend columns=3, 
 	legend style={
 		nodes={scale=0.8, transform shape},
 		font=\tiny,
@@ -43,7 +43,8 @@
 	},
 	]
 
-\path [draw=blue, fill=blue, opacity=0.5]
+
+\path [draw=mygreen, fill=mygreen, opacity=0.5]
 (axis cs:0,20567813.5861097)
 --(axis cs:0,-457851.163993286)
 --(axis cs:1,4379547.55076812)
@@ -1374,7 +1375,7 @@ table {%
 439 4643300
 440 3959200
 };
-\addplot [blue]
+\addplot [mygreen]
 table {%
 0 10054981.2110582
 1 15809356.6477401
@@ -1821,7 +1822,7 @@ table {%
 
 \addlegendentry{Test data}
 \addlegendentry{IGP mean}
-\addlegendimage{line width=5pt,draw=blue,opacity=0.5}
+\addlegendimage{line width=5pt,draw=mygreen,opacity=0.5}
 \addlegendentry{$95\%$ IGP CI}
 
 \end{axis}

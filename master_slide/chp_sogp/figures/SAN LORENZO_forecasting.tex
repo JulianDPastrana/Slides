@@ -5,6 +5,7 @@
 \definecolor{goldenrod1911910}{RGB}{191,191,0}
 \definecolor{green01270}{RGB}{0,127,0}
 
+
 \begin{axis}[
 	width=\figurewidth,
 	height=\figureheight,
@@ -12,7 +13,7 @@
 	axis line style={white},
 	tick align=inside,
 	tick pos=left,
-%	ylabel={Contributions (kWh)},
+	%	ylabel={Contributions (kWh)},
 	ylabel style={font=\tiny},
 	xlabel={Time (days)},
 	xlabel style={font=\tiny},
@@ -23,12 +24,12 @@
 	xticklabel style={font=\tiny},
 	y grid style={white},
 	ymajorgrids,
-	ymin=-13237205.6599335, ymax=119040419.31714,
+	ymin=-0.1e8, ymax=0.6e8, % Set the y-axis limits here
 	ytick style={color=black},
-	ytick={-20000000,0,20000000,40000000,60000000,80000000,100000000,120000000},
-	yticklabels={\tiny\ensuremath{-}0.2,\tiny0.0,\tiny0.2,\tiny0.4,\tiny0.6,\tiny0.8,\tiny1.0,\tiny1.2},
+	ytick={-1e7,0,1e7,2e7,3e7,4e7,5e7,6e7}, % Define tick marks for y-axis
+	yticklabels={\tiny-0.1,\tiny0,\tiny0.1,\tiny0.2,\tiny0.3,\tiny0.4,\tiny0.5,\tiny0.6}, % Corresponding labels
 	yticklabel style={font=\tiny},
-		legend columns=2, 
+	legend columns=2, 
 	legend style={
 		nodes={scale=0.8, transform shape},
 		font=\tiny,

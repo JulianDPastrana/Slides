@@ -20,6 +20,8 @@
 \usepackage{changepage}
 \usepackage{pifont}    % For more symbols like dingbats
 \usepackage{blindtext}
+\usepackage{array}
+\usepackage{diagbox} % Include this package in the preamble for diagonal split
 
 
 \newcommand\dc[1]{\textcolor{blue}{#1}}
@@ -84,8 +86,8 @@
 
 
 
-
-\usepackage{natbib}
+%\usepackage[round]{natbib} % or use 'authoryear' if you prefer
+%\usepackage{natbib}
 \usepackage{hyperref}
 %------------------------------------------------------------
 \titlegraphic{
@@ -122,7 +124,7 @@
 	}{Julián David Pastrana-Cortés\vspace{-20pt}}
 }
 
-\institute[Automatics]{Automatic Research Group\vspace{-15pt}}
+\institute[Automatics]{Automatics Research Group\vspace{-15pt}}
 %\date{\today\vspace{-15pt}}
 
 \AtBeginSection[]{
@@ -159,26 +161,24 @@
 \input{chp_lmc/multi_output_gaussian_processes}
 \input{chp_chd/chained_gaussian_processes}
 
-\begin{frame}{Grand Conclusions}
+\section*{Conclusions}
+
+\begin{frame}{Conclusions}
 	
-	\begin{block}{}
-		\justifying
-		The Sparse Variational Gaussian Process (SVGP) model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured nonlinear relationships and provided uncertainty estimates, outperforming alternative models across various forecasting horizons.
-	\end{block}
+	\begin{itemize}
+		\item The SVGP model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured nonlinear relationships and provided \textcolor{myNewColorB}{\textbf{uncertainty}} estimates, outperforming alternative models across various forecasting horizons.
+
 	
-	\begin{block}{}
-		\justifying
-		By linearly combining independent GPs, we developed the Linear Model of Coregionalization GP (LMCGP), enhancing prediction accuracy through shared features and task-specific information. To improve optimization, we introduced a combined Adam + Natural Gradients (NG) framework, resulting in more stable solutions.
-	\end{block}
+		\item By linearly combining independent GPs, we developed the LMCGP, enhancing prediction accuracy through shared task-specific information into a \textcolor{myNewColorB}{\textbf{multi-output}} setting. To improve optimization, we introduced a combined Adam + NG framework, resulting in more stable solutions.
+
 	
-	\begin{block}{}
-		\justifying
-		Finally, to ensure non-negative streamflow predictions, we introduced the Chained Correlated Gaussian Process (ChdGP) with a Gamma likelihood. This model showed improved stability and accuracy, particularly in capturing periodic patterns and peak occurrences, making it a promising approach for hydrological forecasting.
-	\end{block}
+		\item Finally, to ensure positiveness \textcolor{myNewColorB}{\textbf{data constrain}} streamflow predictions, we introduced the ChdGP with a Gamma likelihood. This model showed improved stability and accuracy, particularly in modeling peak occurrences, making it a suitable approach for hydrological forecasting.
+	\end{itemize}
 
 \end{frame}
 
-\begin{frame}{Generation of Knowledge Products}
+\section*{Products}
+\begin{frame}{Products}
 	\begin{block}{Article Published (Q1)}
 		\centering
 		\includegraphics[width=0.6\textwidth]{images/article.png}
@@ -196,12 +196,35 @@
 	
 \end{frame}
 
+\section*{Future Work}
+\begin{frame}{Future Work}
+	\begin{enumerate}
+		\item Integrate ChdGP-based streamflow forecasting models into the scheduling algorithms of thermoelectric power plants to optimize operational efficiency.
+		
+		\item Enhance the robustness of ChdGP forecasting models to handling missing data, ensuring reliable performance across diverse scenarios.
+		
+		\item Combining ChdGP with Deep Gaussian Processes to improve predictive accuracy and model flexibility.
+	\end{enumerate}
+\end{frame}
+
+\section*{Acknowledgments}
+\begin{frame}{Acknowledgments}
+	\begin{itemize}
+		\item Gratitude to the Maestría en Ingeniería Eléctrica, graduate program of the Universidad Tecnológica de Pereira, for their support.
+		
+		\item Special thanks to the Minciencias project: “Desarrollo de una herramienta para la planeación a largo plazo de la operación del sistema de transporte de gas natural de Colombia”—código de registro 69982—part of the "CONVOCATORIA DE PROYECTOS CONECTANDO CONOCIMIENTO 2019 852-2019".
+		
+		\item Acknowledgment to the Automatics Research Group of the Universidad Tecnológica de Pereira for their invaluable support in the development of the project outcomes.
+	\end{itemize}
+\end{frame}
+
+
 
 \tiny
 \begin{frame}
 	\raggedleft
 	\frametitle{References}
-	\bibliographystyle{unsrt}
+	\bibliographystyle{plainnat}
 	\bibliography{bibliography.bib}
 \end{frame}
 
