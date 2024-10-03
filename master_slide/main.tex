@@ -166,15 +166,25 @@
 \begin{frame}{Conclusions}
 	
 	\begin{itemize}
-		\item The SVGP model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured \textcolor{myNewColorB}{nonlinear} relationships and provided \textcolor{myNewColorB}{{uncertainty}} estimates, outperforming alternative models across various forecasting horizons.
-
-	
-		\item By linearly combining independent GPs, we developed the LMCGP, enhancing prediction accuracy through \textcolor{myNewColorB}{shared task-specific information} into a \textcolor{myNewColorB}{{multi-output}} setting. To improve optimization, we introduced a combined Adam + NG framework, boost the performance.
-
-	
-		\item Finally, to ensure  \textcolor{myNewColorB}{{positive-constrained streamflow}} predictions, we introduced the \textcolor{myNewColorB}{ChdGP with a Gamma likelihood}. This model showed improved stability and accuracy, particularly in modeling peak occurrences, making it a suitable approach for hydrological forecasting.
+		\item The SVGP model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured \textbf{\textcolor{myNewColorB}{nonlinear}} relationships and provided \textbf{\textcolor{myNewColorB}{uncertainty}} estimates, outperforming alternative models across various forecasting horizons.
+		
+		\item By linearly combining independent GPs, we developed the LMCGP, enhancing prediction accuracy through \textbf{\textcolor{myNewColorB}{shared task-specific information}} into a \textbf{\textcolor{myNewColorB}{multi-output}} setting. To improve optimization, we introduced a combined Adam + NG framework, boosting the performance.
+		
+		\item Finally, to ensure \textbf{\textcolor{myNewColorB}{positive-constrained streamflow}} predictions, we introduced the \textbf{\textcolor{myNewColorB}{ChdGP with a Gamma likelihood}}. This model showed improved stability and accuracy, particularly in modeling peak occurrences, making it a suitable approach for hydrological forecasting.
 	\end{itemize}
+	
+\end{frame}
 
+
+\section*{Future Work}
+\begin{frame}{Future Work}
+	\begin{enumerate}
+		\item Integrate ChdGP-based streamflow forecasting models into the scheduling algorithms of thermoelectric power plants to optimize operational efficiency.
+		
+		\item Enhance the robustness of ChdGP forecasting models to handling missing data, ensuring reliable performance across diverse scenarios.
+		
+		\item Combine ChdGP with Deep Gaussian Processes to improve predictive accuracy and model flexibility.
+	\end{enumerate}
 \end{frame}
 
 \section*{Products}
@@ -194,17 +204,6 @@
 		\includegraphics[width=0.6\textwidth]{images/software.png}
 	\end{block}
 	
-\end{frame}
-
-\section*{Future Work}
-\begin{frame}{Future Work}
-	\begin{enumerate}
-		\item Integrate ChdGP-based streamflow forecasting models into the scheduling algorithms of thermoelectric power plants to optimize operational efficiency.
-		
-		\item Enhance the robustness of ChdGP forecasting models to handling missing data, ensuring reliable performance across diverse scenarios.
-		
-		\item Combine ChdGP with Deep Gaussian Processes to improve predictive accuracy and model flexibility.
-	\end{enumerate}
 \end{frame}
 
 \section*{Acknowledgments}

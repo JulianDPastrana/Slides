@@ -81,7 +81,7 @@ The expectation values can be approximated via Monte Carlo methods. The complexi
 \begin{frame}{Model Setup}
 	We again make use of squared exponential kernel to construct the covariance function and Adam + NG framework to train the models.
 		
-	\begin{block}{\textbf{Gaussian Likelihood: ChdGP Normal}}
+	\begin{block}{\textbf{Gaussian Likelihood: ChdGP Normal (Gaussian Heteroskedastic)}}
 		\begin{equation*}
 			p(\mathbf{y} \mid \mathbf{f}) = \prod_{d=1}^{D} \mathcal{N}\left(y_{d}\mid g_{d,1}(f_{d,1}), g_{d,2}(f_{d,2}) \right)
 		\end{equation*}
