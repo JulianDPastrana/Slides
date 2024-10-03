@@ -166,13 +166,13 @@
 \begin{frame}{Conclusions}
 	
 	\begin{itemize}
-		\item The SVGP model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured nonlinear relationships and provided \textcolor{myNewColorB}{\textbf{uncertainty}} estimates, outperforming alternative models across various forecasting horizons.
+		\item The SVGP model demonstrated superior performance over state-of-the-art methods like LSTM and linear autoregression. It effectively captured \textcolor{myNewColorB}{nonlinear} relationships and provided \textcolor{myNewColorB}{{uncertainty}} estimates, outperforming alternative models across various forecasting horizons.
 
 	
-		\item By linearly combining independent GPs, we developed the LMCGP, enhancing prediction accuracy through shared task-specific information into a \textcolor{myNewColorB}{\textbf{multi-output}} setting. To improve optimization, we introduced a combined Adam + NG framework, resulting in more stable solutions.
+		\item By linearly combining independent GPs, we developed the LMCGP, enhancing prediction accuracy through \textcolor{myNewColorB}{shared task-specific information} into a \textcolor{myNewColorB}{{multi-output}} setting. To improve optimization, we introduced a combined Adam + NG framework, boost the performance.
 
 	
-		\item Finally, to ensure positiveness \textcolor{myNewColorB}{\textbf{data constrain}} streamflow predictions, we introduced the ChdGP with a Gamma likelihood. This model showed improved stability and accuracy, particularly in modeling peak occurrences, making it a suitable approach for hydrological forecasting.
+		\item Finally, to ensure  \textcolor{myNewColorB}{{positive-constrained streamflow}} predictions, we introduced the \textcolor{myNewColorB}{ChdGP with a Gamma likelihood}. This model showed improved stability and accuracy, particularly in modeling peak occurrences, making it a suitable approach for hydrological forecasting.
 	\end{itemize}
 
 \end{frame}
@@ -203,7 +203,7 @@
 		
 		\item Enhance the robustness of ChdGP forecasting models to handling missing data, ensuring reliable performance across diverse scenarios.
 		
-		\item Combining ChdGP with Deep Gaussian Processes to improve predictive accuracy and model flexibility.
+		\item Combine ChdGP with Deep Gaussian Processes to improve predictive accuracy and model flexibility.
 	\end{enumerate}
 \end{frame}
 

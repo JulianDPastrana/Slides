@@ -2,52 +2,6 @@
 
 \subsection{Mathematical Framework}
 
-%\begin{frame}{Independent Gaussian Process (IGP)}
-%	
-%	\begin{columns}[T] % Top alignment
-%		\begin{column}{0.5\textwidth}
-%			
-%			\textbf{Independent Process} 
-%			\begin{equation*}
-%				u_{d}(\mathbf{x}) \sim \mathcal{GP}(0, k_{d}(\mathbf{x}, \mathbf{x}'))
-%			\end{equation*}
-%			
-%			\textbf{Latent Process}
-%			\begin{equation*}
-%				f_{d}(\mathbf{x}) = u_{d}(\mathbf{x})
-%			\end{equation*}
-%			
-%			
-%			\textbf{Multi-Output Model}
-%			\begin{equation*}
-%				\mathbf{f}_{*}
-%				\sim
-%				\mathcal{N} \left(
-%				\begin{array}{c}
-%					\mathbf{0}\\
-%				\end{array},
-%				\sum_{d=1}^D \mathbf{B}_d \otimes K_{d**}\right)
-%			\end{equation*}
-%			
-%			\begin{itemize}
-%				\item  $\mathbf{B}_d = (\delta_{d,d'}) \in \mathbb{R}^{D \times D}$.
-%				
-%				\item $K_{d**} \in \mathbb{R}^{N_* \times N_*}$ is the $d$-th covariance matrix at $X_*$ test inputs.
-%				
-%				\item $\otimes$ denotes the Kronecker product.
-%			\end{itemize}	
-%			
-%		\end{column}
-%		
-%		\begin{column}{0.5\textwidth}
-%			\setlength\figurewidth{0.8\textwidth} 
-%			\setlength\figureheight{0.32\textwidth}
-%			\input{chp_lmc/figures/ind_graph}	
-%		\end{column}
-%		
-%	\end{columns}
-%\end{frame}
-
 
 \begin{frame}{Objective 2: Multi-Output Gaussian Processes}
 	\centering
@@ -109,7 +63,7 @@
 	\end{block}
 	
 	\begin{block}{Optimization and Model Variants}
-		Strong dependencies between parameters may cause poor local minima \cite{giraldo2021fully}. We address this by combining Natural Gradient (NG) to optimize variational parameters, and Adam for the rest \cite{pmlr-v84-salimbeni18a}.
+		Strong dependencies between parameters may cause poor local minima \cite{giraldo2021fully}. We address this by combining Natural Gradient (NG) to optimize variational parameters, and Adam for the remaining \cite{pmlr-v84-salimbeni18a}.
 
 		\textbf{Variants:}
 		\begin{itemize}
