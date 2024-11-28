@@ -1,0 +1,175 @@
+\documentclass[10pt, xcolor=table]{beamer}
+\usepackage{inputenc}
+\usepackage{graphicx}
+\usepackage {mathtools}
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{cleveref}
+\usepackage{changepage}
+\usepackage{pifont}    % For more symbols like dingbats
+\usepackage{blindtext}
+\usepackage{array}
+\usepackage{diagbox} % Include this package in the preamble for diagonal split
+
+
+\newcommand\dc[1]{\textcolor{blue}{#1}}
+\setcounter{tocdepth}{3}
+\pgfplotsset{compat=1.16}
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=images/]
+
+\newlength\figureheight
+\newlength\figurewidth
+
+\definecolor{myNewColorA}{RGB}{176,179,43}  % Yellow-Green
+\definecolor{myNewColorB}{RGB}{42,111,74}   % Green
+\definecolor{myNewColorC}{RGB}{52,142,209}  % Blue
+\definecolor{myNewColorD}{RGB}{195,36,37}   % Red
+
+\definecolor{background_color}{RGB}{234,234,242}
+\definecolor{lightgray204}{RGB}{204,204,204}
+
+\setbeamercolor*{palette primary}{bg=myNewColorC}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
+\setbeamercolor*{titlelike}{fg=myNewColorA}
+\setbeamercolor*{title}{bg=myNewColorA, fg=white}
+\setbeamercolor*{item}{fg=myNewColorB}
+\setbeamercolor*{caption name}{fg=myNewColorA}
+
+% For NN graph
+
+\usepackage{listofitems} % for \readlist to create arrays
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage[outline]{contour} % glow around text
+\contourlength{1.4pt}
+
+% COLORS
+\usepackage{xcolor}
+\colorlet{myred}{red!80!black}
+\colorlet{myblue}{blue!80!black}
+\colorlet{mygreen}{green!60!black}
+\colorlet{myorange}{orange!70!red!60!black}
+\colorlet{mydarkred}{red!30!black}
+\colorlet{mydarkblue}{blue!40!black}
+\colorlet{mydarkgreen}{green!30!black}
+
+% STYLES
+\tikzset{
+	>=latex, % for default LaTeX arrow head
+	node/.style={thick,circle,draw=myblue,minimum size=22,inner sep=0.5,outer sep=0.6},
+	node in/.style={node,green!20!black,draw=mygreen!30!black,fill=mygreen!25},
+	node hidden/.style={node,blue!20!black,draw=myblue!30!black,fill=myblue!20},
+	node convol/.style={node,orange!20!black,draw=myorange!30!black,fill=myorange!20},
+	node out/.style={node,red!20!black,draw=myred!30!black,fill=myred!20},
+	connect/.style={thick,mydarkblue}, %,line cap=round
+	connect arrow/.style={-{Latex[length=4,width=3.5]},thick,mydarkblue,shorten <=0.5,shorten >=1},
+	node 1/.style={node in}, % node styles, numbered for easy mapping with \nstyle
+	node 2/.style={node hidden},
+	node 3/.style={node out}
+}
+\def\nstyle{int(\lay<\Nnodlen?min(2,\lay):3)} % map layer number onto 1, 2, or 3
+
+\usefonttheme{professionalfonts}
+
+
+
+%\usepackage[round]{natbib} % or use 'authoryear' if you prefer
+%\usepackage{natbib}
+\usepackage{hyperref}
+%------------------------------------------------------------
+\titlegraphic{
+	\begin{figure}
+		\centering
+		\begin{subfigure}[l]{0.45\textwidth}
+			\centering
+			\includegraphics[width=2.5cm,height=1.5cm]{./Logo_U.T.P.png}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[r]{0.45\textwidth}
+			\centering
+			\includegraphics[width=2.5cm,height=2.5cm]{./logo-maestria-scaled.jpg}
+		\end{subfigure}
+	\end{figure}
+}
+
+\setbeamerfont{title}{size=\Large\bfseries}
+\setbeamerfont{subtitle}{size=\footnotesize}
+\setbeamerfont{author}{size=\small}
+\setbeamerfont{institute}{size=\footnotesize}
+
+\title[Universidad Tecnológica de Pereira]{Stochastic Modeling of Multiple Streamflow Time Series in Colombian Based on Gaussian Processes}
+
+
+
+\author[Julián David Pastrana-Cortés]{%
+	\texorpdfstring{
+		\begin{tabular}{c}
+			\textbf{Author}: Julián David Pastrana-Cortés \\[1.5mm]
+			\textbf{Director}: Álvaro Angel Orozco-Gutiérrez \\[1.5mm]
+			\textbf{Co-director}: David Augusto Cardenas-Peña
+		\end{tabular}
+	}{Julián David Pastrana-Cortés\vspace{-20pt}}
+}
+
+\institute[Automatics]{Automatics Research Group\vspace{-15pt}}
+%\date{\today\vspace{-15pt}}
+
+\AtBeginSection[]{
+	\begin{frame}
+		\vfill
+		\centering
+		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+			\usebeamerfont{title}\insertsectionhead\par%
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
+
+\usepackage{ragged2e} % For \justifying command
+\usepackage{lipsum} % Only for demo text
+
+\addtobeamertemplate{block begin}{}{\justifying} 
+%\addtobeamertemplate{itemize begin}{}{\justifying} 
+
+
+%------------------------------------------------------------
+
+\usepackage{etoolbox}
+
+\apptocmd{\frame}{}{\justifying}{} 
+\let\olditem\item
+\renewcommand\item{\olditem\justifying}
+
+\begin{document}
+	
+	\include{cover/cover}
+
+	
+	\section*{Conclusions}
+	
+	\begin{frame}{Conclusions}
+		
+
+	\end{frame}
+	
+	
+	
+
+	
+\end{document}
+
+
+
