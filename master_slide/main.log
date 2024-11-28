@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.7.29)  3 OCT 2024 09:13
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  3 OCT 2024 13:34
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1428,6 +1432,7 @@ Overfull \vbox (6.9633pt too high) detected at line 1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/Logo_U.T.P.png> <
 ./images/logo-maestria-scaled.jpg>]) (./introduction/introduction.tex
+<<<<<<< HEAD
 <images/irrigation.jpg, id=151, 1891.065pt x 1260.71pt>
 File: images/irrigation.jpg Graphic file (type jpg)
 <use images/irrigation.jpg>
@@ -1443,13 +1448,26 @@ File: images/hydro_gen.jpeg Graphic file (type jpg)
 <use images/hydro_gen.jpeg>
 Package pdftex.def Info: images/hydro_gen.jpeg  used on input line 31.
 (pdftex.def)             Requested size: 103.25885pt x 108.12538pt.
+=======
+<images/drought.jpg, id=133, 1988.8704pt x 1325.9136pt>
+File: images/drought.jpg Graphic file (type jpg)
+<use images/drought.jpg>
+Package pdftex.def Info: images/drought.jpg  used on input line 57.
+(pdftex.def)             Requested size: 154.86421pt x 108.11867pt.
+<images/full_dam.jpg, id=134, 623.32875pt x 415.5525pt>
+File: images/full_dam.jpg Graphic file (type jpg)
+<use images/full_dam.jpg>
+Package pdftex.def Info: images/full_dam.jpg  used on input line 57.
+(pdftex.def)             Requested size: 154.89018pt x 108.11719pt.
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 
-Overfull \vbox (0.82164pt too high) detected at line 31
+Overfull \vbox (0.81493pt too high) detected at line 57
  []
 
 [2
 
 
+<<<<<<< HEAD
 
  <./images/irrigation.jpg> <./images/flood_control.jpeg> <./images/hydro_gen.jp
 eg>]
@@ -1465,69 +1483,89 @@ Package pdftex.def Info: images/full_dam.jpg  used on input line 53.
 (pdftex.def)             Requested size: 154.89018pt x 113.81123pt.
  [3
 
+=======
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
  <./images/drought.jpg> <./images/full_dam.jpg>]
-Overfull \hbox (8.25662pt too wide) in paragraph at lines 81--81
+Overfull \hbox (8.25662pt too wide) in paragraph at lines 85--85
  []|\OT1/cmss/m/n/7 Interpretability| 
  []
 
 
-Overfull \hbox (2.94746pt too wide) in paragraph at lines 81--81
+Overfull \hbox (2.94746pt too wide) in paragraph at lines 85--85
  []|\OT1/cmss/m/n/7 Nonlinearity| 
  []
 
 
-Overfull \hbox (11.30673pt too wide) in paragraph at lines 81--81
+Overfull \hbox (11.30673pt too wide) in paragraph at lines 85--85
  []|\OT1/cmss/m/n/7 Stochasticity| 
  []
 
 
-Overfull \hbox (2.97469pt too wide) in paragraph at lines 81--81
+Overfull \hbox (2.97469pt too wide) in paragraph at lines 85--85
  []|\OT1/cmss/m/n/7 Scalability| 
  []
 
 
+<<<<<<< HEAD
 Overfull \hbox (4.50497pt too wide) in paragraph at lines 81--81
+=======
+Overfull \hbox (4.50493pt too wide) in paragraph at lines 85--85
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 [][] 
  []
 
-[4
+[3
+
+] [4
 
 ] [5
 
-] [6
-
 ]
+<<<<<<< HEAD
 <images/colombiamap.pdf, id=387, 409.29944pt x 463.0108pt>
+=======
+<images/colombiamap.pdf, id=281, 409.29944pt x 463.0108pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: images/colombiamap.pdf Graphic file (type pdf)
 <use images/colombiamap.pdf>
-Package pdftex.def Info: images/colombiamap.pdf  used on input line 147.
+Package pdftex.def Info: images/colombiamap.pdf  used on input line 151.
 (pdftex.def)             Requested size: 154.88684pt x 175.21117pt.
+<<<<<<< HEAD
 <images/ct_violinplot.pdf, id=400, 382.17839pt x 142.32895pt>
+=======
+<images/ct_violinplot.pdf, id=282, 382.17839pt x 142.32895pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: images/ct_violinplot.pdf Graphic file (type pdf)
 <use images/ct_violinplot.pdf>
-Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 147.
+Package pdftex.def Info: images/ct_violinplot.pdf  used on input line 151.
 (pdftex.def)             Requested size: 189.30847pt x 70.50189pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
 []\OT1/cmss/m/n/10 Although vol-u-met-ric mea-sure-ments are
  []
 
-[7
+[6
 
  <./images/colombiamap.pdf> <./images/ct_violinplot.pdf
 
+<<<<<<< HEAD
 pdfTeX warning: pdflatex (file ./images/ct_violinplot.pdf): PDF inclusion: mult
 iple pdfs with page group included in a single page
 >] [8
+=======
+pdfTeX warning: /usr/bin/pdflatex (file ./images/ct_violinplot.pdf): PDF inclus
+ion: multiple pdfs with page group included in a single page
+>] [7
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 
-]) (./chp_sogp/gaussian_processes.tex [9
+]) (./chp_sogp/gaussian_processes.tex [8
+
+] [9
 
 ] [10
 
-] [11
-
 ]
-(./chp_sogp/figures/gs_mse.tex) (./chp_sogp/figures/gs_msll.tex) [12
+(./chp_sogp/figures/gs_mse.tex) (./chp_sogp/figures/gs_msll.tex) [11
 
  <./chp_sogp/figures/gs_mse-000.png> <./chp_sogp/figures/gs_msll-000.png>]
 (./chp_sogp/figures/output_scale_matrix.tex)
@@ -1538,43 +1576,59 @@ iple pdfs with page group included in a single page
 Overfull \vbox (0.80766pt too high) detected at line 123
  []
 
-[13
+[12
 
  <./chp_sogp/figures/output_scale_matrix-000.png> <./chp_sogp/figures/noise_var
 iance_matrix-000.png> <./chp_sogp/figures/lengthscalematrix1-000.png> <./chp_so
 gp/figures/lengthscalematrix14-000.png> <./chp_sogp/figures/lengthscalematrix30
 -000.png>]
+<<<<<<< HEAD
 <chp_sogp/figures/TSNE_task4_kde_p30.png, id=843, 921.4425pt x 504.4446pt>
+=======
+<chp_sogp/figures/TSNE_task4_kde_p30.png, id=688, 921.4425pt x 504.4446pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: chp_sogp/figures/TSNE_task4_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task4_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task4_kde_p30.png  used on input
  line 164.
 (pdftex.def)             Requested size: 137.67603pt x 75.37093pt.
+<<<<<<< HEAD
 <chp_sogp/figures/TSNE_task8_kde_p30.png, id=844, 921.4425pt x 504.4446pt>
+=======
+<chp_sogp/figures/TSNE_task8_kde_p30.png, id=689, 921.4425pt x 504.4446pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: chp_sogp/figures/TSNE_task8_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task8_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task8_kde_p30.png  used on input
  line 164.
 (pdftex.def)             Requested size: 137.67603pt x 75.37093pt.
+<<<<<<< HEAD
 <chp_sogp/figures/TSNE_task11_kde_p30.png, id=845, 921.4425pt x 511.6716pt>
+=======
+<chp_sogp/figures/TSNE_task11_kde_p30.png, id=690, 921.4425pt x 511.6716pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: chp_sogp/figures/TSNE_task11_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task11_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task11_kde_p30.png  used on inpu
 t line 164.
 (pdftex.def)             Requested size: 137.67603pt x 76.45074pt.
+<<<<<<< HEAD
 <chp_sogp/figures/TSNE_task20_kde_p30.png, id=846, 927.9468pt x 504.4446pt>
+=======
+<chp_sogp/figures/TSNE_task20_kde_p30.png, id=691, 927.9468pt x 504.4446pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: chp_sogp/figures/TSNE_task20_kde_p30.png Graphic file (type png)
 <use chp_sogp/figures/TSNE_task20_kde_p30.png>
 Package pdftex.def Info: chp_sogp/figures/TSNE_task20_kde_p30.png  used on inpu
 t line 164.
 (pdftex.def)             Requested size: 137.67603pt x 74.83981pt.
- [14
+ [13
 
  <./chp_sogp/figures/TSNE_task4_kde_p30.png> <./chp_sogp/figures/TSNE_task8_kde
 _p30.png> <./chp_sogp/figures/TSNE_task11_kde_p30.png> <./chp_sogp/figures/TSNE
 _task20_kde_p30.png>]
 (./chp_sogp/figures/AMANI_forecasting.tex)
-(./chp_sogp/figures/SAN LORENZO_forecasting.tex) [15
+(./chp_sogp/figures/SAN LORENZO_forecasting.tex) [14
 
 ]
 (./chp_sogp/figures/msll_lar.tex
@@ -1585,14 +1639,14 @@ LaTeX Font Info:    Trying to load font information for TS1+cmss on input line
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ))
 (./chp_sogp/figures/msll_igp.tex) (./chp_sogp/figures/mse_lar.tex)
-(./chp_sogp/figures/mse_lstm.tex) (./chp_sogp/figures/mse_igp.tex) [16
+(./chp_sogp/figures/mse_lstm.tex) (./chp_sogp/figures/mse_igp.tex) [15
 
  <./chp_sogp/figures/msll_lar-000.png> <./chp_sogp/figures/msll_lar_profile-000
 .png> <./chp_sogp/figures/msll_igp-000.png> <./chp_sogp/figures/msll_igp_profil
 e-000.png> <./chp_sogp/figures/mse_lar-000.png> <./chp_sogp/figures/mse_lar_pro
 file-000.png> <./chp_sogp/figures/mse_lstm-000.png> <./chp_sogp/figures/mse_lst
 m_profile-000.png> <./chp_sogp/figures/mse_igp-000.png> <./chp_sogp/figures/mse
-_igp_profile-000.png>] [17
+_igp_profile-000.png>] [16
 
 ]) (./chp_lmc/multi_output_gaussian_processes.tex
 (./chp_lmc/figures/lmc_graph.tex 
@@ -1605,26 +1659,26 @@ contour: Using real outline for `$a_{1,Q}$' on input line 34.
 Overfull \vbox (2.34923pt too high) detected at line 36
  []
 
-[18
+[17
+
+] [18
 
 ] [19
 
-] [20
-
 ] (./chp_lmc/figures/MSE_gs.tex) (./chp_lmc/figures/MSLL_gs.tex)
-(./chp_lmc/figures/CRPS_gs.tex) (./chp_lmc/figures/NLPD_gs.tex) [21
+(./chp_lmc/figures/CRPS_gs.tex) (./chp_lmc/figures/NLPD_gs.tex) [20
 
 ]
 (./chp_lmc/figures/lengthscale_matrix_1.tex)
 (./chp_lmc/figures/lengthscale_matrix_30.tex)
 (./chp_lmc/figures/coregionalization_1.tex)
-(./chp_lmc/figures/coregionalization_30.tex) [22
+(./chp_lmc/figures/coregionalization_30.tex) [21
 
  <./chp_lmc/figures/lengthscale_matrix_1-000.png> <./chp_lmc/figures/lengthscal
 e_matrix_30-000.png> <./chp_lmc/figures/coregionalization_1-000.png> <./chp_lmc
 /figures/coregionalization_30-000.png>] (./chp_lmc/figures/performance_bars_MSL
 L.tex)
-(./chp_lmc/figures/performance_bars_NLPD.tex) [23
+(./chp_lmc/figures/performance_bars_NLPD.tex) [22
 
 ]
 (./chp_lmc/figures/SAN LORENZO_forecasting.tex)
@@ -1638,7 +1692,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1831--168
 
  []
 
-[24
+[23
 
 ]) (./chp_chd/chained_gaussian_processes.tex
 (./chp_lmc/figures/chd_graph.tex
@@ -1664,54 +1718,67 @@ contour: Using real outline for `$g_{2,J_{1}}(\cdot )$' on input line 58.
 Overfull \vbox (10.88998pt too high) detected at line 51
  []
 
-[25
+[24
+
+] [25
 
 ] [26
 
-] [27
-
 ] (./chp_chd/figures/MSE_chd_normal.tex)
 (./chp_chd/figures/MSLL_chd_normal.tex) (./chp_chd/figures/CRPS_chd_normal.tex)
-(./chp_chd/figures/NLPD_chd_normal.tex) [28
+(./chp_chd/figures/NLPD_chd_normal.tex) [27
 
 ]
 (./chp_chd/figures/MSLL_peformance_chdnormal.tex)
-(./chp_chd/figures/NLPD_peformance_chdnormal.tex) [29
+(./chp_chd/figures/NLPD_peformance_chdnormal.tex) [28
 
 ]
 (./chp_chd/figures/chd_normal_forecasting_ESMERALDA.tex)
-(./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex) [30
+(./chp_chd/figures/chd_gamma_forecasting_ESMERALDA.tex) [29
 
-]) [31
+]) [30
+
+] [31
 
 ]
+<<<<<<< HEAD
 <images/article.png, id=1474, 928.46875pt x 201.75375pt>
+=======
+<images/article.png, id=1281, 928.46875pt x 201.75375pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: images/article.png Graphic file (type png)
 <use images/article.png>
-Package pdftex.def Info: images/article.png  used on input line 197.
+Package pdftex.def Info: images/article.png  used on input line 207.
 (pdftex.def)             Requested size: 206.51929pt x 44.87544pt.
+<<<<<<< HEAD
 <images/proceeding.png, id=1487, 945.5325pt x 211.79124pt>
+=======
+<images/proceeding.png, id=1282, 945.5325pt x 211.79124pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: images/proceeding.png Graphic file (type png)
 <use images/proceeding.png>
-Package pdftex.def Info: images/proceeding.png  used on input line 197.
+Package pdftex.def Info: images/proceeding.png  used on input line 207.
 (pdftex.def)             Requested size: 206.51929pt x 46.25812pt.
+<<<<<<< HEAD
 <images/software.png, id=1500, 824.07875pt x 123.46124pt>
+=======
+<images/software.png, id=1283, 824.07875pt x 123.46124pt>
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 File: images/software.png Graphic file (type png)
 <use images/software.png>
-Package pdftex.def Info: images/software.png  used on input line 197.
+Package pdftex.def Info: images/software.png  used on input line 207.
 (pdftex.def)             Requested size: 206.51929pt x 30.94058pt.
- [32
 
- <./images/article.png> <./images/proceeding.png> <./images/software.png>] [33
+[32
 
-] [34
+ <./images/article.png> <./images/proceeding.png> <./images/software.png>]
+[33
 
-]
-(./main.bbl)
-Overfull \vbox (95.85318pt too high) detected at line 229
+] (./main.bbl)
+Overfull \vbox (95.85318pt too high) detected at line 228
  []
 
-[35
+[34
 
  </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
@@ -1723,6 +1790,7 @@ Overfull \vbox (95.85318pt too high) detected at line 229
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
+<<<<<<< HEAD
 
 (./main.aux (./cover/cover.aux))
 
@@ -1740,6 +1808,23 @@ Here is how much of TeX's memory you used:
  2085856 words of memory out of 5000000
  62198 multiletter control sequences out of 15000+600000
  497140 words of font info for 113 fonts, out of 8000000 for 9000
+=======
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
+
+(./main.aux (./cover/cover.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 231.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 231.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: FA3D8309ADF1F9A88F5E5B14F248F6E5;1213.
+ ) 
+Here is how much of TeX's memory you used:
+ 41215 strings out of 481239
+ 970065 string characters out of 5920377
+ 2040484 words of memory out of 5000000
+ 55321 multiletter control sequences out of 15000+600000
+ 560219 words of font info for 109 fonts, out of 8000000 for 9000
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,715b,2911s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
@@ -1773,10 +1858,19 @@ nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sfss0500.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.
 pfb>
+<<<<<<< HEAD
 Output written on main.pdf (35 pages, 14489450 bytes).
 PDF statistics:
  1789 PDF objects out of 2073 (max. 8388607)
  1414 compressed objects within 15 object streams
  106 named destinations out of 1000 (max. 500000)
  1136 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+Output written on main.pdf (34 pages, 13306221 bytes).
+PDF statistics:
+ 1500 PDF objects out of 1728 (max. 8388607)
+ 1277 compressed objects within 13 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 437 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> ea88fbf9eb4ad34a4b40cfbd1bdcd2f56a5794b3
 
