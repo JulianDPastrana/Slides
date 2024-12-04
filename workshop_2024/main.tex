@@ -21,8 +21,7 @@
 \usepackage{pifont}    % For more symbols like dingbats
 \usepackage{blindtext}
 \usepackage{array}
-\usepackage{diagbox} % Include this package in the preamble for diagonal split
-
+\usepackage{diagbox}
 
 \newcommand\dc[1]{\textcolor{blue}{#1}}
 \setcounter{tocdepth}{3}
@@ -33,16 +32,14 @@
 \newlength\figureheight
 \newlength\figurewidth
 
-\definecolor{myNewColorA}{RGB}{176,179,43}  % Yellow-Green
-\definecolor{myNewColorB}{RGB}{42,111,74}   % Green
-\definecolor{myNewColorC}{RGB}{52,142,209}  % Blue
-\definecolor{myNewColorD}{RGB}{195,36,37}   % Red
-
-\definecolor{background_color}{RGB}{234,234,242}
-\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{myNewColorA}{HTML}{952748}
+\definecolor{myNewColorB}{HTML}{ffe7ee} 
+\definecolor{myNewColorC}{HTML}{c86666}
+\definecolor{myNewColorD}{HTML}{eaa1a1} 
+\definecolor{background_color}{HTML}{000000}
 
 \setbeamercolor*{palette primary}{bg=myNewColorC}
-\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=white}
+\setbeamercolor*{palette secondary}{bg=myNewColorB, fg=black}
 \setbeamercolor*{palette tertiary}{bg=myNewColorA, fg=white}
 \setbeamercolor*{titlelike}{fg=myNewColorA}
 \setbeamercolor*{title}{bg=myNewColorA, fg=white}
@@ -56,15 +53,6 @@
 \usepackage[outline]{contour} % glow around text
 \contourlength{1.4pt}
 
-% COLORS
-\usepackage{xcolor}
-\colorlet{myred}{red!80!black}
-\colorlet{myblue}{blue!80!black}
-\colorlet{mygreen}{green!60!black}
-\colorlet{myorange}{orange!70!red!60!black}
-\colorlet{mydarkred}{red!30!black}
-\colorlet{mydarkblue}{blue!40!black}
-\colorlet{mydarkgreen}{green!30!black}
 
 % STYLES
 \tikzset{
@@ -110,16 +98,16 @@
 \setbeamerfont{author}{size=\small}
 \setbeamerfont{institute}{size=\footnotesize}
 
-\title[Universidad Tecnológica de Pereira]{Stochastic Modeling of Multiple Streamflow Time Series in Colombian Based on Gaussian Processes}
+\title[Universidad Tecnológica de Pereira]{Data-Driven Models for Identifying Mental Disorders in Students and Enhancing Therapy Scheduling}
 
 
 
 \author[Julián David Pastrana-Cortés]{%
 	\texorpdfstring{
 		\begin{tabular}{c}
-			\textbf{Author}: Julián David Pastrana-Cortés \\[1.5mm]
-			\textbf{Director}: Álvaro Angel Orozco-Gutiérrez \\[1.5mm]
-			\textbf{Co-director}: David Augusto Cardenas-Peña
+			M.Sc. Julián David Pastrana-Cortés \\[1.5mm]
+%			\textbf{Director}: Álvaro Angel Orozco-Gutiérrez \\[1.5mm]
+%			\textbf{Co-director}: David Augusto Cardenas-Peña
 		\end{tabular}
 	}{Julián David Pastrana-Cortés\vspace{-20pt}}
 }
@@ -158,13 +146,28 @@
 	\include{cover/cover}
 
 	
-	\section*{Conclusions}
+	\section*{Introduction}
 	
-	\begin{frame}{Conclusions}
+	\begin{frame}{What is a Mental Disorder?}
+		 It is a disturbance in an individual's cognition, emotional regulation, or behavior. Over 350 million individuals worldwide suffer from mental diseases.
+		\begin{multicols}{2}
+			\begin{figure}
+				\centering´
+				\includegraphics[width=0.8\linewidth]{./figures/mental_disorders.png}
+			\end{figure}
+			
+			\begin{itemize}
+				\item Depression
+				\item Anxiety
+				\item Impulsivity
+				\item Hyperactivity
+			\end{itemize}
+			
+		\end{multicols}
 		
-
+		
+		A prevalent mental disorder can significantly impact and social activities.
 	\end{frame}
-	
 	
 	
 
