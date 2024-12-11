@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  11 DEC 2024 00:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  11 DEC 2024 14:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1472,12 +1472,12 @@ ut line 1.
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<./Logo_U.T.P.png, id=48, 289.08pt x 185.9748pt>
+<./Logo_U.T.P.png, id=52, 289.08pt x 185.9748pt>
 File: ./Logo_U.T.P.png Graphic file (type png)
 <use ./Logo_U.T.P.png>
 Package pdftex.def Info: ./Logo_U.T.P.png  used on input line 1.
 (pdftex.def)             Requested size: 71.13177pt x 42.67682pt.
-<./logo-maestria-scaled.jpg, id=50, 1927.2pt x 1927.2pt>
+<./logo-maestria-scaled.jpg, id=54, 1927.2pt x 1927.2pt>
 File: ./logo-maestria-scaled.jpg Graphic file (type jpg)
 <use ./logo-maestria-scaled.jpg>
 Package pdftex.def Info: ./logo-maestria-scaled.jpg  used on input line 1.
@@ -1491,7 +1491,7 @@ Overfull \vbox (0.69536pt too high) detected at line 1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Logo_U.T.P.png> <./logo-
 maestria-scaled.jpg>])
-<./figures/mental_disorders.png, id=85, 2007.5pt x 2007.5pt>
+<./figures/mental_disorders.png, id=89, 2007.5pt x 2007.5pt>
 File: ./figures/mental_disorders.png Graphic file (type png)
 <use ./figures/mental_disorders.png>
 Package pdftex.def Info: ./figures/mental_disorders.png  used on input line 180
@@ -1506,98 +1506,106 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--180
 
 
  <./figures/mental_disorders.png>]
-Underfull \hbox (badness 3746) in paragraph at lines 200--200
+Underfull \hbox (badness 3746) in paragraph at lines 199--199
 \OT1/cmss/m/n/10 com-mon men-tal health con-cerns
  []
 
-<./figures/psychologist.png, id=124, 2007.5pt x 2007.5pt>
+<./figures/psychologist.png, id=128, 2007.5pt x 2007.5pt>
 File: ./figures/psychologist.png Graphic file (type png)
 <use ./figures/psychologist.png>
-Package pdftex.def Info: ./figures/psychologist.png  used on input line 200.
+Package pdftex.def Info: ./figures/psychologist.png  used on input line 199.
 (pdftex.def)             Requested size: 172.09766pt x 172.09026pt.
 [3
 
  <./figures/psychologist.png>]
-<./figures/data_driven.png, id=155, 2007.5pt x 2007.5pt>
-File: ./figures/data_driven.png Graphic file (type png)
-<use ./figures/data_driven.png>
-Package pdftex.def Info: ./figures/data_driven.png  used on input line 217.
-(pdftex.def)             Requested size: 206.51929pt x 206.48993pt.
+File: ./figures/psychologist.png Graphic file (type png)
+<use ./figures/psychologist.png>
+Package pdftex.def Info: ./figures/psychologist.png  used on input line 224.
+(pdftex.def)             Requested size: 172.09766pt x 172.09026pt.
  [4
 
- <./figures/data_driven.png>]
-Underfull \hbox (badness 1931) in paragraph at lines 233--233
-[]\OT1/cmss/m/n/10 Machine learn-ing mod-els con-tin-u-ously
+]
+Underfull \hbox (badness 2088) in paragraph at lines 255--255
+[]\OT1/cmss/m/n/10 Reduce de-mands on time, man-
  []
 
-<./figures/artificial_intelligence.png, id=187, 2007.5pt x 2007.5pt>
-File: ./figures/artificial_intelligence.png Graphic file (type png)
-<use ./figures/artificial_intelligence.png>
-Package pdftex.def Info: ./figures/artificial_intelligence.png  used on input l
-ine 233.
+<./figures/data_driven.png, id=191, 2007.5pt x 2007.5pt>
+File: ./figures/data_driven.png Graphic file (type png)
+<use ./figures/data_driven.png>
+Package pdftex.def Info: ./figures/data_driven.png  used on input line 255.
 (pdftex.def)             Requested size: 172.09766pt x 172.09026pt.
 [5
 
- <./figures/artificial_intelligence.png>] [6
+ <./figures/data_driven.png>]
+<./figures/artificial_intelligence.png, id=222, 2007.5pt x 2007.5pt>
+File: ./figures/artificial_intelligence.png Graphic file (type png)
+<use ./figures/artificial_intelligence.png>
+Package pdftex.def Info: ./figures/artificial_intelligence.png  used on input l
+ine 269.
+(pdftex.def)             Requested size: 172.09766pt x 172.09026pt.
+ [6
 
-]
-<./figures/identification.png, id=241, 2007.5pt x 2007.5pt>
+ <./figures/artificial_intelligence.png>]
+<./figures/identification.png, id=251, 2007.5pt x 2007.5pt>
 File: ./figures/identification.png Graphic file (type png)
 <use ./figures/identification.png>
-Package pdftex.def Info: ./figures/identification.png  used on input line 274.
+Package pdftex.def Info: ./figures/identification.png  used on input line 298.
 (pdftex.def)             Requested size: 113.58508pt x 113.58324pt.
-<./figures/priorizing.png, id=242, 2007.5pt x 2007.5pt>
+<./figures/priorizing.png, id=252, 2007.5pt x 2007.5pt>
 File: ./figures/priorizing.png Graphic file (type png)
 <use ./figures/priorizing.png>
-Package pdftex.def Info: ./figures/priorizing.png  used on input line 274.
+Package pdftex.def Info: ./figures/priorizing.png  used on input line 298.
 (pdftex.def)             Requested size: 113.58508pt x 113.58324pt.
-<./figures/schedule.png, id=243, 2007.5pt x 2007.5pt>
+<./figures/schedule.png, id=253, 2007.5pt x 2007.5pt>
 File: ./figures/schedule.png Graphic file (type png)
 <use ./figures/schedule.png>
-Package pdftex.def Info: ./figures/schedule.png  used on input line 274.
+Package pdftex.def Info: ./figures/schedule.png  used on input line 298.
 (pdftex.def)             Requested size: 113.58508pt x 113.58324pt.
- [7
+
+[7
 
  <./figures/identification.png> <./figures/priorizing.png> <./figures/schedule.
-png>] [8
-
-]
-<./figures/sentimental_analysis.png, id=307, 2007.5pt x 2007.5pt>
+png>]
+<./figures/sentimental_analysis.png, id=286, 2007.5pt x 2007.5pt>
 File: ./figures/sentimental_analysis.png Graphic file (type png)
 <use ./figures/sentimental_analysis.png>
 Package pdftex.def Info: ./figures/sentimental_analysis.png  used on input line
- 336.
-(pdftex.def)             Requested size: 137.67603pt x 137.65996pt.
- [9
+ 349.
+(pdftex.def)             Requested size: 137.67865pt x 137.65996pt.
+ [8
 
- <./figures/sentimental_analysis.png>]
+ <./figures/sentimental_analysis.png>] [9
+
+]
 File: ./figures/priorizing.png Graphic file (type png)
 <use ./figures/priorizing.png>
-Package pdftex.def Info: ./figures/priorizing.png  used on input line 361.
+Package pdftex.def Info: ./figures/priorizing.png  used on input line 396.
 (pdftex.def)             Requested size: 137.67603pt x 137.65996pt.
  [10
 
+] [11
+
 ]
-<./figures/scheduling_types.jpg, id=363, 246.8692pt x 199.54195pt>
-File: ./figures/scheduling_types.jpg Graphic file (type jpg)
-<use ./figures/scheduling_types.jpg>
-Package pdftex.def Info: ./figures/scheduling_types.jpg  used on input line 369
+<./figures/scheduling_types.png, id=403, 638.385pt x 496.85625pt>
+File: ./figures/scheduling_types.png Graphic file (type png)
+<use ./figures/scheduling_types.png>
+Package pdftex.def Info: ./figures/scheduling_types.png  used on input line 427
 .
-(pdftex.def)             Requested size: 223.72485pt x 180.84053pt.
- [11
+(pdftex.def)             Requested size: 223.72485pt x 174.12215pt.
+ [12
 
- <./figures/scheduling_types.jpg>] [12
+ <./figures/scheduling_types.png>] [13
 
-] [13
-
-]
-[14
+] [14
 
 ] [15
 
-] (./main.bbl) [16
+] (./main.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+ [16
+
+ </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]) [17]
 \tf@nav=\write8
 \openout8 = `main.nav'.
 
@@ -1607,22 +1615,23 @@ Package pdftex.def Info: ./figures/scheduling_types.jpg  used on input line 369
 \tf@snm=\write10
 \openout10 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 439.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 439.
- (./main.aux (./cover/cover.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 439.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 439.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 482.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 482.
+
+(./main.aux (./cover/cover.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 482.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 482.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 962A8801769E9EB36D05955B463DA59C;368.
+(rerunfilecheck)             Checksum: D264FB55C3ACFB5C5C9D5A782C5D7585;423.
  ) 
 Here is how much of TeX's memory you used:
- 39799 strings out of 481239
- 931666 string characters out of 5920377
- 1441641 words of memory out of 5000000
- 54139 multiletter control sequences out of 15000+600000
+ 39840 strings out of 481239
+ 932544 string characters out of 5920377
+ 1442643 words of memory out of 5000000
+ 54173 multiletter control sequences out of 15000+600000
  550800 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,16n,127p,792b,907s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,17n,127p,792b,907s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texli
@@ -1632,10 +1641,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist
 type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (16 pages, 1919475 bytes).
+Output written on main.pdf (17 pages, 1916840 bytes).
 PDF statistics:
- 578 PDF objects out of 1000 (max. 8388607)
- 511 compressed objects within 6 object streams
- 43 named destinations out of 1000 (max. 500000)
- 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 552 compressed objects within 6 object streams
+ 50 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 

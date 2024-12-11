@@ -7,17 +7,17 @@
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\beamer@sectionpages {2}{3}}
-\headcommand {\beamer@subsectionpages {2}{3}}
-\headcommand {\sectionentry {2}{Data-Driven Models}{4}{Data-Driven Models}{0}}
-\headcommand {\slideentry {2}{0}{1}{4/4}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{4/4}{}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\slideentry {2}{0}{2}{5/5}{}{0}}
+\headcommand {\beamer@sectionpages {2}{4}}
+\headcommand {\beamer@subsectionpages {2}{4}}
+\headcommand {\sectionentry {2}{Data-Driven Models}{5}{Data-Driven Models}{0}}
+\headcommand {\slideentry {2}{0}{1}{5/5}{}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\slideentry {2}{0}{3}{6/6}{}{0}}
+\headcommand {\slideentry {2}{0}{2}{6/6}{}{0}}
 \headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@sectionpages {4}{6}}
-\headcommand {\beamer@subsectionpages {4}{6}}
+\headcommand {\beamer@sectionpages {5}{6}}
+\headcommand {\beamer@subsectionpages {5}{6}}
 \headcommand {\sectionentry {3}{Methodology}{7}{Methodology}{0}}
 \headcommand {\slideentry {3}{0}{1}{7/7}{}{0}}
 \headcommand {\beamer@framepages {7}{7}}
@@ -37,7 +37,7 @@
 \headcommand {\beamer@framepages {11}{11}}
 \headcommand {\beamer@sectionpages {10}{11}}
 \headcommand {\beamer@subsectionpages {10}{11}}
-\headcommand {\sectionentry {6}{Case of Study}{12}{Case of Study}{0}}
+\headcommand {\sectionentry {6}{Therapy Scheduling}{12}{Therapy Scheduling}{0}}
 \headcommand {\slideentry {6}{0}{1}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
 \headcommand {\slideentry {6}{0}{2}{13/13}{}{0}}
@@ -47,10 +47,13 @@
 \headcommand {\sectionentry {7}{Final Remarks}{14}{Final Remarks}{0}}
 \headcommand {\slideentry {7}{0}{1}{14/14}{}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {7}{0}{2}{15/15}{}{0}}
+\headcommand {\beamer@sectionpages {14}{14}}
+\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\sectionentry {8}{Acknowledgments}{15}{Acknowledgments}{0}}
+\headcommand {\slideentry {8}{0}{1}{15/15}{}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@partpages {1}{16}}
-\headcommand {\beamer@subsectionpages {14}{16}}
-\headcommand {\beamer@sectionpages {14}{16}}
-\headcommand {\beamer@documentpages {16}}
+\headcommand {\beamer@partpages {1}{17}}
+\headcommand {\beamer@subsectionpages {15}{17}}
+\headcommand {\beamer@sectionpages {15}{17}}
+\headcommand {\beamer@documentpages {17}}
 \headcommand {\gdef \inserttotalframenumber {15}}
