@@ -17,6 +17,7 @@
 \usepackage{adjustbox}
 \usepackage{multicol}
 \usepackage{cleveref}
+\usepackage{tcolorbox}
 \usepackage{changepage}
 \usepackage{pifont}    % For more symbols like dingbats
 \usepackage{blindtext}
@@ -143,36 +144,299 @@
 
 \begin{document}
 	
-	\include{cover/cover}
+\include{cover/cover}
+
+
+\section*{Mental Disorders}
+
+\begin{frame}{Understanding Mental Disorders}
+	A mental disorder refers to a significant disturbance in an individual's cognition, emotional regulation, or behavior.
+	
+	\begin{multicols}{2}
+		
+		\begin{figure}[t]
+			\centering
+			\includegraphics[width=0.8\linewidth]{./figures/mental_disorders.png}
+		\end{figure}
+		
+		\columnbreak
+		
+		\vfill
+		\begin{center}
+			\begin{itemize}
+				\item \textbf{Depression}: Persistent feelings of sadness and loss of interest.
+				\item \textbf{Anxiety}: Excessive fear or worry, often irrational.
+				\item \textbf{Impulsivity}: Acting without thought or consideration of consequences.
+				\item \textbf{Hyperactivity}: Excessive movement, often interfering with daily activities.
+			\end{itemize}
+		\end{center}
+		
+		\vfill
+		
+	\end{multicols}
+	
+	Over 350 million individuals worldwide suffer from mental disorders \cite{DEHGHANBONARI2023100238}.
+	
+\end{frame}
+
+
+\begin{frame}{Why Accurate Diagnosis Matters for Students?}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Mental health disorders can significantly impact students' academic and social lives \cite{HAMORI2023115139}.
+				\item External factors, such as homesickness and family expectations, can intensify mental health issues \cite{DEHGHANBONARI2023100238}.
+				\item Anxiety and depression, the most common mental health concerns among U.S. college students, have been on the rise \cite{https://doi.org/10.1002/jcad.12543}.
+				\item There is a lack of effective tools to identify at-risk students before issues escalate \cite{HAMORI2023115139}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}[t]
+				\centering
+				\includegraphics[width=\linewidth]{./figures/psychologist.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section*{Data-Driven Models}
+
+\begin{frame}{Data-Driven Models}
+
+	As the ability to collect and process data has advanced, leveraging evidence to identify patterns is now essential for supporting accurate diagnoses and planning effective therapies.
+	
+	\vspace{-1.5cm}
+	
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{./figures/data_driven.png}
+	\end{figure}		
+	
+	\vspace{-1.5cm}
+	A question arises: Why shouldn't schools use data-driven methods to identify mentally ill students? \cite{DEHGHANBONARI2023100238}
+\end{frame}
+
+\begin{frame}{Machine Learning Models}
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\justifying
+			While machine learning models, as a subset of data-driven models, are designed to adapt to complex phenomena without explicit programming.
+			
+			\vspace{0.5cm}
+			Machine learning models continuously learn and refine their predictions as more data becomes available.
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{./figures/artificial_intelligence.png}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{The Role of Machine Learning in Mental Health Counseling}
+	
+	\justifying
+	Machine learning models are not a replacement for professional counselors but a tool to enhance their work. These models:
+	\begin{itemize}
+		\item Provide a data-informed foundation for developing prevention and intervention strategies.
+		\item Identify students at heightened risk of mental health disorders such as anxiety and depression.
+		\item Reduce demands on time, manpower, and resources while maintaining effectiveness.
+		\item Highlight features that contribute to mental health predictions.
+	\end{itemize}
+	
+	
+\end{frame}
+
+
+\section*{Methodology}
+
+\begin{frame}{Three-Step Module-Based Methodology}
 
 	
-	\section*{Introduction}
+	\vspace{0.5cm}
 	
-	\begin{frame}{What is a Mental Disorder?}
-		 It is a disturbance in an individual's cognition, emotional regulation, or behavior. Over 350 million individuals worldwide suffer from mental diseases.
-		\begin{multicols}{2}
-			\begin{figure}
-				\centering´
-				\includegraphics[width=0.8\linewidth]{./figures/mental_disorders.png}
-			\end{figure}
-			
+	\begin{columns}[c]
+		\column{0.33\textwidth}
+		\centering
+		\textbf{Mental Disorder Identification} \\
+		\includegraphics[width=\linewidth]{./figures/identification.png}
+		
+		\column{0.33\textwidth}
+		\centering
+		\textbf{Student Prioritization} \\
+		\includegraphics[width=\linewidth]{./figures/priorizing.png}
+		
+		\column{0.33\textwidth}
+		\centering
+		\textbf{Therapy scheduling} \\
+		\includegraphics[width=\linewidth]{./figures/schedule.png}
+	\end{columns}
+\end{frame}
+
+\section*{Mental Disorder Identification}
+
+\begin{frame}{Data Collection and Labeling}
+	
+	\begin{columns}[c]
+		\column{0.5\textwidth}
+		\centering
+		Data Collection \\
+		\vspace{0.3cm}
+		\begin{tcolorbox}[width=\linewidth, colback=myNewColorB, colframe=myNewColorA, boxrule=0.7mm, rounded corners]
+			\justifying
 			\begin{itemize}
-				\item Depression
-				\item Anxiety
-				\item Impulsivity
-				\item Hyperactivity
+				\item Emails, forms, messages
+				\item Course-related groups
+				\item Student affairs office data
+				\item Supervision by psychiatrists
 			\end{itemize}
-			
-		\end{multicols}
+		\end{tcolorbox}
 		
+		\column{0.5\textwidth}
+		\centering
+		Data Labeling \\
+		\vspace{0.3cm}
+		\begin{tcolorbox}[width=\linewidth, colback=myNewColorB, colframe=myNewColorA, boxrule=0.7mm, rounded corners]
+			\justifying
+			Expert labeling ensures reliable data for analysis, addressing cases with indirect or hard-to-measure target variables.
+		\end{tcolorbox}
+	\end{columns}
+	
+	\vspace{0.5cm}
+	\centering
+	\vspace{0.3cm}
+	Input Space: \( \mathcal{X} \) (data features) \\
+	Output Space: \( \mathcal{Y} = \{(l, s)\} \) \\
+	\vspace{0.2cm}
+	\begin{itemize}
+		\item \( l \): Multi-label classification for different mental disorders.
+		\item \( s \): Severity level of the disorder, ranging from 0 (none) to 1 (severe).
+	\end{itemize}
+	
+\end{frame}
+
+
+
+
+\begin{frame}{Mental Disorder Classification}
+	
+	\begin{columns}[c]
+		\column{0.6\textwidth}
+		\justifying
+
+		\vspace{0.3cm}
+		Labeled text data is used to train a machine learning model for mental disorder classification. The model classifies individuals as healthy or with mental disorders to aid diagnosis.
 		
-		A prevalent mental disorder can significantly impact and social activities.
-	\end{frame}
+		\column{0.4\textwidth}
+		\centering
+		\vspace{-0.3cm}
+		\includegraphics[width=\linewidth]{./figures/sentimental_analysis.png} % Replace with your actual image path
+	\end{columns}
 	
+\end{frame}
+
+
+\section*{Student Prioritization}
+
+\begin{frame}{Prioritization of Students for Treatment}
 	
+	\begin{columns}[c]
+		\column{0.6\textwidth}
+		\justifying
+		Using the same input space \( \mathcal{X}\), a model trained on severity levels \( s \in [0, 1] \) is applied. \\
+		\vspace{0.3cm}
+		This model prioritizes students based on the severity of their mental disorders, allowing for:
+		\begin{itemize}
+			\item Identification of students needing urgent psychological support.
+			\item Optimization of resources by efficiently allocating psychological professionals.
+			\item Ensuring timely and focused interventions for those with the highest severity levels.
+		\end{itemize}
+		
+		\column{0.4\textwidth}
+		\centering
+		\vspace{-0.3cm}
+		\includegraphics[width=\linewidth]{./figures/priorizing.png}
+	\end{columns}
+	
+\end{frame}
+
+
+\begin{frame}{Scheduling Algorithms for Therapy Appointments}
+	
+	\centering
+	\includegraphics[width=0.65\linewidth]{./figures/scheduling_types.jpg} % Replace with your actual image path
+	
+\end{frame}
+
+
+\section*{Case of Study}
+
+\begin{frame}{Case of Study: A diagnostic analytics model for managing post-disaster symptoms of depression and anxiety among students using a novel data-driven optimization approach}
+	
+This study aims to implement and scrutinize a data-driven optimization method for identifying and providing therapy to students with symptoms of depression and anxiety.
+\vspace{0.5cm}
+	
+	Findings:
+\begin{itemize}
+	\item Conventional methods detected only 7 to 15\% of cases.
+	\item The proposed strategy improved detection rates to 44\%.
+	\item Enhanced ability to identify and prioritize students for interventions.
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Case of Study: Machine learning predictive models to guide prevention and intervention allocation for anxiety and depressive disorders among college students}
+	
+	Machine learning models were used to identify US college students at heightened risk of diagnosable anxiety and depressive disorders.
+	\vspace{0.5cm}
+	
+	Findings:
+	\begin{itemize}
+		\item Provides a proactive tool for counselors to identify at-risk students before conditions escalate.
+		\item Offers data-driven insights to enhance understanding of mental health determinants.
+		\item Guides prevention and intervention strategies to support diverse student populations.
+		\item Promotes well-being through informed and targeted counseling approaches.
+	\end{itemize}
+	
+\end{frame}
+
+\section*{Final Remarks}
+
+\begin{frame}{Conclusions}
+	
+	\begin{tcolorbox}[width=\textwidth, colback=myNewColorB, colframe=myNewColorA, boxrule=0.7mm, rounded corners]
+		\begin{itemize}
+			\item Increased identification accuracy of mental disorders compared to conventional methods.
+			\item Prioritizes high-risk students using severity classification, optimizing therapy scheduling.
+			\item Reduces waiting times and enhances access to mental health services.
+			\item Supports informed decision-making by mental health professionals.
+			\item Facilitates early-stage interventions, minimizing escalation of disorders.
+		\end{itemize}
+	\end{tcolorbox}
+	
+\end{frame}
+
+
+
+\begin{frame}{Future Directions}
+	
+	\begin{tcolorbox}[width=\textwidth, colback=myNewColorB, colframe=myNewColorA, boxrule=0.7mm, rounded corners]
+		\begin{itemize}
+			\item Expand the methodology to include other mental health conditions.
+			\item Explore integration with external mental health centers for advanced therapy options.
+			\item Incorporate real-time monitoring systems to adapt models dynamically.
+		\end{itemize}
+	\end{tcolorbox}
+	
+\end{frame}
+
+
+
+\bibliographystyle{plain}
+\bibliography{refs}
 
 	
 \end{document}
 
-
+952748
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  4 DEC 2024 15:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  11 DEC 2024 00:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1089,10 +1089,39 @@ ref, and there's no guarantee anything will work. You're on your own! on input
 line 2370.
 
 Package cleveref Info: `amsthm' support loaded on input line 3026.
-) (/usr/share/texlive/texmf-dist/tex/latex/changepage/changepage.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2019/11/15 version 4.22 text color boxes
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks55
+\verbatim@line=\toks56
+\verbatim@in@stream=\read3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box129
+\tcb@upperbox=\box130
+\tcb@lowerbox=\box131
+\tcb@phantombox=\box132
+\c@tcbbreakpart=\count353
+\c@tcblayer=\count354
+\tcolorbox@number=\count355
+\tcb@temp=\box133
+\tcb@temp=\box134
+\tcb@temp=\box135
+\tcb@temp=\box136
+\tcb@out=\write5
+\tcb@record@out=\write6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count353
-\cp@tempcnt=\count354
+\c@cp@cntr=\count356
+\cp@tempcnt=\count357
 LaTeX Info: Redefining \checkoddpage on input line 59.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
@@ -1115,24 +1144,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count355
-\c@Blindtext=\count356
-\c@blind@countparstart=\count357
-\blind@countxx=\count358
-\blindtext@numBlindtext=\count359
-\blind@countyy=\count360
-\c@blindlist=\count361
-\c@blindlistlevel=\count362
-\c@blindlist@level=\count363
-\blind@listitem=\count364
-\c@blind@listcount=\count365
-\c@blind@levelcount=\count366
-\blind@mathformula=\count367
-\blind@Mathformula=\count368
-\c@blind@randomcount=\count369
-\c@blind@randommax=\count370
-\c@blind@pangramcount=\count371
-\c@blind@pangrammax=\count372
+\c@blindtext=\count358
+\c@Blindtext=\count359
+\c@blind@countparstart=\count360
+\blind@countxx=\count361
+\blindtext@numBlindtext=\count362
+\blind@countyy=\count363
+\c@blindlist=\count364
+\c@blindlistlevel=\count365
+\c@blindlist@level=\count366
+\blind@listitem=\count367
+\c@blind@listcount=\count368
+\c@blind@levelcount=\count369
+\blind@mathformula=\count370
+\blind@Mathformula=\count371
+\c@blind@randomcount=\count372
+\c@blind@randommax=\count373
+\c@blind@pangramcount=\count374
+\c@blind@pangrammax=\count375
 )
 (/usr/share/texlive/texmf-dist/tex/latex/diagbox/diagbox.sty
 Package: diagbox 2020/02/09 v2.3 Making table heads with diagonal lines
@@ -1149,7 +1178,7 @@ Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 121.
 (/usr/share/texlive/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
 File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
-\pIIe@GRAPH=\toks55
+\pIIe@GRAPH=\toks57
 \@arclen=\dimen358
 \@arcrad=\dimen359
 \@tempdimd=\dimen360
@@ -1160,19 +1189,19 @@ Package: fp 1995/04/02
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count373
+\actioncount=\count376
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count374
-\FP@xia=\count375
-\FP@xib=\count376
-\FP@xfa=\count377
-\FP@xfb=\count378
-\FP@rega=\count379
-\FP@regb=\count380
-\FP@regs=\count381
-\FP@times=\count382
+\FP@xs=\count377
+\FP@xia=\count378
+\FP@xib=\count379
+\FP@xfa=\count380
+\FP@xfb=\count381
+\FP@rega=\count382
+\FP@regb=\count383
+\FP@regs=\count384
+\FP@times=\count385
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -1191,7 +1220,7 @@ Package: fp-pas 1994/08/29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count383
+\FPseed=\count386
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -1202,9 +1231,9 @@ Package: fp-upn 1996/10/21
 (/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 ))
-\diagbox@boxa=\box129
-\diagbox@boxb=\box130
-\diagbox@boxm=\box131
+\diagbox@boxa=\box137
+\diagbox@boxb=\box138
+\diagbox@boxm=\box139
 \diagbox@wd=\dimen361
 \diagbox@ht=\dimen362
 \diagbox@insepl=\dimen363
@@ -1217,8 +1246,8 @@ Package: fp-eval 1995/04/03
 
 (/usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.sty
 (/usr/share/texlive/texmf-dist/tex/generic/listofitems/listofitems.tex
-\loi_cnt_foreach_nest=\count384
-\loi_nestcnt=\count385
+\loi_cnt_foreach_nest=\count387
+\loi_nestcnt=\count388
 )
 Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified 
 sep char (CT)
@@ -1246,7 +1275,7 @@ File: pdftex.cnt 2004/11/18 v2.14 Print contoured text (HH, MH)
 s.sty)
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\new@ifnextchar' on input line 113.
+(hyperref)                removing `\new@ifnextchar' on input line 114.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
@@ -1275,15 +1304,15 @@ Package: expl3 2020-02-14 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count386
-\l__pdf_internal_box=\box132
+\l__kernel_color_stack_int=\count389
+\l__pdf_internal_box=\box140
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-02-14 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count387
-\g__xparse_grabber_int=\count388
-\l__xparse_m_args_int=\count389
-\l__xparse_v_nesting_int=\count390
+\l__xparse_current_arg_int=\count390
+\g__xparse_grabber_int=\count391
+\l__xparse_m_args_int=\count392
+\l__xparse_v_nesting_int=\count393
 )
 Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
 
@@ -1293,22 +1322,22 @@ File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
 (./cover/cover.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 144.
-LaTeX Font Info:    ... okay on input line 144.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1346,17 +1375,17 @@ LaTeX Font Info:    ... okay on input line 144.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count391
+\scratchcounter=\count394
 \scratchdimen=\dimen371
-\scratchbox=\box133
-\nofMPsegments=\count392
-\nofMParguments=\count393
-\everyMPshowfont=\toks56
-\MPscratchCnt=\count394
+\scratchbox=\box141
+\nofMPsegments=\count395
+\nofMParguments=\count396
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count397
 \MPscratchDim=\dimen372
-\MPnumerator=\count395
-\makeMPintoPDFobject=\count396
-\everyMPtoPDFconversion=\toks57
+\MPnumerator=\count398
+\makeMPintoPDFobject=\count399
+\everyMPtoPDFconversion=\toks59
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1367,8 +1396,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box134
-Package hyperref Info: Link coloring OFF on input line 144.
+\AtBeginShipoutBox=\box142
+Package hyperref Info: Link coloring OFF on input line 145.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1379,15 +1408,15 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count397
+\c@section@level=\count400
 )
-LaTeX Info: Redefining \ref on input line 144.
-LaTeX Info: Redefining \pageref on input line 144.
-LaTeX Info: Redefining \nameref on input line 144.
+LaTeX Info: Redefining \ref on input line 145.
+LaTeX Info: Redefining \pageref on input line 145.
+LaTeX Info: Redefining \nameref on input line 145.
 
 (./main.out) (./main.out)
-\@outlinefile=\write5
-\openout5 = `main.out'.
+\@outlinefile=\write7
+\openout7 = `main.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
@@ -1421,7 +1450,7 @@ Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.16}).
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 144.
+LaTeX Info: Redefining \selectfont on input line 145.
  (./main.nav)
 \openout2 = `cover/cover.aux'.
 
@@ -1443,12 +1472,12 @@ ut line 1.
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
-<./Logo_U.T.P.png, id=24, 289.08pt x 185.9748pt>
+<./Logo_U.T.P.png, id=48, 289.08pt x 185.9748pt>
 File: ./Logo_U.T.P.png Graphic file (type png)
 <use ./Logo_U.T.P.png>
 Package pdftex.def Info: ./Logo_U.T.P.png  used on input line 1.
 (pdftex.def)             Requested size: 71.13177pt x 42.67682pt.
-<./logo-maestria-scaled.jpg, id=26, 1927.2pt x 1927.2pt>
+<./logo-maestria-scaled.jpg, id=50, 1927.2pt x 1927.2pt>
 File: ./logo-maestria-scaled.jpg Graphic file (type jpg)
 <use ./logo-maestria-scaled.jpg>
 Package pdftex.def Info: ./logo-maestria-scaled.jpg  used on input line 1.
@@ -1462,58 +1491,151 @@ Overfull \vbox (0.69536pt too high) detected at line 1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Logo_U.T.P.png> <./logo-
 maestria-scaled.jpg>])
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
-170.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-<./figures/mental_disorders.png, id=60, 2007.5pt x 2007.5pt>
+<./figures/mental_disorders.png, id=85, 2007.5pt x 2007.5pt>
 File: ./figures/mental_disorders.png Graphic file (type png)
 <use ./figures/mental_disorders.png>
-Package pdftex.def Info: ./figures/mental_disorders.png  used on input line 170
+Package pdftex.def Info: ./figures/mental_disorders.png  used on input line 180
 .
 (pdftex.def)             Requested size: 133.67863pt x 133.6778pt.
- [2
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--180
+[]\OT1/cmss/bx/n/10 Impulsivity\OT1/cmss/m/n/10 : Act-ing with-out
+ []
+
+[2
 
 
  <./figures/mental_disorders.png>]
-\tf@nav=\write6
-\openout6 = `main.nav'.
+Underfull \hbox (badness 3746) in paragraph at lines 200--200
+\OT1/cmss/m/n/10 com-mon men-tal health con-cerns
+ []
 
-\tf@toc=\write7
-\openout7 = `main.toc'.
+<./figures/psychologist.png, id=124, 2007.5pt x 2007.5pt>
+File: ./figures/psychologist.png Graphic file (type png)
+<use ./figures/psychologist.png>
+Package pdftex.def Info: ./figures/psychologist.png  used on input line 200.
+(pdftex.def)             Requested size: 172.09766pt x 172.09026pt.
+[3
 
-\tf@snm=\write8
-\openout8 = `main.snm'.
+ <./figures/psychologist.png>]
+<./figures/data_driven.png, id=155, 2007.5pt x 2007.5pt>
+File: ./figures/data_driven.png Graphic file (type png)
+<use ./figures/data_driven.png>
+Package pdftex.def Info: ./figures/data_driven.png  used on input line 217.
+(pdftex.def)             Requested size: 206.51929pt x 206.48993pt.
+ [4
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+ <./figures/data_driven.png>]
+Underfull \hbox (badness 1931) in paragraph at lines 233--233
+[]\OT1/cmss/m/n/10 Machine learn-ing mod-els con-tin-u-ously
+ []
+
+<./figures/artificial_intelligence.png, id=187, 2007.5pt x 2007.5pt>
+File: ./figures/artificial_intelligence.png Graphic file (type png)
+<use ./figures/artificial_intelligence.png>
+Package pdftex.def Info: ./figures/artificial_intelligence.png  used on input l
+ine 233.
+(pdftex.def)             Requested size: 172.09766pt x 172.09026pt.
+[5
+
+ <./figures/artificial_intelligence.png>] [6
+
+]
+<./figures/identification.png, id=241, 2007.5pt x 2007.5pt>
+File: ./figures/identification.png Graphic file (type png)
+<use ./figures/identification.png>
+Package pdftex.def Info: ./figures/identification.png  used on input line 274.
+(pdftex.def)             Requested size: 113.58508pt x 113.58324pt.
+<./figures/priorizing.png, id=242, 2007.5pt x 2007.5pt>
+File: ./figures/priorizing.png Graphic file (type png)
+<use ./figures/priorizing.png>
+Package pdftex.def Info: ./figures/priorizing.png  used on input line 274.
+(pdftex.def)             Requested size: 113.58508pt x 113.58324pt.
+<./figures/schedule.png, id=243, 2007.5pt x 2007.5pt>
+File: ./figures/schedule.png Graphic file (type png)
+<use ./figures/schedule.png>
+Package pdftex.def Info: ./figures/schedule.png  used on input line 274.
+(pdftex.def)             Requested size: 113.58508pt x 113.58324pt.
+ [7
+
+ <./figures/identification.png> <./figures/priorizing.png> <./figures/schedule.
+png>] [8
+
+]
+<./figures/sentimental_analysis.png, id=307, 2007.5pt x 2007.5pt>
+File: ./figures/sentimental_analysis.png Graphic file (type png)
+<use ./figures/sentimental_analysis.png>
+Package pdftex.def Info: ./figures/sentimental_analysis.png  used on input line
+ 336.
+(pdftex.def)             Requested size: 137.67603pt x 137.65996pt.
+ [9
+
+ <./figures/sentimental_analysis.png>]
+File: ./figures/priorizing.png Graphic file (type png)
+<use ./figures/priorizing.png>
+Package pdftex.def Info: ./figures/priorizing.png  used on input line 361.
+(pdftex.def)             Requested size: 137.67603pt x 137.65996pt.
+ [10
+
+]
+<./figures/scheduling_types.jpg, id=363, 246.8692pt x 199.54195pt>
+File: ./figures/scheduling_types.jpg Graphic file (type jpg)
+<use ./figures/scheduling_types.jpg>
+Package pdftex.def Info: ./figures/scheduling_types.jpg  used on input line 369
+.
+(pdftex.def)             Requested size: 223.72485pt x 180.84053pt.
+ [11
+
+ <./figures/scheduling_types.jpg>] [12
+
+] [13
+
+]
+[14
+
+] [15
+
+] (./main.bbl) [16
+
+ </usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
+\tf@nav=\write8
+\openout8 = `main.nav'.
+
+\tf@toc=\write9
+\openout9 = `main.toc'.
+
+\tf@snm=\write10
+\openout10 = `main.snm'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 439.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 439.
  (./main.aux (./cover/cover.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 439.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 439.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4CA0FF56E3EE124326A4720E136735D1;47.
+(rerunfilecheck)             Checksum: 962A8801769E9EB36D05955B463DA59C;368.
  ) 
 Here is how much of TeX's memory you used:
- 37925 strings out of 481239
- 884469 string characters out of 5920377
- 1400073 words of memory out of 5000000
- 52324 multiletter control sequences out of 15000+600000
- 550491 words of font info for 79 fonts, out of 8000000 for 9000
+ 39799 strings out of 481239
+ 931666 string characters out of 5920377
+ 1441641 words of memory out of 5000000
+ 54139 multiletter control sequences out of 15000+600000
+ 550800 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,16n,127p,792b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-fss1000.pfb>
-Output written on main.pdf (2 pages, 735209 bytes).
+ 73i,16n,127p,792b,907s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (16 pages, 1919475 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 578 PDF objects out of 1000 (max. 8388607)
+ 511 compressed objects within 6 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
