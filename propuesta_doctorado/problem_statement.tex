@@ -2,8 +2,20 @@
 
 % Problema a tratar
 
-Los desordenes metales son enfermedades que perturban la cognición, comportamiento y las emociones de un individuo, que están presentes en alrededor 350 millones de personas al rededor del mundo \cite{Dehghan-Bonari2023}. 
+Los trastornos mentales son perturbaciones que afectan la cognición, el comportamiento y las emociones de los individuos, con una prevalencia estimada en aproximadamente 350 millones de personas a nivel mundial \cite{Dehghan-Bonari2023}.  
 
-Entre estas enfermedades, el Trastorno de Déficit de Atención e Hiperactividad (TDAH) persiste en el 5\% de los niños y adolescentes y en el 2.5\% de los adultos, lo cual puede incrementar el riesgo de otros desordenes psiquiátricos, educacionales y ocupacionales, además  del incremento de actividades criminales y adicciones \cite{Faraone2015}.
+Entre estos trastornos, el Trastorno por Déficit de Atención e Hiperactividad (TDAH) afecta al 5\% de los niños y adolescentes y al 2.5\% de los adultos, lo que incrementa el riesgo de padecer otros trastornos psiquiátricos, dificultades en el ámbito educativo y laboral, así como una mayor propensión a conductas delictivas y adicciones \cite{Faraone2015}.  
+
+La detección temprana del TDAH es fundamental para proporcionar un tratamiento oportuno al individuo. No obstante, muchas de las pruebas diagnósticas actuales son tediosas, requieren un seguimiento prolongado del paciente y están sujetas a interpretaciones subjetivas. Además, en muchas regiones, el acceso a especialistas es limitado \textbf{(citar)}.  
+
+El desarrollo de modelos de aprendizaje automático ha permitido la creación de herramientas que facilitan y respaldan el diagnóstico de diversas enfermedades, incluido el TDAH, lo que contribuye a reducir la carga sobre los especialistas \textbf{(citar ejemplos)}. La mayoría de estos modelos emplean señales electroencefalográficas (EEG) para clasificar registros como pertenecientes a individuos con o sin la enfermedad, en un enfoque de clasificación binaria. Sin embargo, las señales EEG son altamente no estacionarias y presentan patrones complejos que pueden dificultar su interpretación y manejo mediante modelos tradicionales \textbf{(citar)}.  
+
+Una alternativa prometedora es el uso de modelos basados en aprendizaje profundo, los cuales emplean una gran cantidad de parámetros para extraer características abstractas de las señales EEG que faciliten su clasificación \textbf{(citar ejemplos)}. No obstante, el entrenamiento de estos modelos requiere una gran cantidad de datos etiquetados dentro de un marco de aprendizaje supervisado. En muchos escenarios, la recolección y el etiquetado de un conjunto de datos de gran tamaño resulta costosa o incluso inviable.  
+
+Los modelos fundacionales han surgido como una solución a este problema, ya que pueden ser preentrenados con conjuntos de datos no etiquetados en una fase inicial y luego ajustados para tareas específicas con una cantidad significativamente menor de datos etiquetados \textbf{(citar)}.  
+
+En diversos contextos clínicos, no solo es importante obtener una predicción puntual del diagnóstico, sino también una medida de la incertidumbre asociada a dicho pronóstico. En este sentido, los procesos gaussianos representan una alternativa viable, ya que proporcionan distribuciones de probabilidad sobre las predicciones en lugar de valores deterministas. Los procesos gaussianos han sido ampliamente utilizados para modelar funciones complejas y realizar tareas de clasificación \textbf{(citar estudios)}. Sin embargo, su integración con modelos fundacionales aún no ha sido ampliamente explorada.  
+
+Además, en la fase de preentrenamiento, los conjuntos de datos no etiquetados suelen presentar variabilidad en términos de estándares de adquisición, lo que puede traducirse en valores ausentes, diferencias en la tasa de muestreo o variaciones en el número de canales, entre otros factores. Descartar estos datos podría implicar la pérdida de información valiosa. Por lo tanto, un modelo fundacional diseñado para el análisis de señales EEG debe ser capaz de manejar datos con características ausentes de manera efectiva.  
 
 %https://www.scopus.com/record/display.uri?eid=2-s2.0-85056845323&origin=resultslist&sort=cp-f&src=s&sot=b&sdt=cl&s=TITLE-ABS-KEY%28Diagnosis+of+ADHD%29&sessionSearchId=d189042f64249c813bf76dc806f3fcb0&relpos=5
