@@ -1,19 +1,70 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Dehghan-Bonari2023}
-Mohamad Dehghan-Bonari, Mohammad Alipour-Vaezi, Mohammad~Mahdi Nasiri, and Amir
-  Aghsami.
-\newblock A diagnostic analytics model for managing post-disaster symptoms of
-  depression and anxiety among students using a novel data-driven optimization
-  approach.
-\newblock {\em Healthcare Analytics}, 4, 12 2023.
+M.~Dehghan-Bonari, M.~Alipour-Vaezi, M.~M. Nasiri, and A.~Aghsami, ``A
+  diagnostic analytics model for managing post-disaster symptoms of depression
+  and anxiety among students using a novel data-driven optimization approach,''
+  {\em Healthcare Analytics}, vol.~4, 12 2023.
+
+\bibitem{Salari2023}
+N.~Salari, H.~Ghasemi, N.~Abdoli, A.~Rahmani, M.~H. Shiri, A.~H. Hashemian,
+  H.~Akbari, and M.~Mohammadi, ``The global prevalence of adhd in children and
+  adolescents: a systematic review and meta-analysis,'' {\em Italian Journal of
+  Pediatrics}, vol.~49, p.~48, Apr 2023.
+
+\bibitem{Ayano2020}
+G.~Ayano, K.~Yohannes, and M.~Abraha, ``Epidemiology of
+  attention-deficit/hyperactivity disorder (adhd) in children and adolescents
+  in africa: a systematic review and meta-analysis,'' {\em Annals of General
+  Psychiatry}, vol.~19, p.~21, Mar 2020.
 
 \bibitem{Faraone2015}
-Stephen~V. Faraone, Philip Asherson, Tobias Banaschewski, Joseph Biederman,
-  Jan~K. Buitelaar, Josep~Antoni Ramos-Quiroga, Luis~Augusto Rohde, Edmund~J.S.
-  Sonuga-Barke, Rosemary Tannock, and Barbara Franke.
-\newblock Attention-deficit/hyperactivity disorder.
-\newblock {\em Nature Reviews Disease Primers}, 1, 2015.
+S.~V. Faraone, P.~Asherson, T.~Banaschewski, J.~Biederman, J.~K. Buitelaar,
+  J.~A. Ramos-Quiroga, L.~A. Rohde, E.~J. Sonuga-Barke, R.~Tannock, and
+  B.~Franke, ``Attention-deficit/hyperactivity disorder,'' {\em Nature Reviews
+  Disease Primers}, vol.~1, 2015.
 \newblock Cited by: 1053.
+
+\bibitem{Kivumbi2019}
+A.~Kivumbi, W.~Byansi, C.~Damulira, P.~Namatovu, J.~Mugisha, O.~Sensoy~Bahar,
+  M.~M. McKay, K.~Hoagwood, and F.~M. Ssewamala, ``Prevalence of behavioral
+  disorders and attention deficit/hyperactive disorder among school going
+  children in southwestern uganda,'' {\em BMC Psychiatry}, vol.~19, p.~105, Apr
+  2019.
+
+\bibitem{Zhou2015-bg}
+R.~Zhou, Q.~Xia, H.~Shen, X.~Yang, Y.~Zhang, and J.~Xu, ``Diagnosis of
+  children's attention deficit hyperactivity disorder ({ADHD}) and its
+  association with cytomegalovirus infection with {ADHD}: a historical
+  review,'' {\em Int J Clin Exp Med}, vol.~8, pp.~13969--13975, Aug. 2015.
+
+\bibitem{LOHANI2023111689}
+D.~C. Lohani and B.~Rana, ``Adhd diagnosis using structural brain mri and
+  personal characteristic data with machine learning framework,'' {\em
+  Psychiatry Research: Neuroimaging}, vol.~334, p.~111689, 2023.
+
+\bibitem{Sibley21042021}
+M.~H. Sibley, ``Empirically-informed guidelines for first-time adult adhd
+  diagnosis,'' {\em Journal of Clinical and Experimental Neuropsychology},
+  vol.~43, no.~4, pp.~340--351, 2021.
+\newblock PMID: 33949916.
+
+\bibitem{Asherson2022}
+P.~Asherson, L.~Leaver, M.~Adamou, M.~Arif, G.~Askey, M.~Butler, S.~Cubbin,
+  T.~Newlove-Delgado, J.~Kustow, J.~Lanham-Cook, J.~Findlay, J.~Maxwell,
+  P.~Mason, H.~Read, K.~van Rensburg, U.~M{\"u}ller-Sedgwick,
+  J.~Sedgwick-M{\"u}ller, and C.~Skirrow, ``Mainstreaming adult adhd into
+  primary care in the uk: guidance, practice, and best practice
+  recommendations,'' {\em BMC Psychiatry}, vol.~22, p.~640, Oct 2022.
+
+\bibitem{Pallanti2020}
+S.~Pallanti and L.~Salerno, {\em The Socioeconomic Burden of Adult ADHD},
+  pp.~1--20.
+\newblock Cham: Springer International Publishing, 2020.
+
+\bibitem{article}
+M.~Maniruzzaman, J.~Shin, M.~A. Hasan, and Y.~Akira, ``Efficient feature
+  selection and machine learning based adhd detection using eeg signal,'' {\em
+  Computers, Materials & Continua}, vol.~72, 04 2022.
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  21 FEB 2025 10:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.7.29)  24 FEB 2025 12:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -82,8 +82,8 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__pdf_internal_box=\box45
 )
 (./main.aux
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
 )
 \openout1 = `main.aux'.
 
@@ -119,37 +119,45 @@ Package cleveref Info: loaded `spanish' language definitions on input line 1.
 
  (./abstract.tex) (./problem_statement.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 7.
+(Font)              <10.95> on input line 4.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./justification.tex)
-(./state_of_art.tex) (./objetives.tex [2]) (./methodology.tex) (./main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 4--10
-[]\OT1/cmr/m/n/10.95 Mohamad Dehghan-Bonari, Moham-mad Alipour-Vaezi, Moham-
- []
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]) (./justification.tex)
 
-) [3] (./main.aux
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
-Package cleveref Info: loaded `spanish' language definitions on input line 9.
+(./state_of_art.tex) (./objetives.tex) (./methodology.tex) (./main.bbl [3]
+[4]
+! Misplaced alignment tab character &.
+l.68   Computers, Materials &
+                              Continua}, vol.~72, 04 2022.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+) [5] (./main.aux
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+Package cleveref Info: loaded `spanish' language definitions on input line 17.
 ) ) 
 Here is how much of TeX's memory you used:
- 3832 strings out of 481239
- 68427 string characters out of 5920377
- 355554 words of memory out of 5000000
- 19103 multiletter control sequences out of 15000+600000
+ 3864 strings out of 481239
+ 68892 string characters out of 5920377
+ 356554 words of memory out of 5000000
+ 19135 multiletter control sequences out of 15000+600000
  538163 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,7n,41p,855b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,7n,41p,954b,619s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (3 pages, 82631 bytes).
+Output written on main.pdf (5 pages, 93004 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 40 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
