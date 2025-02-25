@@ -1,1 +1,48 @@
 \section{Metodología}
+
+Para dar cumplimiento a cada uno de los objetivos específicos, se propone la siguiente metodología, la cual estará dividida en tres fases (una por cada objetivo):
+
+\subsection*{Fase 1: Diseño y Desarrollo del Modelo Fundacional para la Clasificación de Señales EEG}
+\textbf{Objetivo específico 1:} Diseñar y desarrollar un modelo fundacional para la clasificación de señales biológicas relacionadas con registros EEG, que aproveche datos no etiquetados en la etapa de autoaprendizaje y datos etiquetados para su ajuste fino.
+
+\begin{enumerate}
+	\item \textbf{Actividad 1.1: Recopilación y Preprocesamiento de Datos EEG}\\
+	Se recopilará un conjunto amplio de registros EEG de alta calidad, provenientes de diversas fuentes, y se organizarán tanto bases de datos etiquetadas como no etiquetadas. Se realizará un preprocesamiento inicial que incluya la eliminación de artefactos, la normalización de los datos y la sincronización de las señales para asegurar la homogeneidad en la tasa de muestreo y el número de canales.
+	
+	\item \textbf{Actividad 1.2: Desarrollo del Modelo Fundacional}\\
+	Se diseñará y desarrollará un modelo fundacional empleando técnicas de autoaprendizaje para extraer representaciones generales de las señales EEG. Posteriormente, se aplicará un ajuste fino utilizando los datos etiquetados para optimizar la capacidad del modelo en la clasificación de pacientes con TDAH.
+	
+	\item \textbf{Actividad 1.3: Validación Interna del Modelo}\\
+	Se validará el desempeño del modelo fundacional mediante métricas de clasificación. Se ajustarán los hiperparámetros en función de los resultados obtenidos, garantizando la adaptabilidad del modelo a nuevos escenarios clínicos.
+\end{enumerate}
+
+\subsection*{Fase 2: Implementación de la Herramienta de Predicción Estocástica Basada en Procesos Gaussianos}
+\textbf{Objetivo específico 2:} Implementar una herramienta de predicción estocástica basada en procesos Gaussianos, que permita modelar la incertidumbre en la predicción del modelo fundacional.
+
+\begin{enumerate}
+	\item \textbf{Actividad 2.1: Investigación de Procesos Gaussianos para Modelar Incertidumbre}\\
+	Realizar una revisión bibliográfica sobre técnicas basadas en procesos Gaussianos en el ámbito de datos biomédicos y EEG, identificando métodos adecuados para cuantificar la incertidumbre en las predicciones.
+	
+	\item \textbf{Actividad 2.2: Integración del Componente Gaussianos en el Modelo}\\
+	Desarrollar e integrar en el modelo fundacional un módulo basado en procesos Gaussianos que estime la incertidumbre asociada a cada predicción, proporcionando una medida cuantitativa de la confiabilidad diagnóstica.
+	
+	\item \textbf{Actividad 2.3: Validación de la Herramienta Estocástica}\\
+	Validar la herramienta de predicción estocástica mediante pruebas en un conjunto de datos independiente, evaluando la precisión del modelo y la utilidad de la estimación de incertidumbre para el diagnóstico asistido del TDAH.
+\end{enumerate}
+
+\subsection*{Fase 3: Elaboración de Estrategias para el Manejo de Características Faltantes}
+\textbf{Objetivo específico 3:} Elaborar una estrategia para el manejo de características faltantes que complemente y extienda el modelo fundacional para tratar señales biológicas con información faltante.
+
+\begin{enumerate}
+	\item \textbf{Actividad 3.1: Revisión y Análisis de la Variabilidad en los Datos EEG}\\
+	Realizar una revisión exhaustiva de la literatura para identificar los principales desafíos asociados a la variabilidad en los conjuntos de datos EEG, tales como valores ausentes, diferencias en la tasa de muestreo, variaciones en el número de canales y el fenómeno de dataset shift.
+	
+	\item \textbf{Actividad 3.2: Desarrollo de Estrategias de Imputación y Normalización Adaptativa}\\
+	Investigar y seleccionar métodos avanzados de imputación y normalización que permitan corregir las inconsistencias en los datos sin descartar información valiosa. Se evaluarán diversas técnicas (por ejemplo, interpolación temporal, métodos basados en vecinos, etc.) para determinar la estrategia óptima.
+	
+	\item \textbf{Actividad 3.3: Integración de la Gestión de Características Faltantes en el Modelo}\\
+	Incorporar las estrategias desarrolladas en la fase anterior al flujo de trabajo del modelo fundacional, de manera que se optimice la capacidad del modelo para manejar señales biológicas incompletas.
+	
+	\item \textbf{Actividad 3.4: Validación y Documentación de la Estrategia}\\
+	Validar la efectividad de la estrategia de manejo de características faltantes mediante pruebas comparativas con datos de EEG, y documentar el proceso en un protocolo detallado que sirva de guía para la implementación y futuras mejoras.
+\end{enumerate}
