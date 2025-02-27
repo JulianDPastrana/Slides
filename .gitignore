@@ -1,4 +1,8 @@
+# Ignore LaTeX generated auxiliary files
+*.aux
+*.bbl
+*.blg
 *.log
 *.pdf
-*.gz
-*.aux
+*.synctex.gz
+
