@@ -1,0 +1,33 @@
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\usepgfplotslibrary{external}
+\tikzexternalize
+%\pgfplotsset{compat=1.16}
+\tikzsetexternalprefix{figures/}
+\usetikzlibrary{positioning}
+\usepackage{subcaption}
+\usetheme{Copenhagen}
+\usecolortheme{seahorse}
+
+\author[J. Pastrana]{%
+	Julián David Pastrana Cortés
+}
+
+\AtBeginSection[]{
+	\begin{frame}
+		\frametitle{Table of Contents}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\AtBeginDocument{%
+	\title[Chained Correlated GPs]{Time Series Forecasting Based on Chained Correlated Gaussian Procesees}
+	\subtitle{An Stochastic Approach}%
+	\institute[UTP]{Universidad Tecnológica de Pereira}
+	\date[2025]{\today}
+	
+}
+
+\setbeamertemplate{page number in head/foot}[totalframenumber]

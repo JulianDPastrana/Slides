@@ -5,4 +5,10 @@
 *.log
 *.pdf
 *.synctex.gz
-
+*.dpth
+*.md5
+*.auxlock
+*.nav
+*.out
+*.snm
+*.toc
