@@ -1,36 +1,36 @@
 % This file was created with tikzplotlib v0.10.1.
 \begin{tikzpicture}
 
-\definecolor{darkgray176}{RGB}{176,176,176}
 
 \begin{axis}[
-	font=\tiny,
-	width=4.2cm,
-	height=1.7cm,
-	axis background/.style={fill=background_color},
-	axis line style={white},
-	tick align=inside,
-	tick pos=left,
-	x grid style={white},
-	y grid style={white},
-	xmajorgrids,
-	ymajorgrids,
-%	ylabel={Reservoir O Contributions (kWh)},
+	axis lines=left,
+	font=\small,
+	width=12cm,
+	height=7.5cm,
+%	axis background/.style={fill=background_color},
+%	axis line style={white},
+%	tick align=inside,
+%	tick pos=left,
+%	x grid style={white},
+%	y grid style={white},
+%	xmajorgrids,
+%	ymajorgrids,
+	title={Reservoir Contributions (kWh)},
 	xlabel={Time (days)},
 	xmin=50, xmax=250,
-	xtick style={color=black},
+%	xtick style={color=black},
 	ymin=-10000000, % Adjusted to -0.1*10^8
 	ymax=80000000,  % Adjusted to 0.8*10^8
-	ytick style={color=black},
-	ytick={-10000000,0,20000000,40000000,60000000,80000000}, % Updated ticks for new range
-	yticklabels={
-		\ensuremath{-}0.1,
-		0.0,
-		0.2,
-		0.4,
-		0.6,
-		0.8
-	},
+%	ytick style={color=black},
+%	ytick={-10000000,0,20000000,40000000,60000000,80000000}, % Updated ticks for new range
+%	yticklabels={
+%		\ensuremath{-}0.1,
+%		0.0,
+%		0.2,
+%		0.4,
+%		0.6,
+%		0.8
+%	},
 	legend columns=1, 
 	legend style={
 		nodes={scale=0.8, transform shape},
@@ -40,8 +40,8 @@
 		at={(0.03,0.97)},
 		anchor=north west,
 		legend pos=north west,
-		draw=lightgray204,
-		fill=background_color
+%		draw=lightgray204,
+%		fill=background_color
 	}
 	]
 
@@ -2264,11 +2264,11 @@ table {%
 439 2396299.68286054
 440 1606874.44519124
 };
-\addlegendentry{Test data}
-\addlegendentry{ChdGP Gamma mean}
-\addlegendentry{ChdGP Gamma median}
+\addlegendentry{Real Observations}
+\addlegendentry{Prediction mean}
+\addlegendentry{Prediction median}
 \addlegendimage{line width=5pt,draw=blue,opacity=0.5}
-\addlegendentry{$95\%$ ChdGP Gamma CI}
+\addlegendentry{$95\%$ CI}
 \end{axis}
 
 \end{tikzpicture}
