@@ -1,0 +1,278 @@
+\documentclass[spanish, aspectratio=169]{beamer}
+
+\input{preamble}
+
+\begin{document}
+	
+	
+\frame{\titlepage}
+
+\begin{frame}
+	\frametitle{Motivation}
+	\begin{figure}[htbp]
+		\centering
+		\begin{subfigure}[t]{0.48\textwidth}
+			\centering
+			\includegraphics[width=\linewidth,height=2.7cm,keepaspectratio]{figures/hydro_gen.jpeg}
+			\caption{Energy Generation}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[t]{0.48\textwidth}
+			\centering
+			\includegraphics[width=\linewidth,height=2.7cm,keepaspectratio]{figures/stock_prices.jpg}
+			\caption{Stock Prices}
+		\end{subfigure}
+		\\[1ex] % small vertical gap
+		\begin{subfigure}[t]{0.48\textwidth}
+			\centering
+			\includegraphics[width=\linewidth,height=2.7cm,keepaspectratio]{figures/weather_data.png}
+			\caption{Weather Data}
+		\end{subfigure}
+	\end{figure}
+	
+%	\begin{block}{\textbf{Challenges}}
+%		Non-linearities, high stochasticity, and complex patterns.
+%	\end{block}
+	
+\end{frame}
+
+\begin{frame}{Point Estimation vs. Distribution Estimation}
+
+\centering
+\begin{tikzpicture}
+	\begin{groupplot}[
+		group style={
+			group name=my plots,
+			group size=2 by 1,
+			horizontal sep=0.8cm,
+		},
+		width=5cm,
+		height=4cm,
+		scale only axis,
+		axis lines=left,
+		ymin=0, ymax=1,
+		xmin=0, xmax=5.5, 
+		]
+		% Left subplot: Point Estimate Prediction
+		\nextgroupplot[
+		xlabel={Time},
+		title={Point Estimation},
+		yticklabel=\empty,
+		]
+		\addplot+[smooth, thick, color=red!10, mark=*,
+		mark options={fill=red, draw=red}
+		] coordinates {(0,0.2) (1,0.3) (2,0.5) (3,0.7) (4,0.8)};
+		\addplot[only marks, mark=*, blue] coordinates {(5,0.85)};
+		
+		% Right subplot: Distribution Estimation with Error Bars
+		\nextgroupplot[
+		xlabel={Time},
+		title={Distribution Estimation},
+		yticklabel=\empty,
+		]
+		\addplot+[smooth, thick, color=red!10, mark=*,
+		mark options={fill=red, draw=red}
+		] coordinates {(0,0.2) (1,0.3) (2,0.5) (3,0.7) (4,0.8)};
+		
+		
+		% Define the right boundary of the predictive distribution at time=5
+		\addplot[
+		name path=right,
+		domain=0.65:1.05,
+		variable=\y,
+		samples=100,
+		draw=none,
+		]
+		({5 + 0.2*exp(-((\y-0.85)^2)/(2*0.004))}, {\y});
+		
+		% Define the left boundary of the predictive distribution at time=5
+		\addplot[
+		name path=left,
+		domain=0.65:1.05,
+		variable=\y,
+		samples=100,
+		draw=none,
+		]
+		({5 - 0.2*exp(-((\y-0.85)^2)/(2*0.004))}, {\y});
+		
+		% Fill between the two boundaries to show the uncertainty distribution
+		\addplot[
+		fill=blue!20,
+		fill opacity=0.5,
+		draw=none,
+		] fill between[of=right and left];
+		
+		% Mark the point prediction
+		\addplot[only marks, mark=*, blue] coordinates {(5,0.85)};
+		
+	\end{groupplot}
+	
+\end{tikzpicture}
+
+\begin{block}{}
+	Sometimes, a single point prediction is not enough. How confident is the model in its prediction?
+\end{block}
+
+\end{frame}
+
+\begin{frame}{The Chained Correlated Gaussian Process Model}
+	\begin{block}{}
+		The Model is designed to:
+		\begin{itemize}
+			\item Deliver a posterior predictive distribution that quantifies uncertainty.
+			\item Incorporate prior knowledge via a Bayesian inference framework.
+			\item Capture complex nonlinear interactions and intricate patterns within the data.
+			\item Exploit temporal dependencies.
+			\item Maintain strong performance even in scenarios with limited or noisy data.
+			\item Address data constraints.
+			\item Use support multi-output scenarios.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Graphical Represenatation}
+	\centering
+\begin{tikzpicture}[x=4.2cm,y=1.7cm]
+	% \message{^^JNeural network activation}
+	\def\NI{4} % number of nodes in input layer
+	\def\NM{4} % number of nodes in middle layer  
+	\def\NO{2} % number of nodes in output layer
+	\def\yshift{0.0} % shift last node for dots
+	
+	% INPUT LAYER
+	\foreach \i [evaluate={\c=int(\i==\NI); \y=\NI/2-\i-\c*\yshift; \index=(\i<\NI?int(\i):"Q");}]
+	in {1,...,\NI}{ % loop over nodes
+		\node[node in,outer sep=0.6] (NI-\i) at (0,\y) {$u_{\index}$};
+	}
+	
+	% MIDDLE LAYER
+	
+	% MIDDLE LAYER with specific labels
+	\node[node hidden] (NM-1) at (1,\NM/2-1) {$f_{1, J_1}$};
+	\node[node hidden] (NM-2) at (1,\NM/2-2) {$f_{2, J_1}$};
+	\node[node hidden] (NM-3) at (1,\NM/2-3) {$f_{1, J_D}$};
+	\node[node hidden] (NM-4) at (1,\NM/2-4) {$f_{D, J_D}$};
+	
+	\foreach \i [evaluate={\c=int(\i==\NM); \y=\NM/2-\i-\c*\yshift; \index=(\i<\NM?int(\i):"D");}]
+	in {\NM,...,1}{ % loop over nodes
+		\ifnum\i=1 % highlighted node
+		\foreach \j [evaluate={\index=(\j<\NI?int(\j):"Q");}] in {1,...,\NI}{ % loop over nodes in previous layer
+			\draw[connect,white,line width=1.2] (NI-\j) -- (NM-\i);
+			\draw[connect] (NI-\j) -- (NM-\i)
+			node[pos=0.50] {\contour{white}{$a_{1, 1,\index}$}};
+		}
+		\else % other light-colored nodes
+		\foreach \j in {1,...,\NI}{ % loop over nodes in previous layer
+			\draw[connect,white,line width=1.2] (NI-\j) -- (NM-\i);
+			\draw[connect,myblue!20] (NI-\j) -- (NM-\i);i
+		}
+		\fi
+	}
+	
+	
+	% OUTPUT LAYER
+	\foreach \i [evaluate={\c=int(\i==\NO); \y=\NO/2-\i-\c*\yshift; \index=(\i<\NO?int(\i):"D");}]
+	in {\NO,...,1}{ % loop over nodes
+		\ifnum\i=1 % highlighted node
+		\node[node out]
+		(NO-\i) at (2,\y) {$y_{\index}$};
+		\foreach \j [evaluate={\index=(\j<3?int(\j):"D");}] in {1,2}{ % loop over nodes 1 and 2 in middle layer
+			\draw[connect,white,line width=1.2] (NM-\j) -- (NO-\i);
+			\draw[connect, myred] (NM-\j) -- (NO-\i)
+			node[pos=0.50] {\contour{white}{$g_{\index,J_{1}}(\cdot)$}};
+		}
+		\else % other light-colored nodes
+		\node[node out]
+		(NO-\i) at (2,\y) {$y_{\index}$};
+		\foreach \j in {3,4}{ % loop over nodes 3 and 4 in middle layer
+			\draw[connect,white,line width=1.2] (NM-\j) -- (NO-\i);
+			\draw[connect,myred!20] (NM-\j) -- (NO-\i);
+		}
+		\fi
+	}
+	
+	
+	% DOTS
+	\path (NI-\NI) --++ (0,1+\yshift) node[midway,scale=1.2] {$\vdots$};
+	\path (NM-\NM) --++ (0,3+\yshift) node[midway,scale=1.2] {$\vdots$};
+	\path (NM-\NM) --++ (0,1+\yshift) node[midway,scale=1.2] {$\vdots$};
+	\path (NO-\NO) --++ (0,1+\yshift) node[midway,scale=1.2] {$\vdots$};
+	
+\end{tikzpicture}
+\scriptsize
+\begin{columns}[T] % Top alignment
+	\begin{column}{0.33\textwidth}
+		\centering	
+		\textcolor{mygreen}{
+			\textbf{Independent Process}
+			\vspace{-1.3em}
+%			\begin{equation*}
+%				u_{q}(\mathbf{x}) \sim \mathcal{GP}(0, k_{q}(\mathbf{x}, \mathbf{x}'))
+%			\end{equation*}
+		}
+	\end{column}
+	
+	\begin{column}{0.33\textwidth}
+		\centering
+		\textcolor{myblue}{
+			\textbf{Latent Process}
+			\vspace{-1.3em}
+%			\begin{equation*}
+%				f_{d,j}(\mathbf{x}) = \sum_{q=1}^Q a_{d,j,q} u_{q}(\mathbf{x})
+%			\end{equation*}
+		}
+	\end{column}
+	
+	\begin{column}{0.33\textwidth}
+		\centering
+		\textcolor{myred}{
+			\textbf{Likelihood}
+			\vspace{-1.3em}
+%			\begin{equation*}
+%				\mathbf{y} \mid \mathbf{f} \sim \prod_{d=1}^D p(\theta_{d, 1}, \cdots, \theta_{d, J_d})
+%			\end{equation*}
+%			\vspace{-1.5em}
+%			\begin{equation*}
+%				\theta_{d, j} = g_{d, j}(f_{d, j})
+%			\end{equation*}
+		}
+	\end{column}
+	
+\end{columns}
+\end{frame}
+
+\begin{frame}{Real World Scenario}
+	\centering
+	\input{./figures/chd_gamma_forecasting_ESMERALDA.tex}
+\end{frame}
+
+\begin{frame}{Conclusion}
+	\begin{block}{}
+	This model provides predictive distributions that empower informed decision-making in uncertain environments.
+	
+	For example:
+	\begin{itemize}
+		\item Energy management: Forecasting load variability.
+		\item Weather prediction: Quantifying forecast uncertainty.
+		\item Financial risk assessment: Generating reliable confidence intervals.
+	\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+%\begin{frame}{Future Work}
+%	\begin{block}{}
+%		\begin{itemize}
+%			\item Incorporate deep learning and foundation models to enhance predictive capabilities.
+%			\item Explore applications beyond time-series forecasting.
+%			\item Integrate with optimization systems for automated decision-making.
+%		\end{itemize}
+%	\end{block}
+%\end{frame}
+
+
+
+
+	
+\end{document}
