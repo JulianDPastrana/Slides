@@ -1,0 +1,29 @@
+\frametitle{Architecture}
+\resizebox{\textwidth}{!}{
+		\tikzset{trapezium stretches=true}
+		\centering
+		\begin{tikzpicture}[font=\sffamily, >=stealth, node distance=8mm]
+			% Latent variable (z)
+			\node[rectangle, fill=MyAccent, text=white, font=\sffamily\large, minimum height=3cm, text width=3cm, align=center] (z) {Latent\\ Representation};
+			
+			% Encoder trapezoid
+			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
+			trapezium left angle=86, trapezium right angle=86, shape border rotate=270,
+			anchor=east, left=5mm of z, font=\sffamily\large, text=MyDarkBlue] (enc) {Encoder};
+			
+			% Decoder trapezoid
+			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
+			trapezium left angle=86, trapezium right angle=86, shape border rotate=90,
+			anchor=west, right=5mm of z, font=\sffamily\large, text=MyDarkBlue] (dec) {Decoder};
+			
+			% Gaussian Process circle
+			\node[circle, draw=MyDarkBlue, fill=MyLightGray, text=MyDarkBlue, font=\sffamily\small,
+			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
+			
+			% Arrows and labels
+			\draw[->, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
+			\draw[->, MyDarkBlue, thick] (dec.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Reconstruction};
+			\draw[->, MyAccent, thick] (z.south) -- (gp.north);
+			\draw[->, MyDarkBlue, thick] (gp.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Predictive Distribution\\(Inference)};
+		\end{tikzpicture}
+	}

@@ -1,0 +1,10 @@
+\section{Anexos}
+% Include first page with a title overlay
+\includepdf[pages=1,
+pagecommand={%
+	\thispagestyle{plain}
+		\Large\bfseries Propuesta doctorado
+}
+]{../propuesta_doctorado/main.pdf}
+% Include remaining pages without any overlay
+\includepdf[pages=2-last, pagecommand={}]{../propuesta_doctorado/main.pdf}

@@ -9,10 +9,10 @@
 
 \begin{frame}{Motivation}
 	\begin{block}{}
-		Mental disorders affect cognition, behavior, and emotions of millions of people worldwide. Around 350 million individuals suffer from a mental disorder \emph{Cite this}.
+		Mental disorders affect cognition, behavior, and emotions of millions of people worldwide. Around 350 million individuals suffer from a mental disorder [1].
 	\end{block}
 	
-	\begin{columns}[T,onlytextwidth]
+	\begin{columns}
 		\column{0.33\textwidth}
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/OppositionalDefiantDisorder.png}
@@ -31,7 +31,7 @@
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/ADHD.png}
 		
-		\vspace{0.5em}
+%		\vspace{0.5em}
 		\textbf{Attention Deficit Hyperactivity Disorder}
 	\end{columns}
 	
@@ -43,42 +43,45 @@
 
 \begin{frame}{Problem Statement and Research Question}
 	
-	\begin{table}[htbp]
-		\scriptsize
-		\begin{tabular}{l >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.2cm}}
-			\toprule
-			\diagbox{\textbf{Model}}{\textbf{Challenge}}          & {Interpretability} & {Nonlinearity} & {Stochasticity} & {Long-term} & {Scalability} & {Output Constraint} \\
-			\midrule
-			{Physically Driven \cite{Yaseen2018, HKASHANI2016340}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} \\ 
-			{AR \cite{10.2166/wst.2020.369}}               & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\ 
-			{NN \cite{w15030505}}               & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} \\ 
-			{RNN \cite{doi:10.1080/02626667.2021.1937631}}              & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} \\ 
-			{LSTM \cite{8729441, Sahoo2019, 10.1145/3366750.3366756}}             & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} \\ 
-			{GP \cite{hensman2014scalable, bruinsma2020scalable}}               & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
+\renewcommand{\arraystretch}{1.5} 
+
+\begin{table}[htbp]
+	\centering
+	\footnotesize
+	\begin{tabular}{>{\raggedright\arraybackslash}p{3cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}}
+		\toprule
+		\diagbox{\textbf{Model}}{\textbf{Challenge}} & \textbf{Complex Patterns} & \textbf{High Labeled Data Volume} & \textbf{Stochasticity} & \textbf{Data Shift} \\
+		\midrule
+		Traditional Machine Learning Models & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
+		Traditional Deep Learning Models    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
+		Foundation Models                   & \textcolor{teal}{\ding{51}}    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} \\
+		\bottomrule
+	\end{tabular}
+
+\end{table}
+
+
 	
 	
-	
+\pause	
 	
 	
 	\begin{block}{Research Question}
 		\footnotesize
-		How to develop a stochastic foundational model for inference from biological signals that integrates Gaussian processes to support the diagnosis and treatment of mental disorders via EEG signals analysis, considering the variability and inconsistencies present in the datasets?
+		How to develop a stochastic foundational model for inference from biological signals that integrates Gaussian processes to support clinical practice through EEG signal analysis, considering the variability and inconsistencies present in the datasets?
 	\end{block}	
 \end{frame}
 
 \begin{frame}{Objectives}
 	\vspace{-0.3cm}
 	\begin{block}{General Objective}
-		\footnotesize
-		Develop a learning methodology related to EEG recordings based on a foundational model that integrates labeled and unlabeled databases using self-learning and fine-tuning techniques.
+		\small
+		Develop a stochastic learning methodology related to EEG recordings based on a foundational model that integrates labeled and unlabeled databases using self-learning and fine-tuning techniques.
 	\end{block}
 	
-	\vspace{0.4cm}
+	\vspace{-0.1cm}
 	\begin{block}{Specific Objectives}
-		\footnotesize
+		\small
 		\begin{enumerate}
 			\item Develop a foundational model for the classification of biological signals related to EEG recordings, leveraging unlabeled data during the self-learning phase and labeled data for fine-tuning.
 			\item Implement a stochastic prediction tool based on Gaussian processes to model uncertainty in the foundational model's predictions.
@@ -86,6 +89,76 @@
 		\end{enumerate}
 	\end{block}
 \end{frame}
+
+\begin{frame}[fragile]{Foundation Model Workflow}
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tikzpicture}[font=\sffamily, >=stealth, node distance=3cm, thick]
+			
+			% Left Square (Training)
+			\node[rectangle, draw=MyAccent, fill=MyLightGray, rounded corners, align=left, text=MyDarkBlue] (training) {
+				\textbf{Data}\\[5pt]
+				- Text\\
+				- Images\\
+				- Sensors\\
+				- Speech
+			};
+			
+			% Foundation Model (center)
+			\node[rectangle, draw=MyAccent, fill=MyAccent!20, rounded corners, minimum width=3.5cm, minimum height=2cm, right=of training, text=MyDarkBlue] (foundation) {
+				\textbf{Foundation Model}
+			};
+			
+			% Right Square (Tasks)
+			\node[rectangle, draw=MyAccent, fill=MyLightGray, rounded corners, align=left, right=of foundation, text=MyDarkBlue] (tasks) {
+				\textbf{Task}\\[5pt]
+				- Object Recognition\\
+				- Text Generation\\
+				- Sentiment Analysis\\
+				- Image Captioning
+			};
+			
+			% Arrows
+			\draw[->, MyDarkBlue] (training.east) -- node[above, text=MyDarkBlue]{Pre-Training} (foundation.west);
+			\draw[->, MyDarkBlue] (foundation.east) -- node[above, text=MyDarkBlue]{Fine-Tuning} (tasks.west);
+			
+		\end{tikzpicture}
+	}
+\end{frame}
+
+
+% Include this frame in your Beamer document
+\begin{frame}[fragile]{Architecture}
+	\resizebox{\textwidth}{!}{
+		\tikzset{trapezium stretches=true}
+		\centering
+		\begin{tikzpicture}[font=\sffamily, >=stealth, node distance=8mm]
+			% Latent variable (z)
+			\node[rectangle, fill=MyAccent, text=white, font=\sffamily\large, minimum height=3cm, text width=3cm, align=center] (z) {Latent\\ Representation};
+			
+			% Encoder trapezoid
+			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
+			trapezium left angle=86, trapezium right angle=86, shape border rotate=270,
+			anchor=east, left=5mm of z, font=\sffamily\large, text=MyDarkBlue] (enc) {Encoder};
+			
+			% Decoder trapezoid
+			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
+			trapezium left angle=86, trapezium right angle=86, shape border rotate=90,
+			anchor=west, right=5mm of z, font=\sffamily\large, text=MyDarkBlue] (dec) {Decoder};
+			
+			% Gaussian Process circle
+			\node[circle, draw=MyDarkBlue, fill=MyLightGray, text=MyDarkBlue, font=\sffamily\small,
+			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
+			
+			% Arrows and labels
+			\draw[->, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
+			\draw[->, MyDarkBlue, thick] (dec.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Reconstruction};
+			\draw[->, MyAccent, thick] (z.south) -- (gp.north);
+			\draw[->, MyDarkBlue, thick] (gp.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Predictive Distribution\\(Inference)};
+		\end{tikzpicture}
+	}
+\end{frame}
+
 
 	
 \end{document}
