@@ -35,8 +35,9 @@
 		\textbf{Attention Deficit Hyperactivity Disorder}
 	\end{columns}
 	
-	\begin{block}{}
-		\textbf{Challenges}: lengthy follow-up, subjective interpretations, inefficient criteria, and limited access to clinical care.
+	\pause
+	\begin{block}{Challenges:}
+		lengthy follow-up, subjective interpretations, inefficient criteria, and limited access to clinical care.
 	\end{block}
 	
 \end{frame}
@@ -48,13 +49,13 @@
 \begin{table}[htbp]
 	\centering
 	\footnotesize
-	\begin{tabular}{>{\raggedright\arraybackslash}p{3cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}}
+	\begin{tabular}{>{\raggedright\arraybackslash}p{3.1cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm}}
 		\toprule
 		\diagbox{\textbf{Model}}{\textbf{Challenge}} & \textbf{Complex Patterns} & \textbf{High Labeled Data Volume} & \textbf{Stochasticity} & \textbf{Data Shift} \\
 		\midrule
-		Traditional Machine Learning Models & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
-		Traditional Deep Learning Models    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
-		Foundation Models                   & \textcolor{teal}{\ding{51}}    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} \\
+		Traditional Machine Learning Models[2, 3] & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
+		Traditional Deep Learning Models [4, 5]    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
+		Foundation Models[6]                   & \textcolor{teal}{\ding{51}}    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} \\
 		\bottomrule
 	\end{tabular}
 
@@ -83,9 +84,9 @@
 	\begin{block}{Specific Objectives}
 		\small
 		\begin{enumerate}
-			\item Develop a foundational model for the classification of biological signals related to EEG recordings, leveraging unlabeled data during the self-learning phase and labeled data for fine-tuning.
-			\item Implement a stochastic prediction tool based on Gaussian processes to model uncertainty in the foundational model's predictions.
-			\item Design a strategy to manage variability and inconsistency in EEG recording datasets, enabling the effective integration of databases with diverse standards.
+			\item Develop a foundational model for the classification of biological signals related to EEG recordings, leveraging \textcolor{MyAccent}{unlabeled data} during the self-learning phase and labeled data for fine-tuning.
+			\item Implement a \textcolor{MyAccent}{stochastic prediction} tool based on Gaussian processes to model uncertainty in the foundational model's predictions.
+			\item Design a strategy to \textcolor{MyAccent}{manage variability and inconsistency} in EEG recording datasets, enabling the effective integration of databases with diverse standards.
 		\end{enumerate}
 	\end{block}
 \end{frame}
@@ -128,6 +129,66 @@
 
 
 % Include this frame in your Beamer document
+\begin{frame}{\textcolor{MyDarkBlue}{Point Estimation vs. Distribution Estimation}}
+	\centering
+	\begin{tikzpicture}
+		\begin{groupplot}[
+			group style={
+				group name=my plots,
+				group size=2 by 1,
+				horizontal sep=1cm,
+			},
+			width=5cm,
+			height=4cm,
+			scale only axis,
+			axis lines=left,
+			ymin=0, ymax=1,
+			xmin=0, xmax=5.5,
+			xlabel style={text=MyDarkBlue},
+			title style={text=MyDarkBlue},
+			]
+			% Left subplot: Point Estimate Prediction
+			\nextgroupplot[
+			title={Point Estimation},
+			xticklabel=\empty,
+			yticklabel=\empty,
+			]
+			\addplot+[smooth, thick, color=MyAccent!30, mark=*,
+			mark options={fill=MyAccent, draw=MyAccent}
+			] coordinates {(0,0.2) (1,0.3) (2,0.5) (3,0.7) (4,0.8)};
+			\addplot[only marks, mark=*, MyDarkBlue] coordinates {(5,0.85)};
+			
+			% Right subplot: Distribution Estimation with Error Bars
+			\nextgroupplot[
+			title={Distribution Estimation},
+			xticklabel=\empty,
+			yticklabel=\empty,
+			]
+			\addplot+[smooth, thick, color=MyAccent!30, mark=*,
+			mark options={fill=MyAccent, draw=MyAccent}
+			] coordinates {(0,0.2) (1,0.3) (2,0.5) (3,0.7) (4,0.8)};
+			
+			% Predictive distribution at time=5
+			\addplot[name path=right, domain=0.65:1.05, variable=\y, samples=100, draw=none]
+			({5 + 0.2*exp(-((\y-0.85)^2)/(2*0.004))}, {\y});
+			
+			\addplot[name path=left, domain=0.65:1.05, variable=\y, samples=100, draw=none]
+			({5 - 0.2*exp(-((\y-0.85)^2)/(2*0.004))}, {\y});
+			
+			\addplot[fill=MyAccent!50, fill opacity=0.4, draw=none]
+			fill between[of=right and left];
+			
+			\addplot[only marks, mark=*, MyDarkBlue] coordinates {(5,0.85)};
+			
+		\end{groupplot}
+	\end{tikzpicture}
+	
+	\begin{block}{}
+		Sometimes, a single point prediction is not enough. How confident is the model in its prediction?
+	\end{block}
+\end{frame}
+
+
 \begin{frame}[fragile]{Architecture}
 	\resizebox{\textwidth}{!}{
 		\tikzset{trapezium stretches=true}
@@ -147,7 +208,7 @@
 			anchor=west, right=5mm of z, font=\sffamily\large, text=MyDarkBlue] (dec) {Decoder};
 			
 			% Gaussian Process circle
-			\node[circle, draw=MyDarkBlue, fill=MyLightGray, text=MyDarkBlue, font=\sffamily\small,
+			\node[circle, fill=MyAccent!20, text=MyDarkBlue, font=\sffamily\small,
 			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
 			
 			% Arrows and labels

@@ -17,7 +17,7 @@
 			anchor=west, right=5mm of z, font=\sffamily\large, text=MyDarkBlue] (dec) {Decoder};
 			
 			% Gaussian Process circle
-			\node[circle, draw=MyDarkBlue, fill=MyLightGray, text=MyDarkBlue, font=\sffamily\small,
+			\node[circle, fill=MyAccent!20, text=MyDarkBlue, font=\sffamily\small,
 			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
 			
 			% Arrows and labels
