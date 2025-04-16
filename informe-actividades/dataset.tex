@@ -1,0 +1,37 @@
+\section{Conjunto de Datos}
+
+\subsection{Toadstool: Un conjunto de datos para el entrenamiento de máquinas de inteligencia emocional que juegan a Super Mario Bros}
+
+El conjunto de datos de libre acceso Toadstool es una colección de registros en video, sensores e información demográfica obtenidos de diez individuos mientras jugaban Super Mario Bros. La selección de los participantes se realizó buscando una amplia variedad en cuanto a experiencia previa con videojuegos, incluyendo desde personas que apenas habían jugado alguno en su vida hasta aquellas con una extensa trayectoria desde la infancia, con edades comprendidas entre los 26 y 48 años. También se buscó mantener un balance en el género, participando cinco hombres y cinco mujeres. Los autores en \cite{toadstool} señalan la presencia de anomalías, tales como ninguna o muy poca actividad detectada por los sensores, así como diferencias significativas entre la actividad registrada al inicio y al final de las sesiones de juego.
+
+El desempeño de los participantes fue evaluado según el número de niveles completados en un tiempo determinado y el número de muertes ocurridas durante la partida. Dicho puntaje se mantuvo en secreto entre los participantes para evitar que se rindieran o relajaran durante el juego. Adicionalmente, se les incentivó mediante una recompensa con el fin de mantener un desempeño competitivo. Un resumen de las características de los participantes se presenta en la \cref{tab:datos_participantes}.
+
+
+\begin{table}[h!]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			\hline
+			\textbf{ID} & \textbf{Edad} & \textbf{Sexo} & \textbf{Mano dominante} & \shortstack{\textbf{Horas}\\\textbf{por semana}} & \shortstack{\textbf{Años}\\\textbf{de actividad}} & \shortstack{\textbf{Experiencia}\\\textbf{previa}} & \shortstack{\textbf{Puntaje}\\\textbf{del juego}} \\
+			\hline
+			0 & 26 & Hombre & Derecha  & 4--8 & 22 & Mucha  & 17,100 \\
+			1 & 48 & Hombre & Izquierda & 0--1 & 1  & Poca   & 3,000  \\
+			2 & 28 & Hombre & Derecha  & 0--1 & 0  & Ninguna& 300    \\
+			3 & 32 & Hombre & Derecha  & 4--8 & 4  & Algo   & 13,300 \\
+			4 & 32 & Mujer  & Derecha  & 0--1 & 5  & Algo   & 6,400  \\
+			5 & 30 & Mujer  & Derecha  & 0--1 & 5  & Poca   & 2,700  \\
+			6 & 35 & Hombre & Izquierda & 1--4 & 30 & Mucha  & 14,300 \\
+			7 & 34 & Mujer  & Derecha  & 1--4 & 14 & Algo   & 3,800  \\
+			8 & 31 & Mujer  & Derecha  & 0--1 & 2  & Poca   & 200    \\
+			9 & 27 & Mujer  & Derecha  & 0--1 & 5  & Poca   & 10,600 \\
+			\hline
+		\end{tabular}%
+	}
+	\caption{Características demográficas y experiencia de los participantes en relación con su desempeño en el juego. Se incluyen datos como edad, sexo, lateralidad, dedicación semanal, años de experiencia, nivel de experiencia previa y puntaje obtenido.}
+	\label{tab:datos_participantes}
+\end{table}
+
+En el conjunto de datos, se incluye para cada participante un video de su rostro durante la sesión de juego, grabado a una resolución de 640×480 píxeles y a 30 fotogramas por segundo. Además, se registran las acciones realizadas mediante el mando de juego para controlar al personaje, así como los datos recopilados por la pulsera Empatica E4. La Empatica E4 es un dispositivo que permite la adquisición en tiempo real de datos fisiológicos, como la actividad electrodérmica (EDA), el pulso de volumen sanguíneo (BVP), la temperatura de la piel y la aceleración en tres ejes \cite{garbarino2014empatica}.
+
+
+
