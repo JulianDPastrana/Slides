@@ -127,40 +127,34 @@
 	}
 \end{frame}
 
+
+
+
+
 \begin{frame}{Multimodal Representation}
-	We model multimodal data using a joint representation.
-	
-	\begin{block}{Data Space}
+	\begin{block}{}
+		We define the multimodal input space as the Cartesian product of $P$ modality-specific input spaces:
 		\[
-		\mathbf{X} \;=\; \prod_{m=1}^{M} \mathbf{X}^{(m)},
-		\quad
-		\mathbf{y} \;\in\; \mathbf{Y}
+		\mathcal{X} = \prod_{p=1}^{P} \mathcal{X}^{(p)},
 		\]
+		where each modality $\mathcal{X}^{(p)}$ may represent data from distinct sources (e.g., image, text, audio).
 	\end{block}
 	
-	\begin{block}{Datasets}
+\end{frame}
+
+\begin{frame}{Training Paradigm}
+	\begin{block}{}
+		We first pre-train a foundation model on a large-scale unlabeled multimodal dataset:
 		\[
-		\mathcal{D}_{L} = \bigl\{\,(\,\mathbf{x}_{i},\,y_{i})\bigr\}_{i=1}^{N_{L}},
-		\quad
-		\mathcal{D}_{U} = \bigl\{\,\mathbf{x}_{j}\bigr\}_{j=1}^{N_{U}}
+		\mathcal{D}_{\mathrm{pre}} = \bigl\{\mathbf{x}_i\bigr\}_{i=1}^{N_U}, \quad \mathbf{x}_i \in \mathcal{X},
 		\]
-		where
+		
+		then fine-tune on a smaller labeled multimodal dataset:
 		\[
-		\mathbf{x}_{i}
-		= \bigl(\,\mathbf{x}_{i}^{(1)},\,\mathbf{x}_{i}^{(2)},\,\dots,\,\mathbf{x}_{i}^{(M)}\bigr)
-		\;\in\;\mathbf{X}.
+		\mathcal{D}_{\mathrm{ft}} = \bigl\{(\mathbf{x}_j, y_j)\bigr\}_{j=1}^{N_L}, \quad \mathbf{x}_j \in \mathcal{X},\quad y_j \in \mathcal{Y},
 		\]
+		with $\mathcal{Y}$ representing the target output space (e.g., severity score, disorder probability).
 	\end{block}
-	
-		\begin{itemize}
-			\item $M$: number of modalities (e.g.\ image, text, audio).
-			\item $\mathbf{X}^{(m)}$: input space of modality $m$.
-			\item $\mathbf{X}$: joint input space (Cartesian product).
-			\item $\mathbf{Y}$: output/label space.
-			\item $N_{L}, N_{U}$: number of labeled / unlabeled examples.
-			\item $\mathbf{x}_{i}^{(m)}$: observation from modality $m$ in example $i$.
-			\item $y_{i}$: scalar label or target.
-		\end{itemize}
 \end{frame}
 
 
@@ -248,7 +242,7 @@
 			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
 			
 			% Arrows and labels
-			\draw[->, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
+			\draw[<-, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
 			\draw[->, MyDarkBlue, thick] (dec.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Reconstruction};
 			\draw[->, MyAccent, thick] (z.south) -- (gp.north);
 			\draw[->, MyDarkBlue, thick] (gp.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Predictive Distribution\\(Inference)};
