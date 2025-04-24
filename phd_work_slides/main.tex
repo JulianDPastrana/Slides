@@ -53,9 +53,9 @@
 		\toprule
 		\diagbox{\textbf{Model}}{\textbf{Challenge}} & \textbf{Complex Patterns} & \textbf{High Labeled Data Volume} & \textbf{Stochasticity} & \textbf{Data Shift} \\
 		\midrule
-		Traditional Machine Learning Models[2, 3] & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
-		Traditional Deep Learning Models [4, 5]    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
-		Foundation Models[6]                   & \textcolor{teal}{\ding{51}}    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} \\
+		Machine Learning [2, 3] & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
+		Deep Learning  [4, 5]    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{teal}{\ding{51}} & \textcolor{purple}{\ding{55}} \\[1mm]
+		Foundation [6]                   & \textcolor{teal}{\ding{51}}    & \textcolor{teal}{\ding{51}}    & \textcolor{purple}{\ding{55}} & \textcolor{purple}{\ding{55}} \\
 		\bottomrule
 	\end{tabular}
 
@@ -125,6 +125,42 @@
 			
 		\end{tikzpicture}
 	}
+\end{frame}
+
+\begin{frame}{Multimodal Representation}
+	We model multimodal data using a joint representation.
+	
+	\begin{block}{Data Space}
+		\[
+		\mathbf{X} \;=\; \prod_{m=1}^{M} \mathbf{X}^{(m)},
+		\quad
+		\mathbf{y} \;\in\; \mathbf{Y}
+		\]
+	\end{block}
+	
+	\begin{block}{Datasets}
+		\[
+		\mathcal{D}_{L} = \bigl\{\,(\,\mathbf{x}_{i},\,y_{i})\bigr\}_{i=1}^{N_{L}},
+		\quad
+		\mathcal{D}_{U} = \bigl\{\,\mathbf{x}_{j}\bigr\}_{j=1}^{N_{U}}
+		\]
+		where
+		\[
+		\mathbf{x}_{i}
+		= \bigl(\,\mathbf{x}_{i}^{(1)},\,\mathbf{x}_{i}^{(2)},\,\dots,\,\mathbf{x}_{i}^{(M)}\bigr)
+		\;\in\;\mathbf{X}.
+		\]
+	\end{block}
+	
+		\begin{itemize}
+			\item $M$: number of modalities (e.g.\ image, text, audio).
+			\item $\mathbf{X}^{(m)}$: input space of modality $m$.
+			\item $\mathbf{X}$: joint input space (Cartesian product).
+			\item $\mathbf{Y}$: output/label space.
+			\item $N_{L}, N_{U}$: number of labeled / unlabeled examples.
+			\item $\mathbf{x}_{i}^{(m)}$: observation from modality $m$ in example $i$.
+			\item $y_{i}$: scalar label or target.
+		\end{itemize}
 \end{frame}
 
 
