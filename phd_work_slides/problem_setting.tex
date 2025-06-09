@@ -22,9 +22,11 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 			\begin{center}
 				\begin{tikzpicture}
 					\begin{axis}[
+						width=\textwidth,
+						height=4cm,
 						ybar,
 						bar width=12pt,
-						enlarge x limits=0.2,
+%						enlarge x limits=0.2,
 						ylabel={\% of Samples},
 						symbolic x coords={Disgust,Fear,Happy,Surprised,Sad,Anger,Neutral},
 						xtick=data,
