@@ -18,11 +18,11 @@
 The dataset consists of video, sensor, and demographic data collected from 10 participants playing a Super Mario Bros.
 \end{block}
 		\begin{columns}[T] % Top alignment
-		\begin{column}{0.4\textwidth}
+		\begin{column}{0.5\textwidth}
 			\includegraphics[width=\linewidth]{figures/toadstool.jpg}
 			
 		\end{column}
-		\begin{column}{0.6\textwidth}
+		\begin{column}{0.5\textwidth}
 
 %		\vspace{0.5em}
 		\centering
@@ -38,31 +38,7 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 		\bottomrule
 		\end{tabular}
 		
-		\begin{figure}[htbp]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					width=\textwidth,
-					height=2.5cm,
-					ybar,
-					bar width=10pt,
-					enlarge x limits=0.15,
-					ylabel={\% of Samples},
-					symbolic x coords={Disgust,Fear,Happy,Surprised,Sad,Anger,Neutral},
-					xtick=data,
-					axis x line=none,
-					axis y line=none,
-					tick style={draw=none},
-					yticklabels={},
-					nodes near coords,
-					nodes near coords align={vertical},
-					]
-					\addplot+[fill=blue!60] coordinates {
-						(Disgust,10) (Fear,10) (Happy,10) (Surprised,4) (Sad,5) (Anger,10) (Neutral,51)
-					};
-				\end{axis}
-			\end{tikzpicture}
-		\end{figure}
+
 
 
 		\end{column}
@@ -90,6 +66,5 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 			\end{axis}
 		\end{tikzpicture}
 	\end{center}
-	\note{Shows percentage breakdown of the seven emotion classes across all participants.}
 \end{frame}
 
