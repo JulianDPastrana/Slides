@@ -29,21 +29,21 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 		height=4cm,
 		ybar,
 		bar width=12pt,
-		axis lines=left,
+		axis x line=bottom,
+		axis y line=left,
 		ylabel={\% of Samples},
-		symbolic x coords={Disgust,Fear,Happy,Surprised,Sad,Anger,Neutral},
+		symbolic x coords={0,1,2,3,4,5,6},
 		xtick=data,
-		xticklabel style={rotate=45, anchor=east},
-		ymin=0, ymax=60,
-		tick style={black},
-		enlarge x limits=0.1  % adds horizontal margin on both sides
+		xticklabel style={rotate=45,anchor=east},
+		enlarge x limits=0.1,
+		ymin=0, ymax=60
 		]
 		\addplot+[fill=blue!60] coordinates {
-			(Disgust,10) (Fear,10) (Happy,10)
-			(Surprised,4) (Sad,5) (Anger,10) (Neutral,51)
+			(0,10) (1,10) (2,10) (3,10) (4,5) (5,4) (6,51)
 		};
 	\end{axis}
 \end{tikzpicture}
+
 
 			\end{center}
 			
