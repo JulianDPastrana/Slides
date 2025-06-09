@@ -30,17 +30,18 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 		ylabel={\% of Samples},
 		symbolic x coords={Disgust,Fear,Happy,Surprised,Sad,Anger,Neutral},
 		xtick=data,
-		xticklabel style={rotate=45, anchor=east}, % slanted labels
+		xticklabel style={rotate=45, anchor=east},
 		ymin=0, ymax=60,
-		tick style={black}     % standard tick marks
+		tick style={black},
+		enlarge x limits=0.1  % adds horizontal margin on both sides
 		]
-		% no 'nodes near coords' to remove labels above bars
 		\addplot+[fill=blue!60] coordinates {
 			(Disgust,10) (Fear,10) (Happy,10)
 			(Surprised,4) (Sad,5) (Anger,10) (Neutral,51)
 		};
 	\end{axis}
 \end{tikzpicture}
+
 			\end{center}
 			
 		\end{column}
