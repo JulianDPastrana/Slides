@@ -40,17 +40,20 @@
 		
 		\begin{figure}[htbp]
 			\centering
-			\begin{tikzpicture}
+			\begin{tikzpicture}[scale=0.6]
 				\begin{axis}[
 					ybar,
-					bar width=12pt,
-					enlarge x limits=0.2,
+					bar width=10pt,
+					enlarge x limits=0.15,
 					ylabel={\% of Samples},
 					symbolic x coords={Disgust,Fear,Happy,Surprised,Sad,Anger,Neutral},
 					xtick=data,
+					axis x line=none,
+					axis y line=none,
+					tick style={draw=none},
+					yticklabels={},
 					nodes near coords,
 					nodes near coords align={vertical},
-					ymin=0, ymax=60
 					]
 					\addplot+[fill=blue!60] coordinates {
 						(Disgust,10) (Fear,10) (Happy,10) (Surprised,4) (Sad,5) (Anger,10) (Neutral,51)
