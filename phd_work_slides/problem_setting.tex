@@ -98,31 +98,16 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 
 \begin{frame}[t]{Problem Setting}
 	\begin{block}{}
-		Let $\{(\boldsymbol{x}^{(i)},y^{(i)})\}_{i=1}^N$ be the training set, where
-		$y^{(i)}\in\{0,\dots,6\}$ and
-		\[
-		\boldsymbol{x}^{(i)} \;\in\; \mathcal{X}
-		= \bigl\{\,[\boldsymbol{x}_1,\dots,\boldsymbol{x}_T]\bigr\},
-		\quad T = 256.
-		\]
-	\end{block}
-	\vspace{-0.5em}
-	\begin{block}{}
-		Each sequence is
+		Let $\{(\boldsymbol{x}^{(i)},\,y^{(i)})\}_{i=1}^N$ be the training dataset, where 
+		$\boldsymbol{x}^{(i)}\in\mathcal{X}$ and $y^{(i)}\in\{0,1,\dots,6\}$.  
+		Here $\mathcal{X}$ is the space of vector sequences of length $T=256$:
 		\[
 		\boldsymbol{x}^{(i)}
-		= [\boldsymbol{x}_1^{(i)}, \dots, \boldsymbol{x}_T^{(i)}],
-		\quad
-		\boldsymbol{x}_t^{(i)} = (x_{t,1}^{(i)}, x_{t,2}^{(i)}, x_{t,3}^{(i)}),
+		= \bigl[\boldsymbol{x}^{(i)}_{1}, \dots, \boldsymbol{x}^{(i)}_{t}, \dots,\boldsymbol{x}^{(i)}_{T}\bigr].
 		\]
-		where 
-		\[
-		x_{t,j}^{(i)} =
-		\begin{cases}
-			\text{observed value at 64\,Hz}, & \text{if sampled},\\
-			\mathrm{NaN},                    & \text{otherwise}.
-		\end{cases}
-		\]
+		Each vector $\boldsymbol{x}^{(i)}_{t}$ has $p=3$ channels,
+		denoted $x^{(i)}_{t,j}\in\mathbb{R}\cup\{\mathrm{NaN}\}$ to indicate missing values.
 	\end{block}
 \end{frame}
+
 
