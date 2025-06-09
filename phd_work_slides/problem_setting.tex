@@ -29,21 +29,20 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 		height=4cm,
 		ybar,
 		bar width=12pt,
-		axis lines=left,
-		ylabel={\% of Samples},
-		symbolic x coords={Disgust,Fear,Happy,Surprised,Sad,Anger,Neutral},
-		xtick=data,
-		xticklabel style={rotate=45, anchor=east},
+		axis x line=bottom,
+		axis y line=left,
+		xlabel={0:Anger, 1:Disgust, 2:Fear, 3:Happy, 4:Sad, 5:Surprised, 6:Neutral},
+		xtick=\empty,               % no individual ticks on x
+		ytick={0,10,20,30,40,50,60},
 		ymin=0, ymax=60,
-		tick style={black},
-		enlarge x limits=0.1  % adds horizontal margin on both sides
+		xmin=-0.5, xmax=6.5,        % margin for first/last bar
 		]
 		\addplot+[fill=blue!60] coordinates {
-			(Disgust,10) (Fear,10) (Happy,10)
-			(Surprised,4) (Sad,5) (Anger,10) (Neutral,51)
+			(0,10) (1,10) (2,10) (3,10) (4,5) (5,4) (6,51)
 		};
 	\end{axis}
 \end{tikzpicture}
+
 
 			\end{center}
 			
@@ -75,7 +74,7 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 \begin{frame}[t]{Problem Setting}
 
 	\begin{block}{}
-		Let $\{\boldsymbol{x}^{(i)}\}_{i=1}^{N}$ be our dataset, with $x^{(i)}\in\mathcal{X}$.  Each sequence is
+		Let $\{\boldsymbol{x}^{(i)}, y^(i)\}_{i=1}^{N}$ be the train dataset, with $\boldsymbol{x}^{(i)}\in\mathcal{X}$ and $y \in \{\}\}$.  Each sequence is
 		\[
 		x^{(i)}
 		=\bigl[x^{(i)}_{t_{1}},\dots,x^{(i)}_{t_{n_i}}\bigr],
