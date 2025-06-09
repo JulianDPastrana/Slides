@@ -99,11 +99,10 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 \begin{frame}[t]{Problem Setting}
 
 	\begin{block}{}
-		Let $\{\boldsymbol{x}^{(i)}, y^(i)\}_{i=1}^{N}$ be the train dataset, with $\boldsymbol{x}^{(i)}\in\mathcal{X}$ and $y \in \{0, 1, \dots, 6\}$. $\mathcal{X}$ is the space of vector sequences with length $T = 256$, that is
+		Let $\{\boldsymbol{x}^{(i)}, y^(i)\}_{i=1}^{N}$ be the train dataset, with $\boldsymbol{x}^{(i)}\in\mathcal{X}$ and $y \in \{0, 1, \dots, 6\}$. $\mathcal{X}$ is the space of vector sequences with length $T = 256$ consecutive observations, that is
 		\[
 		x^{(i)}
-		=\bigl[\boldsymbol{x}^{(i)}_{1},\dots, \boldsymbol{x}^{(i)}_{t}, \dots,\boldsymbol{x}^{(i)}_{T}\bigr],
-		\quad t_k = \tfrac{k}{64}\,\mathrm{s},\;k=1,\dots,n_i.
+		=\bigl[\boldsymbol{x}^{(i)}_{1},\dots, \boldsymbol{x}^{(i)}_{t}, \dots,\boldsymbol{x}^{(i)}_{T}\bigr].
 		\]
 		For modality $p$ at lower native rate,
 		\[
