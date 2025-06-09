@@ -30,3 +30,34 @@
 		\end{column}
 	\end{columns}
 \end{frame}
+
+
+\begin{frame}{Toadstool 2 Dataset}
+	\begin{columns}[T] % Top alignment
+		\begin{column}{0.45\textwidth}
+			\includegraphics[width=\linewidth]{figures/toadstool.jpg}
+			\vspace{0.5cm}
+			\begin{block}{Sequential Signals}
+				\begin{itemize}
+					\item \textbf{BVP:} 64\,Hz $\times$ 4\,s per sample
+					\item \textbf{ACC:} 32\,Hz $\times$ 4\,s per sample (x,y,z)
+					\item \textbf{EDA:} 4\,Hz $\times$ 4\,s per sample
+					\item \textbf{HR:} 1\,Hz $\times$ 4\,s per sample
+					\item \textbf{Samples per subject:} $\approx$210 (2,097 total)
+					\item \textbf{Labels:} 7 classes (0:Anger, 1:Disgust, 2:Fear, 3:Happy, 4:Sad, 5:Surprised, 6:Neutral)
+				\end{itemize}
+			\end{block}
+		\end{column}
+		\begin{column}{0.55\textwidth}
+			\begin{block}{}
+				The dataset consists of video, sensor, and demographic data collected from ten participants playing Super Mario Bros.
+			\end{block}
+			
+			\begin{block}{}
+				Although volumetric measurements are recorded, they are reported in kilowatt-hours (kWh) by the hydroelectric power plants.
+			\end{block}
+		\end{column}
+	\end{columns}
+	\note{Emphasize the sequential signal sampling rates, total samples per subject, and label classes.}
+\end{frame}
+
