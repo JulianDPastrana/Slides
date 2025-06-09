@@ -1,0 +1,76 @@
+\section[\empty]{Objective 1: Foundation Model}
+
+\begin{frame}[fragile]{Objective 1: Foundation Model}
+	
+	\begin{block}{}
+		We aims to train a general model using large amounts of data and tasks that can be fine-tuned easily in different downstream applications.
+	\end{block}
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tikzpicture}[font=\sffamily, >=stealth, node distance=3cm, thick]
+			
+			% Left Square (Training)
+			\node[rectangle, draw=MyAccent, fill=MyLightGray, rounded corners, align=left, text=MyDarkBlue] (training) {
+				\textbf{Data}\\[5pt]
+				- Text\\
+				- Images\\
+				- Sensors\\
+				- Speech
+			};
+			
+			% Foundation Model (center)
+			\node[rectangle, draw=MyAccent, fill=MyAccent!20, rounded corners, minimum width=3.5cm, minimum height=2cm, right=of training, text=MyDarkBlue] (foundation) {
+				\textbf{Foundation Model}
+			};
+			
+			% Right Square (Tasks)
+			\node[rectangle, draw=MyAccent, fill=MyLightGray, rounded corners, align=left, right=of foundation, text=MyDarkBlue] (tasks) {
+				\textbf{Task}\\[5pt]
+				- Object Recognition\\
+				- Text Generation\\
+				- Sentiment Analysis\\
+				- Image Captioning
+			};
+			
+			% Arrows
+			\draw[->, MyDarkBlue] (training.east) -- node[above, text=MyDarkBlue]{Pre-Training} (foundation.west);
+			\draw[->, MyDarkBlue] (foundation.east) -- node[above, text=MyDarkBlue]{Fine-Tuning} (tasks.west);
+			
+		\end{tikzpicture}
+	}
+\end{frame}
+
+
+\begin{frame}[fragile]{Architecture}
+	\begin{block}{}
+		We can leverage large amounts of unlabeled data to learn hidden‐state representations without committing to any specific downstream task.
+	\end{block}
+	
+	\resizebox{\textwidth}{!}{
+		\tikzset{trapezium stretches=true}
+		\centering
+		\begin{tikzpicture}[font=\sffamily, >=stealth, node distance=8mm]
+			% Latent variable (z)
+			\node[rectangle, fill=MyAccent, text=white, font=\sffamily\large, minimum height=3cm, text width=3cm, align=center] (z) {Latent\\ Representation ($\boldsymbol{h}$)};
+			
+			% Encoder trapezoid
+			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
+			trapezium left angle=86, trapezium right angle=86, shape border rotate=270,
+			anchor=east, left=5mm of z, font=\sffamily\large, text=MyDarkBlue] (enc) {Encoder};
+			
+			% Decoder trapezoid
+			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
+			trapezium left angle=86, trapezium right angle=86, shape border rotate=90,
+			anchor=west, right=5mm of z, font=\sffamily\large, text=MyDarkBlue] (dec) {Decoder};
+			
+		
+			% Arrows and labels
+			\draw[<-, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
+			\draw[->, MyDarkBlue, thick] (dec.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Reconstruction};
+%			\draw[->, MyAccent, thick] (z.south) -- (gp.north);
+%			\draw[->, MyDarkBlue, thick] (gp.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Predictive Distribution\\(Inference)};
+		\end{tikzpicture}
+	}
+\end{frame}
+
+
