@@ -60,12 +60,12 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 	\end{tabular}
 	
 	\column[c]{0.33\textwidth}
-	\centering\footnotesize
-	\begin{tabular}{r l}
-		4 & Sad        \\
-		5 & Surprised  \\
-		6 & Neutral
-	\end{tabular}
+  \centering\footnotesize
+\begin{tabular}{@{}p{0.3\textwidth} p{0.3\textwidth} p{0.3\textwidth}@{}}
+	\centering 0: Anger     & \centering 1: Disgust   & \centering 2: Fear      \\
+	\centering 3: Happy     & \centering 4: Sad       & \centering 5: Surprised \\
+	\multicolumn{3}{c}{6: Neutral}
+\end{tabular}
 \end{columns}
 
 
@@ -104,14 +104,7 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 		x^{(i)}
 		=\bigl[\boldsymbol{x}^{(i)}_{1},\dots, \boldsymbol{x}^{(i)}_{t}, \dots,\boldsymbol{x}^{(i)}_{T}\bigr].
 		\]
-		For modality $p$ at lower native rate,
-		\[
-		x^{(i,p)}_{t_k} =
-		\begin{cases}
-			\text{observed}, & t_k\in T^{(p)},\\
-			\mathrm{NaN},    & \text{otherwise},
-		\end{cases}
-		\]
-		where $T^{(p)}$ are the true sampling instants of modality $p$.
+		$\boldsymbol{x}^{(i)}_{t}$ contain p=3 elements, one by each cnhannel denoted by x^{(i)}_{t,j}, can be either R, or be a missing valued
+		
 	\end{block}
 \end{frame}
