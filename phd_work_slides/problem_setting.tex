@@ -102,45 +102,57 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 	\vspace{-1.5em}
 
 \begin{center}
-\begin{tikzpicture}[x=1.5cm,y=1.0cm]
-	% Loop over depth N = 2 (back layer) then N = 1 (front layer)
-	\foreach \N in {2,1} {
-		% compute shift = 0.5*(N-1)
-		\pgfmathsetmacro{\shift}{0.5*(\N-1)}
+\begin{tikzpicture}[x=1.5cm,y=1cm]
+	\newcommand{\Tmin}{0}   % start of T
+	\newcommand{\Tmax}{10}  % end   of T
+	\newcommand{\Pdim}{3}   % number of rows (p = 1..Pdim)
+	\newcommand{\Ndim}{3}   % number of layers (N = 1..Ndim)
+	
+	% iterate depth‐layers from back (N=1) to front (N=Ndim)
+	\foreach \N in {1,...,\Ndim} {
+		% compute shift so layer 1 is far back, layer Ndim is at (0,0)
+		\pgfmathsetmacro{\shift}{0.5*(\Ndim-\N)}
 		\begin{scope}[shift={(\shift,\shift)}]
-			% Loop over p = 1 (top row at y=1), p = 2 (bottom row at y=0)
-			\foreach \p/\y in {1/1,2/0} {
-				% Loop over time T = 0,...,4
-				\foreach \i in {0,...,4} {
-					% Decide fill color and label text
+			% iterate over rows p=1..Pdim
+			\foreach \p in {1,...,\Pdim} {
+				% y‐coordinate = Pdim – p  (so p=1 is top row, p=Pdim bottom)
+				\pgfmathtruncatemacro{\y}{\Pdim-\p}
+				% iterate time indices T = Tmin..Tmax
+				\foreach \i in {\Tmin,...,\Tmax} {
+					% coloring and labels: row 1 plain, other rows hat on odd i
 					\ifnum\p=1
 					\def\fillcolor{MyAccent!20}
-					\def\label{$x_{\i,\p}^{(\N)}$}
+					\def\labeltext{$x_{\i,\p}^{(\N)}$}
 					\else
 					\ifodd\i
 					\def\fillcolor{red!20}
-					\def\label{$\hat x_{\i,\p}^{(\N)}$}
+					\def\labeltext{$\hat x_{\i,\p}^{(\N)}$}
 					\else
 					\def\fillcolor{MyAccent!20}
-					\def\label{$x_{\i,\p}^{(\N)}$}
+					\def\labeltext{$x_{\i,\p}^{(\N)}$}
 					\fi
 					\fi
-					% Draw cell and node
-					\fill[fill=\fillcolor,draw=MyDarkBlue] (\i,\y) rectangle ++(1,1);
-					\node[text=black,font=\footnotesize] at (\i+0.5,\y+0.5) {\label};
+					% draw cell + label
+					\fill[fill=\fillcolor,draw=MyDarkBlue]
+					(\i,\y) rectangle ++(1,1);
+					\node[text=black,font=\footnotesize]
+					at (\i+0.5,\y+0.5) {\labeltext};
 				}
 			}
 		\end{scope}
 	}
 	
-	% Braces for dimensions
-	\draw[decorate, decoration={brace, amplitude=4pt}]
-	(0.5,2.8) -- (5.5,2.8) node[midway, above=4pt] {$T$};
-	\draw[decorate, decoration={brace, amplitude=4pt, mirror}]
-	(5.6,0) -- (5.6,2) node[midway, right=4pt] {$p$};
-	\draw[decorate, decoration={brace, amplitude=4pt}]
-	(-0.2,2) -- (0.3,2.3) node[midway, above left=2pt] {$N$};
-\end{tikzpicture}
+	% braces for T, p, N (auto-sized to your parameters)
+	\draw[decorate,decoration={brace,amplitude=4pt}]
+	(\Tmin+0.5,\Pdim+0.8) -- (\Tmax+1.5,\Pdim+0.8)
+	node[midway,above=4pt] {$T$};
+	\draw[decorate,decoration={brace,amplitude=4pt,mirror}]
+	(\Tmax+1.6,0) -- (\Tmax+1.6,\Pdim)
+	node[midway,right=4pt] {$p$};
+	\draw[decorate,decoration={brace,amplitude=4pt}]
+	(-0.2,\Pdim) -- (0.3,\Pdim+0.3)
+	node[midway,above left=2pt] {$N$};
+\end{tikzpicture}	
 \end{center}
 
 \end{frame}
