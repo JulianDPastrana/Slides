@@ -102,47 +102,45 @@ The dataset consists of video, sensor, and demographic data collected from 10 pa
 	\vspace{-1.5em}
 
 \begin{center}
-	\begin{tikzpicture}[x=1.5cm,y=1.0cm]
-		% back layer, shifted further for depth effect
-		\begin{scope}[shift={(0.5,0.5)}]
-			\foreach \i in {0,...,4} {
-				\fill[fill=MyAccent!20, draw=MyDarkBlue] (\i,1) rectangle ++(1,1);
-				\node[text=black,font=\footnotesize] at (\i+0.5,1.5) {$x_{\i,1}^{(2)}$};
-			}
-			\foreach \i in {0,...,4} {
-				\ifodd\i
-				\fill[fill=red!20,draw=MyDarkBlue] (\i,0) rectangle ++(1,1);
-				\node[text=black,font=\footnotesize] at (\i+0.5,0.5) {$\hat x_{\i,2}^{(2}$};
-				\else
-				\fill[fill=MyAccent!20,draw=MyDarkBlue] (\i,0) rectangle ++(1,1);
-				\node[text=black,font=\footnotesize] at (\i+0.5,0.5) {$x_{\i,2}^{(2)}$};
-				\fi
+\begin{tikzpicture}[x=1.5cm,y=1.0cm]
+	% Loop over depth N = 2 (back layer) then N = 1 (front layer)
+	\foreach \N in {2,1} {
+		% compute shift = 0.5*(N-1)
+		\pgfmathsetmacro{\shift}{0.5*(\N-1)}
+		\begin{scope}[shift={(\shift,\shift)}]
+			% Loop over p = 1 (top row at y=1), p = 2 (bottom row at y=0)
+			\foreach \p/\y in {1/1,2/0} {
+				% Loop over time T = 0,...,4
+				\foreach \i in {0,...,4} {
+					% Decide fill color and label text
+					\ifnum\p=1
+					\def\fillcolor{MyAccent!20}
+					\def\label{$x_{\i,\p}^{(\N)}$}
+					\else
+					\ifodd\i
+					\def\fillcolor{red!20}
+					\def\label{$\hat x_{\i,\p}^{(\N)}$}
+					\else
+					\def\fillcolor{MyAccent!20}
+					\def\label{$x_{\i,\p}^{(\N)}$}
+					\fi
+					\fi
+					% Draw cell and node
+					\fill[fill=\fillcolor,draw=MyDarkBlue] (\i,\y) rectangle ++(1,1);
+					\node[text=black,font=\footnotesize] at (\i+0.5,\y+0.5) {\label};
+				}
 			}
 		\end{scope}
-		
-		% front layer
-		\foreach \i in {0,...,4} {
-			\fill[fill=MyAccent!20, draw=MyDarkBlue] (\i,1) rectangle ++(1,1);
-			\node[text=black,font=\footnotesize] at (\i+0.5,1.5) {$x_{\i,1}^{(1)}$};
-		}
-		\foreach \i in {0,...,4} {
-			\ifodd\i
-			\fill[fill=red!20,draw=MyDarkBlue] (\i,0) rectangle ++(1,1);
-			\node[text=black,font=\footnotesize] at (\i+0.5,0.5) {$\hat x_{\i,2}^{(1)}$};
-			\else
-			\fill[fill=MyAccent!20,draw=MyDarkBlue] (\i,0) rectangle ++(1,1);
-			\node[text=black,font=\footnotesize] at (\i+0.5,0.5) {$x_{\i,2}^{(1)}$};
-			\fi
-		}
-		
-		% braces for dimensions
-		\draw[decorate, decoration={brace, amplitude=4pt}] (0.5,2.8) -- (5.5,2.8)
-		node[midway, above=4pt] {$T$};
-		\draw[decorate, decoration={brace, amplitude=4pt, mirror}] (5.6,0) -- (5.6,2)
-		node[midway, right=4pt] {$p$};
-		\draw[decorate, decoration={brace, amplitude=4pt}]
-		(-0.2,2) -- (0.3,2.3) node[midway, above left=2pt] {$N$};
-	\end{tikzpicture}
+	}
+	
+	% Braces for dimensions
+	\draw[decorate, decoration={brace, amplitude=4pt}]
+	(0.5,2.8) -- (5.5,2.8) node[midway, above=4pt] {$T$};
+	\draw[decorate, decoration={brace, amplitude=4pt, mirror}]
+	(5.6,0) -- (5.6,2) node[midway, right=4pt] {$p$};
+	\draw[decorate, decoration={brace, amplitude=4pt}]
+	(-0.2,2) -- (0.3,2.3) node[midway, above left=2pt] {$N$};
+\end{tikzpicture}
 \end{center}
 
 \end{frame}
