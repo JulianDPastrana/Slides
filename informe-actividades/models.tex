@@ -192,3 +192,78 @@ being \( \text{KL}\{q(\boldsymbol{u}_q)\parallel p(\boldsymbol{u}_q)\} \) the Ku
 The optimization step for the Chained LMC GP involves several key parameters: kernel parameters (such as characteristic lengthscales and output scale for the exponential quadratic kernel), the set of inducing point locations, and the variational distribution parameters. According to \cite{giraldo2021fully}, there is a strong dependency between the variational parameters and the others, making the model extremely sensitive to any changes in these variables. Additionally, since the ELBO loss function is generally non-convex, stochastic gradient optimization methods often converge to poor local minima.
 
 Recent research has found a beneficial use of Natural Gradient (NG) optimization to overcome the issue mentioned above. The work developed by \cite{pmlr-v84-salimbeni18a} demonstrates the advantages of NG for variational GPs optimization with minimal effort and how to combine it with the Adam optimizer, providing a hybrid optimization framework. In the same spirit, we propose an optimization scheme where the variational parameters are governed by Natural Gradient (NG) optimization, while the others are optimized using the Adam optimizer and we refer to this Adam + NG. That approach allows us to achieve a similar optimization performance as Adam's as if we were optimizing an exact model.
+
+
+\subsection{Adaptative Multi-Rate LSTM (AMR LSTM)}
+
+\subsubsection{Problem Setting}
+
+Consider a train dataset, comprising \(N\) input-output pairs of examples denoted as  $\mathcal{D} = \{(\boldsymbol{X}{i},\,y{i})\}_{i=1}^N$, where 
+$\boldsymbol{X}{i}\in\mathcal{X}$ and $y{i}\in\mathcal{Y}$ belongs to some input and output space respectively. Here $\mathcal{X}$ is the space of collections of, at most, \(P\) vector sequences corresponding with time-series view of window time of size $T$:
+\[
+\boldsymbol{X}_i
+= \bigl\{\boldsymbol{x}{i}^{(1)}, \dots, \boldsymbol{x}{i}^{(t)}, \dots,\boldsymbol{x}_{i}^{(T)}\bigr\}
+\]
+$\boldsymbol{x}_{i}^{(t)}$ has at most \(P = 6\) elements corresponding to each time-series measure at instant \(t\). However, each sequence was recorded with its own sampling rate. We assume that each sampling rate is multiple of an foundamental one, assosiated with the maxima sampling frequency rate signal recorded
+
+\begin{center}
+	\begin{tikzpicture}[x=1.5cm,y=1cm]
+		% user‐changeable parameters:
+		\newcommand{\Tmin}{0}    % lowest time index
+		\newcommand{\Tmax}{5}   % highest time index
+		\newcommand{\Pdim}{3}    % number of rows (p = 1…Pdim)
+		\newcommand{\Ndim}{3}    % number of depth‐layers (N = 1…Ndim)
+		% how far out braces sit (tweak if you want more/less clearance):
+		\newcommand{\Xoff}{0.3}  
+		\newcommand{\Yoff}{0.3}  
+		% Draw each layer N = 1…Ndim (1 is backmost, Ndim is front)
+		\foreach \N in {1,...,\Ndim} {
+			% how much to shift layer \N back in x,y
+			\pgfmathsetmacro{\shift}{0.5*(\Ndim-\N)}
+			\begin{scope}[shift={(\shift,\shift)}]
+				% for each row p
+				\foreach \p in {1,...,\Pdim} {
+					% compute its y‐coordinate so p=1 is the top
+					\pgfmathtruncatemacro{\y}{\Pdim-\p}
+					% and for each time index i
+					\foreach \i in {\Tmin,...,\Tmax} {
+						% pattern: one blue then (p-1) reds
+						\pgfmathtruncatemacro{\modres}{mod(\i,\p)}
+						\ifnum\modres=0
+						\def\fillcolor{MyAccent!20}
+						\def\labeltext{$x_{\i,\p}^{(\N)}$}
+						\else
+						\def\fillcolor{red!20}
+						\def\labeltext{}
+						\fi
+						\fill[fill=\fillcolor,draw=MyDarkBlue]
+						(\i,\y) rectangle ++(1,1);
+						\node[text=black,font=\footnotesize]
+						at (\i+0.5,\y+0.5) {\labeltext};
+					}
+				}
+			\end{scope}
+		}
+		
+		% ─────── Braces ─────────────────────────────────────────────
+		% T‐brace above, spanning all time‐cells:
+		\draw[decorate,decoration={brace,amplitude=4pt}]
+		(\Tmin+1,\Pdim+\Yoff+1) -- (\Tmax+2,\Pdim+\Yoff+1)
+		node[midway,above=4pt] {$T$};
+		
+		% p‐brace at right, spanning all rows:
+		\draw[decorate,decoration={brace,amplitude=4pt,mirror}]
+		(\Tmax+2+\Xoff,1) -- (\Tmax+2+\Xoff,\Pdim+1)
+		node[midway,right=4pt] {$P$};
+		
+		% N‐brace (diagonal) from front layer to back layer:
+		\pgfmathsetmacro{\Nshift}{0.5*(\Ndim-1)}
+		\pgfmathsetmacro{\startX}{\Tmin-\Xoff}
+		\pgfmathsetmacro{\startY}{\Pdim}
+		\pgfmathsetmacro{\endX}{\Tmin+\Nshift-\Xoff}
+		\pgfmathsetmacro{\endY}{\Pdim+\Nshift}
+		\draw[decorate,decoration={brace,amplitude=4pt}]
+		(\startX,\startY) -- (\endX,\endY)
+		node[midway,above left=2pt] {$N$};
+	\end{tikzpicture}
+\end{center}
