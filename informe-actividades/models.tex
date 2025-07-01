@@ -199,12 +199,13 @@ Recent research has found a beneficial use of Natural Gradient (NG) optimization
 \subsubsection{Problem Setting}
 
 Consider a train dataset, comprising \(N\) input-output pairs of examples denoted as  $\mathcal{D} = \{(\boldsymbol{X}{i},\,y{i})\}_{i=1}^N$, where 
-$\boldsymbol{X}{i}\in\mathcal{X}$ and $y{i}\in\mathcal{Y}$ belongs to some input and output space respectively. Here $\mathcal{X}$ is the space of collections of, at most, \(P\) vector sequences corresponding with time-series view of window time of size $T$:
+$\boldsymbol{X}{i}\in\mathcal{X}$ and $y{i}\in\mathcal{Y}$ belongs to some input and output space respectively. Here $\mathcal{X}$ is the space of collections of, at most, \(P\) vector sequences data observed within a fixed window of \(T\) fundamental time steps:
 \[
 \boldsymbol{X}_i
 = \bigl\{\boldsymbol{x}{i}^{(1)}, \dots, \boldsymbol{x}{i}^{(t)}, \dots,\boldsymbol{x}_{i}^{(T)}\bigr\}
-\]
-$\boldsymbol{x}_{i}^{(t)}$ has at most \(P = 6\) elements corresponding to each time-series measure at instant \(t\). However, each sequence was recorded with its own sampling rate. We assume that each sampling rate is multiple of an foundamental one, assosiated with the maxima sampling frequency rate signal recorded
+\].
+
+At each time step \(t \in \{1, \cdots, T\}\}\), 
 
 \begin{center}
 	\begin{tikzpicture}[x=1.5cm,y=1cm]
