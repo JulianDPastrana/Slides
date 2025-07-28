@@ -1,25 +1,30 @@
-% beamercopenhagen.cls
+% MyTheme.cls
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{beamercopenhagen}[2025/07/28 My custom Copenhagen-based Beamer class]
+\ProvidesClass{MyTheme}[2025/07/28 Custom Beamer theme with options]
 
-% Load Beamer base
-\LoadClassWithOptions{beamer}
+% ----------------------------
+% 1. Capturar y reenviar todas las opciones a beamer
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+\ProcessOptions\relax
 
-% Always use Copenhagen theme
+% 2. Cargar beamer con esas opciones
+\LoadClass{beamer}
+
+% ----------------------------
+% 3. Tu configuración particular
 \usetheme{Copenhagen}
 
-% Color definitions
-\definecolor{MyDarkBlue}{RGB}{44,62,80}    % Titles and accents
-\definecolor{MyAccent}{RGB}{52,152,219}    % Accent for elements
-\definecolor{MyLightGray}{RGB}{245,245,245}% Optional background color
+% Definición de colores
+\definecolor{MyDarkBlue}{RGB}{44,62,80}
+\definecolor{MyAccent}{RGB}{52,152,219}
+\definecolor{MyLightGray}{RGB}{245,245,245}
 
-% Global structure colors
 \setbeamercolor{structure}{fg=MyAccent}
 \setbeamercolor{frametitle}{fg=MyDarkBlue}
 \setbeamercolor{title}{fg=MyDarkBlue}
 \setbeamercolor{normal text}{fg=black}
 
-% Custom block style using tcolorbox
+% Bloques con tcolorbox
 \RequirePackage{tcolorbox}
 \setbeamertemplate{block begin}{
 	\vskip0.5em
@@ -38,8 +43,6 @@
 	\vskip0.5em
 }
 
-% Optional: set default font and margins
+% (Opcional) Ajustes de fuente y márgenes
 \setbeamerfont{title}{series=\bfseries, size=\LARGE}
 \setbeamersize{text margin left=1em, text margin right=1em}
-
-% End of class file
