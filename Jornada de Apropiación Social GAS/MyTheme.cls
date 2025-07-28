@@ -25,23 +25,23 @@
 \setbeamercolor{normal text}{fg=black}
 
 % Bloques con tcolorbox
-\RequirePackage{tcolorbox}
-\setbeamertemplate{block begin}{
-	\vskip0.5em
-	\begin{tcolorbox}[enhanced,
-		sharp corners,
-		drop shadow,
-		colback=white,
-		boxrule=0pt,
-		frame hidden,
-		left=2mm, right=2mm, top=1mm, bottom=1mm,
-		width=\textwidth]
-		\textbf{\insertblocktitle}
-	}
-	\setbeamertemplate{block end}{
-	\end{tcolorbox}
-	\vskip0.5em
-}
+%\RequirePackage{tcolorbox}
+%\setbeamertemplate{block begin}{
+%	\vskip0.5em
+%	\begin{tcolorbox}[enhanced,
+%		sharp corners,
+%		drop shadow,
+%		colback=white,
+%		boxrule=0pt,
+%		frame hidden,
+%		left=2mm, right=2mm, top=1mm, bottom=1mm,
+%		width=\textwidth]
+%		\textbf{\insertblocktitle}
+%	}
+%	\setbeamertemplate{block end}{
+%	\end{tcolorbox}
+%	\vskip0.5em
+%}
 
 % (Opcional) Ajustes de fuente y márgenes
 \setbeamerfont{title}{series=\bfseries, size=\LARGE}
