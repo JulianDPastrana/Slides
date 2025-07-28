@@ -13,6 +13,7 @@
 % ----------------------------
 % 3. Tu configuración particular
 \usetheme{Copenhagen}
+\usecolortheme{seahorse}
 
 % Define custom colors
 \definecolor{MyDarkBlue}{RGB}{44,62,80}    % Titles and accents
