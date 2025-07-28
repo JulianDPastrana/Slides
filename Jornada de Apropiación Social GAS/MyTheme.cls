@@ -19,6 +19,7 @@
 \definecolor{MyAccent}{RGB}{52,152,219}      % Accent for elements
 \definecolor{MyLightGray}{RGB}{245,245,245}  % Optional background color
 
+% Global settings for structure
 \setbeamercolor{structure}{fg=MyAccent}
 \setbeamercolor{frametitle}{fg=MyDarkBlue}
 \setbeamercolor{title}{fg=MyDarkBlue}
