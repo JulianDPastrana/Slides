@@ -14,10 +14,10 @@
 % 3. Tu configuración particular
 \usetheme{Copenhagen}
 
-% Definición de colores
-\definecolor{MyDarkBlue}{RGB}{44,62,80}
-\definecolor{MyAccent}{RGB}{52,152,219}
-\definecolor{MyLightGray}{RGB}{245,245,245}
+% Define custom colors
+\definecolor{MyDarkBlue}{RGB}{44,62,80}    % Titles and accents
+\definecolor{MyAccent}{RGB}{52,152,219}      % Accent for elements
+\definecolor{MyLightGray}{RGB}{245,245,245}  % Optional background color
 
 \setbeamercolor{structure}{fg=MyAccent}
 \setbeamercolor{frametitle}{fg=MyDarkBlue}
