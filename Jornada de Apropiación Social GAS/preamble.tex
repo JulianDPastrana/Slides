@@ -1,1 +1,30 @@
 \usetheme{Copenhagen}
+% Define custom colors
+\definecolor{MyDarkBlue}{RGB}{44,62,80}    % Titles and accents
+\definecolor{MyAccent}{RGB}{52,152,219}      % Accent for elements
+\definecolor{MyLightGray}{RGB}{245,245,245}  % Optional background color
+
+% Global settings for structure
+\setbeamercolor{structure}{fg=MyAccent}
+\setbeamercolor{frametitle}{fg=MyDarkBlue}
+\setbeamercolor{title}{fg=MyDarkBlue}
+\setbeamercolor{normal text}{fg=black}
+
+% Customized block environment with a shadow effect for the entire block
+\setbeamertemplate{block begin}{
+	\vspace{0.5em}
+	\begin{tcolorbox}[enhanced,
+		sharp corners,
+		drop shadow,      % Use the default drop shadow effect
+		colback=white,
+		boxrule=0pt,       % No visible border
+		frame hidden,      % Hide the frame
+		left=2mm, right=2mm, top=1mm, bottom=1mm,
+		width=\textwidth
+		]
+		\textbf{\insertblocktitle}
+	}
+	\setbeamertemplate{block end}{
+	\end{tcolorbox}
+	\vspace{0.5em}
+}
