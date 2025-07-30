@@ -82,7 +82,7 @@
 			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
 			
 			% Arrows and labels
-			\draw[->, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
+			\draw[<-, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
 			\draw[->, MyDarkBlue, thick] (dec.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Reconstruction};
 			\draw[->, MyAccent, thick] (z.south) -- (gp.north);
 			\draw[->, MyDarkBlue, thick] (gp.east) -- ++(1.5,0) node[right, align=left, text=MyDarkBlue] {Predictive Distribution\\(Inference)};
