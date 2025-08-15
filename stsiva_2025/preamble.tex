@@ -26,17 +26,17 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{skins} % Load only the skins library
 
-% Define custom colors
-\definecolor{MyDarkBlue}{RGB}{0,113,117}    % Titles and accents
-\definecolor{MyAccent}{RGB}{134,169,80}     % Accent for elements
-\definecolor{MyLightGray}{RGB}{104,81,47}   % Optional background color
+% --- Brand colors from your palette ---
+\definecolor{BrandTeal}{RGB}{0,113,117}   % #007175
+\definecolor{BrandGreen}{RGB}{134,169,80} % #86A950
+\definecolor{BrandBrown}{RGB}{104,81,47}  % #68512F
+\definecolor{MyLightGray}{RGB}{245,245,245} % optional bg
 
-% Global settings for structure
-\setbeamercolor{structure}{fg=MyAccent}
-\setbeamercolor{frametitle}{fg=MyDarkBlue}
-\setbeamercolor{title}{fg=MyDarkBlue}
-\setbeamercolor{normal text}{fg=black}
-
+% --- Global settings (structure & titles) ---
+\setbeamercolor{structure}{fg=BrandTeal}
+\setbeamercolor{frametitle}{fg=BrandBrown}
+\setbeamercolor{title}{fg=BrandTeal}
+\setbeamercolor{normal text}{fg=black,bg=}
 
 % Customized block environment with a shadow effect for the entire block
 \setbeamertemplate{block begin}{
