@@ -1,5 +1,15 @@
 \section{Mathematical Framework}
 
 \begin{frame}{Problem Setting}
-	content...
+
+Consider a vector time-series collecting sequential data observed across $P$ outputs at some time instant \( t \), denoted as \( \boldsymbol{v}_t \subseteq \mathbb{R}^{P}\). The flattening of \( T \) sequential observations simultaneously yields an input vector \( \boldsymbol{x} \) belonging to some input space \( \mathcal{X} \), that is
+\[
+\boldsymbol{x}= [ \boldsymbol{v}_{t-1}^\top, \boldsymbol{v}_{t-2}^\top, \cdots, \boldsymbol{v}_{t-T}^\top  ]^\top,
+\]
+with \( {\mathcal{X}} \subseteq \mathbb{R}^{L} \), \( L = PT \), and \( T \) as the model order. The forecasting task aims to predict the next \(H\) sequential values, yielding the output target \( \boldsymbol{y} \in {\mathcal{Y}} \) as
+\[
+\boldsymbol{y} = [ \boldsymbol{v}_{t}^\top, \boldsymbol{v}_{t+1}^\top, \cdots, \boldsymbol{v}_{t+H-1}^\top  ]^\top,
+\] 
+being the output space \( {\mathcal{Y}} \subseteq \mathbb{R}^{D} \), \( D = PH \), and \( H \) the model horizon. The above formulation enables the model to leverage sequential data for accurate future predictions. Gathering \( N \) input-output i.i.d. observation pairs produces the training dataset as \( {\mathcal{D}} = \{\boldsymbol{x}_n, \boldsymbol{y}_n\}_{n=1}^N = \{ \boldsymbol{X}, \boldsymbol{Y}\} \).
+
 \end{frame}
