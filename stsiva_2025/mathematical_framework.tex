@@ -13,3 +13,14 @@ with \( {\mathcal{X}} \subseteq \mathbb{R}^{L} \), \( L = PT \), and \( T \) as 
 being the output space \( {\mathcal{Y}} \subseteq \mathbb{R}^{D} \), \( D = PH \), and \( H \) the model horizon. The above formulation enables the model to leverage sequential data for accurate future predictions. Gathering \( N \) input-output i.i.d. observation pairs produces the training dataset as \( {\mathcal{D}} = \{\boldsymbol{x}_n, \boldsymbol{y}_n\}_{n=1}^N = \{ \boldsymbol{X}, \boldsymbol{Y}\} \).
 
 \end{frame}
+
+\begin{frame}{The Chained Model}
+
+For data in $\{\mathcal{X},\mathcal{Y}\}$, the likelihood function assumes the distribution over \(  \boldsymbol{Y} \) as the product of \( D \) conditionally independent distributions, one by output as follows:
+%\(  \boldsymbol{y}_n \) as the product of \( D \) conditionally independent distributions, one by output as follows:
+\begin{equation}\label{eq:likelihood_funciton}
+	p(\boldsymbol{Y} \mid \boldsymbol{\theta}(\boldsymbol{X})) = \prod_{n=1}^N \prod_{d=1}^D p\left(y_{n,d} \mid \boldsymbol{\theta}_d(\boldsymbol{x}_n)\right),
+\end{equation}
+where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameter for \( d \)-th output distribution. Since each element of \( \boldsymbol{\theta}_d(\boldsymbol{x}) \), denoted as \( \theta_{d,j}(\boldsymbol{x}) \), is restricted to some subset of \( \mathbb{R} \), we model \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{d,j}(\boldsymbol{x}) \) via a link function \( h_{d,j} \).
+
+\end{frame}
