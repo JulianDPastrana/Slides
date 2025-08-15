@@ -26,5 +26,18 @@ where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsym
 \end{frame}
 
 \begin{frame}{The LMC Model}
-	content...
+	
+Then, the task reduces to model each \(f_{d,j}\) and plug-in it to \cref{eq:likelihood_funciton}. Consider a set of \( Q \) independent GPs \( \{ g_q \}_{q=1}^Q \) over the input space such that \( g_q(\boldsymbol{x}) \sim \mathcal{GP}(0, k_q(\boldsymbol{x}, \boldsymbol{x}'))\) with kernel parameters \( \Phi_q \) that will be linearly weighed via \( a_{(d,j),q} \in \mathbb{R} \) coefficients to generate \( f_{d,j} \) by:
+\begin{equation}\label{eq:lmc_process}
+	f_{d,j}(\boldsymbol{x}) = \sum_{q=1}^Q a_{(d,j),q} g_{q}(\boldsymbol{x}).
+\end{equation}
+
+Particularly, LMC proposes the cross-covariance function for the latent variable \( f_{d,j} \) as in \cref{eq:cross-covariance_function}. Such a covariance shares output dependencies via a mixing process, allowing each \( f_{d,j} \) to be composed as a set of features granted by \( g_q \) through coefficients \( a_{(d,j),q} \).
+\begin{equation}
+	\begin{split}\label{eq:cross-covariance_function}
+		k_{\boldsymbol{f}_{d,j}, \boldsymbol{f}_{d',j'}}(\boldsymbol{x}, \boldsymbol{x}') &= \text{cov}\{f_{d,j}(\boldsymbol{x}), f_{d',j'}(\boldsymbol{x}')\}\\
+		&=\sum_{q=1}^Q a_{(d,j),q}a_{(d',j'),q} k_{q}(\boldsymbol{x}, \boldsymbol{x}').
+	\end{split}
+\end{equation}
+
 \end{frame}
