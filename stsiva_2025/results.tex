@@ -1,1 +1,82 @@
 \section{Results}
+
+\begin{frame}{Performance Analysis}
+	
+ The Chained LMC model outperforms the standard LMC GP across all evaluated scenarios, despite both models using Gaussian likelihoods, owing to its latent GP component, which dynamically explains the noise in the data. A notable difference is observed at horizon \(H = 7\), likely due to a periodicity that the proposed model can exploit. 
+\begin{figure}[htbp]
+	\centering
+	\input{figures/MSLL_peformance_chdnormal.tex}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{One-day-ahead forecasting}
+	
+For the baseline model, the width of the confidence interval remains constant over time, even for instances where the data and predictive mean change slowly. On the other hand, the proposed model chooses to explain that dynamic with a wider confidence interval, indicating a preference to account for peaks with higher uncertainty.
+
+
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[font=\small]
+    \begin{groupplot}[
+	group style={
+		group size=2 by 1,
+		horizontal sep=1.5cm,
+		vertical sep=1.5cm,
+		xlabels at=edge bottom,
+		ylabels at=edge left
+	},
+	width=0.5\linewidth,
+	height=0.32\linewidth,
+	xmin=200, xmax=400, % << fuerza X
+	ymin=-212629.992846074, ymax=11354433.3118096, % << fuerza Y
+	enlarge x limits=false,
+	enlarge y limits=false,
+	restrict x to domain=200:400, % opcional: descarta datos fuera
+	restrict y to domain=-212629.992846074:11354433.3118096, % opcional
+	unbounded coords=discard, % por si aparecen NaN/inf
+	clip=true, % << recorte estricto dentro del eje
+	xlabel={Time (days)},
+	grid=both,
+	major grid style={line width=.5pt, draw=gray!30},
+	minor grid style={line width=.3pt, draw=gray!15},
+	tick style={black, thick},
+	axis x line=bottom,
+	axis y line=left,
+	xtick pos=bottom,
+	ytick pos=left,
+	tick align=outside,
+	legend style={
+		at={(rel axis cs:0.98,0.98)},
+		anchor=north east,
+		legend columns=1,
+		/tikz/every even column/.append style={column sep=1em},
+		inner sep=2pt,
+		font=\scriptsize,
+		nodes={scale=0.9, transform shape},
+		draw=black!25,
+		fill=white,
+		fill opacity=0.85,
+		legend cell align=left
+	}
+	]
+\nextgroupplot[
+ylabel={Streamflow (kWh)},
+after end axis/.code={
+	\node at (rel axis cs:0.5,-0.45) {(a) LMC GP};
+}
+]
+\input{figures/lmc_forecasting_AMANI}
+
+\nextgroupplot[
+after end axis/.code={
+	\node at (rel axis cs:0.5,-0.45) {(b) Chained LMC GP};
+}
+]
+\input{figures/chd_normal_forecasting_AMANI}
+			
+		\end{groupplot}
+	\end{tikzpicture}
+\end{figure}
+
+\end{frame}

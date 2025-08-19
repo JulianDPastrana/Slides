@@ -41,3 +41,23 @@ Particularly, LMC proposes the cross-covariance function for the latent variable
 \end{equation}
 
 \end{frame}
+
+
+\begin{frame}{Variational Optimization}
+
+For reducing the computational complexity, we introduce trainable induced vectors \( \boldsymbol{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\boldsymbol{z}_m) \) evaluated at \( M \ll N \) inducing points denoted as \( \boldsymbol{Z} = \{ \boldsymbol{z}_m \}_{m=1}^M \) such as \( \boldsymbol{z}_m \in \mathcal{X} \). We approximate the joint posterior distribution as:
+
+\begin{equation}
+	p(\boldsymbol{f}, \boldsymbol{u} \mid \mathcal{D}) \approx \prod_{d=1}^D \prod_{j=1}^{J_d} p(\boldsymbol{f}_{d,j} \mid \boldsymbol{u}) \prod_{q=1}^Q q(\boldsymbol{u}_q),
+\end{equation}
+where \( q(\boldsymbol{u}_q) = \mathcal{N}(\boldsymbol{u}_q \mid \boldsymbol{\mu}_{q}, \boldsymbol{S}_{q}) \) are called variational distributions. To tune the parameters  \( \boldsymbol{\mu}_q \), \( \boldsymbol{S}_{q} \), \( \boldsymbol{Z}\), \( a_{(d,j), q}\) and \( \Phi_q \), we optimize the lower bound for $\log p(\mathbf{y})$ loss function:
+\begin{equation}
+	\mathcal{L} = \sum_{n=1}^{N}\sum_{d=1}^{D}
+	\mathbb{E}_{q(\boldsymbol{f}_{d,n})}
+	\bigl\{\log p(y_{d,n}\mid \boldsymbol{f}_{d,n})\bigr\} \;-\;
+	\sum_{q=1}^{Q}
+	\mathrm{KL}\bigl\{q(\boldsymbol{u}_{q})\parallel p(\boldsymbol{u}_{q})\bigr\}
+\end{equation}
+being \( \text{KL}\{q(\boldsymbol{u}_q)\parallel p(\boldsymbol{u}_q)\} \) the Kullback-Leibler divergence. We consider the Natural Gradient (NG) optimizer for the variational parameters combined with Adam for the remainders~\cite{pmlr-v84-salimbeni18a}.
+
+\end{frame}

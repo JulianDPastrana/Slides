@@ -1,0 +1,16 @@
+\section{Conlusions and Future Work}
+
+\begin{frame}{Conlclusions}
+	\begin{itemize}
+		\item We extended the traditional multi-output Linear Model of Coregionalization Gaussian Process (LMC GP) by proposing the \textbf{Chained LMC GP}, a framework tailored for sequential data forecasting. 
+		\item The Chained LMC GP incorporates \textbf{latent Gaussian processes to model likelihood parameters}, enabling more flexible and adaptive uncertainty quantification. 
+		\item We evaluated the approach on \textbf{daily streamflow time series from 23 Colombian reservoirs}, framing each reservoir as a related task in a multi-output forecasting scenario. 
+		\item The framework effectively captures the \textbf{dynamic interactions among reservoirs}, improving multi-task predictive performance. 
+		\item Across all forecasting horizons, the Chained LMC GP achieved \textbf{significant improvements over the standard LMC GP}. 
+		\item Its advantage lies in the \textbf{ability to model input-dependent noise}, which enhances the exploitation of recurrent patterns such as \textbf{periodic trends} in the data. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Future Work}
+	In future work, we plan to extend this research in three ways. Firstly, we will validate the Chained LMC GP with non-Gaussian likelihood functions for modeling amplitude constrained time-series. Secondly, we aim to enhance the LMC GP by introducing non-instantaneous mixing, similar to a process convolution, which will generalize the Chained model for extracting time dependencies. Lastly, we intend to incorporate a deep learning approach, such as deep Gaussian Processes, to capture more complex patterns and improve prediction accuracy. 
+\end{frame}

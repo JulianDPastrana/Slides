@@ -1,6 +1,7 @@
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+\usepackage{ragged2e}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric, shapes.symbols, shadows, fit}
 
 \usepackage{booktabs}          % \toprule, \midrule, \bottomrule
@@ -24,7 +25,15 @@
 %\usepackage{bm}
 
 \usepackage{tcolorbox}
+
+\usepackage[capitalise]{cleveref}
+
 \tcbuselibrary{skins} % Load only the skins library
+
+\definecolor{background_color}{RGB}{234,234,242}
+\definecolor{myNewColorB}{RGB}{31,119,180}
+\definecolor{myNewColorC}{RGB}{255,127,14}
+\definecolor{myNewColorD}{RGB}{44,160,44}
 
 % --- Brand colors from your palette ---
 \definecolor{BrandTeal}{RGB}{0,113,117}   % #007175
@@ -37,6 +46,8 @@
 \setbeamercolor{frametitle}{fg=BrandBrown}
 \setbeamercolor{title}{fg=BrandTeal}
 \setbeamercolor{normal text}{fg=black,bg=}
+
+\apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
 
 % Customized block environment with a shadow effect for the entire block
 \setbeamertemplate{block begin}{
