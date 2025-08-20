@@ -3,9 +3,9 @@
 \begin{frame}{Dataset}
 
 \begin{block}{}
-	To validate the forecasting performance of the proposed Chained LMC GP model, we use time-series streamflow contributions recorded daily from 23 Colombian reservoirs. Each series exhibits strong weather dependencies, dynamic noise variance, and nonlinear patterns, making this problem nontrivial. The dataset comprises 4,442 samples, partitioned into \(N=3,554\) for training the models and \(N_*=888\) for testing them.
+	We use time-series streamflow contributions recorded daily from 23 Colombian reservoirs. The dataset comprises 4,442 samples, partitioned into \(N=3,554\) for training the models and \(N_*=888\) for testing them.
 \end{block}
-	
+	\vspace{1em}
 \begin{block}{}
 	We build a testing dataset composed of \( N_* \) input-output i.i.d. pair unseen by the model \( \mathcal{D}_* = \{\boldsymbol{x}_{*n}, \boldsymbol{y}_{*n}\}_{n=1}^{N_*} \), where \( \boldsymbol{y}_{*n} = [y_{*n,1}, \cdots, y_{*n, D}]^\top \) collects all tasks observations at every test input \( y_{*n,d}\).
 \end{block}
@@ -14,40 +14,61 @@
 
 \begin{frame}{Model Setup}
 
-The proposed methodology constructs the Chained LMC GP covariance function using the squared exponential kernel, facilitating smooth data mapping:
+\begin{block}{}
+	The methodology constructs the covariance function using the squared exponential kernel, facilitating smooth data mapping.
+\end{block}
 
-\begin{equation}\label{eq:nonscaled_squared_exponential_kernel}
+
+\[
 	k_{q}\left(\boldsymbol{x}, \boldsymbol{x}' \right) = \exp\left(-\frac{1}{2}(\boldsymbol{x} - \boldsymbol{x}')^\top \boldsymbol{\Phi}_q^{-2} (\boldsymbol{x} - \boldsymbol{x}')\right)
-\end{equation}
-where the diagonal matrix \( \boldsymbol{\Phi}_q=\text{diag}\{\Delta_{ql}\}_{l=1}^{L} \in \mathbb{R}^{L \times L} \) contains the positive length-scale factors \( \Delta_{ql}\in\mathbb{R}^{++} \) for each input dimension.
+\]
 
-Regarding the likelihood, a heteroscedastic Gaussian function is also considered:
-\begin{equation}\label{eq:gaussian_het_likelihood}
+\begin{block}{}
+\( \boldsymbol{\Phi}_q=\text{diag}\{\Delta_{ql}\}_{l=1}^{L} \in \mathbb{R}^{++L \times L} \) contains the length-scales. Regarding the likelihood,
+\end{block}
+
+\[
 	p(\boldsymbol{y} \mid \boldsymbol{f}) = \prod_{n=1}^{N}\prod_{d=1}^{D} \mathcal{N}\left(y_{nd} \mid h_{d,1}(f_{nd,1}), h_{d,2}(f_{nd,2}) \right),
-\end{equation}
-where $h_{d,1}(\cdot)$ is the identity for mean, and $h_{d,2}(\cdot) = \ln(\exp(\cdot)+1)$, the softplus function, ensures positive variance.
+\]
+
+\begin{block}{}
+$h_{d,1}(\cdot)$ is the identity for mean, and $h_{d,2}(\cdot) = \ln(\exp(\cdot)+1)$ the softplus function.
+\end{block}
 
 \end{frame}
 
 
 \begin{frame}{Performance Metrics}
 
-The Chained LMC GP returns the corresponding predictive distribution \( \hat{y}_{n,d}\) with mean \( \hat{\mu}_{n,d}\) and variance \( \hat{\sigma}^2_{n,d}\). Given that, the MSE takes the form defined as:
-\begin{equation}\label{eq:mse}
-	\text{MSE} = \frac{1}{N_{*}D} \sum_{n=1}^{N_*} \sum_{d=1}^{D} \left( y_{*n,d} - \hat{\mu}_{n,d} \right)^2.
-\end{equation}
+\begin{block}{}
+	Given the predictive mean \( \hat{\mu}_{n,d}\) and variance \( \hat{\sigma}^2_{n,d}\), the MSE takes the following form
+\end{block}
 
-While the MSE does not account for predictive uncertainty, the MSLL assesses probabilistic prediction quality. The MSLL takes the form~\cite{RasmussenW06}:
-\begin{equation}
+\[
+	\text{MSE} = \frac{1}{N_{*}D} \sum_{n=1}^{N_*} \sum_{d=1}^{D} \left( y_{*n,d} - \hat{\mu}_{n,d} \right)^2.
+\]
+
+\begin{block}{}
+The MSLL assesses probabilistic prediction quality~\cite{RasmussenW06}
+\end{block}
+
+\[
 	\text{MSLL} = \frac{1}{2N_{*}D} \sum_{n=1}^{N_*} \sum_{d=1}^{D}  \frac{(y_{*n,d} - \hat{\mu}_{n,d} )^2}{\hat{\sigma}^2_{n,d}}
 	- \frac{(y_{*n,d} - \mu_d)^2}{\sigma_d^2} + \ln \left(\frac{\hat{\sigma}^2_{n,d}}{\sigma_d^2}\right)
-\end{equation}
-where \( \mu_d = \frac{1}{N_*} \sum_{n=1}^{N_*} y_{*n,d}\) and \( \sigma_d^2 = \frac{1}{N_* - 1} \sum_{n=1}^{N_*} (\mu_d - y_{*n,d})^2 \) represent the training mean, and variance for the $d$-th output, respectively.
+\]
+
+\begin{block}{}
+	where \( \mu_d = \frac{1}{N_*} \sum_{n=1}^{N_*} y_{*n,d}\) and \( \sigma_d^2 = \frac{1}{N_* - 1} \sum_{n=1}^{N_*} (\mu_d - y_{*n,d})^2 \).
+\end{block}
 
 \end{frame}
 
 \begin{frame}{Hyperparameters Tuning}
-	The baseline is a standard multi-output LMC GP model. An initial grid search on the baseline model fixed the order at \(T=1\) and the number of inducing points at \(M=64\). We then varied the number of latent GPs \( Q \in \{1, \cdots ,46\} \). The MSE and MSLL decrease until \(Q=15\). Beyond this threshold, the model demonstrates instability, likely due to the increased complexity. Consequently, we select $Q = 15$.
+	
+	\begin{block}{}	
+		The baseline is a standard LMC GP model. An grid search on the baseline model fix \(T=1\) and \(M=64\). We then varied \( Q \in \{1, \cdots ,46\} \). The MSE and MSLL decrease until \(Q=15\). Beyond this threshold, the model demonstrates instability, likely due to the increased complexity. Consequently, we select $Q = 15$.
+	\end{block}
+	
 	\begin{figure}[htbp]
 		\centering
 		\begin{tikzpicture}

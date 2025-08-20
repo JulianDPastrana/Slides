@@ -1,16 +1,35 @@
 \section{Conlusions and Future Work}
 
 \begin{frame}{Conlclusions}
+	
+	\begin{block}{}
 	\begin{itemize}
-		\item We extended the traditional multi-output Linear Model of Coregionalization Gaussian Process (LMC GP) by proposing the \textbf{Chained LMC GP}, a framework tailored for sequential data forecasting. 
-		\item The Chained LMC GP incorporates \textbf{latent Gaussian processes to model likelihood parameters}, enabling more flexible and adaptive uncertainty quantification. 
-		\item We evaluated the approach on \textbf{daily streamflow time series from 23 Colombian reservoirs}, framing each reservoir as a related task in a multi-output forecasting scenario. 
-		\item The framework effectively captures the \textbf{dynamic interactions among reservoirs}, improving multi-task predictive performance. 
-		\item Across all forecasting horizons, the Chained LMC GP achieved \textbf{significant improvements over the standard LMC GP}. 
-		\item Its advantage lies in the \textbf{ability to model input-dependent noise}, which enhances the exploitation of recurrent patterns such as \textbf{periodic trends} in the data. 
+		\item The Chained LMC GP incorporates \textcolor{BrandTeal}{\textbf{latent Gaussian processes to model likelihood parameters}}, enabling more flexible and adaptive uncertainty quantification. 
+		\item We evaluated the approach on \textcolor{BrandTeal}{\textbf{daily streamflow time series from 23 Colombian reservoirs}}, framing each reservoir as a related task in a multi-output forecasting scenario.  
+		\item Across all forecasting horizons, the Chained LMC GP achieved \textcolor{BrandTeal}{\textbf{significant improvements over the standard LMC GP}}. 
+		\item Its advantage lies in the \textcolor{BrandTeal}{\textbf{ability to model input-dependent noise}}, which enhances the exploitation of patterns such as periodic trends in the data. 
 	\end{itemize}
+	\end{block}
 \end{frame}
 
 \begin{frame}{Future Work}
-	In future work, we plan to extend this research in three ways. Firstly, we will validate the Chained LMC GP with non-Gaussian likelihood functions for modeling amplitude constrained time-series. Secondly, we aim to enhance the LMC GP by introducing non-instantaneous mixing, similar to a process convolution, which will generalize the Chained model for extracting time dependencies. Lastly, we intend to incorporate a deep learning approach, such as deep Gaussian Processes, to capture more complex patterns and improve prediction accuracy. 
+	\begin{block}{}
+		In future work, we plan to extend this research in three ways.
+		
+		\begin{itemize}
+			 \item Validate the Chained LMC GP with non-Gaussian likelihood functions for modeling amplitude constrained time-series. 
+			 \item Aim to enhance the LMC GP by introducing non-instantaneous mixing, similar to a process convolution, which will generalize the Chained model for extracting time dependencies.
+			 \item Intend to incorporate a deep learning approach, such as deep Gaussian Processes, to capture more complex patterns and improve prediction accuracy.
+		\end{itemize} 
+	\end{block}
+\end{frame}
+
+\begin{frame}{Acknowledgment}
+	\begin{block}{}
+		\begin{itemize}
+			\item Gratitude to the \emph{Doctorado en Ingenier\'ia}, graduate program of the Universidad Tecnológica de Pereira, for their support.
+			\item Special thanks to the project 111089082356, funded by MINCIENCIAS.
+			\item Acknowledgment to the Automatics Research Group of the Universidad Tecnológica de Pereira for their invaluable support in the development of the research.
+		\end{itemize}
+	\end{block}
 \end{frame}

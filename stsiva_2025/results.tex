@@ -2,7 +2,10 @@
 
 \begin{frame}{Performance Analysis}
 	
- The Chained LMC model outperforms the standard LMC GP across all evaluated scenarios, despite both models using Gaussian likelihoods, owing to its latent GP component, which dynamically explains the noise in the data. A notable difference is observed at horizon \(H = 7\), likely due to a periodicity that the proposed model can exploit. 
+\begin{block}{}
+	The Chained LMC model outperforms the standard LMC GP across all evaluated scenarios, despite both models using Gaussian likelihoods, due to dynamically explains the noise in the data. A notable difference is observed at horizon \(H = 7\), attributable to a periodicity that the proposed model can exploit. 
+\end{block}	
+ 
 \begin{figure}[htbp]
 	\centering
 	\input{figures/MSLL_peformance_chdnormal.tex}
@@ -12,12 +15,14 @@
 
 \begin{frame}{One-day-ahead forecasting}
 	
-For the baseline model, the width of the confidence interval remains constant over time, even for instances where the data and predictive mean change slowly. On the other hand, the proposed model chooses to explain that dynamic with a wider confidence interval, indicating a preference to account for peaks with higher uncertainty.
+\begin{block}{}
+	For the baseline model, the width of the confidence interval remains constant over time. The proposed model chooses to explain that dynamic with a wider confidence interval, indicating a preference to account for peaks with higher uncertainty.
+\end{block}
 
 
 \begin{figure}[htbp]
 	\centering
-	\begin{tikzpicture}[font=\small]
+	\begin{tikzpicture}[font=\scriptsize]
     \begin{groupplot}[
 	group style={
 		group size=2 by 1,

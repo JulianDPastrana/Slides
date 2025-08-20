@@ -2,62 +2,89 @@
 
 \begin{frame}{Problem Setting}
 
-Consider a vector time-series collecting sequential data observed across $P$ outputs at some time instant \( t \), denoted as \( \boldsymbol{v}_t \subseteq \mathbb{R}^{P}\). The flattening of \( T \) sequential observations simultaneously yields an input vector \( \boldsymbol{x} \) belonging to some input space \( \mathcal{X} \), that is
-\[
+\begin{block}{}
+	Consider a vector collecting sequential data across $P$ outputs at time instant \( t \), as \( \boldsymbol{v}_t \subseteq \mathbb{R}^{P}\). The flattening of \( T \) sequential observations yields an input vector \( \boldsymbol{x} \in \mathcal{X} \),
+\end{block}
+
+\[ 
 \boldsymbol{x}= [ \boldsymbol{v}_{t-1}^\top, \boldsymbol{v}_{t-2}^\top, \cdots, \boldsymbol{v}_{t-T}^\top  ]^\top,
 \]
-with \( {\mathcal{X}} \subseteq \mathbb{R}^{L} \), \( L = PT \), and \( T \) as the model order. The forecasting task aims to predict the next \(H\) sequential values, yielding the output target \( \boldsymbol{y} \in {\mathcal{Y}} \) as
+
+\begin{block}{}
+	\( {\mathcal{X}} \subseteq \mathbb{R}^{L} \), and \( L = PT \). The forecasting task aims to predict the next \(H\) sequential values, yielding the output target \( \boldsymbol{y} \in {\mathcal{Y}} \)
+\end{block}
+
 \[
 \boldsymbol{y} = [ \boldsymbol{v}_{t}^\top, \boldsymbol{v}_{t+1}^\top, \cdots, \boldsymbol{v}_{t+H-1}^\top  ]^\top,
 \] 
-being the output space \( {\mathcal{Y}} \subseteq \mathbb{R}^{D} \), \( D = PH \), and \( H \) the model horizon. The above formulation enables the model to leverage sequential data for accurate future predictions. Gathering \( N \) input-output i.i.d. observation pairs produces the training dataset as \( {\mathcal{D}} = \{\boldsymbol{x}_n, \boldsymbol{y}_n\}_{n=1}^N = \{ \boldsymbol{X}, \boldsymbol{Y}\} \).
+
+\begin{block}{}
+	\( {\mathcal{Y}} \subseteq \mathbb{R}^{D} \), and \( D = PH \). Gathering \( N \) input-output i.i.d. observation pairs produces the training dataset as \( {\mathcal{D}} = \{\boldsymbol{x}_n, \boldsymbol{y}_n\}_{n=1}^N = \{ \boldsymbol{X}, \boldsymbol{Y}\} \).
+\end{block}
 
 \end{frame}
 
 \begin{frame}{The Chained Model}
 
-For data in $\{\mathcal{X},\mathcal{Y}\}$, the likelihood function assumes the distribution over \(  \boldsymbol{Y} \) as the product of \( D \) conditionally independent distributions, one by output as follows:
-%\(  \boldsymbol{y}_n \) as the product of \( D \) conditionally independent distributions, one by output as follows:
-\begin{equation}\label{eq:likelihood_funciton}
+\begin{block}{}
+	For data $\mathcal{D}$, the likelihood function assumes the distribution over \(  \boldsymbol{Y} \) as the product of \( D \) conditionally independent distributions, one by output as follows:
+\end{block}
+
+\[
 	p(\boldsymbol{Y} \mid \boldsymbol{\theta}(\boldsymbol{X})) = \prod_{n=1}^N \prod_{d=1}^D p\left(y_{n,d} \mid \boldsymbol{\theta}_d(\boldsymbol{x}_n)\right),
-\end{equation}
-where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameter for \( d \)-th output distribution. Since each element of \( \boldsymbol{\theta}_d(\boldsymbol{x}) \), denoted as \( \theta_{d,j}(\boldsymbol{x}) \), is restricted to some subset of \( \mathbb{R} \), we model \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{d,j}(\boldsymbol{x}) \) via a link function \( h_{d,j} \).
+\]
+
+\begin{block}{}
+	where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameter for \( d \)-th output distribution. Since each element of \( \boldsymbol{\theta}_d(\boldsymbol{x}) \), denoted as \( \theta_{d,j}(\boldsymbol{x}) \), is restricted to some subset of \( \mathbb{R} \), we model \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{d,j}(\boldsymbol{x}) \) via a link function \( h_{d,j} \).
+\end{block}
 
 \end{frame}
 
 \begin{frame}{The LMC Model}
 	
-Then, the task reduces to model each \(f_{d,j}\) and plug-in it to \cref{eq:likelihood_funciton}. Consider a set of \( Q \) independent GPs \( \{ g_q \}_{q=1}^Q \) over the input space such that \( g_q(\boldsymbol{x}) \sim \mathcal{GP}(0, k_q(\boldsymbol{x}, \boldsymbol{x}'))\) with kernel parameters \( \Phi_q \) that will be linearly weighed via \( a_{(d,j),q} \in \mathbb{R} \) coefficients to generate \( f_{d,j} \) by:
-\begin{equation}\label{eq:lmc_process}
-	f_{d,j}(\boldsymbol{x}) = \sum_{q=1}^Q a_{(d,j),q} g_{q}(\boldsymbol{x}).
-\end{equation}
+\begin{block}{}
+	Consider a set of \( Q \) independent GPs \( \{ g_q \}_{q=1}^Q \) such that \( g_q(\boldsymbol{x}) \sim \mathcal{GP}(0, k_q(\boldsymbol{x}, \boldsymbol{x}'))\) that will be linearly weighed via \( a_{(d,j),q} \in \mathbb{R} \) coefficients to generate \( f_{d,j} \) as
+\end{block}	
 
-Particularly, LMC proposes the cross-covariance function for the latent variable \( f_{d,j} \) as in \cref{eq:cross-covariance_function}. Such a covariance shares output dependencies via a mixing process, allowing each \( f_{d,j} \) to be composed as a set of features granted by \( g_q \) through coefficients \( a_{(d,j),q} \).
-\begin{equation}
-	\begin{split}\label{eq:cross-covariance_function}
-		k_{\boldsymbol{f}_{d,j}, \boldsymbol{f}_{d',j'}}(\boldsymbol{x}, \boldsymbol{x}') &= \text{cov}\{f_{d,j}(\boldsymbol{x}), f_{d',j'}(\boldsymbol{x}')\}\\
-		&=\sum_{q=1}^Q a_{(d,j),q}a_{(d',j'),q} k_{q}(\boldsymbol{x}, \boldsymbol{x}').
-	\end{split}
-\end{equation}
+
+\[
+	f_{d,j}(\boldsymbol{x}) = \sum_{q=1}^Q a_{(d,j),q} g_{q}(\boldsymbol{x}).
+\]
+
+\begin{block}{}
+	The LMC model proposes the cross-covariance function for the latent variables \( f_{d,j} \) as follows
+\end{block}
+ 
+\[
+	k_{\boldsymbol{f}_{d,j}, \boldsymbol{f}_{d',j'}}(\boldsymbol{x}, \boldsymbol{x}') = \text{cov}\{f_{d,j}(\boldsymbol{x}), f_{d',j'}(\boldsymbol{x}')\}
+	=\sum_{q=1}^Q a_{(d,j),q}a_{(d',j'),q} k_{q}(\boldsymbol{x}, \boldsymbol{x}').
+\]
 
 \end{frame}
 
 
 \begin{frame}{Variational Optimization}
 
-For reducing the computational complexity, we introduce trainable induced vectors \( \boldsymbol{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\boldsymbol{z}_m) \) evaluated at \( M \ll N \) inducing points denoted as \( \boldsymbol{Z} = \{ \boldsymbol{z}_m \}_{m=1}^M \) such as \( \boldsymbol{z}_m \in \mathcal{X} \). We approximate the joint posterior distribution as:
-
-\begin{equation}
-	p(\boldsymbol{f}, \boldsymbol{u} \mid \mathcal{D}) \approx \prod_{d=1}^D \prod_{j=1}^{J_d} p(\boldsymbol{f}_{d,j} \mid \boldsymbol{u}) \prod_{q=1}^Q q(\boldsymbol{u}_q),
-\end{equation}
-where \( q(\boldsymbol{u}_q) = \mathcal{N}(\boldsymbol{u}_q \mid \boldsymbol{\mu}_{q}, \boldsymbol{S}_{q}) \) are called variational distributions. To tune the parameters  \( \boldsymbol{\mu}_q \), \( \boldsymbol{S}_{q} \), \( \boldsymbol{Z}\), \( a_{(d,j), q}\) and \( \Phi_q \), we optimize the lower bound for $\log p(\mathbf{y})$ loss function:
-\begin{equation}
+	\begin{block}{}
+		Inducing vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at 
+		\( M \ll N \) inducing points \( \mathbf{Z}=\{\mathbf{z}_m\}_{m=1}^M, \;\mathbf{z}_m \in \mathcal{X} \) approximate the joint posterior
+	\end{block}
+	
+	\[
+	p(\mathbf{f},\mathbf{u}\mid \mathcal{D}) 
+	\approx \prod_{d=1}^D \prod_{j=1}^{J_d} p(\mathbf{f}_{d,j}\mid \mathbf{u})
+	\prod_{q=1}^Q q(\mathbf{u}_q),
+	\]
+	
+	\begin{block}{}
+		with \( q(\mathbf{u}_q)=\mathcal{N}(\mathbf{u}_q\mid \boldsymbol{\mu}_q,\mathbf{S}_q) \).
+		We optimize the ELBO using  Natural Gradient for variational parameters and Adam for others~\cite{pmlr-v84-salimbeni18a}.
+	\end{block}
+	
+	\[
 	\mathcal{L} = \sum_{n=1}^{N}\sum_{d=1}^{D}
-	\mathbb{E}_{q(\boldsymbol{f}_{d,n})}
-	\bigl\{\log p(y_{d,n}\mid \boldsymbol{f}_{d,n})\bigr\} \;-\;
-	\sum_{q=1}^{Q}
-	\mathrm{KL}\bigl\{q(\boldsymbol{u}_{q})\parallel p(\boldsymbol{u}_{q})\bigr\}
-\end{equation}
-being \( \text{KL}\{q(\boldsymbol{u}_q)\parallel p(\boldsymbol{u}_q)\} \) the Kullback-Leibler divergence. We consider the Natural Gradient (NG) optimizer for the variational parameters combined with Adam for the remainders~\cite{pmlr-v84-salimbeni18a}.
+	\mathbb{E}_{q(\mathbf{f}_{d,n})}\!\left[\log p(y_{d,n}\mid \mathbf{f}_{d,n})\right]
+	- \sum_{q=1}^{Q}\mathrm{KL}\!\left[q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\right].
+	\]
 
 \end{frame}

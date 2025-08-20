@@ -51,7 +51,7 @@
 
 % Customized block environment with a shadow effect for the entire block
 \setbeamertemplate{block begin}{
-	\vspace{-1em}
+%	\vspace{-1em}
 	\begin{tcolorbox}[enhanced,
 		sharp corners,
 		drop shadow,      % Use the default drop shadow effect
@@ -61,11 +61,11 @@
 		left=2mm, right=2mm, top=1mm, bottom=1mm,
 		width=\textwidth
 		]
-		\noindent\textbf{\insertblocktitle}
+		\textbf{\insertblocktitle}\noindent
 	}
 	\setbeamertemplate{block end}{
 	\end{tcolorbox}
-	\vspace{-1em}
+%	\vspace{-1em}
 }
 
 
@@ -76,12 +76,21 @@
 }
 
 
-\AtBeginDocument{%
-	\title[Chained LMC GP for Hydrological Forecasting]{\textbf{Chained Linear Model of Coregionalization Gaussian Process for Hydrological Forecasting}}
-%	\subtitle{An Stochastic Approach}%
-	\institute[UTP]{Universidad Tecnológica de Pereira}
-	\date[2025]{\today}
-	
+\title[Chained LMC GP for Hydrological Forecasting]{\textbf{Chained Linear Model of Coregionalization Gaussian Process for Hydrological Forecasting}}
+% \subtitle{An Stochastic Approach}
+\institute[UTP]{Universidad Tecnológica de Pereira}
+\date[2025]{\today}
+
+% Add logos at the bottom of the title page
+\addtobeamertemplate{title page}{}{% <- append at the end
+	\vfill
+	\vspace{-5em}
+	\begin{center}
+		\includegraphics[scale=0.12]{figures/01_ga_logo.png}
+		\hspace{20em}
+		\includegraphics[scale=0.06]{figures/Escudo_de_la_Universidad_Tecnológica_de_Pereira.png}
+	\end{center}
 }
+
 
 \setbeamertemplate{page number in head/foot}[totalframenumber]
