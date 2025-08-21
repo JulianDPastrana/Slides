@@ -27,7 +27,7 @@
 \begin{frame}{The Chained Model}
 
 \begin{block}{}
-	For data $\mathcal{D}$, the likelihood function assumes the distribution over \(  \boldsymbol{Y} \) as the product of \( D \) conditionally independent distributions, one by output as follows:
+	For dataset $\mathcal{D}$, the likelihood function assumes the distribution over \(  \boldsymbol{Y} \) as the product of \( D \) conditionally independent distributions, one by each output as follows:
 \end{block}
 
 \[
@@ -35,7 +35,7 @@
 \]
 
 \begin{block}{}
-	where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameter for \( d \)-th output distribution. Since each element of \( \boldsymbol{\theta}_d(\boldsymbol{x}) \), denoted as \( \theta_{d,j}(\boldsymbol{x}) \), is restricted to some subset of \( \mathbb{R} \), we model \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{d,j}(\boldsymbol{x}) \) via a link function \( h_{d,j} \).
+	where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n) \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameters for \( d \)-th output distribution with elements \( \theta_{d,j}(\boldsymbol{x}) \). \textcolor{BrandTeal}{\textbf{Each likelihood parameter is governed by a Gaussian Process (GP) \( f_{d,j}(\boldsymbol{x}) \)}} via a link function transformation \( h_{d,j}(\cdot) \) as \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \).
 \end{block}
 
 \end{frame}
@@ -43,16 +43,16 @@
 \begin{frame}{The LMC Model}
 	
 \begin{block}{}
-	Consider a set of \( Q \) independent GPs \( \{ g_q \}_{q=1}^Q \) such that \( g_q(\boldsymbol{x}) \sim \mathcal{GP}(0, k_q(\boldsymbol{x}, \boldsymbol{x}'))\) that will be linearly weighed via \( a_{(d,j),q} \in \mathbb{R} \) coefficients to generate \( f_{d,j} \) as
+	Consider a set of \( Q \) zero-mean independent GPs \( \{ g_q \}_{q=1}^Q \) with kernel function \(k_q(\boldsymbol{x}, \boldsymbol{x}')\) that will be linearly weighed via \( a_{(d,j),q} \in \mathbb{R} \) coefficients to generate \( f_{d,j} \) as
 \end{block}	
 
 
 \[
-	f_{d,j}(\boldsymbol{x}) = \sum_{q=1}^Q a_{(d,j),q} g_{q}(\boldsymbol{x}).
+	f_{d,j}(\boldsymbol{x}) = \sum_{q=1}^Q a_{(d,j),q} g_{q}(\boldsymbol{x}),
 \]
 
 \begin{block}{}
-	The LMC model proposes the cross-covariance function for the latent variables \( f_{d,j} \) as follows
+	proposing a \textcolor{BrandTeal}{\textbf{cross-covariance function for the latent variables \( f_{d,j} \)}} as follows
 \end{block}
  
 \[
@@ -60,14 +60,17 @@
 	=\sum_{q=1}^Q a_{(d,j),q}a_{(d',j'),q} k_{q}(\boldsymbol{x}, \boldsymbol{x}').
 \]
 
+\begin{block}{}
+	We call the above as Linear Model of Coregionalization (LMC).
+\end{block}
+
 \end{frame}
 
 
 \begin{frame}{Variational Optimization}
 
 	\begin{block}{}
-		Inducing vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at 
-		\( M \ll N \) inducing points \( \mathbf{Z}=\{\mathbf{z}_m\}_{m=1}^M, \;\mathbf{z}_m \in \mathcal{X} \) approximate the joint posterior
+	We introduce induced vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at	\( M \ll N \) inducing points \( \{\mathbf{z}_m\}_{m=1}^M \) to reduce the complexity \textcolor{BrandTeal}{\textbf{\(\mathcal{O}(N^3)\) to \(\mathcal{O}(NM^2)\)}}, and approximating the joint posterior
 	\end{block}
 	
 	\[
@@ -77,14 +80,18 @@
 	\]
 	
 	\begin{block}{}
-		with \( q(\mathbf{u}_q)=\mathcal{N}(\mathbf{u}_q\mid \boldsymbol{\mu}_q,\mathbf{S}_q) \).
-		We optimize the ELBO using  Natural Gradient for variational parameters and Adam for others~\cite{pmlr-v84-salimbeni18a}.
+		with \( q(\mathbf{u}_q)=\mathcal{N}(\mathbf{u}_q\mid \boldsymbol{\mu}_q,\mathbf{S}_q) \), \( \boldsymbol{\mu}_q \in \mathbb{R}^{M} \), \( \boldsymbol{S}_q \in \mathbb{R}^{M \times M} \), and \( \boldsymbol{f}_{d,j} = [f_{d,j}(\boldsymbol{x}_1), \cdots, f_{d,j}(\boldsymbol{x}_N) ]^\top \in \mathbb{R}^{N} \).
+		We tune the model by optimizing the loss function \(\mathcal{L}\)
 	\end{block}
 	
 	\[
 	\mathcal{L} = \sum_{n=1}^{N}\sum_{d=1}^{D}
-	\mathbb{E}_{q(\mathbf{f}_{d,n})}\!\left[\log p(y_{d,n}\mid \mathbf{f}_{d,n})\right]
-	- \sum_{q=1}^{Q}\mathrm{KL}\!\left[q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\right].
+	\mathbb{E}_{q(\mathbf{f}_{d,n})}\!\left\{\log p(y_{d,n}\mid f_{d,1}(\mathbf{x}_n), \cdots, f_{d,J_d}(\mathbf{x}_n))\right\}
+	- \sum_{q=1}^{Q}\mathrm{KL}\!\left\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\right\},
 	\]
+	
+	\begin{block}{}
+		using  Natural Gradient for \(\mathbf{u}_q\) and \(\mathbf{\boldsymbol{S}}_q\), and Adam for the remaining parameters~\cite{pmlr-v84-salimbeni18a}.
+	\end{block}
 
 \end{frame}

@@ -3,11 +3,53 @@
 \begin{frame}{Dataset}
 
 \begin{block}{}
-	We use time-series streamflow contributions recorded daily from 23 Colombian reservoirs. The dataset comprises 4,442 samples, partitioned into \(N=3,554\) for training the models and \(N_*=888\) for testing them.
+	We use daily time series of streamflow contributions recorded from 23 Colombian reservoirs. The dataset contains 4,442 i.i.d. samples, with \(N=3,554\) used for training and \(N_*=888\) for testing.
 \end{block}
-	\vspace{1em}
+
+\begin{figure}
+	\centering
+	\def\TrainEnd{1000}   % split index (x where test starts)
+	\def\XMax{1500}       % max x (length of the series)
+	
+	\begin{tikzpicture}
+		\begin{axis}[
+			font=\scriptsize,
+			width=\textwidth, height=4cm,
+			xmin=0, xmax=\XMax,
+			axis y line=none,
+			axis x line=none,
+			xtick=\empty, ytick=\empty,
+			grid=none,
+			legend cell align=left,
+			legend pos=north west,
+			clip=false % allow arrow/text outside the plot area
+			]
+			
+			% ---- shaded areas ----
+			\path[fill=blue!15]  (rel axis cs:0,0) rectangle (rel axis cs:{\TrainEnd/\XMax},1);
+			\path[fill=green!15] (rel axis cs:{\TrainEnd/\XMax},0) rectangle (rel axis cs:1,1);
+			
+			% ---- example time series (no legend entry) ----
+			\addplot[ultra thick, color=black, domain=0:\XMax, samples=600, forget plot]
+			{30*sin(deg(x/20)) + 8*sin(deg(x/7)) + 0.03*(x-0.6*\XMax)};
+			
+			% ---- legend: only shaded areas ----
+			\addlegendimage{area legend, fill=blue!15, draw=blue!30}
+			\addlegendentry{Training Period}
+			\addlegendimage{area legend, fill=green!15, draw=green!30}
+			\addlegendentry{Testing Period}
+			
+			% ---- time direction (arrow + label) ----
+			\draw[->, thick] (rel axis cs:0,-0.10) -- (rel axis cs:1,-0.10)
+			node[pos=0.5, below] {Time};
+			
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+
 \begin{block}{}
-	We build a testing dataset composed of \( N_* \) input-output i.i.d. pair unseen by the model \( \mathcal{D}_* = \{\boldsymbol{x}_{*n}, \boldsymbol{y}_{*n}\}_{n=1}^{N_*} \), where \( \boldsymbol{y}_{*n} = [y_{*n,1}, \cdots, y_{*n, D}]^\top \) collects all tasks observations at every test input \( y_{*n,d}\).
+	The testing dataset \(\mathcal{D}_* = \{\boldsymbol{x}_{*n}, \boldsymbol{y}_{*n}\}_{n=1}^{N_*} \), where \( \boldsymbol{y}_{*n} = [y_{*n,1}, \cdots, y_{*n, D}]^\top \), collects all tasks observations at every test input \( y_{*n,d}\).
 \end{block}
 	
 \end{frame}
@@ -15,7 +57,7 @@
 \begin{frame}{Model Setup}
 
 \begin{block}{}
-	The methodology constructs the covariance function using the squared exponential kernel, facilitating smooth data mapping.
+	The forecasting methodology constructs the covariance function using the squared exponential kernel, facilitating smooth data mapping.
 \end{block}
 
 
@@ -32,7 +74,7 @@
 \]
 
 \begin{block}{}
-$h_{d,1}(\cdot)$ is the identity for mean, and $h_{d,2}(\cdot) = \ln(\exp(\cdot)+1)$ the softplus function.
+$h_{d,1}(\cdot)$ is the identity function. The baseline model is the standard LMC GP with $h_{d,2}(\cdot)$ as a constant, while the proposed model is the Chained LMC GP with $h_{d,2}(\cdot) = \ln(\exp(\cdot)+1)$.
 \end{block}
 
 \end{frame}
@@ -41,7 +83,7 @@ $h_{d,1}(\cdot)$ is the identity for mean, and $h_{d,2}(\cdot) = \ln(\exp(\cdot)
 \begin{frame}{Performance Metrics}
 
 \begin{block}{}
-	Given the predictive mean \( \hat{\mu}_{n,d}\) and variance \( \hat{\sigma}^2_{n,d}\), the MSE takes the following form
+	Given the predictive mean \( \hat{\mu}_{n,d}\) and variance \( \hat{\sigma}^2_{n,d}\), the Mean Squared Error (MSE) takes the following form
 \end{block}
 
 \[
@@ -49,7 +91,7 @@ $h_{d,1}(\cdot)$ is the identity for mean, and $h_{d,2}(\cdot) = \ln(\exp(\cdot)
 \]
 
 \begin{block}{}
-The MSLL assesses probabilistic prediction quality~\cite{RasmussenW06}
+The Mean Standardized Log Loss (MSLL) \textcolor{BrandTeal}{\textbf{assesses probabilistic prediction quality}}~\cite{RasmussenW06}
 \end{block}
 
 \[
@@ -63,15 +105,15 @@ The MSLL assesses probabilistic prediction quality~\cite{RasmussenW06}
 
 \end{frame}
 
-\begin{frame}{Hyperparameters Tuning}
+\begin{frame}{Hyperparameter Tuning}
 	
 	\begin{block}{}	
-		The baseline is a standard LMC GP model. An grid search on the baseline model fix \(T=1\) and \(M=64\). We then varied \( Q \in \{1, \cdots ,46\} \). The MSE and MSLL decrease until \(Q=15\). Beyond this threshold, the model demonstrates instability, likely due to the increased complexity. Consequently, we select $Q = 15$.
+		A grid search on the baseline model fixed \(T=1\) and \(M=64\). We varied \( Q \in \{1, \cdots ,46\} \).
 	\end{block}
 	
 	\begin{figure}[htbp]
 		\centering
-		\begin{tikzpicture}
+		\begin{tikzpicture}[font=\scriptsize]
 			\begin{groupplot}[
 				group style={
 					group size=2 by 1,
@@ -128,4 +170,9 @@ The MSLL assesses probabilistic prediction quality~\cite{RasmussenW06}
 			\end{groupplot}
 		\end{tikzpicture}
 	\end{figure}
+	
+	\begin{block}{}
+		The MSE and MSLL decrease until \(Q=15\). Beyond this threshold, the trend becomes unstable, likely due to the increased model complexity.
+	\end{block}
+	
 \end{frame}

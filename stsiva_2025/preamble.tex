@@ -17,6 +17,7 @@
 \usetikzlibrary{positioning}
 \usepackage{subcaption}
 \usetheme{Copenhagen}
+\usepackage{multicol}
 \makeatletter
 \setbeamertemplate{headline}{}
 \makeatother
@@ -46,6 +47,10 @@
 \setbeamercolor{frametitle}{fg=BrandBrown}
 \setbeamercolor{title}{fg=BrandTeal}
 \setbeamercolor{normal text}{fg=black,bg=}
+
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{BrandTeal}}
+
 
 \apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
 
