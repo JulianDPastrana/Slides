@@ -1,0 +1,25 @@
+\section{Mathematical Framework}
+
+\subsection{Problem Definition}
+
+Consider a set of \(P\) variables, where the \(p\)-th variable contains \(L_p\) observations as \(\boldsymbol{x} = \{(t_l^{(p)}, x_l^{(p)})\}_{l=1, p=1}^{L_p, P} \), being \(x_l^{(p)} \in \mathbb{R}\) the corresponding observation at time \(t_l^{(p)} \in \mathbb{R}\). A graph representation of that structure with \(P=3\) is plotted in \cref{fig:input_sample_structure}. Each \(\boldsymbol{x}\) has its own target variable \(\boldsymbol{y} \in \mathbb{R}^D \), leading to a collection of \(N\) input-output i.i.d. pairs denoted as \(\mathcal{D} = \{\boldsymbol{x}_n, \boldsymbol{y}_n\}_{n=1}^N\) = \(\{\boldsymbol{X}, \boldsymbol{Y}\}\) called training set. The task is to generalize the map from each input \(\boldsymbol{x}\) to its corresponding target output \(\boldsymbol{y}\) in a stochastic fashion.
+
+
+
+
+\begin{figure}[ht]
+	\centering
+	\include{figures/input_sample}
+	\caption{Structure of input samples. Each dot represent a pair \((t_l^{(p)}, x_l^{(p)})\).}
+	\label{fig:input_sample_structure}
+\end{figure}
+
+\subsection{Likelihood Model}
+
+For this propose, consider a likelihood functions that rule the generation of recorded targets \(\boldsymbol{Y}\) from inputs \(\boldsymbol{X}\) through some set of parameters \(\boldsymbol{\theta} \subseteq \mathbb{R}^J\) 
+
+\begin{equation}\label{eq:likelihood_funciton}
+	p\left(\boldsymbol{Y} \mid \boldsymbol{\theta}(\boldsymbol{X})\right) = \prod_{n=1}^N p\left(\boldsymbol{y}_n \mid \boldsymbol{\theta}(\boldsymbol{x}_n)\right). 
+\end{equation}
+
+Each element of \( \boldsymbol{\theta}(\boldsymbol{x}) \), denoted as \( \theta_{j}(\boldsymbol{x}) \), could be restricted to some subset of \( \mathbb{R} \). To handle that, we model \( \theta_{j}(\boldsymbol{x}) = h_{j}(f_{j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{j}(\boldsymbol{x}) \) via a link function \( h_{j} \). Our task boils down to finding the latent vector function \(\boldsymbol{f}(\boldsymbol{x}) = [f_1(\boldsymbol{x}), \cdots, f_J(\boldsymbol{x})]^\top \in \mathbb{R}^J\).

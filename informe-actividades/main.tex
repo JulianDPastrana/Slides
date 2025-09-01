@@ -1,4 +1,4 @@
-\documentclass[10pt,xcdraw]{article}
+\documentclass[10pt,xcdraw, spanish]{article}
 
 \input{preamble.tex} % Carga el preámbulo
 \begin{document}
@@ -28,16 +28,62 @@
 	\subsection{Objetivo general}
 	Desarrollar una metodología de gamificación para entrenamiento de niños con trastornos de impulsividad ALIANZA CIENTÍFICA CON ENFOQUE COMUNITARIO PARA MITIGAR BRECHAS DE ATENCIÓN Y MANEJO DE TRASTORNOS MENTALES RELACIONADOS CON IMPULSIVIDAD EN COLOMBIA - ACEMATE MINCIENCIAS CONTRATO 790-2023.
 	
-	\input{state_of_art}
+%	\input{state_of_art}
 	\input{methodology}
 	\input{dataset}
-	\input{models}
+%	\input{models}
 	
 	\section{Resultados}
-	Se presenta la versión definitiva de la propuesta de doctorado sobre modelos funcionales y procesos Gaussianos aplicados a la detección y tratamiento de trastornos mentales, documentada en la sección de anexos. Simultáneamente, se ha implementado en Python un modelo de inferencia basado en procesos Gaussianos encadenados para ampliar la metodología de gamificación, El desempeño de este enfoque se ha puesto a prueba mediante la exploración y revisión de la base de datos Toadstool. Lo anterior ha dado pie para el avance en la redacción de un artículo científico para su sometimiento a una revista indexada. 
+	Se presenta la versión definitiva de la propuesta de doctorado sobre modelos funcionales y procesos Gaussianos aplicados a la detección y tratamiento de trastornos mentales, documentada en la sección de anexos.
 	
-	Se ha desarrollado un modelo basado en redes neuronales recurrentes LSTM que permite la integración simultánea de múltiples series de tiempo tomadas con diferentes frecuencias de muestreo, dando paso a una primera integración multimodal. Además, se construyó una rutina que permite la carga eficiente de los datos y el manejo de clases desbalanceadas correspondiente al Toadstool dataset para el correcto entrenamiento de este modelo. Lo anterior ha dado inicio al desarrollo matemático de dicho modelo y por lo tanto un avance en la redacción de un artículo científico.
+	Se implementó en Python un modelo de inferencia basado en procesos Gaussianos encadenados para ampliar la metodología de gamificación mediante un enfoque estocástico.
 	
+	El conjunto de datos Toadstool 2 fue seleccionado por su variedad en datos provenientes de múltiples fuentes, cada una con sus propios parámetros de adquisición, registrados dentro de una ventana de 4 segundos. Todos los datos recolectados durante este intervalo fueron etiquetados con una emoción, pudiendo ser enojado, neutro, triste, sorprendido, entre otras.
+	
+	El problema del conjunto de datos anterior puede abordarse como uno de fusión asincrónica de múltiples fuentes. Una revisión del estado del arte resalta a las redes recurrentes como candidatas para construir un modelo que integre y explote datos temporales, con el fin de generar una representación latente que condense las características más importantes de las secuencias en un conjunto finito de variables. Finalmente, esta representación será la encargada de alimentar el modelo basado en procesos Gaussianos para generar una distribución predictiva como pronóstico.
+	
+	Se desarrolló e implementó un modelo basado en redes neuronales recurrentes LSTM que alternan sus celdas ocultas dependiendo de las características y del número de entradas, manteniendo sus estados latentes y memorias compartidas, llamado Multi-Rate LSTM, como se muestra en la \cref{fig:mrlstm}. Aqui un tipo particular de celda se encarga de analizar una configuración de entrada en cada instante de tiempo, actualizar los estados ocultos y posteriormente transferir la información relevante a la siguiente celda en el siguiente instante de tiempo.
+	
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[item/.style={rectangle, minimum width=1.5cm,draw,thick,align=center,fill=blue!20},itemblock/.style={rectangle,draw,thick,align=center},
+		itemc/.style={item,on chain,join},]
+		\begin{scope}[start chain=going right,nodes=itemc,every
+			join/.style={-latex,very thick},local bounding box=chain]
+			\path node (A0) {Celda $A$} node (A1) {Celda $B$} node (A2) {Celda $A$} node[xshift=2em] (At)
+			{Celda $B$};
+		\end{scope}
+		\node[left=1em of chain,scale=2] (eq) {$=$};
+		\node[left=2em of eq,item] (AL) {Modelo};
+		\path (AL.west) ++ (-1em,2em) coordinate (aux);
+		\draw[very thick,-latex,rounded corners] (AL.east) -| ++ (1em,2em) -- (aux) 
+		|- (AL.west);
+		\foreach \X in {0,1,2,t} 
+		{\draw[very thick,-latex] (A\X.north) -- ++ (0,2em)
+			node[above,item,fill=gray!20] (h\X) {Estado $\X$};
+			\draw[very thick,latex-] (A\X.south) -- ++ (0,-2em)
+			node[below,item,fill=gray!20] (x\X) {Entrada\\Instante $\X$};}
+		\draw[white,line width=0.8ex] (AL.north) -- ++ (0,2em);
+		\draw[very thick,-latex] (AL.north) -- ++ (0,2em)
+		node[above,item,fill=gray!20] {Estado $t$};
+		\draw[very thick,latex-] (AL.south) -- ++ (0,-2em)
+		node[below,item,fill=gray!20] {Entrada\\Instante $t$};
+		\path (x2) -- (xt) node[midway,scale=2,font=\bfseries] {\dots};
+	\end{tikzpicture}
+	\caption{Representación gráfica del modelo Multi-Rate LSTM.}
+	\label{fig:mrlstm}
+\end{figure}
+	 
+	 
+Sin embargo, la realización de varias pruebas mostró que el conjunto de datos Toadstool 2 presenta un desbalance entre el número de muestras disponibles y la complejidad de predecir etiquetas basadas en datos provenientes de múltiples fuentes.
+
+Para solucionar este problema, se está integrando un nuevo conjunto de datos denominado EPA-air, el cual incluye mediciones ambientales detalladas provenientes de múltiples sensores distribuidos geográficamente, proporcionando información temporal y multimodal que facilita la sincronización y el análisis de secuencias temporales para apoyar el entrenamiento del modelo.
+
+Se identificó como problema latente en las técnicas de gamificación la integración asincrónica de múltiples fuentes. El problema radica en cómo mantener las dependencias a lo largo de las series de tiempo y entre las mismas, a pesar de la asincronía de adquisición, presente cuando a un paciente se le toman múltiples métricas provenientes de diferentes dispositivos. 
+
+Se propone el uso de parches de longitud variable para mantener la secuencialidad de los datos ante este escenario. Esto alimenta un modelo secuencial, como una red LSTM, para generar un espacio embebido que posteriormente será mapeado al espacio de salida mediante un modelo probabilístico. 
+Este planteamiento ha dado pie al desarrollo y avance de un artículo científico Q1. 
 
 	
 	\include{anexos}

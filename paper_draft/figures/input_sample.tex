@@ -1,0 +1,56 @@
+\begin{tikzpicture}[x=1.5cm,y=1.5cm]
+	%		\usetikzlibrary{calc}
+	
+	% --- parámetros ---
+	\newcommand{\Tmin}{0}
+	\newcommand{\Tmax}{6}
+	\newcommand{\ValScale}{0.55}
+	
+	% --- listas (t / x) ---
+	\def\sOne{0.6/ 0.20, 2.3/-0.10, 4.9/ 0.15}                                   % L1=3
+	\def\sTwo{0.4/-0.08, 1.2/ 0.25, 2.8/-0.05, 3.7/0.30, 5.5/0.12}               % L2=5
+	\def\sThr{0.3/ 0.15, 0.9/-0.05, 1.6/0.35, 2.2/-0.10, 3.1/0.20,               % L3=8
+		4.0/ 0.05, 4.8/0.28, 5.9/-0.02}
+	
+	% offsets verticales
+	\newcommand{\yOne}{2.0}
+	\newcommand{\yTwo}{1.0}
+	\newcommand{\yThr}{0.0}
+	
+	% estilos
+	\tikzset{
+		base/.style = {black!30, dashed},
+		line1/.style = {line width=0.9pt, blue!70},
+		line2/.style = {line width=0.9pt, red!70},
+		line3/.style = {line width=0.9pt, orange!85!black},
+		dot/.style   = {circle, minimum size=3.2pt, inner sep=0pt},
+	}
+	
+	% macro para dibujar una serie
+	\newcommand{\DrawSeries}[4]{% #1=color, #2=y0, #3=lista, #4=Lp
+		\def\coords{}%
+		\foreach \t/\x in #3 {%
+			\pgfmathsetmacro{\yy}{#2 + \ValScale*(\x)}%
+			\xdef\coords{\coords (\t,\yy)}%
+		}%
+		\draw[#1] plot[smooth] coordinates {\coords};
+		\foreach \t/\x in #3 {%
+			\pgfmathsetmacro{\yy}{#2 + \ValScale*(\x)}%
+			\fill[#1] (\t,\yy) circle (3.5pt);
+		}%
+		% línea base
+		\draw[base] (\Tmin,#2) -- (\Tmax,#2);
+		% etiquetas p y L
+		\node[anchor=east,font=\footnotesize] at (\Tmin-0.2,#2) {$p=#4$};
+		\node[anchor=west,font=\footnotesize] at (\Tmax+0.2,#2) {$L_{#4}=\ifnum#4=1 3\else\ifnum#4=2 5\else 8\fi\fi$};
+	}
+	
+	% dibujar las tres series con sus etiquetas
+	\DrawSeries{line1}{\yOne}{\sOne}{1}
+	\DrawSeries{line2}{\yTwo}{\sTwo}{2}
+	\DrawSeries{line3}{\yThr}{\sThr}{3}
+	
+	% eje de tiempo
+	\draw[->, thick] (\Tmin,-0.7) -- (\Tmax+0.6,-0.7) node[anchor=west]{time};
+	
+\end{tikzpicture}
