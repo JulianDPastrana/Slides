@@ -25,10 +25,11 @@
 					\else
 					\def\fillcolor{black}
 					\def\labeltext{$0$}
+					\def\colortext{white}
 					\fi
 					\fill[fill=\fillcolor,draw=MyDarkBlue]
 					(\i,\y) rectangle ++(1,1);
-					\node[font=\footnotesize]
+					\node[font=\colortext]
 					at (\i+0.5,\y+0.5) {\labeltext};
 				}
 			}
