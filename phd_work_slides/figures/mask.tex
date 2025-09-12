@@ -1,4 +1,4 @@
-\begin{tikzpicture}[x=1.5cm,y=0.7cm]
+\begin{tikzpicture}
 	\newcommand{\Tmin}{0}   % start of T
 	\newcommand{\Tmax}{5}  % end   of T
 	\newcommand{\Pdim}{3}   % number of rows (p = 1..Pdim)
@@ -34,25 +34,4 @@
 			}
 		\end{scope}
 	}
-	
-	% ─────── Braces ─────────────────────────────────────────────
-	% T‐brace above, spanning all time‐cells:
-	\draw[decorate,decoration={brace,amplitude=4pt}]
-	(\Tmin+1,\Pdim+\Yoff+1) -- (\Tmax+2,\Pdim+\Yoff+1)
-	node[midway,above=4pt] {$T$};
-	
-	% p‐brace at right, spanning all rows:
-	\draw[decorate,decoration={brace,amplitude=4pt,mirror}]
-	(\Tmax+2+\Xoff,1) -- (\Tmax+2+\Xoff,\Pdim+1)
-	node[midway,right=4pt] {$p$};
-	
-	% N‐brace (diagonal) from front layer to back layer:
-	\pgfmathsetmacro{\Nshift}{0.5*(\Ndim-1)}
-	\pgfmathsetmacro{\startX}{\Tmin-\Xoff}
-	\pgfmathsetmacro{\startY}{\Pdim}
-	\pgfmathsetmacro{\endX}{\Tmin+\Nshift-\Xoff}
-	\pgfmathsetmacro{\endY}{\Pdim+\Nshift}
-	\draw[decorate,decoration={brace,amplitude=4pt}]
-	(\startX,\startY) -- (\endX,\endY)
-	node[midway,above left=2pt] {$N$};
 \end{tikzpicture}
