@@ -56,8 +56,8 @@
 	\node [circle, draw, sin wave, minimum size=2em, left=0.8em of sum1] (pe1) {};
 	
 	% Encoder, 1st layer
-	\node[layer] (add1) at (1.25,3.43) {Add \& Norm};
-	\node[layer] (attn1) at (1.25,2.58) {Masked \vspace{-0.05cm} \linebreak Multi-Head \vspace{-0.05cm} \linebreak Attention};
+	\node[layer] (add1) at (1.25,3.83) {Add \& Norm};
+	\node[layer] (attn1) at (1.25,2.78) {Masked \vspace{-0.05cm} \linebreak Multi-Head \vspace{-0.05cm} \linebreak Attention};
 	\draw[] (attn1) -- (add1);
 	% Encoder 2nd sub-layer
 	\node[layer] (add4) at (1.25,5.98) {Add \& Norm};
