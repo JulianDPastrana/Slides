@@ -60,8 +60,8 @@
 	\node[layer] (attn1) at (1.25,2.78) {Masked \vspace{-0.05cm} \linebreak Multi-Head \vspace{-0.05cm} \linebreak Attention};
 	\draw[] (attn1) -- (add1);
 	% Encoder 2nd sub-layer
-	\node[layer] (add4) at (1.25,5.98) {Add \& Norm};
-	\node[layer] (ff1) at (1.25,5.13) {Feed \vspace{-0.05cm} \linebreak Forward};
+	\node[layer] (add4) at (1.25,6.38) {Add \& Norm};
+	\node[layer] (ff1) at (1.25,5.53) {Feed \vspace{-0.05cm} \linebreak Forward};
 	\draw[] (ff1) -- (add4);
 	
 	\coordinate (e1) at ($(attn1.south east) + (0.15,-0.7)$);
