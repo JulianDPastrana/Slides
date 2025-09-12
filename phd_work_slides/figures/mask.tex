@@ -20,11 +20,11 @@
 					% pattern: one blue then (p-1) reds
 					\pgfmathtruncatemacro{\modres}{mod(\i,\p)}
 					\ifnum\modres=0
-					\def\fillcolor{MyAccent!20}
-					\def\labeltext{$x_{\i,\p}^{(\N)}$}
+					\def\fillcolor{white}
+					\def\labeltext{$1$}
 					\else
-					\def\fillcolor{red!20}
-					\def\labeltext{$\hat x_{\i,\p}^{(\N)}$}
+					\def\fillcolor{black}
+					\def\labeltext{$0$}
 					\fi
 					\fill[fill=\fillcolor,draw=MyDarkBlue]
 					(\i,\y) rectangle ++(1,1);
