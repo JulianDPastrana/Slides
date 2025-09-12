@@ -68,7 +68,9 @@
 		p\left(\boldsymbol{Y} \mid \boldsymbol{\theta}(\boldsymbol{X})\right) = \prod_{n=1}^N p\left(\boldsymbol{y}_n \mid \boldsymbol{\theta}(\boldsymbol{x}_n)\right). 
 	\end{equation*}
 	
-	Each element of \( \boldsymbol{\theta}(\boldsymbol{x}) \), denoted as \( \theta_{j}(\boldsymbol{x}) \), could be restricted to some subset of \( \mathbb{R} \). To handle that, we model \( \theta_{j}(\boldsymbol{x}) = h_{j}(f_{j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{j}(\boldsymbol{x}) \) via a link function \( h_{j} \). Our task boils down to finding the latent vector function \(\boldsymbol{f}(\boldsymbol{x}) = [f_1(\boldsymbol{x}), \cdots, f_J(\boldsymbol{x})]^\top \in \mathbb{R}^J\).
+	\begin{block}{}
+		Each element of \( \boldsymbol{\theta}(\boldsymbol{x}) \), denoted as \( \theta_{j}(\boldsymbol{x}) \), could be restricted to some subset of \( \mathbb{R} \). To handle that, we model \( \theta_{j}(\boldsymbol{x}) = h_{j}(f_{j}(\boldsymbol{x})) \) as a transformation of an unrestricted latent variable \( f_{j}(\boldsymbol{x}) \) via a link function \( h_{j} \).
+	\end{block}
 \end{frame}
 
 
