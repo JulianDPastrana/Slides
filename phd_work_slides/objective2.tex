@@ -65,7 +65,7 @@
 		\centering
 		\begin{tikzpicture}[font=\sffamily, >=stealth, node distance=8mm]
 			% Latent variable (z)
-			\node[rectangle, fill=MyAccent, text=white, font=\sffamily\large, minimum height=3cm, text width=3cm, align=center] (z) {Latent\\ Representation ($\boldsymbol{h}$)};
+			\node[rectangle, fill=MyAccent, text=white, font=\sffamily\large, minimum height=3cm, text width=3cm, align=center] (z) {Latent\\ Representation ($\boldsymbol{f}$)};
 			
 			% Encoder trapezoid
 			\node[trapezium, fill=MyAccent!20, minimum width=4cm, minimum height=4cm,
@@ -79,7 +79,7 @@
 			
 			% Gaussian Process circle
 			\node[circle, fill=MyAccent!20, text=MyDarkBlue, font=\sffamily\small,
-			below=2cm of z, minimum size=2cm, align=center] (gp) {Gaussian\\Process};
+			below=2cm of z, minimum size=2cm, align=center] (gp) {Likelihood\\Model};
 			
 			% Arrows and labels
 			\draw[<-, MyDarkBlue, thick] (enc.west) -- ++(-1.5,0) node[left, align=right, text=MyDarkBlue] {Input};
