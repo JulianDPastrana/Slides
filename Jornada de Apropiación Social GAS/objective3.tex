@@ -1,15 +1,20 @@
 \section[Implementing a long-term planning tool for the natural gas transportation network]{Implementing a long-term planning tool for the natural gas transportation network}
 
 \begin{frame}{One-day-ahead Models Forecasting}
-	\centering
-	\begin{figure}[htbp]
-		\tiny
-		\setlength\figurewidth{0.55\columnwidth} 
-		\setlength\figureheight{0.5\columnwidth}
+	
+	\begin{figure}
 		
-		\subfloat[Reservoir $A$]{\input{/AMANI_forecasting}}
-		\subfloat[Reservoir $I$]{\input{/SAN LORENZO_forecasting}}
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\input{AMANI_forecasting}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.48\textwidth}
+			\centering
+			\input{AMANI_forecasting}
+		\end{subfigure}
 	\end{figure}
+	
 	\vspace{-1.5em}
 	\begin{block}{}
 		The SVGP closely follows the time-series data and captures its stochastic nature through the predictive distribution.
