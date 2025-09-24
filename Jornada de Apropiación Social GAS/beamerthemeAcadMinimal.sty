@@ -101,6 +101,8 @@
 \setlength{\leftmarginii}{12pt}
 
 % --- Force full justification reliably ---
+\usepackage{ragged2e}
+\usepackage{etoolbox}
 
 % Force justification in block bodies
 \addtobeamertemplate{block begin}{}{\justifying}
@@ -109,6 +111,7 @@
 
 % Force justification for normal frame text
 \AtBeginEnvironment{frame}{\justifying}
+
 
 
 % ---------------------------- Color wiring ---------------------------
