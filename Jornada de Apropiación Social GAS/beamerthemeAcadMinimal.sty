@@ -105,11 +105,11 @@
 \usepackage{etoolbox}
 \apptocmd{\frame}{}{\justifying}{}
 
-% Do the same for lists (run AFTER Beamer sets them up)
 
-\apptocmd{\itemize}{}{\justifying}{}     % itemize fully justified
-\apptocmd{\enumerate}{}{\justifying}{}   % enumerate fully justified
-\apptocmd{\description}{}{\justifying}{} % description fully justified
+% 🔧 Force full justification inside list bodies (all nesting levels)
+\addtobeamertemplate{itemize/enumerate body begin}{\justifying}{}
+\addtobeamertemplate{itemize/enumerate subbody begin}{\justifying}{}
+\addtobeamertemplate{itemize/enumerate subsubbody begin}{\justifying}{}
 
 
 
