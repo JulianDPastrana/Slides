@@ -104,8 +104,8 @@
 \usepackage{ragged2e}
 \usepackage{etoolbox}
 \apptocmd{\frame}{}{\justifying}{}
-\apptocmd{\itemize}{}{\justifying}{}
-\apptocmd{\item}{}{\justifying}{}
+\AtBeginEnvironment{enumerate}{\justifying}
+
 
 % ---------------------------- Color wiring ---------------------------
 \setbeamercolor{normal text}{fg=black,bg=white}
