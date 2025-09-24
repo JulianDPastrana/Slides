@@ -100,24 +100,17 @@
 \setlength{\leftmargini}{14pt}
 \setlength{\leftmarginii}{12pt}
 
-% --- Force full justification reliably ---
+% --- Force full justification inside frames (robust) ---
 \RequirePackage{ragged2e}
-% Make any \raggedright from Beamer behave like \justifying
 
-\usepackage{etoolbox}
+\makeatletter
+% Beamer uses \beamer@raggedright in many places (frame body, blocks, etc.).
+% Redirect it to ragged2e's fully-justified paragraph builder:
+\def\beamer@raggedright{\justifying}
 
-% Force justification in block bodies
-\addtobeamertemplate{block begin}{}{\justifying}
-\addtobeamertemplate{block alerted begin}{}{\justifying}
-\addtobeamertemplate{block example begin}{}{\justifying}
-\addtobeamertemplate{frame begin}{}{\justifying}
-
-% Force justification for normal frame text
-\AtBeginEnvironment{frame}{\justifying}
-
-
-\let\AM@orig@raggedright\raggedright
-\renewcommand{\raggedright}{\justifying}
+% Also ensure justification is applied after Beamer's own framesetup:
+\apptocmd{\beamer@framesetup}{\justifying}{}{}
+\makeatother
 
 
 % ---------------------------- Color wiring ---------------------------
