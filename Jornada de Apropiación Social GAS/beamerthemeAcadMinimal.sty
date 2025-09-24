@@ -42,7 +42,11 @@
 \definecolor{AM@Highlight}{RGB}{30,144,255} % Dodger Blue
 
 % Redefine emphasis to use theme highlight color + bold
-\renewcommand{\emph}[1]{\textcolor{AM@Highlight}{\textbf{#1}}}
+\newcommand{\texthl}[1]{\textcolor{AM@Highlight}{\textbf{#1}}}
+\newcommand{\mathhl}[1]{{\color{AM@Highlight}\bm{#1}}}
+
+% Make \emph work in both text and math:
+\DeclareRobustCommand{\emph}[1]{\ifmmode \mathhl{#1} \else \texthl{#1} \fi}
 
 
 % ----------------------------- Typography ----------------------------
