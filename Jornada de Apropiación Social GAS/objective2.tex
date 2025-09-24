@@ -91,31 +91,16 @@
 \end{frame}
 
 
-\begin{frame}{Nonlinear Constraint: Weymouth Equation}
-	\textbf{Challenge:}
+\begin{frame}{Nonlinear Constraints and Weymouth Equation}
+	The model contains nonlinear constraints such as positivity of flows, operational limits, and capacity bounds. A major difficulty arises with the Weymouth equation for pipelines, which relates pressures at the ends of a pipe with the transported gas flow and introduces both nonconvexity and discontinuity:
+	
 	\[
-	\text{sgn}(f_{\text{trans}}^p)\,(f_{\text{trans}}^p)^2 = K_p(p_i^2 - p_j^2)
+	\text{sgn}(f_{\text{trans}}^p)\,(f_{\text{trans}}^p)^2 = K_p \,(p_i^2 - p_j^2)
 	\]
-	\begin{itemize}
-		\item Nonlinear, nonconvex, and discontinuous (due to $\text{sgn}(\cdot)$).
-		\item Difficult for conventional optimization methods.
-	\end{itemize}
 	
-	\vspace{0.2cm}
-	\textbf{Our Solution: MPCC}
-	\begin{itemize}
-		\item Complementarity constraints replace binary disjunctions.
-		\item Continuous variables $f^+, f^-$ capture flow direction without mixed-integers.
-		\item Lower complexity, avoids MIP, yet preserves sign behavior.
-	\end{itemize}
-	
-	\vspace{0.2cm}
-	\textbf{Solver: IPOPT}
-	\begin{itemize}
-		\item Interior-point method with line-search filter.
-		\item Simultaneous primal-dual updates for robust convergence.
-	\end{itemize}
+	To overcome this challenge, we employed Mathematical Programs with Complementarity Constraints (MPCC). This approach replaces the disjunctive nature of the sign function with complementarity conditions, allowing continuous variables to replicate the behavior of binary decisions without resorting to mixed-integer formulations. The resulting model is computationally more efficient and was solved using the IPOPT solver, which exploits primal-dual interior-point methods to handle nonlinear optimization effectively.
 \end{frame}
+
 
 
 
