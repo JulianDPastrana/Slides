@@ -100,14 +100,26 @@
 \setlength{\leftmargini}{14pt}
 \setlength{\leftmarginii}{12pt}
 
-% --- Force full justification inside frames (robust) ---
+% ===================== Force full justification (robust) =====================
 \RequirePackage{ragged2e}
+\RequirePackage{etoolbox}
 
+% 1) Justify the frame body via the frame template hook
+\addtobeamertemplate{frame begin}{}{\justifying}
 
-\def\beamer@raggedright{\justifying}
+% 2) Columns reset \raggedright internally; enforce again
+\AtBeginEnvironment{columns}{\justifying}
+\AtBeginEnvironment{column}{\justifying}
 
-% Also ensure justification is applied after Beamer's own framesetup:
-\apptocmd{\beamer@framesetup}{\justifying}{}{}
+% 3) Blocks (normal/alerted/example)
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+
+% 4) Last line of defense: if Beamer calls \raggedright later, map it to \justifying
+\let\AM@orig@raggedright\raggedright
+\renewcommand{\raggedright}{\justifying}
+
 
 
 
