@@ -68,39 +68,21 @@
 	\sum_{c \in \mathcal{C}} C_{\text{trans}}^c f_{\text{trans}}^c \;+\;
 	\sum_{i \in \mathcal{N}} \sum_{u \in \mathcal{U}} C_{\text{rest}}^{u,i} f_{\text{rest}}^{u,i}
 	\]
-	
-\begin{columns}[T,onlytextwidth] 
-	
-	\column{0.46\textwidth}
-	\begin{itemize}
-		\item Injection at node $w$: 
+	  Each cost component is defined as the product of a unit cost and the corresponding flow:
+	\begin{columns}[T,onlytextwidth] 
+		
+		\column{0.46\textwidth}
 		\begin{itemize}
-			\item $f_{\text{iny}}^w$ – injected flow
-			\item $C_{\text{iny}}^w$ – injection cost
+			\item Injection at node $w$: $C_{\text{iny}}^w \, f_{\text{iny}}^w$
+			\item Transport through pipeline $p$: $C_{\text{trans}}^p \, f_{\text{trans}}^p$
 		\end{itemize}
 		
-		\item Pipeline $p$: 
+		\column{0.46\textwidth}
 		\begin{itemize}
-			\item $f_{\text{trans}}^p$ – transported flow
-			\item $C_{\text{trans}}^p$ – transport cost
+			\item Transport through compressor $c$: $C_{\text{trans}}^c \, f_{\text{trans}}^c$
+			\item Unmet demand for user $u$ at node $i$: $C_{\text{rest}}^{u,i} \, f_{\text{rest}}^{u,i}$
 		\end{itemize}
-	\end{itemize}
+	\end{columns}
 	
-	\column{0.46\textwidth}
-	\begin{itemize}
-		\item Compressor $c$: 
-		\begin{itemize}
-			\item $f_{\text{trans}}^c$ – transported flow
-			\item $C_{\text{trans}}^c$ – transport cost
-		\end{itemize}
-		
-		\item Unmet demand for user $u$ at node $i$:
-		\begin{itemize}
-			\item $f_{\text{rest}}^{u,i}$ – unmet demand flow
-			\item $C_{\text{rest}}^{u,i}$ – penalty cost
-		\end{itemize}
-	\end{itemize}
-	
-\end{columns}
 
 \end{frame}
