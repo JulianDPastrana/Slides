@@ -8,21 +8,27 @@
 \end{frame}
 
 \begin{frame}{Weymouth Equation Approximations}
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{6pt}
+{\arrayrulecolor{AM@BlueDark}%
+	\begin{tabular}{@{}l
+			S[table-format=7.2]
+			S[table-format=7.2]
+			S[table-format=8.2]
+			S[table-format=8.2]@{}}
+		\rowcolor{AM@BlueDark}
+		\multicolumn{5}{c}{\textcolor{white}{\bfseries Objective value by approach and system}}\\
+		\rowcolor{AM@Light}
+		\textbf{System} & {\textbf{Taylor}} & {\textbf{SOC}} & {\textbf{Polynomial}} & {\textbf{MPCC}}\\
+		\midrule
+		8 nodes                &  194133.34 &  194133.34 &   229169.12 &   194098.52 \\
+		48 nodes               & 11094999.95 & 11094999.95 & 11099349.35 & 13189989.61 \\
+		63 nodes (Colombia)    &  4517783.04 &  4517783.03 &            {--} &  4499406.10 \\
+		\bottomrule
+\end{tabular}}
 	
-	\begin{table}[htbp]
-		\centering
-		\caption{Objective function value for each approach and system}
-		\label{tab:obj_values}
-		\begin{tabular}{|c|r|r|r|r|}
-			\hline
-			\textbf{System}  & \textbf{Taylor} & \textbf{SOC} & \textbf{Polynomial} & \textbf{MPCC} \\ \hline
-			\textbf{8 nodes}  & 194133.34       & 194133.34    & 229169.12           & 194098.52     \\ \hline
-			\textbf{48 nodes} & 11094999.95     & 11094999.95  & 11099349.35         & 13189989.61   \\ \hline
-			\textbf{63 nodes (Colombia)} & 4517783.04      & 4517783.03   & -                   & 4499406.10   \\ \hline
-		\end{tabular}
-	\end{table}
-	
-	\justifying
 	Results show that most approaches yield \emph{similar costs}, with exceptions in the \emph{8-node} and \emph{48-node} cases. Notably, the \emph{MPCC method} achieved the \emph{lowest operating cost} for the Colombian gas network, confirming its effectiveness under realistic conditions.
 	
 \end{frame}
