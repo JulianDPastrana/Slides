@@ -97,7 +97,7 @@
 	The model contains nonlinear constraints such as positivity of flows, operational limits, and capacity bounds. A major difficulty arises with the Weymouth equation for pipelines, which relates pressures at the ends of a pipe with the transported gas flow:
 	
 	\[
-	\text{sgn}(f_{\text{trans}}^p)\,(f_{\text{trans}}^p)^2 = K_p \,(p_i^2 - p_j^2)
+	\text{sign}(f_{\text{trans}}^p)\,(f_{\text{trans}}^p)^2 = K_p \,(p_i^2 - p_j^2)
 	\]
 	
 	To overcome this challenge, we employed Mathematical Programs with Complementarity Constraints (\emph{MPCC}). This approach replaces the disjunctive nature of the sign function with complementarity conditions, allowing continuous variables to replicate the behavior of binary decisions without resorting to mixed-integer formulations.
