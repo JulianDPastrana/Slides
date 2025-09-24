@@ -100,11 +100,12 @@
 \setlength{\leftmargini}{14pt}
 \setlength{\leftmarginii}{12pt}
 
-% --- Force full justification reliably ---
-\RequirePackage{ragged2e}
-% Make any \raggedright from Beamer behave like \justifying
-\let\AM@orig@raggedright\raggedright
-\renewcommand{\raggedright}{\justifying}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Replace Beamer's default raggedright with justifying everywhere
+\apptocmd{\frame}{}{\justifying}{} 
+\renewcommand{\raggedright}{\justifying
 
 
 % ---------------------------- Color wiring ---------------------------
