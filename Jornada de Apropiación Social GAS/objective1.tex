@@ -1,0 +1,124 @@
+\section[Predicting the dispatch of thermoelectric generation]
+{Objective 1}
+
+
+\begin{frame}{Problem Setting}
+	
+	
+	Consider a vector collecting sequential data across $P$ variables at time instant \( t \), as \( \boldsymbol{v}_t \subseteq \mathbb{R}^{P}\). The flattening of \( T \) sequential observations yields an input vector \( \boldsymbol{x} \in \mathcal{X} \),
+	
+	
+	\[ 
+	\boldsymbol{x}= [ \boldsymbol{v}_{t-1}^\top, \boldsymbol{v}_{t-2}^\top, \cdots, \boldsymbol{v}_{t-T}^\top  ]^\top,
+	\]
+	
+	
+	\( {\mathcal{X}} \subseteq \mathbb{R}^{L} \), and \( L = PT \). The forecasting task aims to predict the next \(H\) sequential values, yielding the output target \( \boldsymbol{y} \in {\mathcal{Y}} \)
+	
+	
+	\[
+	\boldsymbol{y} = [ \boldsymbol{v}_{t}^\top, \boldsymbol{v}_{t+1}^\top, \cdots, \boldsymbol{v}_{t+H-1}^\top  ]^\top,
+	\] 
+	
+	
+	\( {\mathcal{Y}} \subseteq \mathbb{R}^{D} \), and \( D = PH \). Gathering \( N \) input-output i.i.d. observation pairs produces the training dataset as \( {\mathcal{D}} = \{\boldsymbol{x}_n, \boldsymbol{y}_n\}_{n=1}^N = \{ \boldsymbol{X}, \boldsymbol{Y}\} \).
+	
+	
+\end{frame}
+
+
+\begin{frame}{The Chained Model}
+	
+	For dataset $\mathcal{D}$, the likelihood function assumes the distribution over \(  \boldsymbol{Y} \) as the product of \( D \) conditionally independent distributions, one by each output as follows:
+	
+	
+	\[
+	p(\boldsymbol{Y} \mid \boldsymbol{\theta}(\boldsymbol{X})) = \prod_{n=1}^N \prod_{d=1}^D p\left(y_{n,d} \mid \boldsymbol{\theta}_d(\boldsymbol{x}_n)\right),
+	\]
+	
+	
+	where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n) \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameters for \( d \)-th output distribution with elements \( \theta_{d,j}(\boldsymbol{x}) \). \emph{Each likelihood parameter is governed by a Gaussian Process (GP) \( f_{d,j}(\boldsymbol{x}) \)} via a link function transformation \( h_{d,j}(\cdot) \) as \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \).
+	
+\end{frame}
+
+\begin{frame}{The LMC Model}
+	
+	Consider a set of \( Q \) zero-mean independent GPs \( \{ g_q \}_{q=1}^Q \) with kernel function \(k_q(\boldsymbol{x}, \boldsymbol{x}')\) that will be linearly weighed via \( a_{(d,j),q} \in \mathbb{R} \) coefficients to generate \( f_{d,j} \) as
+	
+	\[
+	f_{d,j}(\boldsymbol{x}) = \sum_{q=1}^Q a_{(d,j),q} g_{q}(\boldsymbol{x}),
+	\]
+	
+	proposing a \emph{cross-covariance function for the latent variables \( f_{d,j} \)} as follows
+	
+	\[
+	k_{\boldsymbol{f}_{d,j}, \boldsymbol{f}_{d',j'}}(\boldsymbol{x}, \boldsymbol{x}') = \text{cov}\{f_{d,j}(\boldsymbol{x}), f_{d',j'}(\boldsymbol{x}')\}
+	=\sum_{q=1}^Q a_{(d,j),q}a_{(d',j'),q} k_{q}(\boldsymbol{x}, \boldsymbol{x}').
+	\]
+	
+	We call the above as Linear Model of Coregionalization (LMC).
+	
+\end{frame}
+
+\begin{frame}{Variational Optimization}
+	
+	
+	We introduce induced vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at	\( M \ll N \) inducing points \( \{\mathbf{z}_m\}_{m=1}^M \) to reduce the complexity \emph{\(\mathcal{O}(N^3)\) to \(\mathcal{O}(NM^2)\)}, and approximating the joint posterior
+	
+	
+	\[
+	p(\mathbf{f},\mathbf{u}\mid \mathcal{D}) 
+	\approx \prod_{d=1}^D \prod_{j=1}^{J_d} p(\mathbf{f}_{d,j}\mid \mathbf{u})
+	\prod_{q=1}^Q q(\mathbf{u}_q),
+	\]
+	
+	
+	with \( q(\mathbf{u}_q)=\mathcal{N}(\mathbf{u}_q\mid \boldsymbol{\mu}_q,\mathbf{S}_q) \), \( \boldsymbol{\mu}_q \in \mathbb{R}^{M} \), \( \boldsymbol{S}_q \in \mathbb{R}^{M \times M} \), and \( \boldsymbol{f}_{d,j} = [f_{d,j}(\boldsymbol{x}_1), \cdots, f_{d,j}(\boldsymbol{x}_N) ]^\top \in \mathbb{R}^{N} \).
+	We tune the model by optimizing the loss function \(\mathcal{L}\)
+	
+	
+	\[
+	\mathcal{L} = \sum_{n=1}^{N}\sum_{d=1}^{D}
+	\mathbb{E}_{q(\mathbf{f}_{d,n})}\!\left\{\log p(y_{d,n}\mid f_{d,1}(\mathbf{x}_n), \cdots, f_{d,J_d}(\mathbf{x}_n))\right\}
+	- \sum_{q=1}^{Q}\mathrm{KL}\!\left\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\right\},
+	\]
+	
+	
+	using  Natural Gradient for \(\mathbf{u}_q\) and \(\mathbf{\boldsymbol{S}}_q\), and Adam for the remaining parameters~\cite{pmlr-v84-salimbeni18a}.
+	
+\end{frame}
+
+
+\begin{frame}{Linear Hydrothermal Dispatch Model}
+	Thermal demand can be predicted from hydrological resources by solving a 
+	hydrothermal dispatch problem. In its simplest form, it is modeled as a 
+	linear optimization problem:
+	
+	\vspace{0.5em}
+	
+	
+	\begin{columns}[T,onlytextwidth]
+		% --- Left column: equations ---
+		\column{0.48\textwidth}
+		\begin{gather*}
+			\min_{E_T} \;\; \sum_{i=1}^{N_T} \eta_i E_{T,i}\\[0.5em]
+			\text{s.t. } \; E_{H,j} = V_{j,t} - V_{j,t+1} + A_{j,t}\\[0.5em]
+			\sum_{i=1}^{N_T} E_{T,i} = E_D - \sum_{j=1}^{N_H} E_{H,j}\\[0.5em]
+			E_{T,i}^{\min} \leq E_{T,i} \leq E_{T,i}^{\max}
+		\end{gather*}
+		
+		\footnotesize
+		\column{0.52\textwidth}
+		\begin{itemize}
+			\item $E_T$: Thermal generation
+			\item $E_H$: Hydropower generation
+			\item $E_D$: Daily demand
+			\item $N_T, N_H$: Number of thermal/hydro plants
+			\item $\eta_i$: Heat rate of thermal plant $i$
+			\item $V$: Reservoir volume
+			\item $A$: Reservoir inflow
+			\item $t$: Time index
+			\item $E_{T}^{\min}, E_{T}^{\max}$: Thermal limits
+		\end{itemize}
+	\end{columns}
+\end{frame}
