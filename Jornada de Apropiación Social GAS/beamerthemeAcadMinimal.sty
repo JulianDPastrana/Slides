@@ -101,6 +101,22 @@
 \setlength{\leftmarginii}{12pt}
 
 % ===================== Force full justification (robust) =====================
+\usepackage{ragged2e}
+\usepackage{etoolbox}
+
+% Force full justification at the start of every frame and inside columns
+\makeatletter
+% Beamer sets \raggedright in \beamer@framesetup; replace it with \justifying
+\patchcmd{\beamer@framesetup}{\raggedright}{\justifying}{}{}
+\patchcmd{\beamer@framesetup}{\RaggedRight}{\justifying}{}{}
+% Columns also re-apply raggedright; patch that too
+\patchcmd{\beamer@colentry}{\raggedright}{\justifying}{}{}
+\patchcmd{\beamer@colentry}{\RaggedRight}{\justifying}{}{}
+\makeatother
+
+% As a final backstop, if anything calls \raggedright later, map it to \justifying
+%\let\AM@orig@raggedright\raggedright
+\renewcommand{\raggedright}{\justifying}
 
 
 
