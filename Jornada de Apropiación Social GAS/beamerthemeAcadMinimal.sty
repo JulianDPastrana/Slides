@@ -102,11 +102,9 @@
 
 % ===================== Force full justification (robust) =====================
 \usepackage{ragged2e}
-\usepackage{etoolbox}
 \apptocmd{\frame}{}{\justifying}{}
-\BeforeBeginEnvironment{enumerate}{\begin{minipage}[t]{\linewidth}\justifying}
-	\AfterEndEnvironment{enumerate}{\end{minipage}}
-
+\let\AM@orig@raggedright\raggedright
+\renewcommand{\raggedright}{\justifying}
 
 
 % ---------------------------- Color wiring ---------------------------
