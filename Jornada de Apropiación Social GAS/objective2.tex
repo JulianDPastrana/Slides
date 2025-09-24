@@ -62,29 +62,28 @@
 	combining injection, transport, compressor operation, and unmet demand costs.
 	
 	\[
-	\mathcal{L} =
-	\sum_{w \in \mathcal{W}} \emph{C_{\text{iny}}^w}\, \emph{f_{\text{iny}}^w}
-	\;+\;
-	\sum_{p \in \mathcal{P}} \emph{C_{\text{trans}}^p}\, \emph{f_{\text{trans}}^p}
-	\;+\;
-	\sum_{c \in \mathcal{C}} \emph{C_{\text{trans}}^c}\, \emph{f_{\text{trans}}^c}
-	\;+\;
-	\sum_{i \in \mathcal{N}} \sum_{u \in \mathcal{U}} \emph{C_{\text{rest}}^{u,i}}\, \emph{f_{\text{rest}}^{u,i}}
+	\mathcal{L} = 
+	\sum_{w \in \mathcal{W}} \emph{C_{\text{iny}}^w} \cdot \emph{f_{\text{iny}}^w} \;+\;
+	\sum_{p \in \mathcal{P}} \emph{C_{\text{trans}}^p} \cdot \emph{f_{\text{trans}}^p} \;+\;
+	\sum_{c \in \mathcal{C}} \emph{C_{\text{trans}}^c} \cdot \emph{f_{\text{trans}}^c} \;+\;
+	\sum_{i \in \mathcal{N}} \sum_{u \in \mathcal{U}} \emph{C_{\text{rest}}^{u,i}} \cdot \emph{f_{\text{rest}}^{u,i}}
 	\]
 	
 	Each component is the product of a \emph{unit cost} and the corresponding \emph{flow}:
-  \begin{columns}[T,onlytextwidth] 
-	\column{0.48\textwidth}
-	\begin{itemize}
-		\item Injection at node $w$: \emph{\(C_{\text{iny}}^w\) (cost)} $\times$ \emph{\(f_{\text{iny}}^w\) (flow)}
-		\item Pipeline $p$: \emph{$C_{\text{trans}}^p$ (cost)} $\times$ \emph{$f_{\text{trans}}^p$ (flow)}
-	\end{itemize}
 	
-	\column{0.48\textwidth}
-	\begin{itemize}
-		\item Compressor $c$: \emph{$C_{\text{trans}}^c$ (cost)} $\times$ \emph{$f_{\text{trans}}^c$ (flow)}
-		\item Unmet demand at node $i$ for user $u$: \emph{$C_{\text{rest}}^{u,i}$ (cost)} $\times$ \emph{$f_{\text{rest}}^{u,i}$ (flow)}
-	\end{itemize}
-\end{columns}
+	\begin{columns}[T,onlytextwidth] 
+		\column{0.48\textwidth}
+		\begin{itemize}
+			\item Injection at node $w$: \emph{$C_{\text{iny}}^w$ (cost)} $\times$ \emph{$f_{\text{iny}}^w$ (flow)}
+			\item Transport through pipeline $p$: \emph{$C_{\text{trans}}^p$ (cost)} $\times$ \emph{$f_{\text{trans}}^p$ (flow)}
+		\end{itemize}
+		
+		\column{0.48\textwidth}
+		\begin{itemize}
+			\item Transport through compressor $c$: \emph{$C_{\text{trans}}^c$ (cost)} $\times$ \emph{$f_{\text{trans}}^c$ (flow)}
+			\item Unmet demand at node $i$ for user $u$: \emph{$C_{\text{rest}}^{u,i}$ (cost)} $\times$ \emph{$f_{\text{rest}}^{u,i}$ (flow)}
+		\end{itemize}
+	\end{columns}
 \end{frame}
+
 
