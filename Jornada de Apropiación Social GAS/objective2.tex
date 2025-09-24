@@ -63,26 +63,26 @@
 	
 	\[
 	\mathcal{L} = 
-	\sum_{w \in \mathcal{W}} \;\; \emph{C_{\text{iny}}^w} \; \emph{f_{\text{iny}}^w} \;+\;
-	\sum_{p \in \mathcal{P}} \;\; \emph{C_{\text{trans}}^p} \; \emph{f_{\text{trans}}^p} \;+\;
-	\sum_{c \in \mathcal{C}} \;\; \emph{C_{\text{trans}}^c} \; \emph{f_{\text{trans}}^c} \;+\;
-	\sum_{i \in \mathcal{N}} \sum_{u \in \mathcal{U}} \;\; \emph{C_{\text{rest}}^{u,i}} \; \emph{f_{\text{rest}}^{u,i}}
+	\sum_{w \in \mathcal{W}} C_{\text{iny}}^w f_{\text{iny}}^w \;+\;
+	\sum_{p \in \mathcal{P}} C_{\text{trans}}^p f_{\text{trans}}^p \;+\;
+	\sum_{c \in \mathcal{C}} C_{\text{trans}}^c f_{\text{trans}}^c \;+\;
+	\sum_{i \in \mathcal{N}} \sum_{u \in \mathcal{U}} C_{\text{rest}}^{u,i} f_{\text{rest}}^{u,i}
 	\]
+	  Each component is defined as the product of a unit cost and the corresponding flow:
+	\begin{columns}[T,onlytextwidth] 
+		
+		\column{0.48\textwidth}
+		\begin{itemize}
+			\item Injection at node $w$: $C_{\text{iny}}^w \, f_{\text{iny}}^w$
+			\item Transport through pipeline $p$: $C_{\text{trans}}^p \, f_{\text{trans}}^p$
+		\end{itemize}
+		
+		\column{0.48\textwidth}
+		\begin{itemize}
+			\item Transport through compressor $c$: $C_{\text{trans}}^c \, f_{\text{trans}}^c$
+			\item Unmet demand for user $u$ at node $i$: $C_{\text{rest}}^{u,i} \, f_{\text{rest}}^{u,i}$
+		\end{itemize}
+	\end{columns}
 	
-	Each component is defined as the product of a \emph{unit cost} and its \emph{associated flow}:
-	
-%	\begin{columns}[T,onlytextwidth] 
-%		\column{0.48\textwidth}
-%		\begin{itemize}
-%			\item Injection at node $w$: \emph{$C_{\text{iny}}^w$} × \emph{$f_{\text{iny}}^w$}
-%			\item Transport through pipeline $p$: \emph{$C_{\text{trans}}^p$} × \emph{$f_{\text{trans}}^p$}
-%		\end{itemize}
-%		
-%		\column{0.48\textwidth}
-%		\begin{itemize}
-%			\item Transport through compressor $c$: \emph{$C_{\text{trans}}^c$} × \emph{$f_{\text{trans}}^c$}
-%			\item Unmet demand for user $u$ at node $i$: \emph{$C_{\text{rest}}^{u,i}$} × \emph{$f_{\text{rest}}^{u,i}$}
-%		\end{itemize}
-%	\end{columns}
-\end{frame}
 
+\end{frame}
