@@ -101,22 +101,20 @@
 \setlength{\leftmarginii}{12pt}
 
 % ===================== Force full justification (robust) =====================
-\RequirePackage{ragged2e}
-\RequirePackage{etoolbox}
+\usepackage{ragged2e}
+\usepackage{etoolbox}
 
-% 1) Justify the frame body via the frame template hook
-\addtobeamertemplate{frame begin}{}{\justifying}
+% Force full justification at the start of every frame and inside columns
+\makeatletter
+% Beamer sets \raggedright in \beamer@framesetup; replace it with \justifying
+\patchcmd{\beamer@framesetup}{\raggedright}{\justifying}{}{}
+\patchcmd{\beamer@framesetup}{\RaggedRight}{\justifying}{}{}
+% Columns also re-apply raggedright; patch that too
+\patchcmd{\beamer@colentry}{\raggedright}{\justifying}{}{}
+\patchcmd{\beamer@colentry}{\RaggedRight}{\justifying}{}{}
+\makeatother
 
-% 2) Columns reset \raggedright internally; enforce again
-\AtBeginEnvironment{columns}{\justifying}
-\AtBeginEnvironment{column}{\justifying}
-
-% 3) Blocks (normal/alerted/example)
-\addtobeamertemplate{block begin}{}{\justifying}
-\addtobeamertemplate{block alerted begin}{}{\justifying}
-\addtobeamertemplate{block example begin}{}{\justifying}
-
-% 4) Last line of defense: if Beamer calls \raggedright later, map it to \justifying
+% As a final backstop, if anything calls \raggedright later, map it to \justifying
 \let\AM@orig@raggedright\raggedright
 \renewcommand{\raggedright}{\justifying}
 
