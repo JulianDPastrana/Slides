@@ -104,8 +104,8 @@
 \usepackage{ragged2e}
 \usepackage{etoolbox}
 \apptocmd{\frame}{}{\justifying}{}
-\apptocmd{\itemize}{}{\justifying}{}
-\apptocmd{\enumerate}{}{\justifying}{}
+\BeforeBeginEnvironment{enumerate}{\begin{minipage}[t]{\linewidth}\justifying}
+	\AfterEndEnvironment{enumerate}{\end{minipage}}
 
 
 
