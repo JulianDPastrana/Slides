@@ -60,33 +60,33 @@
 	
 \end{frame}
 
-%\begin{frame}{Variational Optimization}
-%	
-%	
-%	We introduce induced vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at	\( M \ll N \) inducing points \( \{\mathbf{z}_m\}_{m=1}^M \) to reduce the complexity \emph{\(\mathcal{O}(N^3)\) to \(\mathcal{O}(NM^2)\)}, and approximating the joint posterior
-%	
-%	
-%	\[
-%	p(\mathbf{f},\mathbf{u}\mid \mathcal{D}) 
-%	\approx \prod_{d=1}^D \prod_{j=1}^{J_d} p(\mathbf{f}_{d,j}\mid \mathbf{u})
-%	\prod_{q=1}^Q q(\mathbf{u}_q),
-%	\]
-%	
-%	
-%	with \( q(\mathbf{u}_q)=\mathcal{N}(\mathbf{u}_q\mid \boldsymbol{\mu}_q,\mathbf{S}_q) \), \( \boldsymbol{\mu}_q \in \mathbb{R}^{M} \), \( \boldsymbol{S}_q \in \mathbb{R}^{M \times M} \), and \( \boldsymbol{f}_{d,j} = [f_{d,j}(\boldsymbol{x}_1), \cdots, f_{d,j}(\boldsymbol{x}_N) ]^\top \in \mathbb{R}^{N} \).
-%	We tune the model by optimizing the loss function \(\mathcal{L}\)
-%	
-%	
-%	\[
-%	\mathcal{L} = \sum_{n=1}^{N}\sum_{d=1}^{D}
-%	\mathbb{E}_{q(\mathbf{f}_{d,n})}\!\left\{\log p(y_{d,n}\mid f_{d,1}(\mathbf{x}_n), \cdots, f_{d,J_d}(\mathbf{x}_n))\right\}
-%	- \sum_{q=1}^{Q}\mathrm{KL}\!\left\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\right\},
-%	\]
-%	
-%	
-%	using  Natural Gradient for \(\mathbf{u}_q\) and \(\mathbf{\boldsymbol{S}}_q\), and Adam for the remaining parameters~\cite{pmlr-v84-salimbeni18a}.
-%	
-%\end{frame}
+\begin{frame}{Variational Optimization}
+	
+	
+	We introduce induced vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at	\( M \ll N \) inducing points \( \{\mathbf{z}_m\}_{m=1}^M \) to reduce the complexity \emph{\(\mathcal{O}(N^3)\) to \(\mathcal{O}(NM^2)\)}, and approximating the joint posterior
+	
+	
+	\[
+	p(\mathbf{f},\mathbf{u}\mid \mathcal{D}) 
+	\approx \prod_{d=1}^D \prod_{j=1}^{J_d} p(\mathbf{f}_{d,j}\mid \mathbf{u})
+	\prod_{q=1}^Q q(\mathbf{u}_q),
+	\]
+	
+	
+	with \( q(\mathbf{u}_q)=\mathcal{N}(\mathbf{u}_q\mid \boldsymbol{\mu}_q,\mathbf{S}_q) \), \( \boldsymbol{\mu}_q \in \mathbb{R}^{M} \), \( \boldsymbol{S}_q \in \mathbb{R}^{M \times M} \), and \( \boldsymbol{f}_{d,j} = [f_{d,j}(\boldsymbol{x}_1), \cdots, f_{d,j}(\boldsymbol{x}_N) ]^\top \in \mathbb{R}^{N} \).
+	We tune the model by optimizing the loss function \(\mathcal{L}\)
+	
+	
+	\[
+	\mathcal{L} = \sum_{n=1}^{N}\sum_{d=1}^{D}
+	\mathbb{E}_{q(\mathbf{f}_{d,n})}\!\left\{\log p(y_{d,n}\mid f_{d,1}(\mathbf{x}_n), \cdots, f_{d,J_d}(\mathbf{x}_n))\right\}
+	- \sum_{q=1}^{Q}\mathrm{KL}\!\left\{q(\mathbf{u}_q)\parallel p(\mathbf{u}_q)\right\},
+	\]
+	
+	
+	using  Natural Gradient for \(\mathbf{u}_q\) and \(\mathbf{\boldsymbol{S}}_q\), and Adam for the remaining parameters~\cite{pmlr-v84-salimbeni18a}.
+	
+\end{frame}
 
 
 \begin{frame}{Linear Hydrothermal Dispatch Model}
