@@ -100,7 +100,24 @@
 \setlength{\leftmargini}{14pt}
 \setlength{\leftmarginii}{12pt}
 
+% --- Force full justification reliably ---
+\RequirePackage{ragged2e}
+% Make any \raggedright from Beamer behave like \justifying
 
+\usepackage{etoolbox}
+
+% Force justification in block bodies
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+\addtobeamertemplate{frame begin}{}{\justifying}
+
+% Force justification for normal frame text
+\AtBeginEnvironment{frame}{\justifying}
+
+
+\let\AM@orig@raggedright\raggedright
+\renewcommand{\raggedright}{\justifying}
 
 
 % ---------------------------- Color wiring ---------------------------
@@ -228,24 +245,6 @@
 \setbeamerfont{bibliography entry author}{size=\footnotesize}
 \setbeamerfont{bibliography entry title}{size=\footnotesize}
 \setbeamerfont{bibliography entry note}{size=\footnotesize}
-
-
-% --- Force full justification reliably ---
-\RequirePackage{ragged2e}
-% Make any \raggedright from Beamer behave like \justifying
-
-
-% Force justification in block bodies
-\addtobeamertemplate{block begin}{}{\justifying}
-\addtobeamertemplate{block alerted begin}{}{\justifying}
-\addtobeamertemplate{block example begin}{}{\justifying}
-
-% Force justification for normal frame text
-\AtBeginEnvironment{frame}{\justifying}
-
-
-\let\AM@orig@raggedright\raggedright
-\renewcommand{\raggedright}{\justifying}
 
 % --------------------------- End of theme ----------------------------
 % Discovered via \usetheme{AcadMinimal}
