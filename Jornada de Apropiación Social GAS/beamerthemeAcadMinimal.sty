@@ -100,12 +100,15 @@
 \setlength{\leftmargini}{14pt}
 \setlength{\leftmarginii}{12pt}
 
-\usepackage{ragged2e}
-\usepackage{etoolbox}
+% --- Force full justification reliably ---
 
-% Replace Beamer's default raggedright with justifying everywhere
-\apptocmd{\frame}{}{\justifying}{} 
-\renewcommand{\raggedright}{\justifying
+% Force justification in block bodies
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+
+% Force justification for normal frame text
+\AtBeginEnvironment{frame}{\justifying}
 
 
 % ---------------------------- Color wiring ---------------------------
