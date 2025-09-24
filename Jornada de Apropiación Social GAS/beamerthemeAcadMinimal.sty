@@ -104,12 +104,7 @@
 \usepackage{ragged2e}
 \usepackage{etoolbox}
 \apptocmd{\frame}{}{\justifying}{}
-
-
-% 🔧 Force full justification inside list bodies (all nesting levels)
-\addtobeamertemplate{enumerate begin}{\justifying}{}
-\addtobeamertemplate{itemize/enumerate subbody begin}{\justifying}{}
-\addtobeamertemplate{itemize/enumerate subsubbody begin}{\justifying}{}
+\AtBeginEnvironment{enumerate}{\justifying}
 
 
 
