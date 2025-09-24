@@ -103,14 +103,12 @@
 % --- Force full justification inside frames (robust) ---
 \RequirePackage{ragged2e}
 
-\makeatletter
-% Beamer uses \beamer@raggedright in many places (frame body, blocks, etc.).
-% Redirect it to ragged2e's fully-justified paragraph builder:
+
 \def\beamer@raggedright{\justifying}
 
 % Also ensure justification is applied after Beamer's own framesetup:
 \apptocmd{\beamer@framesetup}{\justifying}{}{}
-\makeatother
+
 
 
 % ---------------------------- Color wiring ---------------------------
