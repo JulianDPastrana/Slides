@@ -91,3 +91,40 @@
 \end{frame}
 
 
+
+\begin{frame}{Nonlinear Constraint: Weymouth Equation}
+	\begin{itemize}
+		\item \textbf{Weymouth equation} relates pipeline pressures to gas flow:
+		\[
+		\text{sgn}(f_{\text{trans}}^p)\,(f_{\text{trans}}^p)^2 = K_p\,(p_i^2 - p_j^2)
+		\]
+		\begin{itemize}
+			\item Nonlinear, nonconvex, and includes a disjunction via $\text{sgn}(\cdot)$.
+			\item Major challenge for optimization approaches.
+		\end{itemize}
+		
+		\item \textbf{Approximation strategies in literature}:
+		\begin{itemize}
+			\item Taylor series linearization (piecewise linear inequalities).
+			\item Second-order cone formulations (convex relaxations with binaries).
+			\item Polynomial (odd-order) approximations matching endpoints and derivatives.
+		\end{itemize}
+		
+		\item \textbf{Our approach: MPCC (Mathematical Programs with Complementarity Constraints)}:
+		\begin{itemize}
+			\item Replace binary disjunctions with complementarity constraints.
+			\item Continuous variables mimic sign behavior: $f^+$ or $f^-$ active, not both.
+			\item Avoids mixed-integer formulation $\;\Rightarrow\;$ lower complexity.
+		\end{itemize}
+		
+		\item Solved with \textbf{IPOPT}, using:
+		\begin{itemize}
+			\item Interior-point method with central trajectory.
+			\item Line-search filter for robust convergence.
+			\item Simultaneous primal-dual updates for improved performance.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
+
