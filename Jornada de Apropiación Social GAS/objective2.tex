@@ -73,17 +73,18 @@
 	\]
 	
 	Each component is the product of a \emph{unit cost} and the corresponding \emph{flow}:
-	\begin{columns}[T,onlytextwidth]
-		\column{0.48\textwidth}
-		\begin{itemize}
-			\item Injection at node $w$: \emph{C_{\text{iny}}^w} (cost) \emph{f_{\text{iny}}^w} (flow)
-			\item Pipeline $p$: \emph{C_{\text{trans}}^p} (cost) \emph{f_{\text{trans}}^p} (flow)
-		\end{itemize}
-		\column{0.48\textwidth}
-		\begin{itemize}
-			\item Compressor $c$: \emph{C_{\text{trans}}^c} (cost) \emph{f_{\text{trans}}^c} (flow)
-			\item Unmet demand at node $i$ for user $u$: \emph{C_{\text{rest}}^{u,i}} (cost) \emph{f_{\text{rest}}^{u,i}} (flow)
-		\end{itemize}
-	\end{columns}
+  \begin{columns}[T,onlytextwidth] 
+	\column{0.48\textwidth}
+	\begin{itemize}
+		\item Injection at node $w$: \emph{$C_{\text{iny}}^w$ (cost)} $\times$ \emph{$f_{\text{iny}}^w$ (flow)}
+		\item Pipeline $p$: \emph{$C_{\text{trans}}^p$ (cost)} $\times$ \emph{$f_{\text{trans}}^p$ (flow)}
+	\end{itemize}
+	
+	\column{0.48\textwidth}
+	\begin{itemize}
+		\item Compressor $c$: \emph{$C_{\text{trans}}^c$ (cost)} $\times$ \emph{$f_{\text{trans}}^c$ (flow)}
+		\item Unmet demand at node $i$ for user $u$: \emph{$C_{\text{rest}}^{u,i}$ (cost)} $\times$ \emph{$f_{\text{rest}}^{u,i}$ (flow)}
+	\end{itemize}
+\end{columns}
 \end{frame}
 
