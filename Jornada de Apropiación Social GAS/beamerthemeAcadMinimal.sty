@@ -102,14 +102,11 @@
 
 % ===================== Force full justification (robust) =====================
 \usepackage{ragged2e}
-
+\usepackage{etoolbox}
 
 % Start every frame justified
 \AtBeginEnvironment{frame}{\justifying}
-\AtBeginEnvironment{columns}{\justifying}
-\AtBeginEnvironment{column}{\justifying}
-\AtBeginEnvironment{itemize}{\justifying}
-\AtBeginEnvironment{enumerate}{\justifying}
+
 
 
 
@@ -215,6 +212,10 @@
 \addtobeamertemplate{block begin}{\vspace{0.2ex}}{}
 \addtobeamertemplate{block end}{}{\vspace{0.2ex}}
 
+% Force justification inside blocks (normal, alerted, example)
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
 
 % --------------------------- Section pages ---------------------------
 \defbeamertemplate*{section page}{AcadMinimal}{%
