@@ -1,6 +1,7 @@
 \section[Design an optimization strategy for long term planning]{Design an optimization strategy for long term planning}
 
 \begin{frame}{Nodes}
+	A node represents an interconnection point of different elements of the gas network where their flows converge.
 	\begin{columns}[T,onlytextwidth]
 		% --- Left column: equations ---
 		\column{0.5\textwidth}
@@ -8,6 +9,12 @@
 		
 
 		\column{0.5\textwidth}
+		\begin{itemize}
+			\item $f_{iny}$: Injected flow.
+			\item $f_{dem}$: Demanded flow.
+			\item $f_{rest}$: Equivalent restoration flow of unmet demand.
+			\item $f_{N}$: Flow within the network (net flow).
+		\end{itemize}
 		
 	\end{columns}
 \end{frame}
