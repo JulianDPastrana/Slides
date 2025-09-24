@@ -39,11 +39,11 @@
 \colorlet{AM@GraySoft}{AM@Gray!30}
 
 % Highlight color for emphasis
-\definecolor{AM@Highlight}{RGB}{30,144,255} % Dodger Blue
+%\definecolor{AM@Highlight}{RGB}{30,144,255} % Dodger Blue
 
 % Redefine emphasis to use theme highlight color + bold
-\newcommand{\texthl}[1]{\textcolor{AM@Highlight}{\textbf{#1}}}
-\newcommand{\mathhl}[1]{{\color{AM@Highlight}\boldsymbol{#1}}}
+\newcommand{\texthl}[1]{\textcolor{AM@BlueDark}{\textbf{#1}}}
+\newcommand{\mathhl}[1]{{\color{AM@BlueDark}\boldsymbol{#1}}}
 
 % Make \emph work in both text and math:
 \DeclareRobustCommand{\emph}[1]{\ifmmode \mathhl{#1} \else \texthl{#1} \fi}
