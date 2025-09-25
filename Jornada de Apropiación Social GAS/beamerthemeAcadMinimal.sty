@@ -234,20 +234,5 @@
 \setbeamerfont{bibliography entry title}{size=\footnotesize}
 \setbeamerfont{bibliography entry note}{size=\footnotesize}
 
-
-% Toggle (default ON). Set to \AM@printbibliographyfalse in main.tex to hide.
-\newif\ifAM@printbibliography
-\AM@printbibliographytrue
-
-% BibTeX version: prints references inside a frame only if enabled
-\newcommand{\AMBibliographyFrameBibTeX}[2]{%
-	\ifAM@printbibliography
-	\begin{frame}[allowframebreaks,noframenumbering]{References}
-		\bibliographystyle{#1}%
-		\bibliography{#2}%
-	\end{frame}
-	\fi
-}
-
 % --------------------------- End of theme ----------------------------
 % Discovered via \usetheme{AcadMinimal}
