@@ -9,29 +9,30 @@
 
 \begin{frame}{Weymouth Equation Approximations}
 	\renewcommand{\arraystretch}{1.2}
-	\setlength{\tabcolsep}{4pt} % small padding
-	\small % <-- smaller font only for table
-	{\arrayrulecolor{AM@BlueDark}%
-		\begin{tabular}{@{}l
-				S[scientific-notation=true,round-mode=places,round-precision=2]
-				S[scientific-notation=true,round-mode=places,round-precision=2]
-				S[scientific-notation=true,round-mode=places,round-precision=2]
-				S[scientific-notation=true,round-mode=places,round-precision=2]@{}}
-			\rowcolor{AM@BlueDark}
-			\multicolumn{5}{c}{\textcolor{white}{\bfseries Loss function value by approach and network (\$)}}\\
-			\rowcolor{AM@Light}
-			\textbf{Network} & \textbf{Taylor} & \textbf{SOC} & \textbf{Poly.} & \textbf{MPCC}\\
-			\midrule
-			8 nodes             & 1.94e5 & 1.94e5 & 2.29e5 & 1.94e5 \\
-			48 nodes            & 1.11e7 & 1.11e7 & 1.11e7 & 1.32e7 \\
-			63 nodes (Colombia) & 4.52e6 & 4.52e6 & {--}   & 4.50e6 \\
-			\bottomrule
-	\end{tabular}}
-	\normalsize
+	\setlength{\tabcolsep}{6pt}
+	
+	\resizebox{\textwidth}{!}{%
+		{\arrayrulecolor{AM@BlueDark}%
+			\begin{tabular}{@{}l
+					S[scientific-notation=true,round-mode=places,round-precision=2]
+					S[scientific-notation=true,round-mode=places,round-precision=2]
+					S[scientific-notation=true,round-mode=places,round-precision=2]
+					S[scientific-notation=true,round-mode=places,round-precision=2]@{}}
+				\rowcolor{AM@BlueDark}
+				\multicolumn{5}{c}{\textcolor{white}{\bfseries Loss function value by approach and network (\$)}}\\
+				\rowcolor{AM@Light}
+				\textbf{Network} & \textbf{Taylor} & \textbf{SOC} & \textbf{Polynomial} & \textbf{MPCC}\\
+				\midrule
+				8 nodes             & 1.94e5 & 1.94e5 & 2.29e5 & 1.94e5 \\
+				48 nodes            & 1.11e7 & 1.11e7 & 1.11e7 & 1.32e7 \\
+				63 nodes (Colombia) & 4.52e6 & 4.52e6 & {--}   & 4.50e6 \\
+				\bottomrule
+	\end{tabular}}}
 	
 	\vspace{0.5cm}
 	Results show that most approaches yield \emph{similar costs}, with exceptions in the \emph{8-node} and \emph{48-node} cases. Notably, the \emph{MPCC method} achieved the \emph{lowest operating cost} for the Colombian gas network, confirming its effectiveness under realistic conditions.
 \end{frame}
+
 
 
 \begin{frame}{Colombian Network}
