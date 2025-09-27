@@ -37,7 +37,7 @@
 	\]
 	
 	
-	where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n) \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameters for \( d \)-th output distribution with elements \( \theta_{d,j}(\boldsymbol{x}) \). \emph{Each likelihood parameter is governed by a Gaussian Process (GP) \( f_{d,j}(\boldsymbol{x}) \)} via a link function transformation \( h_{d,j}(\cdot) \) as \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \).
+	where \( \boldsymbol{\theta}(\boldsymbol{X}) = \{ \boldsymbol{\theta}_d(\boldsymbol{x}_n) \}_{n=1,d=1}^{N, D} \), with \( \boldsymbol{\theta}_d(\boldsymbol{x}) \subseteq \mathbb{R}^{J_d} \) as a vector containing \( J_d \) parameters for \( d \)-th output distribution with elements \( \theta_{d,j}(\boldsymbol{x}) \). \emph{Each likelihood parameter is governed by a Gaussian Process (GP) \( f_{d,j}(\boldsymbol{x}) \)} \cite{RasmussenW06} via a link function transformation \( h_{d,j}(\cdot) \) as \( \theta_{d,j}(\boldsymbol{x}) = h_{d,j}(f_{d,j}(\boldsymbol{x})) \) \cite{chgp}.
 	
 \end{frame}
 
@@ -56,14 +56,14 @@
 	=\sum_{q=1}^Q a_{(d,j),q}a_{(d',j'),q} k_{q}(\boldsymbol{x}, \boldsymbol{x}').
 	\]
 	
-	We call the above as Linear Model of Coregionalization (LMC).
+	We call the above as Linear Model of Coregionalization (LMC) \cite{8187598}.
 	
 \end{frame}
 
 \begin{frame}{Variational Optimization}
 	
 	
-	We introduce induced vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at	\( M \ll N \) inducing points \( \{\mathbf{z}_m\}_{m=1}^M \) to reduce the complexity \emph{\(\mathcal{O}(N^3)\) to \(\mathcal{O}(NM^2)\)}, and approximating the joint posterior
+	We introduce induced vectors \( \mathbf{u} \in \mathbb{R}^{MQ} \) with elements \( g_q(\mathbf{z}_m) \) at	\( M \ll N \) inducing points \( \{\mathbf{z}_m\}_{m=1}^M \) to reduce the complexity \emph{\(\mathcal{O}(N^3)\) to \(\mathcal{O}(NM^2)\)}, and approximating the joint posterior \cite{pmlr-v38-hensman15}
 	
 	
 	\[

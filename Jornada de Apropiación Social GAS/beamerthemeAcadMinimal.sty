@@ -140,14 +140,15 @@
 \AtBeginDocument{\hypersetup{linkcolor=AM@BlueDark,urlcolor=AM@BlueDark,citecolor=AM@BlueDark}}
 
 % ------------------------------- Header ------------------------------
+\logo{\includegraphics[height=8.0ex,keepaspectratio]{logo}}
 \defbeamertemplate*{headline}{AcadMinimal}{%
 	\leavevmode
-	\begin{beamercolorbox}[wd=\paperwidth,ht=2.2ex,dp=1ex,leftskip=12mm,rightskip=12mm]{palette primary}%
+	\begin{beamercolorbox}[wd=\paperwidth,ht=3.0ex,dp=1ex,leftskip=12mm,rightskip=12mm]{palette primary}%
 		{\usebeamerfont{section in head/foot}\insertsectionhead}%
 		\ifx\insertsubsectionhead\@empty\relax\else
 		\hspace{1em}{\usebeamerfont{subsection in head/foot}\textcolor{AM@GraySoft}{\Large\textbullet}~\insertsubsectionhead}%
 		\fi
-	\end{beamercolorbox}%
+	\end{beamercolorbox}
 }
 \setbeamertemplate{headline}[AcadMinimal]
 
