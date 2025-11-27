@@ -83,7 +83,9 @@ Para solucionar este problema, se está integrando un nuevo conjunto de datos de
 Se identificó como problema latente en las técnicas de gamificación la integración asincrónica de múltiples fuentes. El problema radica en cómo mantener las dependencias a lo largo de las series de tiempo y entre las mismas, a pesar de la asincronía de adquisición, presente cuando a un paciente se le toman múltiples métricas provenientes de diferentes dispositivos. 
 
 Se propone el uso de parches de longitud variable para mantener la secuencialidad de los datos ante este escenario. Esto alimenta un modelo secuencial, como una red LSTM, para generar un espacio embebido que posteriormente será mapeado al espacio de salida mediante un modelo probabilístico. 
-Este planteamiento ha dado pie al desarrollo y avance de un artículo científico Q1. 
+
+
+Una revisión profunda del estado del arte evidencia el uso de modelos basados en redes convolucionales y arquitecturas transformer, capaces de capturar características temporales y espaciales a nivel local y global. En esta línea, se han implementado modelos EEGNet y EEG Conformer para el análisis de señales EEG, las cuales registran la actividad eléctrica cerebral mediante electrodos sobre el cuero cabelludo. Estos modelos han mostrado resultados satisfactorios con la base de datos BCI Competition IV 2a, que contiene registros multicanal de EEG durante tareas de imaginación motora. Actualmente, se realizan pruebas con una base de datos propia orientada a la clasificación de estados de inhibición y no inhibición, con el fin de evaluar la robustez y capacidad de generalización del modelo.
 
 	
 	\include{anexos}
