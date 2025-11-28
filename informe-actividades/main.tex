@@ -87,6 +87,8 @@ Se propone el uso de parches de longitud variable para mantener la secuencialida
 
 Una revisión profunda del estado del arte evidencia el uso de modelos basados en redes convolucionales y arquitecturas transformer, capaces de capturar características temporales y espaciales a nivel local y global. En esta línea, se han implementado modelos EEGNet y EEG Conformer para el análisis de señales EEG, las cuales registran la actividad eléctrica cerebral mediante electrodos sobre el cuero cabelludo. Estos modelos han mostrado resultados satisfactorios con la base de datos BCI Competition IV 2a, que contiene registros multicanal de EEG durante tareas de imaginación motora. Actualmente, se realizan pruebas con una base de datos propia orientada a la clasificación de estados de inhibición y no inhibición, con el fin de evaluar la robustez y capacidad de generalización del modelo.
 
+
+We model a EEG signal as a multichannel time series, where each channel corresponds to an electrode placed on the scalp \(\mathcal{X} \in \mathbb{R}^{C \times M} \), with \( C \) being the number of channels and \( M \) the number of time points. We split the signal into overlapping segments of length \( T \) with a stride of \( S \), resulting in \( N = \frac{M - T}{S} + 1 \) segments. Given a set of EEG recordings for different subjects, we create the set \(\mathcal{D} = \{ (\boldsymbol{X}_i^p, y_i^p) \}_{p, i = 1}^{P, N} \)
 	
 	\include{anexos}
 	\bibliographystyle{apalike}
