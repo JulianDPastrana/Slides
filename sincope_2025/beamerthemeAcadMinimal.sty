@@ -1,0 +1,239 @@
+% =====================================================================
+% Beamer Theme: AcadMinimal
+% File: beamerthemeAcadMinimal.sty
+% Version: 1.2 — 2025-09-23
+% ---------------------------------------------------------------------
+% Minimal, elegant, highly readable Beamer theme for scientific talks.
+% - Serif titles, sans body
+% - Dark blue / gray / white
+% - Clear header/footer with section/subsection + page numbers
+% - Subtly shaded blocks (theorem/definition/example)
+% - Simple title page
+% - Fully justified body text (inside frames/blocks only — no blank first page)
+% =====================================================================
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeAcadMinimal}[2025/09/23 v1.2 Minimal academic beamer theme]
+
+% ---------------------------- Dependencies ----------------------------
+\RequirePackage{etoolbox}
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+\newif\ifAM@xetexorluatex
+\ifxetex\AM@xetexorluatextrue\fi
+\ifluatex\AM@xetexorluatextrue\fi
+
+\RequirePackage{tikz}
+\RequirePackage{calc}
+\RequirePackage{graphicx}
+
+% -------------------------- Color palette -----------------------------
+\definecolor{AM@Blue}{RGB}{12,50,96}      % dark blue (titles/accents)
+\definecolor{AM@Gray}{RGB}{90,98,110}     % cool gray (subtle text/lines)
+\definecolor{AM@Light}{RGB}{246,248,252}  % very light gray (block bg)
+
+\colorlet{AM@BlueDark}{AM@Blue!100}
+\colorlet{AM@BlueMid}{AM@Blue!80!black}
+\colorlet{AM@BlueSoft}{AM@Blue!20}
+\colorlet{AM@GrayDark}{AM@Gray!90!black}
+\colorlet{AM@GraySoft}{AM@Gray!30}
+
+% Highlight color for emphasis
+%\definecolor{AM@Highlight}{RGB}{30,144,255} % Dodger Blue
+
+% Redefine emphasis to use theme highlight color + bold
+\newcommand{\texthl}[1]{\textcolor{AM@BlueDark}{\textbf{#1}}}
+\newcommand{\mathhl}[1]{{\color{AM@BlueDark}\boldsymbol{#1}}}
+
+% Make \emph work in both text and math:
+\DeclareRobustCommand{\emph}[1]{\ifmmode \mathhl{#1} \else \texthl{#1} \fi}
+
+
+% ----------------------------- Typography ----------------------------
+\ifAM@xetexorluatex
+\RequirePackage{fontspec}
+\newfontfamily\AM@TitleSerif{TeX Gyre Pagella}[Ligatures=TeX]
+\setsansfont{TeX Gyre Heros}[Ligatures=TeX,Scale=MatchLowercase]
+\renewcommand{\familydefault}{\sfdefault} % body = sans
+\else
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault} % body = sans
+\newcommand{\AM@TitleSerif}{\rmfamily}
+\fi
+
+\usefonttheme{professionalfonts}
+
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,series=\mdseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section in head/foot}{size=\footnotesize}
+\setbeamerfont{subsection in head/foot}{size=\scriptsize}
+\setbeamerfont{author in head/foot}{size=\scriptsize}
+\setbeamerfont{date in head/foot}{size=\scriptsize}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{block title}{series=\bfseries}
+
+% Serif for frametitles (title page handled separately)
+%\newcommand{\AM@BeginTitleSerif}{\ifAM@xetexorluatex\AM@TitleSerif\else\AM@TitleSerif\fi}
+\newcommand{\AM@BeginTitleSerif}{\normalfont}
+\newcommand{\AM@EndTitleSerif}{\normalfont}
+\addtobeamertemplate{frametitle}{\AM@BeginTitleSerif}{}
+\addtobeamertemplate{frametitle}{}{\AM@EndTitleSerif}
+
+% --------------------------- Layout & spacing -------------------------
+\setbeamersize{text margin left=12mm, text margin right=12mm}
+
+% Math spacing
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setlength{\abovedisplayshortskip}{6pt}
+\setlength{\belowdisplayshortskip}{6pt}
+
+% Floats spacing
+\setlength{\textfloatsep}{10pt}
+\setlength{\intextsep}{8pt}
+\setlength{\floatsep}{8pt}
+
+% Lists
+\setlength{\leftmargini}{14pt}
+\setlength{\leftmarginii}{12pt}
+
+% ===================== Force full justification (robust) =====================
+\usepackage{ragged2e}
+\apptocmd{\frame}{}{\justifying}{}
+\let\AM@orig@raggedright\raggedright
+\renewcommand{\raggedright}{\justifying}
+
+
+% ---------------------------- Color wiring ---------------------------
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=AM@BlueDark}
+
+% Header/footer bars
+\setbeamercolor{palette primary}{fg=white,bg=AM@BlueDark}
+\setbeamercolor{palette tertiary}{fg=white,bg=AM@BlueDark}
+
+% Titles
+\setbeamercolor{title}{fg=AM@BlueDark}
+\setbeamercolor{subtitle}{fg=AM@GrayDark}
+\setbeamercolor{frametitle}{fg=AM@BlueDark}
+\setbeamercolor{framesubtitle}{fg=AM@GrayDark}
+
+% Blocks
+\setbeamercolor{block title}{fg=AM@BlueDark,bg=AM@Light}
+\setbeamercolor{block body}{fg=black,bg=AM@Light!60}
+\setbeamercolor{block title alerted}{fg=white,bg=AM@BlueDark}
+\setbeamercolor{block body alerted}{fg=black,bg=AM@BlueSoft!25}
+\setbeamercolor{block title example}{fg=AM@BlueDark,bg=AM@Light}
+\setbeamercolor{block body example}{fg=black,bg=AM@Light!60}
+
+% Inline elements
+\setbeamercolor{itemize item}{fg=AM@BlueDark}
+\setbeamercolor{itemize subitem}{fg=AM@BlueDark}
+\setbeamercolor{enumerate item}{fg=AM@BlueDark}
+\setbeamercolor{caption name}{fg=AM@GrayDark}
+
+% Hyperlinks (beamer loads hyperref; just set colors)
+\AtBeginDocument{\hypersetup{linkcolor=AM@BlueDark,urlcolor=AM@BlueDark,citecolor=AM@BlueDark}}
+
+% ------------------------------- Header ------------------------------
+\logo{\includegraphics[height=8.0ex,keepaspectratio]{logo}}
+\defbeamertemplate*{headline}{AcadMinimal}{%
+	\leavevmode
+	\begin{beamercolorbox}[wd=\paperwidth,ht=3.0ex,dp=1ex,leftskip=12mm,rightskip=12mm]{palette primary}%
+		{\usebeamerfont{section in head/foot}\insertsectionhead}%
+		\ifx\insertsubsectionhead\@empty\relax\else
+		\hspace{1em}{\usebeamerfont{subsection in head/foot}\textcolor{AM@GraySoft}{\Large\textbullet}~\insertsubsectionhead}%
+		\fi
+	\end{beamercolorbox}
+}
+\setbeamertemplate{headline}[AcadMinimal]
+
+% ------------------------------- Footer ------------------------------
+\newcommand{\AM@footrule}{\noindent\rule{\linewidth}{0.4pt}}
+\defbeamertemplate*{footline}{AcadMinimal}{%
+	\leavevmode
+	\begin{beamercolorbox}[wd=\paperwidth,ht=3.0ex,dp=1.0ex,leftskip=12mm,rightskip=12mm]{palette tertiary}
+		\AM@footrule\vspace{0.2ex}%
+		{\usebeamerfont{author in head/foot}\insertshortauthor}\hspace{0.75em}\textcolor{AM@GraySoft}{\textbar}\hspace{0.75em}%
+		{\usebeamerfont{date in head/foot}\insertshorttitle}%
+		\hfill{\usebeamerfont{footline}\insertframenumber/\inserttotalframenumber}%
+	\end{beamercolorbox}%
+}
+\setbeamertemplate{footline}[AcadMinimal]
+
+% ---------------------------- Frame titles ---------------------------
+\defbeamertemplate*{frametitle}{AcadMinimal}{%
+	\nointerlineskip
+	\vspace{1.5ex}% tighter top space
+	{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle}\par
+	\ifx\insertframesubtitle\@empty\else
+	{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\vspace{0.2ex}\insertframesubtitle}\par
+	\fi
+	\vspace{0.2ex}% tighter space to body text
+}
+\setbeamertemplate{frametitle}[AcadMinimal]
+
+% ------------------------------ Title page ---------------------------
+\defbeamertemplate*{title page}{AcadMinimal}{%
+	\begin{center}
+		{\AM@BeginTitleSerif\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\AM@EndTitleSerif}\par\vspace{0.8ex}
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\par\vspace{2.0ex}
+		\rule{0.12\paperwidth}{0.6pt}\par\vspace{1.6ex}
+		{\usebeamerfont{author}\insertauthor}\par\vspace{0.2ex}
+		{\usebeamerfont{institute}\insertinstitute}\par\vspace{0.4ex}
+		{\usebeamerfont{date}\insertdate}\par
+	\end{center}
+}
+\setbeamertemplate{title page}[AcadMinimal]
+
+% --------------------------- Navigation symbols ----------------------
+\setbeamertemplate{navigation symbols}{}
+
+% ----------------------------- Lists/items ---------------------------
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamertemplate{itemize item}{\raisebox{0.5pt}{\tikz{\fill[AM@BlueDark](0,0)circle(1.1pt);}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.3pt}{\tikz{\fill[AM@BlueDark](0,0)circle(0.8pt);}}}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+
+% ------------------------------- Captions ----------------------------
+\setbeamertemplate{caption label separator}{\textemdash\,}
+\setbeamertemplate{caption}[numbered]
+
+% -------------------------------- Blocks -----------------------------
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\addtobeamertemplate{block begin}{\vspace{0.2ex}}{}
+\addtobeamertemplate{block end}{}{\vspace{0.2ex}}
+
+% Force justification inside blocks (normal, alerted, example)
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+
+% --------------------------- Section pages ---------------------------
+\defbeamertemplate*{section page}{AcadMinimal}{%
+	\begin{center}
+		\vfill
+		{\AM@BeginTitleSerif\usebeamerfont{title}\usebeamercolor[fg]{title}\thesection.\ \insertsection\AM@EndTitleSerif}\par
+		\vspace{0.6ex}
+		{\usebeamercolor[fg]{subtitle}\rule{0.14\paperwidth}{0.6pt}}\par
+		\vfill
+	\end{center}
+}
+\setbeamertemplate{section page}[AcadMinimal]
+% Comment out the next line if you don't want divider frames:
+\AtBeginSection[]{\begin{frame}[plain]\usebeamertemplate*{section page}\end{frame}}
+
+% ------------------------------ Bibliography -------------------------
+\setbeamertemplate{bibliography item}[text]
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
+% --------------------------- End of theme ----------------------------
+% Discovered via \usetheme{AcadMinimal}

@@ -1,0 +1,73 @@
+\begin{tikzpicture}[
+		node distance=1.8cm and 1.5cm,
+		basenode/.style={
+				rectangle,
+				draw=AM@BlueDark,
+				line width=0.8pt,
+				rounded corners=2pt,
+				minimum width=2.5cm,
+				minimum height=2.2cm,
+				align=center,
+				font=\small
+			},
+		datanode/.style={
+				basenode,
+				fill=AM@Light,
+				text=AM@BlueDark
+			},
+		modelnode/.style={
+				basenode,
+				fill=AM@BlueSoft,
+				text=AM@BlueDark,
+				line width=1.2pt,
+				minimum width=3cm,
+				minimum height=2.5cm
+			},
+		arrowstyle/.style={
+				-Stealth,
+				line width=1pt,
+				color=AM@BlueMid
+			},
+		labelstyle/.style={
+				font=\scriptsize,
+				text=AM@GrayDark
+			}
+	]
+
+	% Left node (Input Data)
+	\node[datanode] (training) {
+		\textbf{Input Data}\\[5pt]
+		\footnotesize
+		Text\\
+		Images\\
+		Sensors\\
+		Speech\\
+		Multimodal
+	};
+
+	% Center node (Foundation Model)
+	\node[modelnode, right=of training] (foundation) {
+		\textbf{Foundation}\\
+		\textbf{Model}\\[5pt]
+		\footnotesize
+		Large-scale\\
+		Pre-trained\\
+		Context-representations
+	};
+
+	% Right node (Downstream Tasks)
+	\node[datanode, right=of foundation] (tasks) {
+		\textbf{Tasks}\\[5pt]
+		\footnotesize
+		Classification\\
+		Generation\\
+		Analysis\\
+		Translation\\
+		Prediction
+	};
+
+	% Arrows with labels
+	\draw[arrowstyle] (training.east) -- node[above, labelstyle]{Pre-Training} (foundation.west);
+	\draw[arrowstyle] (foundation.east) -- node[above, labelstyle]{Fine-Tuning} (tasks.west);
+
+\end{tikzpicture}

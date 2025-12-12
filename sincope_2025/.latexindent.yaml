@@ -1,0 +1,84 @@
+# Project-wide latexindent configuration: strict, consistent formatting
+# Docs: https://latexindentpl.readthedocs.io/
+
+# Indentation
+defaultIndent: "  "            # two spaces (set to "\t" for tabs)
+indentPreamble: 1               # also indent the preamble
+
+# Whitespace hygiene
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
+
+# Keep at most one blank line
+preserveBlankLines: 1
+
+# Do not indent verbatim-like environments (content must be preserved)
+verbatimEnvironments:
+  - verbatim
+  - Verbatim
+  - lstlisting
+  - minted
+  - tcbverbatimwrite
+
+# Do not touch these environments beyond outer indent
+noIndentBlock:
+  start: "\\begin{(tikzpicture|verbatim|Verbatim|lstlisting|minted|tcbverbatimwrite)}"
+  finish: "\\end{(tikzpicture|verbatim|Verbatim|lstlisting|minted|tcbverbatimwrite)}"
+
+# Align common math/table environments by delimiters when safe
+lookForAlignDelims:
+  tabular: 1
+  longtable: 1
+  array: 1
+  align: 1
+  align*: 1
+  aligned: 1
+  split: 1
+  cases: 1
+  matrix: 1
+  pmatrix: 1
+  bmatrix: 1
+  vmatrix: 1
+  Vmatrix: 1
+
+# Add or normalize spaces around ampersands and alignment points in tables
+alignOptions:
+  spacesBeforeAmpersand: 1
+  spacesAfterAmpersand: 1
+
+# Sectioning and environments line-break preferences (conservative)
+modifyLineBreaks:
+  condenseMultipleBlankLinesInto: 1
+  textWrapOptions:
+    columns: 0           # 0 = do not hard wrap normal text
+  environments:
+    itemize:
+      BeginStartsOnOwnLine: 1
+      BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+    enumerate:
+      BeginStartsOnOwnLine: 1
+      BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+    description:
+      BeginStartsOnOwnLine: 1
+      BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+    equation:
+      BeginStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+    equation*:
+      BeginStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+
+# Items formatting
+itemNames:
+  label: "label"
+  item: "item"
+
+# Comments
+retainComments: 1
+
+# Safety: back up original file when latexindent is run with -w (Workshop uses temp files)
+backupExtension: ""
