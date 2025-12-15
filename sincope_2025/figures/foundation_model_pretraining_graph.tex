@@ -1,0 +1,37 @@
+\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[
+            font=\sffamily,
+            >=stealth,
+            node distance=15mm,
+            % Define consistent styles
+            data/.style={draw, circle, fill=MyAccent!10, text=MyDarkBlue, minimum size=3.5cm, align=center, line width=1.2pt},
+            process/.style={draw, rounded corners=4pt, fill=MyAccent!20, text=MyDarkBlue, minimum width=3.8cm, minimum height=2.4cm, align=center, font=\large, line width=1.2pt},
+            latent/.style={draw, rounded corners=4pt, fill=MyAccent, text=white, minimum width=3.8cm, minimum height=2.4cm, align=center, font=\large, line width=1.2pt},
+            arrow/.style={->, MyDarkBlue, line width=1.5pt}
+        ]
+        % Input data
+        \node[data] (inputs) {Unlabeled\\data};
+
+        % Encoder
+        \node[process, right=of inputs] (enc) {Encoder\\Network};
+
+        % Latent representation
+        \node[latent, right=of enc] (z) {Latent\\Representation};
+
+        % Decoder
+        \node[process, right=of z] (dec) {Decoder\\Network};
+
+        % Output reconstruction
+        \node[data, right=of dec] (output) {Reconstructed\\Output};
+
+        % Flow arrows with better spacing
+        \draw[arrow] (inputs) -- (enc);
+        \draw[arrow] (enc) -- (z);
+        \draw[arrow] (z) -- (dec);
+        \draw[arrow] (dec) -- (output);
+
+        % Add self-supervised learning loss indicator
+        \draw[<->, MyAccent!70, line width=2pt, dashed] (inputs.south) -- ++(0,-1.2) -| (output.south) node[pos=0.5, below, font=\footnotesize, text=MyAccent!70] {Self-supervised Loss};
+
+    \end{tikzpicture}
+}

@@ -1,0 +1,37 @@
+\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[
+            font=\sffamily,
+            >=stealth,
+            node distance=15mm,
+            % Define consistent styles
+            data/.style={draw, circle, fill=MyAccent!10, text=MyDarkBlue, minimum size=3.5cm, align=center, line width=1.2pt},
+            frozen/.style={draw, rounded corners=4pt, fill=MyDarkBlue!10, text=MyDarkBlue, minimum width=3.8cm, minimum height=2.4cm, align=center, font=\large, line width=1.2pt},
+            trainable/.style={draw, trapezium, shape border rotate=270, trapezium angle=75, trapezium stretches=true, fill=MyAccent!40, text=MyDarkBlue, minimum width=3.0cm, minimum height=3.4cm, align=center, font=\large, line width=1.2pt},
+            latent/.style={draw, rounded corners=4pt, fill=MyAccent, text=white, minimum width=3.8cm, minimum height=2.4cm, align=center, font=\large, line width=1.2pt},
+            output/.style={draw, circle, fill=MyAccent!10, text=MyDarkBlue, minimum size=3.5cm, align=center, line width=1.2pt},
+            arrow/.style={->, MyDarkBlue, line width=1.5pt},
+            highlight/.style={->, MyAccent, line width=2pt}
+        ]
+        % Input labeled data
+        \node[data] (inputs) {Labeled\\Task Data};
+
+        % Pre-trained Encoder (frozen or fine-tuned)
+        \node[frozen, right=of inputs] (enc) {Encoder\\Network};
+
+        % Latent representation
+        \node[latent, right=of enc] (z) {Latent\\Representation};
+
+        % Task-specific head (trainable)
+        \node[trainable, right=of z] (head) {Task-Specific\\Head Network};
+
+        % Output prediction
+        \node[output, right=of head] (output) {Task\\Prediction};
+
+        % Flow arrows
+        \draw[arrow] (inputs) -- (enc);
+        \draw[arrow] (enc) -- (z);
+        \draw[highlight] (z) -- (head);
+        \draw[highlight] (head) -- (output);
+
+    \end{tikzpicture}
+}

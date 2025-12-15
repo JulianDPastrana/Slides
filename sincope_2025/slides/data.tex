@@ -1,0 +1,90 @@
+\section{What is EEG?}
+
+\begin{frame}{What is EEG?}
+    \begin{columns}[T]
+        \column{0.55\textwidth}
+        Electrical brain activity recorded from scalp electrodes. High temporal resolution, non-invasive measurement of neural dynamics.
+
+        \vspace{0.3cm}
+        \begin{table}[h]
+            \small
+            \begin{tabular}{ll}
+                \toprule
+                Band  & Range     \\
+                \midrule
+                Delta & 0.5--4 Hz \\
+                Theta & 4--8 Hz   \\
+                Alpha & 8--12 Hz  \\
+                Beta  & 12--30 Hz \\
+                Gamma & $>$30 Hz  \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+
+        \column{0.45\textwidth}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.95\linewidth]{eeg.png}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{EEG Analysis Examples}
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Motor Imagery
+            \item Impulsivity Detection
+            \item Brain-Computer Interfaces
+            \item Sleep Stage Classification
+            \item Emotion Recognition
+            \item Seizure Detection
+        \end{itemize}
+
+        \column{0.5\textwidth}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.95\linewidth]{eeg_map.png}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Data preprocessing pipeline}
+
+    \begin{multicols}{2}
+        \begin{block}{Filtering}
+
+            \begin{itemize}
+                \item Bandpass filter (1-50 Hz)
+                \item Notch filter (50/60 Hz)
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{Artifact Removal}
+            \begin{itemize}
+                \item Independent Component \\ Analysis (ICA)
+                \item Automatic algorithms
+                \item Manual inspection
+            \end{itemize}
+        \end{block}
+
+        \columnbreak
+
+        \begin{block}{Segmentation}
+            \begin{itemize}
+                \item Epoching based on events
+                \item Fixed-length windows
+                \item Overlap handling
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{Normalization}
+            \begin{itemize}
+                \item Z-score normalization
+                \item Min-max scaling
+                \item Power normalization
+            \end{itemize}
+        \end{block}
+    \end{multicols}
+\end{frame}

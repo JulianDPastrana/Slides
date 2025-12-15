@@ -1,11 +1,27 @@
 \section{What is a Foundation Model?}
 
 \begin{frame}{Foundation Models}
-    Foundation models are large-scale machine learning models trained on vast amounts of data across various domains and modalities, called pre-training step. They can be fine-tuned for specific downstream tasks with relatively small-labeled datasets, called fine-tuning step.
+    Foundation models are large-scale machine learning models trained on vast amounts of data across various domains and modalities. They can be fine-tuned for specific downstream tasks with relatively small-labeled datasets.
 
     \begin{center}
         \input{figures/foundation_model_diagram.tex}
     \end{center}
 
     That is, learn general representations during pre-training that can be transferred to various specific tasks during fine-tuning.
+\end{frame}
+
+\begin{frame}{Breaking Down Foundation Models: Pre-training}
+    The model is trained on a large and diverse dataset using self-supervised learning techniques. This allows the model to learn general features and patterns from the data.
+
+    \begin{center}
+        \input{figures/foundation_model_pretraining_graph.tex}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Breaking Down Foundation Models: Fine-tuning}
+    The pre-trained model is then adapted to specific tasks using smaller labeled datasets. This process leverages the knowledge acquired during pre-training to improve performance on the target task.
+
+    \begin{center}
+        \input{figures/foundation_model_finetuning_graph.tex}
+    \end{center}
 \end{frame}

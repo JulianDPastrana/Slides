@@ -1,0 +1,11 @@
+{
+  "ltex.java.path": "C:\\Program Files\\Microsoft\\jdk-17\\bin\\java.exe",
+  "ltex.language": "en-US",
+  "ltex.configuration.javaDownload.preferredJdkVendor": "Microsoft",
+  "ltex.configuration.javaDownload.enabled": true,
+  "ltex.configurations": {
+    "en-US": {
+      "enabled": true
+    }
+  }
+}

@@ -1,74 +1,45 @@
-\frametitle{Foundation Models}
-\centering
-	\begin{tikzpicture}[
-		node distance=2.5cm and 2cm,
-		basenode/.style={
-			rectangle,
-			draw=AM@BlueDark,
-			line width=1pt,
-			rounded corners=3pt,
-			minimum width=3cm,
-			minimum height=2.5cm,
-			align=center,
-			font=\small
-		},
-		datanode/.style={
-			basenode,
-			fill=AM@Light,
-			text=AM@BlueDark
-		},
-		modelnode/.style={
-			basenode,
-			fill=AM@BlueSoft,
-			text=AM@BlueDark,
-			line width=1.5pt,
-			minimum width=3.5cm,
-			minimum height=3cm
-		},
-		arrowstyle/.style={
-			-Stealth,
-			line width=1.2pt,
-			color=AM@BlueMid
-		},
-		labelstyle/.style={
-			font=\footnotesize,
-			text=AM@GrayDark
-		}
-	]
-		
-		% Left node (Input Data)
-		\node[datanode] (training) {
-			\textbf{Input Data}\\[8pt]
-			{\footnotesize
-			$\bullet$ Text\\
-			$\bullet$ Images\\
-			$\bullet$ Sensors\\
-			$\bullet$ Speech\\
-			$\bullet$ Multimodal}
-		};
-		
-		% Center node (Foundation Model)
-		\node[modelnode, right=of training] (foundation) {
-			\textbf{\large Foundation}\\[3pt]
-			\textbf{\large Model}\\[8pt]
-			{\footnotesize Large-scale\\
-			Pre-trained\\
-			Transferable}
-		};
-		
-		% Right node (Downstream Tasks)
-		\node[datanode, right=of foundation] (tasks) {
-			\textbf{Tasks}\\[8pt]
-			{\footnotesize
-			$\bullet$ Classification\\
-			$\bullet$ Generation\\
-			$\bullet$ Analysis\\
-			$\bullet$ Translation\\
-			$\bullet$ Prediction}
-		};
-		
-		% Arrows with labels
-		\draw[arrowstyle] (training.east) -- node[above, labelstyle]{Pre-Training} (foundation.west);
-		\draw[arrowstyle] (foundation.east) -- node[above, labelstyle]{Fine-Tuning} (tasks.west);
-		
-	\end{tikzpicture}
+\frametitle{Data Quality and Best Practices}
+\small
+
+    \begin{columns}[T]
+        \column{0.5\textwidth}
+        \textbf{Quality Assurance Checklist:}
+        \begin{itemize}
+            \item[\checkmark] Electrode impedance $<5$ k$\Omega$
+            \item[\checkmark] Sampling rate consistency across subjects
+            \item[\checkmark] Complete channel coverage (no dead channels)
+            \item[\checkmark] Artifact-free baseline segments
+            \item[\checkmark] Temporal continuity (no dropouts)
+            \item[\checkmark] Metadata logged (subject ID, session, conditions)
+        \end{itemize}
+
+        \vspace{0.3cm}
+        \textbf{Documentation:}
+        \begin{enumerate}
+            \item Dataset characteristics (N subjects, sessions)
+            \item Acquisition protocol and hardware specs
+            \item Preprocessing pipeline (versions, parameters)
+            \item Artifact removal summary statistics
+            \item Training/validation/test splits
+        \end{enumerate}
+
+        \column{0.5\textwidth}
+        \small
+        \textbf{Reproducibility and Validation:}
+        \begin{itemize}
+            \item Script-based preprocessing (no manual clicks!)
+            \item Version control for all parameters
+            \item Inter-rater agreement metrics (if manual review)
+            \item Cross-validation on independent test sets
+            \item Report preprocessing failures/exclusions
+        \end{itemize}
+
+        \vspace{0.3cm}
+        \textbf{Foundation Model Perspective:}
+        \begin{itemize}
+            \item Pre-training on \textbf{large, diverse EEG} datasets
+            \item Robust to preprocessing variations
+            \item Learns generalizable features from unlabeled EEG
+            \item Fine-tuning on task-specific labeled data
+        \end{itemize}
+    \end{columns}

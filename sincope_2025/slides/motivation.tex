@@ -1,0 +1,91 @@
+\section{Motivation}
+
+\begin{frame}{Evolution of AI in Clinical EEG Analysis}
+    \begin{center}
+
+        \begin{tikzpicture}[scale=0.9, transform shape]
+            % Timeline line
+            \draw[ultra thick, MyDarkBlue] (0,0) -- (13,0);
+
+            % Era markers
+            \foreach \x/\year in {0.5/1990s, 4/2010s, 8/2017+, 12/2023+} {
+                    \fill[MyAccent] (\x,0) circle (4pt);
+                    \node[below, font=\small\bfseries] at (\x,-0.3) {\year};
+                }
+
+            % Era 1: Classical ML
+            \node[above, align=center, font=\small, text width=2.5cm] at (0.5,0.5) {
+                \textbf{Classical ML}\\[2pt]
+                \footnotesize SVM, RF\\
+                \footnotesize Hand-crafted
+            };
+            \node[below, align=center, font=\footnotesize, text=gray] at (0.5,-1.2) {
+                Single-center\\studies
+            };
+
+            % Era 2: Deep Learning
+            \node[above, align=center, font=\small, text width=2.5cm] at (4,0.5) {
+                \textbf{Deep Learning}\\[2pt]
+                \footnotesize CNN, RNN\\
+                \footnotesize End-to-end
+            };
+            \node[below, align=center, font=\footnotesize, text=gray] at (4,-1.2) {
+                Seizure detection
+            };
+
+            % Era 3: Transfer Learning
+            \node[above, align=center, font=\small, text width=2.5cm] at (8,0.5) {
+                \textbf{Transfer Learning}\\[2pt]
+                \footnotesize Pretrained\\
+                \footnotesize Adaptation
+            };
+            \node[below, align=center, font=\footnotesize, text=gray] at (8,-1.2) {
+                Cross-dataset\\transfer
+            };
+
+            % Era 4: Foundation Models (highlighted)
+            \node[above, align=center, font=\small, fill=MyAccent!15, rounded corners, inner sep=4pt, text width=2.5cm] at (12,0.5) {
+                \textbf{\color{MyAccent}Foundation}\\
+                \textbf{\color{MyAccent}Models}\\[2pt]
+                \footnotesize Self-supervised\\
+                \footnotesize Zero-shot
+            };
+            \node[below, align=center, font=\footnotesize, text=gray] at (12,-1.2) {
+                Universal\\representations
+            };
+
+            % Arrow indicating progress
+            \draw[->, ultra thick, MyAccent] (13,0) -- (13.8,0);
+        \end{tikzpicture}
+    \end{center}
+    \vspace{1em}
+    \small
+    From task-specific models to \textbf{\color{MyAccent}general-purpose} representations that transfer across datasets and clinical applications.
+\end{frame}
+
+\begin{frame}{Problem Statements}
+    \begin{table}[htbp]
+        \centering
+        \small
+        \setlength{\tabcolsep}{4pt}
+        \begin{tabular}{l *{5}{c}}
+            \toprule
+            \textbf{Approach}                               &
+            \rotatebox{55}{\parbox{1.6cm}{\centering Complex                                             \\Patterns}} &
+            \rotatebox{55}{\parbox{1.6cm}{\centering Low Label                                           \\Requirement}} &
+            \rotatebox{55}{\parbox{1.6cm}{\centering Cross-Dataset                                       \\Transfer}} &
+            \rotatebox{55}{\parbox{1.6cm}{\centering Zero-Shot                                           \\Capability}} &
+            \rotatebox{55}{\parbox{1.6cm}{\centering Multimodal                                          \\Integration}} \\
+            \midrule
+            Classical ML (SVM, RF)                          & \xmark & \xmark & \xmark & \xmark & \xmark \\
+            CNN / RNN                                       & \cmark & \xmark & \xmark & \xmark & \xmark \\
+            Transfer Learning                               & \cmark & \cmark & \cmark & \xmark & \xmark \\
+            Self-Supervised                                 & \cmark & \cmark & \cmark & \xmark & \xmark \\
+            \rowcolor{MyAccent!15}\textbf{Foundation Model} & \cmark & \cmark & \cmark & \cmark & \cmark \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    Foundation models leverage large-scale self-supervised pretraining, enabling strong generalization, zero-shot inference, and multimodal integration capabilities.
+
+\end{frame}

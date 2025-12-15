@@ -1,8 +1,20 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{tikz, pgfplots}
-\usetikzlibrary{positioning, arrows.meta}
+\usepackage{multicol}
+\usepgfplotslibrary{colormaps}
+% Shapes/geometric is needed for trapezium nodes in the Architecture diagram
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
+
+% Color aliases used in figures (map to theme palette defined in beamertheme)
+\colorlet{MyDarkBlue}{AM@BlueDark}
+\colorlet{MyAccent}{AM@BlueMid}
 \usepackage{booktabs,siunitx,colortbl,xcolor}
+\usepackage{diagbox}  % diagonal header cells
+\usepackage{pifont}   % \ding symbols (checkmarks, crosses)
+\newcommand{\cmark}{\textcolor{MyAccent}{\ding{51}}}  % themed checkmark
+\newcommand{\xmark}{\textcolor{red!70!black}{\ding{55}}}  % themed cross
+\newcommand{\pmark}{\textcolor{orange}{$\sim$}}  % partial/limited
 
 \pgfplotsset{compat=1.18}
 \graphicspath{ {figures/} }
