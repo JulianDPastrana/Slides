@@ -139,6 +139,35 @@
 % Hyperlinks (beamer loads hyperref; just set colors)
 \AtBeginDocument{\hypersetup{linkcolor=AM@BlueDark,urlcolor=AM@BlueDark,citecolor=AM@BlueDark}}
 
+% ------------------------- Table of Contents -------------------------
+% Section entries
+\setbeamertemplate{section in toc}{%
+	\leavevmode
+	\hspace{0.5em}%
+	\tikz[baseline=-0.5ex]{\fill[AM@BlueDark] (0,0) circle (3pt);}%
+	\hspace{0.8em}%
+	{\usebeamerfont{section in toc}\usebeamercolor[fg]{section in toc}\inserttocsection}%
+	\par\vspace{0.6ex}
+}
+\setbeamercolor{section in toc}{fg=AM@BlueDark}
+\setbeamerfont{section in toc}{size=\normalsize,series=\bfseries}
+
+% Subsection entries (if shown)
+\setbeamertemplate{subsection in toc}{%
+	\leavevmode
+	\hspace{2.5em}%
+	\tikz[baseline=-0.3ex]{\fill[AM@Gray] (0,0) circle (1.8pt);}%
+	\hspace{0.6em}%
+	{\usebeamerfont{subsection in toc}\usebeamercolor[fg]{subsection in toc}\inserttocsubsection}%
+	\par\vspace{0.3ex}
+}
+\setbeamercolor{subsection in toc}{fg=AM@GrayDark}
+\setbeamerfont{subsection in toc}{size=\small}
+
+% Shaded entries for partial TOC highlighting
+\setbeamercolor{section in toc shaded}{fg=AM@GraySoft}
+\setbeamertemplate{section in toc shaded}[default][40]
+
 % ------------------------------- Header ------------------------------
 \logo{\includegraphics[height=8.0ex,keepaspectratio]{logo}}
 \defbeamertemplate*{headline}{AcadMinimal}{%
@@ -227,7 +256,7 @@
 }
 \setbeamertemplate{section page}[AcadMinimal]
 % Comment out the next line if you don't want divider frames:
-\AtBeginSection[]{\begin{frame}[plain]\usebeamertemplate*{section page}\end{frame}}
+% \AtBeginSection[]{\begin{frame}[plain]\usebeamertemplate*{section page}\end{frame}}
 
 % ------------------------------ Bibliography -------------------------
 \setbeamertemplate{bibliography item}[text]

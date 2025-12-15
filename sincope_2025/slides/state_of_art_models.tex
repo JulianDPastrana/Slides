@@ -17,6 +17,7 @@
         \input{figures/model_sizes_graph.tex}
     \end{figure}
 
+    For comparison, GPT-3 has 175,000 million parameters, and GPT-4 is estimated to have 1.5 trillion parameters.
 \end{frame}
 
 
@@ -53,22 +54,22 @@
         \begingroup\tiny
         \begin{tabular}{l l l c}
             \toprule
-            \textbf{Model} & \textbf{Task}         & \textbf{Dataset} & \textbf{Accuracy (\%)}         \\
+            \textbf{Model} & \textbf{Task}         & \textbf{Dataset} & \textbf{Accuracy (\%)}                   \\
             \midrule
-            \multicolumn{4}{l}{\textit{Clinical Applications \cite{eegbench2024}}}                     \\
+            \multicolumn{4}{l}{\textit{Clinical Applications \cite{kastrati2025eegbenchbenchmarkeegfoundation}}} \\
             \midrule
-            LaBraM         & Abnormal detection    & TUAB             & 83.8                           \\
-            BENDR          & Epilepsy detection    & Epilepsy         & 74.0                           \\
-            NeuroGPT       & Epilepsy detection    & Epilepsy         & 73.4                           \\
-            LaBraM         & OCD classification    & OCD              & 74.0                           \\
-            LaBraM         & Stress classification & Real-world       & 90.5                           \\
+            LaBraM         & Abnormal detection    & TUAB             & 83.8                                     \\
+            BENDR          & Epilepsy detection    & Epilepsy         & 74.0                                     \\
+            NeuroGPT       & Epilepsy detection    & Epilepsy         & 73.4                                     \\
+            LaBraM         & OCD classification    & OCD              & 74.0                                     \\
+            LaBraM         & Stress classification & Real-world       & 90.5                                     \\
             \midrule
-            \multicolumn{4}{l}{\textit{BCI Applications - Cross-subject Transfer \cite{adabrain2025}}} \\
+            \multicolumn{4}{l}{\textit{BCI Applications - Cross-subject Transfer \cite{adabrain2025}}}           \\
             \midrule
-            CBraMod        & Mental workload       & EEGMAT           & 88.9                           \\
-            LaBraM         & Mental workload       & EEGMAT           & 85.8                           \\
-            CBraMod        & Sleep staging         & SHHS             & 73.5                           \\
-            BIOT           & Sleep staging         & SHHS             & 72.2                           \\
+            CBraMod        & Mental workload       & EEGMAT           & 88.9                                     \\
+            LaBraM         & Mental workload       & EEGMAT           & 85.8                                     \\
+            CBraMod        & Sleep staging         & SHHS             & 73.5                                     \\
+            BIOT           & Sleep staging         & SHHS             & 72.2                                     \\
             \midrule
             \bottomrule
         \end{tabular}%

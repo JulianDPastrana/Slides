@@ -1,12 +1,8 @@
-% Requires:
-% \usepackage{pgfplots}
-% \pgfplotsset{compat=1.18}
-
 \begin{tikzpicture}
     \begin{axis}[
             ybar,
             width=\linewidth,
-            height=0.45\linewidth,
+            height=0.3\linewidth,
             ylabel={Number of Parameters (Millions)},
             symbolic x coords={
                     Brant,
@@ -69,4 +65,18 @@
             };
 
     \end{axis}
+
+    % Timeline arrow with years
+    \begin{scope}[yshift=-1.5cm]
+        % Main arrow
+        \definecolor{timelinecolor}{RGB}{100,100,100}
+        \draw[-{Stealth[length=3mm]}, thick, color=timelinecolor]
+        (0,0) -- (12,0) node[right, font=\small\bfseries]{Release};
+
+        % Year ticks and labels
+        \foreach \x/\year in {0/2023, 5/2024, 10/2025} {
+                \draw[thick, color=timelinecolor] (\x,0) -- (\x,-0.25);
+                \node[below, font=\small, color=timelinecolor] at (\x,-0.25) {\year};
+            }
+    \end{scope}
 \end{tikzpicture}
