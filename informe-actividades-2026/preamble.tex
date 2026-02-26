@@ -1,0 +1,80 @@
+%%%%%%%% PREÁMBULO %%%%%%%%%%%%
+\usepackage{pdfpages}
+\usepackage{lmodern} % Provides scalable fonts to avoid font shape issues
+\title{FORMATO INFORME AUTOMÁTICA}
+\usepackage[spanish,es-tabla]{babel} % Indica que escribiremos en español
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc} % Indica la codificación: ISO-8859-1(latin1) o utf8  
+\usepackage{amsmath} % Comandos extras para matemáticas
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{physics}
+% \usepackage{geometry}
+% \geometry{a4paper, margin=1in}
+\usepackage{amssymb} % Símbolos matemáticos
+\usepackage{graphicx} % Incluir imágenes
+\usepackage{color} % Para colorear texto
+\usepackage{subfigure} % Para subfiguras
+\usepackage{float} % Permite usar el especificador [H]
+\usepackage{capt-of} % Etiquetas fuera de elementos flotantes
+\usepackage{sidecap} % Para poner el texto de las imágenes al lado
+\sidecaptionvpos{figure}{c} % Alineación vertical del texto
+\usepackage{caption} % Para controlar la numeración de figuras
+\usepackage{commath} % Funcionalidades extras para diferenciales, integrales, etc.
+\usepackage{graphicx, amsmath, amsthm, latexsym, amssymb, amsfonts, epsfig, float, enumerate, color, listings, graphicx, fancyhdr, array, bm}
+\usepackage{tikz,circuitikz,pgfplots}
+\usetikzlibrary{positioning,chains}
+\usepackage{colortbl}
+
+\pgfplotsset{compat=1.8}
+\usepackage{cancel} % Para cancelar expresiones (\cancelto{0}{x})
+% \usepackage{xcolor} % Agregar color a los cuadros
+\usepackage{anysize} % Para personalizar los márgenes
+\marginsize{2cm}{2cm}{2cm}{2cm} % Márgenes: izquierda, derecha, arriba, abajo
+\usepackage{appendix}
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+\usepackage[colorlinks=true,plainpages=true,citecolor=blue,linkcolor=blue]{hyperref}
+%\usepackage{hyperref} 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\footskip}{35.11942pt}
+\fancyhf{}
+\fancyhead[L]{\footnotesize AUTOMÁTICA} % Encabezado izquierda
+\fancyhead[R]{\footnotesize UTP}   % Encabezado derecha
+\fancyfoot[C]{\thepage }  % Pie de página central
+\fancyfoot[L]{%
+	\includegraphics[width=0.1\textwidth]{imagenes/LogoU.png}%
+	\includegraphics[width=0.2\textwidth]{imagenes/logo_automatica.png}%
+} % Pie de página izquierda
+\renewcommand{\footrulewidth}{0.4pt}
+\usepackage{booktabs}
+\usepackage{listings} % Para incluir código fuente
+\definecolor{dkgreen}{rgb}{0,0.6,0} % Definir colores
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\usepackage{multirow}
+\lstset{language=Python,
+	keywords={import,from,as,def,class,return,if,elif,else,for,while,break,continue,try,except,finally,with,lambda,pass,yield,global,nonlocal,assert,async,await},
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	stringstyle=\color{dkgreen},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=10pt,
+	backgroundcolor=\color{white},
+	tabsize=4,
+	showspaces=false,
+	showstringspaces=false}
+\newcommand{\sen}{\operatorname{\sen}} % Definir comando para el seno
+
+
+\usepackage[capitalise, noabbrev]{cleveref}
+\crefname{table}{\spanishtablename}{\spanishtablename}
+
+% Define custom colors
+\definecolor{MyDarkBlue}{RGB}{44,62,80}    % Titles and accents
+\definecolor{MyAccent}{RGB}{52,152,219}      % Accent for elements
+\definecolor{MyLightGray}{RGB}{245,245,245}  %
