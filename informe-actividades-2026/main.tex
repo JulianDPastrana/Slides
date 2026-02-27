@@ -33,15 +33,28 @@ Desarrollar una metodología de gamificación para entrenamiento de niños con t
 
 \section{Resultados}
 
-\includepdf[
-	pages=3-last,
-	fitpaper=true,
-	pagecommand={},
-	noautoscale=false,
-	frame=false,
-	trim=0 0 0 0,
-	clip=true
-]{../../RequiemMentis/codex/main.pdf}
+\subsection{Actividad 1}
+
+Se desarrolló la conceptualización y el diseño de la metodología de trabajo para el procesamiento de señales EEG, con el objetivo de clasificar el trastorno por déficit de atención e hiperactividad (TDAH) en población infantil. Para ello, se realizó una revisión relacionada con el procesamiento de señales EEG, las arquitecturas de aprendizaje profundo y los métodos de validación cruzada aplicados a datos neurofisiológicos.
+
+A partir de este análisis, se seleccionó como modelo principal una arquitectura Transformer linealizada basada en embeddings de Takens (LinearTakensFormer). Esta elección se fundamenta en su capacidad para capturar dependencias temporales complejas en señales no estacionarias, como las EEG, mientas mantieniendo la escalabilidad para grandes volúmenes de datos.
+
+Se utilizó la base de datos pública EEG ADHD/Control Children, conformada por registros de electroencefalografía de 19 canales dispuestos según el sistema internacional 10-20, adquiridos a una frecuencia de muestreo de 128 Hz. El conjunto incluye sujetos en condición de reposo clasificados en dos grupos: niños diagnosticados con TDAH y niños de desarrollo típico empleados como grupo control. Los archivos de señal se encuentran en formato .mat y la etiqueta clínica de cada sujeto se determina a partir de la carpeta de origen dentro de la estructura del repositorio de datos.
+
+En cuanto al procesamiento de las señales, se definió una cadena de preprocesamiento compuesta por varias etapas. En primer lugar, se aplicó un filtrado pasabanda entre 0.5 y 60 Hz, junto con la eliminación de la interferencia de la red eléctrica en el rango de 48 a 52 Hz. Posteriormente, las señales fueron segmentadas mediante ventanas deslizantes con un 50\% de solapamiento, para preservar la continuidad temporal y aumentar el número de muestras disponibles para el entrenamiento.
+
+El marco metodológico adoptado integra un esquema de validación cruzada Leave-K-Subjects-Out (LKSO), combinado con optimización bayesiana de hiperparámetros mediante Optuna, garantizando una evaluación generalizable del modelo mientras se maximiza la metrica de acierto (accuracy).
+
+
+% \includepdf[
+% 	pages=3-last,
+% 	fitpaper=true,
+% 	pagecommand={},
+% 	noautoscale=false,
+% 	frame=false,
+% 	trim=0 0 0 0,
+% 	clip=true
+% ]{../../RequiemMentis/codex/main.pdf}
 
 
 \end{document}
