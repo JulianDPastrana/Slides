@@ -2,14 +2,14 @@
 
 \textbf{Objetivo General}
 
-Desarrollar una metodología de aprendizaje relacionada con registros EEG basado en un modelo fundacional, que cuantifique la incertidumbre en la inferencia e integre bases de datos etiquetadas y no etiquetadas mediante técnicas de autoaprendizaje y ajuste fino.
+Desarrollar un marco de aprendizaje estocástico y generalizable basado en modelos fundacionales para el análisis de señales electroencefalográficas (EEG), que permita aprovechar datos no etiquetados, manejar la variabilidad entre bases de datos y proporcionar estimaciones de la incertidumbre para apoyar el diagnóstico de trastornos mentales.
 
 \textbf{Objetivos específicos}
 
 \begin{enumerate}
-	\item Desarrollar un modelo fundacional para la clasificación de señales biológicas relacionadas con registros EEG, que aproveche datos no etiquetados en la etapa de autoaprendizaje y datos etiquetados para su ajuste fino.
+	\item Diseñar un enfoque de aprendizaje auto-supervisado para señales EEG que permita extraer representaciones latentes transferibles a partir de datos no etiquetados, reduciendo la dependencia de conjuntos de datos anotados.
 	
-	\item Implementar una herramienta de predicción estocástica basada en procesos Gaussianos, que permita modelar la incertidumbre en la predicción del modelo fundacional.
+	\item Desarrollar una estrategia de generalización de dominio que permita mejorar la robustez del modelo frente a la variabilidad entre bases de datos EEG con diferentes protocolos de adquisición, incluyendo diferencias en tasas de muestreo y número de canales.
 	
-	\item Diseñar una estrategia para manejar la variabilidad e inconsistencia en conjuntos de datos de registros EEG, permitiendo la integración efectiva de bases de datos con diversos estándares para su aprovechamiento en el modelo.
+	\item Integrar un mecanismo de inferencia estocástica en el espacio de representaciones aprendidas que permita estimar la incertidumbre de las predicciones y evaluar su desempeño, con el fin de mejorar la confiabilidad del modelo en escenarios clínicos.
 \end{enumerate}

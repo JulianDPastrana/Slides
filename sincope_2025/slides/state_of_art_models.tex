@@ -49,51 +49,90 @@
 \begin{frame}{Downstream Task Performance Summary}
     \centering
     \setlength{\tabcolsep}{3pt}
-    \renewcommand{\arraystretch}{1.0}
+    \renewcommand{\arraystretch}{1.2}
     \scalebox{1.7}{%
         \begingroup\tiny
         \begin{tabular}{l l l c}
             \toprule
-            \textbf{Model} & \textbf{Task}         & \textbf{Dataset} & \textbf{Accuracy (\%)}                   \\
+            \textbf{Model} & \textbf{Task}         & \textbf{Dataset} & \textbf{Accuracy (\%)} \\
             \midrule
-            \multicolumn{4}{l}{\textit{Clinical Applications \cite{kastrati2025eegbenchbenchmarkeegfoundation}}} \\
-            \midrule
-            LaBraM         & Abnormal detection    & TUAB             & 83.8                                     \\
-            BENDR          & Epilepsy detection    & Epilepsy         & 74.0                                     \\
-            NeuroGPT       & Epilepsy detection    & Epilepsy         & 73.4                                     \\
-            LaBraM         & OCD classification    & OCD              & 74.0                                     \\
-            LaBraM         & Stress classification & Real-world       & 90.5                                     \\
-            \midrule
-            \multicolumn{4}{l}{\textit{BCI Applications - Cross-subject Transfer \cite{adabrain2025}}}           \\
-            \midrule
-            CBraMod        & Mental workload       & EEGMAT           & 88.9                                     \\
-            LaBraM         & Mental workload       & EEGMAT           & 85.8                                     \\
-            CBraMod        & Sleep staging         & SHHS             & 73.5                                     \\
-            BIOT           & Sleep staging         & SHHS             & 72.2                                     \\
+            LaBraM         & Abnormal detection    & TUAB             & 83.8                   \\
+            BENDR          & Epilepsy detection    & Epilepsy         & 74.0                   \\
+            NeuroGPT       & Epilepsy detection    & Epilepsy         & 73.4                   \\
+            LaBraM         & OCD classification    & OCD              & 74.0                   \\
+            LaBraM         & Stress classification & Real-world       & 90.5                   \\
+            CBraMod        & Mental workload       & EEGMAT           & 88.9                   \\
+            LaBraM         & Mental workload       & EEGMAT           & 85.8                   \\
+            CBraMod        & Sleep staging         & SHHS             & 73.5                   \\
+            BIOT           & Sleep staging         & SHHS             & 72.2                   \\
             \midrule
             \bottomrule
         \end{tabular}%
         \endgroup
     }
+    \cite{kastrati2025eegbenchbenchmarkeegfoundation,adabrain2025,lai2025simplerevieweegfoundation}
+\end{frame}
+
+
+\section{Challenges}
+\begin{frame}{Preprocessing \& Normalization Challenges}
+    \begin{itemize}
+        \item Most EEG foundation models rely on minimal or inconsistent preprocessing
+        \item Impact of noise, artifacts, and outliers is poorly understood
+        \item Strong variability across datasets, devices, and acquisition protocols
+
+    \end{itemize}
+
+    \begin{figure}[h]
+        \centering
+        \begin{multicols}{2}
+            \centering
+            \includegraphics[width=0.55\linewidth]{figures/eeg_3_maps.png}\\
+            \columnbreak
+            \centering
+            \input{figures/input_sample.tex}\\
+        \end{multicols}
+    \end{figure}
 
 \end{frame}
 
-\begin{frame}{Current Challenges in EEG Foundation Models}
+\begin{frame}{Evaluation \& Benchmarking Limitations}
+    \begin{itemize}
+        \item No standardized benchmarks for EEG foundation models
+        \item Evaluation often limited to in-distribution settings
+        \item Few studies report few-shot or zero-shot transfer
+        \item Cross-dataset generalization remains underexplored
+    \end{itemize}
 
-    \begin{block}{Preprocessing \& Normalization}
-        Minimal preprocessing; unclear impact of noise, outliers, and data variability.
-    \end{block}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.2\linewidth]{figures/test.png}
+    \end{figure}
+\end{frame}
 
-    \begin{block}{Evaluation \& Benchmarking}
-        No common benchmarks; limited out-of-distribution and few-shot/zero-shot testing.
-    \end{block}
+\begin{frame}{Long-Term Context Modeling}
+    \begin{itemize}
+        \item EEG exhibits multiple temporal scales
+        \item Millisecond-level events (e.g., ERPs) vs hour-long dynamics (e.g., sleep)
+        \item Current architectures struggle to unify short- and long-range context
+    \end{itemize}
 
-    \begin{block}{Long-Term Context Modeling}
-        Difficulty handling diverse timescales (ms ERPs to hours-long sleep stages).
-    \end{block}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.55\linewidth]{figures/eeg_bads.png}
+    \end{figure}
+\end{frame}
 
-    \begin{block}{Trustworthiness \& Interpretability}
-        No focus on interpretability; essential for clinical trust in high-stakes diagnoses.
-    \end{block}
+\begin{frame}{Interpretability}
+    \begin{itemize}
+        \item Limited focus on model interpretability
+        \item Black-box behavior hinders clinical adoption
+        \item Difficult to relate learned representations to neurophysiology
+        \item Trust is critical for high-stakes diagnostic applications
+    \end{itemize}
 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\linewidth]{figures/topomap.pdf}
+    \end{figure}
 \end{frame}
